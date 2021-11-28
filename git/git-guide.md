@@ -71,11 +71,11 @@ $ git push origin develop > commit된 파일을 원격 저장소(origin)의 deve
 $ git branch > branch 확인
 ```
 
-* git fetch/pull (원격 저장소에서 파일을 다운로드)
+* git fetch/pull (원격 저장소에서 파일 가져오기)
 ```
 $ git fetch origin develop > 원격 저장소의 develop branch를 로컬 저장소로 가져오기 (부분만 선택적으로 가져올 수 있음)
 
-$ git pull origin develop > 원격 저장소의 develop branch를 로컬 저장소의 working directory로 당겨오기 (부분만 가져오기 안됨)
+$ git pull origin develop > 원격 저장소의 develop branch를 로컬 저장소의 working directory로 가져옴과 동시에  (부분만 가져오기 안됨)
 ```
 
 ## 상태 비교하기 (git diff)
