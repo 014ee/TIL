@@ -75,7 +75,7 @@ $ git branch > branch 확인
 ```
 $ git fetch origin develop > 원격 저장소의 develop branch를 로컬 저장소로 가져오기 (부분만 선택적으로 가져올 수 있음)
 
-$ git pull origin develop > 원격 저장소의 develop branch를 로컬 저장소의 working directory로 가져옴과 동시에  (부분만 가져오기 안됨)
+$ git pull origin develop > 원격 저장소의 develop branch를 로컬 저장소의 working directory로 가져옴과 동시에 병합 (부분만 가져오기 안됨)
 ```
 
 ## 상태 비교하기 (git diff)
