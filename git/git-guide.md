@@ -47,12 +47,6 @@ $ git status > git 저장소의 상태확인
 * git add (working directory에서 수정된 사항을 stage에 올려 tracking 해줌)
 ```
 $ git add [파일명] > git이 [파일명]의 변경사항을 추적하도록 명령
-
-$ git stash > 수정된 작업 중 commit 되지 않은 파일들만 잠시 working directory에서 스택으로 옮겨둠
-$ git stash list > 지금까지 저장된 stash 목록 확인
-$ git stash apply [stash 이름] > 스택으로 옮겨둔 파일 중 다시 작업할 stash 파일 선택
-$ git stash apply --index > 선택한 stash 파일을 staged 상태로 복원 (이 단계를 거쳐야 다시 작업 가능)
-$ git stash drop [stash 이름] > apply를 해도 해당 stash는 여전히 스택에 남아있음으로 제거해줘야함
 ```
 
 * git commit (수정된 사항들이 모여 의미있는 변화가 있을 때 commit으로 snapshot을 찍어 로컬 저장소에 저장)
