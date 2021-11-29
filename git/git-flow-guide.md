@@ -86,7 +86,6 @@ $ git merge FETCH_HEAD
 // 로컬 저장소에 원격 저장소에서 변경된 부분을 가져와야 할 경우
 $ git fetch origin develop
 $ git merge FETCH_HEAD
-$ git merge
 ```
 
 ## [협업] 하나의 파일을 두명이서 수정 후 그중 하나의 파일을 원격 저장소에 올렸을 경우
