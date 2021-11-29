@@ -88,3 +88,14 @@ $ git fetch origin develop
 $ git merge FETCH_HEAD
 $ git merge
 ```
+
+## [협업] 하나의 파일을 두명이서 수정 후 그중 하나의 파일을 원격 저장소에 올렸을 경우
+```
+// $ git stash를 통해 내가 수정하던 파일을 옆으로 잠깐 치우고 변경된 파일을 다운받을 수 있다.
+
+$ git stash > 수정된 작업 중 commit 되지 않은 파일들만 잠시 working directory에서 스택으로 옮겨둠
+$ git stash list > 지금까지 저장된 stash 목록 확인
+$ git stash apply [stash 이름] > 스택으로 옮겨둔 파일 중 다시 작업할 stash 파일 선택
+$ git stash apply --index > 선택한 stash 파일을 staged 상태로 복원 (이 단계를 거쳐야 다시 작업 가능)
+$ git stash drop [stash 이름] > apply를 해도 해당 stash는 여전히 스택에 남아있음으로 제거해줘야함
+```
