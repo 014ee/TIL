@@ -1,7 +1,8 @@
 ## git 설치 후 초기설정(~/.gitconfig에 저장됨)
 ```
-$ git config --global user.name [github 아이디] > 사용자 아이디 등록
-$ git config --glabal user.email [github 이메일] > 사용자 이메일 등록
+$ git config --global core.autocrlf true > 운영체제마다 다른 개행문자 자동으로 통일 // 다른 개행문자로 인해 변경사항이 없는데 있다고 착각하여 문제가 발생할 수 있다.
+$ git config --global user.name 'github 아이디' > 사용자 아이디 등록
+$ git config --glabal user.email 'github 이메일' > 사용자 이메일 등록
 $ git config --global core.editor vim > vim 에디터 사용 등록
 $ git config --list > 설정확인
 ```
@@ -13,28 +14,8 @@ $ git config —unset —global user.name > 잘못 등록한 user.name 삭제
 ```
 $ git 명령어--help > 명령어 도움말
 ```
-
-* 저장소 관리
 ```
-$ git clone [원격 저장소 URL] > 로컬에 원격 저장소 복제
-$ git init > git 버전관리 시작 선언(.git 폴더 생성)
-
-$ cd > 기본 경로로 이동
-$ cd 폴더명 > 폴더명으로 이동
-$ cd .. > 현재 폴더의 상위 폴더로 이동
-$ pwd > 현재 디렉토리 확인
-$ ls > 현재 디렉토리의 폴더, 파일 리스트
-
-$ mkdir [폴더명] > 디렉토리 생성
-$ touch [파일명] > 빈 파일 생성
-$ git rm -rf [폴더명or파일명] > 폴더명or파일명 삭제
-
-$ cat [파일명] > 파일내용 확인
-```
-
-* 상태확인 (git status)
-```
-$ git status > git 저장소의 상태확인
+$ git status > git 상태 확인
 
 // on branch main > 현재 main branch라는 뜻
 // no commits yet > 아직 commit한 파일이 없음
@@ -44,32 +25,66 @@ $ git status > git 저장소의 상태확인
 // changes not staged for commit > 변경된 파일이 아직 스테이지에 올라가지 않음
 ```
 
-* git add (working directory에서 수정된 사항을 stage에 올려 tracking 해줌)
+## 저장소, 경로, 파일
 ```
-$ git add [파일명] > git이 [파일명]의 변경사항을 추적하도록 명령
+$ git clone [원격 저장소 URL] > 로컬에 원격 저장소 복제
+$ git init > git 버전관리 시작 선언(.git 폴더 생성)
+```
+```
+$ cd > 기본 경로로 이동
+$ cd 폴더명 > 폴더명으로 이동
+$ cd .. > 현재 폴더의 상위 폴더로 이동
+$ pwd > 현재 디렉토리 확인
+$ ls > 현재 디렉토리의 폴더, 파일 리스트
+```
+```
+$ mkdir [폴더명] > 디렉토리 생성
+$ touch [파일명] > 빈 파일 생성
+$ git rm -rf [폴더명or파일명] > 폴더명or파일명 삭제
+```
+```
+$ cat [파일명] > 파일내용 확인
 ```
 
-* git commit (수정된 사항들이 모여 의미있는 변화가 있을 때 commit으로 snapshot을 찍어 로컬 저장소에 저장)
+## add
+* working directory에서 수정된 사항을 stage에 올려 tracking 해줌
+```
+$ git add [파일명] > git이 [파일명]의 변경사항을 추적하도록 명령
+$ git add . > 모든 파일의 변경사항을 추적하도록 명령
+```
+
+## commit
+* 수정된 사항들이 모여 의미있는 변화가 있을 때 commit으로 snapshot을 찍어 로컬 저장소에 저장
 ```
 $ git commit > stage에 올라온 파일 commit
 $ git commit -m "메세지" > commit과 commit 메세지를 한번에 처리
 $ git commit -am "메세지" > staging과 commit 한번에 처리
+```
+```
 $ git log > commit history를 시간순으로 보여줌
 ```
 
-* git push (snapshot 찍힌 commit 파일들을 원격 저장소에 새로 추가하거나 변경 내용을 저장)
+## push
+* snapshot 찍힌 commit 파일들을 원격 저장소에 새로 추가하거나 변경 내용을 저장
 ```
 $ git remote > 원격 저장소 이름(origin) 확인
 $ git remote -v > 원격 저장소 이름과 url 확인
-$ git push origin develop > commit된 파일을 원격 저장소(origin)의 develop branch로 옮겨주는 명령어
+$ git remote add origin [원격저장소 주소] > 원격저장소 주소를 origin으로 등록
+```
+```
 $ git branch > branch 확인
+$ git push origin develop > commit된 파일을 원격 저장소(origin)의 develop branch로 옮겨주는 명령어
 ```
 
-* git fetch/pull (원격 저장소에서 파일 가져오기)
+## fetch/pull
+* 원격 저장소에서 파일 가져오기
 ```
-$ git fetch origin develop > 원격 저장소의 develop branch를 로컬 저장소로 가져오기 (부분만 선택적으로 가져올 수 있음)
-
-$ git pull origin develop > 원격 저장소의 develop branch를 로컬 저장소의 working directory로 가져옴과 동시에 병합 (부분만 가져오기 안됨)
+// 원격 저장소의 develop branch를 로컬 저장소로 가져오기 (부분만 선택적으로 가져올 수 있음)
+$ git fetch origin develop
+```
+```
+// 원격 저장소의 develop branch를 로컬 저장소의 working directory로 가져옴과 동시에 병합 (부분만 가져오기 안됨)
+$ git pull origin develop 
 ```
 
 ## 상태 비교하기 (git diff)
@@ -84,27 +99,26 @@ $ git diff [브랜치명] > [origin/브랜치명] > 로컬 브랜치와 리모�
 $ git diff <commit 해시값> <commit 해시값> > 커밋간 비교
 ```
 
-## 상황별 되돌리기
-* commit 되돌리기  
+## commit 되돌리기
+* revert (이전상태로 되돌리기)
 ```
-※ revert (이전상태로 되돌리기)
-reset 보다는 revert (잘못한 이력도 commit으로 박제하고 수정한 이력을 남기자!)
+// reset 보다는 revert (잘못한 이력도 commit으로 박제하고 수정한 이력을 남기자!)
 
 예시: 현재 HEAD에서 직전 3개의 commit을 순서대로 거슬러 올라가 해당 내역에 대해 commit, push 실행
 $ git revet --no-commit HEAD~3..
 $ git commit
 $ git push origin branch명
-
-
-※ reset (삭제) > 절대 사용하지 말 것
-다른 팀원의 commit log로 인해 파일이 살아나거나, 과거 히스토리가 사라져 commit log tracking이 힘들어질 수 있음
+```
+* reset (가급적 사용하지 말것!)
+```
+// 다른 팀원의 commit log로 인해 파일이 살아나거나, 과거 히스토리가 사라져 commit log tracking이 힘들어질 수 있음
 
 예시: 직전 3개의 commit 삭제 후 remote에 강제 push
 $ git reset --hard HEAD~3
 $ git push -f origin branch명
 ```
 
-* 되돌리기
+## 되돌리기
 ```
 $ git mv sever.py main.py > 리네이밍
 $ git reset HEAD 파일명 > 파일명 언스테이징
