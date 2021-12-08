@@ -59,7 +59,7 @@ $ git add . > 모든 파일의 변경사항을 추적하도록 명령
 
 ## commit
 * commit을 한다는 것은 작업을 하다가 되돌릴 수 있는 하나의 버전을 만드는 것과 같다.
-* 때문에 수정된 사항들이 모여 의미있는 변화가 있을 때 commit 하는 것이 좋다. (기초세팅, 기능추가, 버그수정 등)
+* 때문에 수정된 사항들이 모여 의미있는 변화가 있을 때 commit 하는 것이 좋다. (불완전한 단위의 commit은 no!!)
 ```
 $ git commit > stage에 올라온 파일 commit
 $ git commit -m "메세지" > commit과 commit 메세지를 한번에 처리
@@ -89,6 +89,7 @@ $ git push -f origin [브랜치명] > commit을 강제로 삭제 후, 현재 상
 
 ## push
 * commit 된 파일을 원격 저장소 저장
+* push 너무 자주하지 말고 commit으로 쌓아놧다가 요청 올 때 하기 (실수했을 경우 히스토리 지저분해짐)
 ```
 $ git remote > 원격 저장소 이름(origin) 확인
 $ git remote -v > 원격 저장소 이름과 url 확인
