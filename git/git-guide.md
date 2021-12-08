@@ -10,12 +10,9 @@ $ git config --list > 설정확인
 $ git config —unset —global user.name > 잘못 등록한 user.name 삭제
 ```
 
-## 기본 명령어
+## git 상태확인
 ```
-$ git 명령어--help > 명령어 도움말
-```
-```
-$ git status > git 상태 확인
+$ git status
 
 // on branch main > 현재 main branch라는 뜻
 // no commits yet > 아직 commit한 파일이 없음
@@ -26,6 +23,13 @@ $ git status > git 상태 확인
 ```
 
 ## 저장소, 경로, 파일
+```
+// VSCODE 터미널
+
+$ dir > ls과 동일한 역할 (현재 디렉토리의 폴더, 파일 리스트)
+$ code . -re > vscode 터미널에서 입력한 경로의 폴더를 현재창에서 열고 싶은 경우
+$ code . > vscode 터미널에서 입력한 경로의 폴더를 새창으로 열고 싶은 경우
+```
 ```
 $ git clone [원격 저장소 URL] > 로컬에 원격 저장소 복제
 $ git init > git 버전관리 시작 선언(.git 폴더 생성)
@@ -47,14 +51,15 @@ $ cat [파일명] > 파일내용 확인
 ```
 
 ## add
-* working directory에서 수정된 사항을 stage에 올려 tracking 해줌
+* working directory에서 수정된 사항을 stage에 올려 tracking 해줌 (이때부터 변경사항 추적 시작)
 ```
 $ git add [파일명] > git이 [파일명]의 변경사항을 추적하도록 명령
 $ git add . > 모든 파일의 변경사항을 추적하도록 명령
 ```
 
 ## commit
-* 수정된 사항들이 모여 의미있는 변화가 있을 때 commit으로 snapshot을 찍어 로컬 저장소에 저장
+* commit을 한다는 것은 작업을 하다가 되돌릴 수 있는 하나의 버전을 만드는 것과 같다.
+* 때문에 수정된 사항들이 모여 의미있는 변화가 있을 때 commit 하는 것이 좋다. (기초세팅, 기능추가, 버그수정 등)
 ```
 $ git commit > stage에 올라온 파일 commit
 $ git commit -m "메세지" > commit과 commit 메세지를 한번에 처리
@@ -64,12 +69,30 @@ $ git commit -am "메세지" > staging과 commit 한번에 처리
 $ git log > commit history를 시간순으로 보여줌
 ```
 
+## commit 되돌리기
+* git revert (이전상태로 되돌리기)
+```
+// reset 보다는 revert (잘못한 이력도 commit으로 박제하고 수정한 이력을 남기자!)
+
+$ git revet --no-commit HEAD~3.. > 바로 직전의 3개 commit을 순서대로 거슬러 올라감
+$ git commit > 거슬러 올라간 내역에 대해 commit
+$ git push origin [브랜치명] > 해당 내역을 원격 저장소에 push
+```
+* git reset (가급적 사용하지 말것!)
+```
+// 다른 팀원의 commit log로 인해 파일이 살아나거나, 과거 히스토리가 사라져 commit log tracking이 힘들어질 수 있음
+
+$ git reset --hard HEAD~3 > 바로 직전의 3개 commit을 강제로 삭제
+$ git reset--hard ORIG_HEAD > commit 삭제를 잘못한 것을 바로 알아차렸을 경우, 딱 1번만 원래대로 되돌릴 수 있다.
+$ git push -f origin [브랜치명] > commit을 강제로 삭제 후, 현재 상태를 강제로 원격 저장소에 push
+```
+
 ## push
-* snapshot 찍힌 commit 파일들을 원격 저장소에 새로 추가하거나 변경 내용을 저장
+* commit된 파일을 원격 저장소에 새로 추가하거나 변경 내용을 저장
 ```
 $ git remote > 원격 저장소 이름(origin) 확인
 $ git remote -v > 원격 저장소 이름과 url 확인
-$ git remote add origin [원격저장소 주소] > 원격저장소 주소를 origin으로 등록
+$ git remote add origin [원격저장소 주소] > 원격저장소 주소를 origin이라는 별칭으로 추가
 ```
 ```
 $ git branch > branch 확인
@@ -86,6 +109,12 @@ $ git fetch origin develop
 // 원격 저장소의 develop branch를 로컬 저장소의 working directory로 가져옴과 동시에 병합 (부분만 가져오기 안됨)
 $ git pull origin develop 
 ```
+## conflict
+* 원격 저장소 파일과 로컬에 복제 후 작업하던 파일에서 동일한 부분에 변경이 일어나 push error가 발생한 경우
+```
+$ git pull origin [브랜치명] > 원격 저장소에서 먼저 내용을 당겨온 후 충돌나는 부분을 정리한 후
+$ git push origin [브랜치명] > 충돌이 해결된 파일을 다시 원격에 push 해준다.
+```
 
 ## 상태 비교하기 (git diff)
 ```
@@ -97,25 +126,6 @@ $ git diff [브랜치명] [다른브랜치명] > 로컬 내 브랜치 비교
 $ git diff [브랜치명] > [origin/브랜치명] > 로컬 브랜치와 리모트 브랜치 비교
 
 $ git diff <commit 해시값> <commit 해시값> > 커밋간 비교
-```
-
-## commit 되돌리기
-* revert (이전상태로 되돌리기)
-```
-// reset 보다는 revert (잘못한 이력도 commit으로 박제하고 수정한 이력을 남기자!)
-
-예시: 현재 HEAD에서 직전 3개의 commit을 순서대로 거슬러 올라가 해당 내역에 대해 commit, push 실행
-$ git revet --no-commit HEAD~3..
-$ git commit
-$ git push origin branch명
-```
-* reset (가급적 사용하지 말것!)
-```
-// 다른 팀원의 commit log로 인해 파일이 살아나거나, 과거 히스토리가 사라져 commit log tracking이 힘들어질 수 있음
-
-예시: 직전 3개의 commit 삭제 후 remote에 강제 push
-$ git reset --hard HEAD~3
-$ git push -f origin branch명
 ```
 
 ## 되돌리기
