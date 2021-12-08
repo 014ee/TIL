@@ -10,9 +10,14 @@ $ git branch > develop branch 생성된 것 확인
 ## Branch
 ```
 $ git branch > 현재 branch 확인
+$ git branch -r > 원격에 있는 branch만 확인 ('origin/develop'과 같이 표기됨)
+$ git branch -a > 원격에 있는 branch도 확인 ('remote/origin/develop'과 같이 표기됨)
 $ git checkout develop > develp branch로 이동
+$ git checkout -t origin/develop > 원격의 develop 브랜치 가져오기
 $ git checkout -b 브랜치명 > 브랜치명을 생성함과 동시에 이동
 $ git branch -D 브랜치명 > 브랜치명 삭제(main에서만 가능/영구삭제는 아니고 다시 동일한이름으로 만들면 그대로 있음)
+```
+```
 $ git merge 브랜치명 > 현재 헤더가 가리키는 브랜치와 다른 브랜치를 병합함
 ```
 * main: 릴리즈 후 사용자에게 배포되는 안정화된 버전
