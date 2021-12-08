@@ -1,6 +1,6 @@
 ## git 설치 후 초기설정(~/.gitconfig에 저장됨)
 ```
-$ git config --global core.autocrlf true > 운영체제마다 다른 개행문자 자동으로 통일 // 다른 개행문자로 인해 변경사항이 없는데 있다고 착각하여 문제가 발생할 수 있다.
+$ git config --global core.autocrlf true > 운영체제마다 다른 개행문자로 인해 변경사항이 없는데 있다고 착각하여 문제가 발생할 수 있으므로 미리 통일
 $ git config --global user.name 'github 아이디' > 사용자 아이디 등록
 $ git config --glabal user.email 'github 이메일' > 사용자 이메일 등록
 $ git config --global core.editor vim > vim 에디터 사용 등록
@@ -88,7 +88,7 @@ $ git push -f origin [브랜치명] > commit을 강제로 삭제 후, 현재 상
 ```
 
 ## push
-* commit된 파일을 원격 저장소에 새로 추가하거나 변경 내용을 저장
+* commit 된 파일을 원격 저장소 저장
 ```
 $ git remote > 원격 저장소 이름(origin) 확인
 $ git remote -v > 원격 저장소 이름과 url 확인
@@ -96,21 +96,19 @@ $ git remote add origin [원격저장소 주소] > 원격저장소 주소를 ori
 ```
 ```
 $ git branch > branch 확인
-$ git push origin develop > commit된 파일을 원격 저장소(origin)의 develop branch로 옮겨주는 명령어
+$ git push origin [브랜치명] > commit된 파일을 원격 저장소(origin)의 [브랜치명]으로 옮겨주는 명령어
 ```
 
 ## fetch/pull
 * 원격 저장소에서 파일 가져오기
 ```
-// 원격 저장소의 develop branch를 로컬 저장소로 가져오기 (부분만 선택적으로 가져올 수 있음)
-$ git fetch origin develop
+$ git fetch origin [브랜치명] > 로컬 저장소로 가져오기 (부분만 선택적으로 가져올 수 있음)
 ```
 ```
-// 원격 저장소의 develop branch를 로컬 저장소의 working directory로 가져옴과 동시에 병합 (부분만 가져오기 안됨)
-$ git pull origin develop 
+$ git pull origin [브랜치명] > 로컬 저장소의 working directory로 가져옴과 동시에 병합 (부분만 가져오기 안됨)
 ```
 ## conflict
-* 원격 저장소 파일과 로컬에 복제 후 작업하던 파일에서 동일한 부분에 변경이 일어나 push error가 발생한 경우
+* 원격과 로컬 모두에서 동일한 파일, 동일한 부분에 변경이 일어나 push error가 발생한 경우
 ```
 $ git pull origin [브랜치명] > 원격 저장소에서 먼저 내용을 당겨온 후 충돌나는 부분을 정리한 후
 $ git push origin [브랜치명] > 충돌이 해결된 파일을 다시 원격에 push 해준다.
