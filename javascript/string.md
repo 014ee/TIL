@@ -16,15 +16,15 @@ console.log(str.indexOf('earth') !== -1) // false
 ```
 ## .length()
 * 문자의 갯수를 출력해줍니다.
-* 공백도 하나의 문자로 인식합니다.
+* `공백도 하나의 문자`로 인식합니다.
 ```javascript
 const str = '0123'
 console.log(str.length) // 4
 console.log('01 23'.length) // 5 
 ```
 ## .slide()
-* 문자열의 일부를 추출하여 반환합니다.
-* 몇 번째 인덱스에서 시작해서 몇 번째 직전 인덱스에서 잘라낼 것 인지 적어줍니다.
+* 문자의 일부를 추출하여 반환합니다.
+* `몇 번째 인덱스에서 시작`해서 `몇 번째 직전 인덱스`에서 잘라낼 것 인지 적어줍니다.
 ```javascript
 const str = 'Hello world!'
 console.log(str.slide(6, 11)); // world 
