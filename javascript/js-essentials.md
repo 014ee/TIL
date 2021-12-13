@@ -145,7 +145,7 @@ const double = function(x) {
 * 화살표 함수
 ```javascript
 const double = (x) => {
-	return x * 2
+ return x * 2
 }
 ```
 * 매개변수가 하나일 때는 소괄호도 삭제할 수 있다.
