@@ -2,12 +2,13 @@
 
 ## 데이터 타입 확인
 * `typeof`를 통해 특정 데이터 타입을 확인할 수 있다.
-* null, 배열, 객체의 경우 object로 뭉뜽그려 반환되는 문제가 있다.
+* null, 배열, 객체의 경우 object로 뭉뚱그려 반환되는 문제가 있다.
 ```javascript
 console.log(typeof 'Hello world!') // string
 console.log(typeof 1234) // number
 console.log(typeof true) // boolean
 console.log(typeof undefined) //undefined
+
 console.log(typeof null) // object
 console.log(typeof {}) // object
 console.log(typeof []) // object
@@ -175,12 +176,14 @@ const douoble = x => ({name:'Hello'})
 * 다른 함수와 분리되어 인식이 잘 안되므로, 즉시 실행 함수 끝에는 `;` 을 붙여줘야 한다.
 ```javascript
 const  a = 7;
+
 (function (){
  console.log(a*2)
 })();
 ```
 ```javascript
 const  a = 7;
+
 (function (){
  console.log(a*2)
 }());
