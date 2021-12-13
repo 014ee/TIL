@@ -189,10 +189,10 @@ function double(){
 ```
 
 ## 타이머 함수
-* `setTimeout(함수, 시간) : 일정 시간 후 함수 실행
-* `setInterval(함수, 시간) : 시간 간격마다 함수 실행
-* `clearTimeout()  : 설정된 timeout 함수를 종료
-* `clearInterval() : 설정된 interval 함수를 종료
+* `setTimeout(함수, 시간)` : 일정 시간 후 함수 실행
+* `setInterval(함수, 시간)` : 시간 간격마다 함수 실행
+* `clearTimeout()`  : 설정된 timeout 함수를 종료
+* `clearInterval()` : 설정된 interval 함수를 종료
 ```javascript
 const timer = setTimeout (() => {
  console.log ('Heropy');
