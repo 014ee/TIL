@@ -25,7 +25,7 @@ consloe.log (typeof float); // number
 ```
 ---
 # Mach 객체
-수학적인 상수와 함수를 위한 속성과 메소드를 가진 내장 객체 (함수 객체 x)  
+수학적인 상수와 함수를 위한 속성과 메서드를 가진 내장 객체 (함수 객체 x)  
 [Math mdn](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math)
 ## Math.abs()
 ```javascript
