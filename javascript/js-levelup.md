@@ -155,7 +155,7 @@ import getType from './getType' // getType.js
 import _ from 'lodash' // From 'node modules'
 ```
 * `Named import` 중괄호 사이에 지정한 이름을 입력하여 받아올 수 있음
-* ```js
+```js
 import {random} from './getRandom' // getRandom.js
 ```
 * 실행할 이름 바꾸고 싶으면 {이름 as 바꾸고 싶은 이름}
