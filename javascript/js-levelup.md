@@ -152,12 +152,11 @@ export function random() {
 ```js
 import defalt from './getType' // getType.js
 import getType from './getType' // getType.js
-import checkType from './getType' // getType.js
+import _ from 'lodash' // From 'node modules'
 ```
 * `Named import` 중괄호 사이에 지정한 이름을 입력하여 받아올 수 있음
 * 실행할 이름 바꾸고 싶으면 {이름 as 바꾸고 싶은 이름}
 ```js
-import _ from 'lodash' // From 'node modules'
 import {random as getRandom} from './getRandom' // getRandom.js
 ```
 * 한 파일에서 이름이 지정된 여러 export 데이터를 가져올 경우 {이름, 이름}
