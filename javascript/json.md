@@ -1,4 +1,4 @@
-# JSON (Javascript Object Notation)
+# ✅ JSON (Javascript Object Notation)
 비동기 브라우저/서버통신(AJAX)을 위해 자바스크립트의 데이터를 사람이 읽을 수 있는 형태로 표현하는 개방형 표준 포맷.  
 특히, 인터넷에서 데이터를 주고 받을 때, 이를 표현하는 방법  
 
@@ -48,7 +48,7 @@ const str = JSON.stringify(user)
 console.log(typeof str) // string
 ```
 
-# STORAGE
+# ✅ STORAGE
 `개발자도구` > `Application` > `Storage`
 ## js과 json으로 storage에 접근
 * js에서 특정한 데이터를 브라우저 storage에 저장하는 방법
