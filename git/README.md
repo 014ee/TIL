@@ -12,6 +12,7 @@
 ---
 
 ### 📝Mark Down 작성법
+[깃헙 마크다운 GO](https://cran.r-project.org/web/packages/gluedown/vignettes/github-spec.html)
 
 ## ✅ 머리말 (Header)
 * # h1 입니다.
