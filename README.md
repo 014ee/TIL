@@ -9,3 +9,18 @@
 - 폴더명과 파일명은 영문으로 간략하게 표기합니다.
 - 파일 추가 시 commit 메세지는 다음과 같이 작성합니다. [폴더명] 해당 파일에 대한 요약
 - 마크다운 문법을 사용하여 글을 작성합니다.
+
+## 📌 목차
+
+### HTML
+- [파일없음]()
+
+### CSS
+- [파일없음]()
+
+### JS
+- [전체보기](https://github.com/014ee/TIL/tree/main/javascript)
+
+### 기타
+- [깃](https://github.com/014ee/TIL/blob/main/git/git-guide.md)
+- [마크다운](https://github.com/014ee/TIL/tree/main/git)
