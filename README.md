@@ -22,6 +22,6 @@
 - [전체보기](https://github.com/014ee/TIL/tree/main/javascript)
 
 ### 기타
-- [깃](https://github.com/014ee/TIL/blob/main/git/git-guide.md)
+- [깃 명령어](https://github.com/014ee/TIL/blob/main/git/git-guide.md)
 - [마크다운](https://github.com/014ee/TIL/tree/main/git)
 - [정규식](https://github.com/014ee/TIL/tree/main/regexp)
