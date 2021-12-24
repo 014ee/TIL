@@ -25,18 +25,6 @@ new RegExp('[a-z]', 'gi');
 /[a-z]/gi
 ```
 
-## 예제 문자
-
-```js
-const str = `
-  010-1234-5678
-  theemail@naver.com
-  https://www.omdbapi.com/?apikey=7035c60c&s=frozen
-  The quick brown fox jumps over the lazy dog.
-  abbcccddd
-  `;
-```
-
 ## 메서드
 
 | 메서드  | 문법                               | 설명                        |
@@ -67,7 +55,7 @@ const str = `
 | `[0-9]`        | 0 부터 9 사이의 문자 구간에 일치 (숫자)                   |
 | `[가-힣]`      | 가 부터 힣 사이의 문자 구간에 일치 (한글)                 |
 | `[^]` | 괄호 안의 어떤 문자를 제외 |
-| `(?:)` | 찾지만 기억하지는 않음 |
+| `(?:)` | 찾지만 기억하지는 않음 (그룹을 생성하지 않음) |
 
 ### 수량
 | 문법         | 설명                                                     |
@@ -101,4 +89,35 @@ const str = `
 | `\D`           | 숫자 아님 (digit)                                       |
 | `\s`           | 공백 (space, tab)                                  |
 | `\S`           | 공백 아님 (space, tab)                                  |
+
+
+## 예제 문자
+```js
+const str = `
+  010-1234-5678
+  010 1234 5678
+  010.1234.5678
+  
+  the_email@naver.com
+  the.email@naver.com
+  theemail@naver.com
+  
+  https://www.omdbapi.com/?apikey=7035c60c&s=frozen
+  https://youtu.be/-ZClicWm0zM
+  youtu.be/-ZClicWm0zM
+  
+  The quick brown fox jumps over the lazy dog.
+  abbcccddd
+  `;
+```
+#### 전화번호만 찾고 싶은 경우
+- `/\d\d\d-\d\d\d\d-\d\d\d\d/gm`
+- `/\d{2,3}[- .]\d{4}[- .]\d{4}/gm`
+
+#### 이메일만 찾고 싶은 경우
+- `/[a-zA-Z0-9._+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.]/gm`
+
+#### 유튜브 주소에서 아이디만을 가져오고 싶은 경우
+- `/(?:https?:\/\/)?(?:www\.)?youtu.be\/([a-zA-Z0-9]{11})/gm`
+
 
