@@ -16,14 +16,16 @@
 - [브라우저 렌더링]()
 - [시멘틱 태그]()
 - [태그정리]()
-- [form]()
+- [Form]()
 
 ### CSS
 - [셀렉터]()
 - [레이아웃]()
 - [플렉스 박스]()
 - [반응형]()
-- [input 스타일 변경]()
+- [input 스타일]()
+- [SCSS]()
+- [BootStrap]()
 
 ### JS
 - [데이터타입](https://github.com/014ee/TIL/tree/main/javascript)
@@ -40,5 +42,5 @@
 
 ### 기타
 - [깃 명령어](https://github.com/014ee/TIL/blob/main/git/git-guide.md)
+- [정규표현식](https://github.com/014ee/TIL/tree/main/regexp)
 - [마크다운](https://github.com/014ee/TIL/tree/main/git)
-- [정규식](https://github.com/014ee/TIL/tree/main/regexp)
