@@ -1,29 +1,91 @@
-# 산술, 할당 연산자
-연산자는 하나 이상의 표현식을 대상으로 산술, 할당, 비교, 논리, 타입 연산 등을 수행해 하나의 값을 만든다.  
-이때 연산의 대상을 피연산자라고 한다.
-* 산술 연산자: 더하기, 빼기, 곱하기, 나누기, 나머지
-* 할당 연산자: `const`(재할당 불가능), `let`(재할당 가능)
+# ✅ 할당 연산자
+* `const` : 재할당 불가능
+* `let` : 재할당 가능
 
 ## 변수 유효범위
 * 변수는 자신이 동작할 수 있는 유효한 범위를 갖는다.
 * `let`, `const`는 변수가 선언되어 있는 `{블럭 내부}`가 유효 범위이다. (블록레벨)
 * `var`는 변수가 선언되어 있는 `함수 범위 내부`가 유효 범위이다. (함수레벨)
-* 함수레벨은 의도하지 않은 범위에서 사용될 수도 있고, 메모리 차지로 개발자가 인식하지 못하는 메모리 누수로 이어질 수 있다.
+* `var`는 의도하지 않은 범위에서 사용될 수도 있고, 개발자가 인식하지 못하는 메모리 누수로 이어질 수 있으니 자제하는 것이 좋다.
 
-# 비교, 논리 연산자
+# ✅ 산술 연산자
+```js
+console.log(1 + 1) // 2 (더하기)
+console.log(1 - 1) // 0 (빼기)
+console.log(1 / 1) // 1 (나누기)
+console.log(1 * 1) // 1 (곱하기)
+console.log(5 & 2) // 1 (나머지)
+console.log(2 ** 3) // 8 (2의 3승)
+```
+* `++a` 더하고 할당한다.
+```js
+let a = 2
+const preIncrement = ++a
+console.log(preIncrement, a) // 3, 3
+
+// a = a + 1
+// preIncreament = a
+```
+* `a++` 할당하고 더한다.
+```js
+let a = 2
+const postIncrement = a++
+console.log(postIncrement, a) // 3, 4
+
+// postIncrement = a
+// a = a + 1
+```
+
+
+# ✅ 비교 연산자
 * `===` (일치 연산자): 값, 데이터타입 모두 일치해야 함
 * `!==` (불일치 연산자): 다르면 true, 같으면 true를 반환함
-* `==` (동일 연산자): 형변환이 일어나 값만 같으면 true
+* `==` (동등 연산자): 형변환이 일어나 값만 같으면 true
 ```javascrip
 const a = 1 === '1' // false
 const b = false !== true // true
 const c = 'AB' == AB // true
 ```
-* `&&` (그리고): 모두 true여야 true
-* `||` (또는): 하나만 true여도 true
-* `!` (부정 연산자): 반대값을 반환함
+
+## 형변환
+* `==` : 동등 연산자를 사용하면 형변환이 일어난다. (자바스크립트에서만 일어나는 특수한 케이스)
+* 때문에 의도치 않게 다른 값이 나올 수 있으므로 사용을 자제하는 것이 좋다.
+```js
+const a = 8
+const b = '8'
+
+console.log(a == b) // true
+console.log(a + b) // '88'
+console.log(a - b) // 0
+```
+## 형변환 더 알아보기
+* truthy (참같은 값)
+```js
+true, 문자 데이터 ex 'false', {}, [], 1, 2, -12, 3.14 ...
+```
+* falsy (거짓 같은 값)
+```js
+false,  0, -0, NaN, null, undefined, ''
+```
+
+# ✅ 논리 연산자
+### `||` (또는)
+* 여러 조건중 하나만 true여도 실행을 멈추고 값을 반환하므로, 가벼운 연산을 앞에 놓는게 효율적!
+```js
+console.log(`or: ${a || b || check()}`)
+```
+### `&&` (그리고)
+* 마찬가지로 앞에서 false가 나오면 나머지 조건은 실행하지 않으므로, 무거운 연산자는 뒤에 놓기!
+```js
+console.log(`and: ${a || b || check()}`)
+```
+* null이 false임을 활용해 조건문 작성한 예시
+```js
+if (nullObj != null){nullObj.something}
+```
+### `!` (부정 연산자)
+* 반대값을 반환
 ```javascript
-console.log('&&:' , a && b && c) // &&: false
-console.log('||:', 'a || b || c' ) // ||: true
 console.log('!:', !a) // !: true
 ```
+
