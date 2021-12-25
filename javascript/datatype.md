@@ -33,26 +33,6 @@ const nAn = 'not a number' / 2 // NaN
 const bigInt = 1234567890123456789012345678900n // bigint (크롬이랑 파폭에서만 지원 / 잘은 안쓰일 듯)
 ```
 
-# ✅ 형변환
-* `==` : 동등 연산자를 사용하면 형변환이 일어난다. (자바스크립트에서만 일어나는 특수한 케이스)
-* 때문에 의도치 않게 다른 값이 나올 수 있으므로 사용을 자제하는 것이 좋다.
-```js
-const a = 8
-const b = '8'
-
-console.log(a == b) // true
-console.log(a + b) // '88'
-console.log(a - b) // 0
-```
-* truthy (참같은 값)
-```js
-true, 문자 데이터 ex 'false', {}, [], 1, 2, -12, 3.14 ...
-```
-* falsy (거짓 같은 값)
-```js
-false,  0, -0, NaN, null, undefined, ''
-```
-
 # ✅ 데이터 불변성
 ## 원시 데이터 `String`, `Number`, `Boolean`, `Undefined`, `Null`, `Symbol`
 * 원시 데이터는 `할당된 값 자체가 메모리에 저장`된다.
