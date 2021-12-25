@@ -28,7 +28,7 @@
 
 
 # ✅ 조건문
-* Math의 랜덤함수와 내림처리를 통해 랜덤 숫자 추출하기
+* 예시) Math의 랜덤함수와 내림처리를 통해 랜덤 숫자 추출하기
 ```javascript
 export default function random() {
  return Math.floor(Math.random() * 10)
@@ -51,8 +51,8 @@ if (a === 0){
 ##  `Switch`
 * 조건을 여러 분기로 나누어 작성할 수 있다.
 * 조건이 끝나면 뒤에 `break`를 넣어야 한다. (나머지를 처리하는 `default`에서는 생략 가능)
-* 딱 떨어지는 조건을 갖은 조건문에서 사용하면 코드를 깔끔하게 작성할 수 있다.
-* 타입스크립트에서 정해진 타입을 검사하는데 유용
+* 딱 떨어지는 여러개의 조건일 경우 if 보다 코드를 깔끔하게 작성할 수 있다.
+* 가령 타입스크립트에서 정해진 타입을 검사하는데 유용하다.
 ```javascript
 switch (a) {
  case 0:
@@ -76,26 +76,27 @@ console.log( true === true ? '참' : '거짓') // 참
 ```
 
 # ✅ 반복문
-## while
-* 값이 false가 나올 때 까지 계속해서 반복
-* 조건이 맞을 때만 실행하고 싶을 때 사용
+* 반복문을 동작시킬 때 통상적으로 `i` 변수를 사용한다.
+* `i`는 조건 내에서 변수에 할당 할 수도 있고, 외부에서 할당 후 사용할 수도 있다.
+## `while`
+* 값이 `false`가 나올 때 까지 계속해서 반복한다.
+* 보통 조건이 맞을 때만 실행하고 싶을 때 사용한다.
 ```js
 let i = 3
 while (i > 0) {
-console.log(`while ${i}`) // while:3 / while:2 / while:1
-i--
+ console.log(`while ${i}`) // while:3 / while:2 / while:1
+ i--
 }
 ```
-## do while
-* 블록을 먼저 실행하고 싶을 때 사용
+## `do while`
+* 조건보다 블록 안의 명령을 먼저 실행하고 싶을 때 사용한다.
 ```js
 do {
-console.log(`do whild: ${i}`) // do while: 0
+ console.log(`do whild: ${i}`) // do while: 0
 } while (i > 0)
 ```
-## For
-* (시작조건; 종료조건; 변화조건)
-* 반복문을 동작시킬 때 통상적으로 `i` 변수를 사용한다.
+## `For`
+* (`시작조건`; `종료조건`; `변화조건`)
 ```javascript
 const ulEl = document.querySelector('ul');
 
@@ -111,7 +112,7 @@ for (let i = 0; i < 10; i += 1){
  ulEl.appendChild(li);
 }
 ```
-* nested loops (cpu에 좋지 않으므로 가급적 자제)
+* `nested loops` (중첩 루프는 CPU에 좋지 않으므로 가급적 자제)
 ```js
 for (let i = 0; i < 10; i ++) {
  for (let j = 0; j < 10; j ++) {
