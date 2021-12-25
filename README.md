@@ -27,7 +27,7 @@
 - [BootStrap]()
 
 ### JS
-- [데이터타입](https://github.com/014ee/TIL/tree/main/javascript)
+- [데이터타입](https://github.com/014ee/TIL/blob/main/javascript/datatype.md)
 - [연산자](https://github.com/014ee/TIL/tree/main/javascript)
 - [함수](https://github.com/014ee/TIL/tree/main/javascript)
 - [클래스](https://github.com/014ee/TIL/tree/main/javascript)
