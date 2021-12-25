@@ -33,7 +33,7 @@
 - [문자](https://github.com/014ee/TIL/blob/main/javascript/string.md)
 - [숫자](https://github.com/014ee/TIL/blob/main/javascript/number.md)
 - [심볼](https://github.com/014ee/TIL/blob/main/javascript/symbol.md)
-- [클래스](https://github.com/014ee/TIL/tree/main/javascript)
+- [클래스](https://github.com/014ee/TIL/blob/main/javascript/class.md)
 - [객체](https://github.com/014ee/TIL/blob/main/javascript/object.md)
 - [배열](https://github.com/014ee/TIL/blob/main/javascript/array.md)
 - [함수](https://github.com/014ee/TIL/blob/main/javascript/function.md)
