@@ -13,7 +13,7 @@
 * `2004년` 모질라에서 파이어폭스 출시 / 제시 제임스가 비동기적으로 데이터를 서버에서 받아오고 처리해주는 AJAX 기술 명세서 작성 
 * `2008년` 구글에서 크롬 브라우저 출시 (JIT이라는 강력한 자바스크립트 엔진 포함) > 드디어 브라우저 회사들 정신차리고 서로 협력하기로 함
 * `2009년` HTML 5와 함께 ES 5 
-* `2015년` ES 6 (let, const, class, 화살표함수, 템플릿 리터럴, 디스트럭처링 할당, spread 문법, rest 파라미터, symbor, promise, Map/Set, iterator/generator, module import/export)
+* `2015년` ES 6 (let, const, class, 화살표함수, 템플릿 리터럴, 디스트럭처링 할당, spread 문법, rest 파라미터, symbor, promise, Map/Set, iterator/generator, module import/export) / 최근 JS기준이라고 할 수 있지만 IE에서는 지원 안함
 * `2016년` ES 7 (지수연산자, Array.prototype.includes, String.prototype.includes)
 * `2017년` ES 8 (async/await, Object 정적 메소드)
 * `2018년` ES 9 (Object Rest/Spread 프로퍼티)
