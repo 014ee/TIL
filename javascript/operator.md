@@ -69,23 +69,19 @@ false,  0, -0, NaN, null, undefined, ''
 ```
 
 # ✅ 논리 연산자
-### `||` (또는)
-* 여러 조건중 하나만 true여도 실행을 멈추고 값을 반환하므로, 가벼운 연산을 앞에 놓는게 효율적이다.
+* `||` (또는) : 여러 조건중 하나만 true여도 실행을 멈추고 값을 반환하므로, 가벼운 연산을 앞에 놓는게 효율적이다.
+* `&&` (그리고) : 마찬가지로 앞에서 false가 나오면 나머지 조건은 실행하지 않으므로, 무거운 연산자는 뒤에 놓는다.
+* `!` (부정 연산자) : 반대값을 반환한다.
 ```js
 console.log(`or: ${a || b || check()}`)
 ```
-### `&&` (그리고)
-* 마찬가지로 앞에서 false가 나오면 나머지 조건은 실행하지 않으므로, 무거운 연산자는 뒤에 놓기
 ```js
 console.log(`and: ${a && b && check()}`)
 ```
-* null이 false임을 활용해 조건문 작성한 예시
-```js
-if (nullObj != null){nullObj.something}
-```
-### `!` (부정 연산자)
-* 반대값을 반환
 ```javascript
 console.log('!:', !a) // !: true
 ```
-
+* `번외` : null이 false임을 활용해 조건문 작성한 예시
+```js
+if (nullObj != null){nullObj.something}
+```
