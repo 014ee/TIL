@@ -1,4 +1,83 @@
 # ✅ JS 함수
+* 주로 하나의 고유한 역할을 하므로 서브 프로그램이라고도 불리며, 재사용이 가능한 특징을 가지고 있다.
+* 때문에 함수를 통한 인풋과 아우풋이 중요하고,
+* 하나의 함수는 하나의 역할만 가지고 있는 것이 좋다.
+* 동사 형태로 함수명을 작성해 역할을 쉽게 파악할 수 있어야 한다. (ex. createCard, doSomthing)
+* js는 함수에서 object이다. (때문에 변수에 할당, 인수로 전달, 리턴 가능한 것)
+* js는 다이나믹 타이핑이기 때문에 함수의 인수로 어떤 데이터 타입을 넣어야 하는지 함수를 통해 알기 어려울 수 있다.
+* 때문에 규모있는 프로젝트나 협업, 개발 라이브러화를 위해서는 타입스크립트를 사용하는 것이 유용하다.
+* 리턴타입이 없는 함수는 기본적으로 return undefined가 들어가 있는 것과 같고, 이는 생략이 가능하다.
+```js
+function name(param1, param2) {body... return}
+```
+
+* 매개변수에 인수가 들어오지 않을 경우 기본값 설정하기 (구식)
+```js
+function showMessage(message, from) {
+ if (from === undefined) {
+  from = 'unknown'
+ }
+ consle.log(`${message} by ${from}`)
+}
+shoMessage('Hi!') // Hi! by unknown
+```
+* 매개변수에 인수가 들어오지 않을 경우 기본값 설정하기 (최신식)
+```js
+function showMessage(message, from = 'unknown') {
+ consle.log(`${message} by ${from}`)
+}
+shoMessage('Hi!') // Hi! by unknown
+```
+
+## rest parameter (ES 66)
+* 배열형태로 전달
+```js
+function printAll(...args){
+ for (let i = 0; i < args.length; i++) {
+  console.log(arg[i])
+ } 
+}
+printAll('dream', 'codeing', 'ellie')
+```
+* 배열 인자 넣는거 좀 더 간단하게 아래처럼 할 수 있음
+```js
+function printAll(...args){
+ for (const arg of args) {
+  console.log(arg)
+ } 
+}
+printAll('dream', 'codeing', 'ellie')
+```
+* 더 간단하게 하려면 아래
+```js
+function printAll(...args){
+ args.forEach((arg) => console.log(arg))
+}
+printAll('dream', 'codeing', 'ellie')
+```
+## Early return
+* 나쁜 함수: 블럭 안에 로직이 많으면 가독성이 떨어짐
+```js
+function upgradeUser(user){
+ if(user.point > 10) {
+  long upgrade logic...
+ }
+}
+```
+* 좋은 함수: 조건이 맞이 않으면 빠르게 리턴
+```js
+function upgradeUser(user){
+ if(user.point <= 10) {
+  return
+ }
+ long upgrade logic...
+}
+```
+
+## first-class function
+* 함수 표현 (변수에 이름없는 함수를 할당하는 것) / 할당된 이후부터 호출이 가능(호이스팅 불가능)
+
+
 ## 함수 복습
 * 함수 내에서 return을 사용하면, 밖으로 반환해줌과 동시에 해당 함수를 종료하겠다는 의미
 * 따라서 return 밑의 실행문은 작동이 되지 않으며, 이를 활용해 함수 내에 조건문을 만들어 특정 조건에 만족하면 함수가 종료되게 만들 수 있다.
@@ -97,6 +176,15 @@ function timeout(callback){
 timeout(() => {
  console.log('done!');
 })
+```
+``` js
+function randomQuiz(answer, printYes, printNo) {
+ if (answer === 'love you') {
+  printYes();
+ }else {
+  printNo()
+ }
+}
 ```
 
 # ✅ JS 클래스
