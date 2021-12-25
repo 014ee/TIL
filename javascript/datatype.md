@@ -60,9 +60,9 @@ let b = {k:1}
 console.log (a === b) // false
 console.log (a.k === b.k) // true
 ```
-* 변수에 다른 `변수 값을 할당하면` 새로운 메모리를 만들거나 복사하는 것이 아니라, `할당한 변수 값의 메모리를 참조`한다.
-* 즉, 여러 변수들이 같은 메모리 주소를 바라보고 있을 경우, 하나의 변수에서만 값을 수정해도 다른 변수들의 값이 함께 변경된다.
-* 때문에 메모리 주소의 이동 없이 참조형 데이터 변수 값을 다른 변수에 지정하고 싶으면 바로 할당하지 말고 복사 과정을 거쳐야 한다.
+* 변수에 `참조형 데이터가 할당된 변수를 할당하면` 새로운 메모리를 만들지 않고, 할당된 변수가 바라보고 있는 동일한 참조형 데이터 박스를 바라본다.
+* 즉, 같은 메모리 주소를 바라보고 있으므로 하나의 변수에서만 값을 수정해도 다른 변수 값이 함께 변경된다.
+* 때문에 참조형 데이터 변수 값을 다른 변수에 새롭게 복사하고 싶으면, 바로 할당하지 말고 복사 과정을 거쳐야 한다.
 ```js
 a.k = 7
 b = a
@@ -71,6 +71,44 @@ console.log(a, b, a === b) // {k:7}, {k:7}, true
 a.k = 2
 console.log(a, b, a === b) // {k:2}, {k:2}, true
 ```
+
+# ✅ 얕은 복사와 깊은 복사
+## 얕은복사
+```js
+const user = {
+ name: 'Heropy'
+ age: 85,
+ emails: ['email@naver.com']
+}
+```
+* Object.assign() 메서드를 통한 복사
+```js
+const copyUser = Object.assign({}, user)
+console.log(copyUser === user) // false
+```
+* 전개 연산자를 통한 복사
+```js
+const copyUser = {...user}
+console.log(copyUser === user) // false
+```
+* 객체 데이터만 복사하였으므로 내부의 또다른 참조형 데이터인 `배열 데이터는 메모리 주소를 공유`하고 있다.
+```js
+user.emails.push('newemail@naver.com')
+console.log(user.emails === copyUser.emails) // true
+```
+## 깊은 복사
+* lodash의 [cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)을 이용한 깊은 복사를 통해 모든 데이터에 `별도의 메모리 주소`를 만들어줄 수 있다.
+```js
+// $ npm lodash i 설치 후
+
+import _ from 'lodash'
+const coopyUser = _.cloneDeep(user)
+```
+```js
+user.emails.push('newemail@naver.com')
+console.log(user.emails === copyUser.emails) // false
+```
+
 
 # ✅ JS 데이터
 ## 구조 분해 할당 (비구조화 할당)
@@ -126,43 +164,6 @@ console.log(toObject(...fruits)) // {a: 'Apple', b: 'Banana', c: [Cherry', 'Oran
 ```js
 const toObject(a, b, ...c) => ({a, b, c})
 console.log(toObject(...fruits)) // {a: 'Apple', b: 'Banana', c: ['Cherry', 'Orange']}
-```
-
-## 얕은 복사와 깊은 복사
-### 얕은복사
-```js
-const user = {
- name: 'Heropy'
- age: 85,
- emails: ['email@naver.com']
-}
-```
-* Object.assign() 메서드를 통한 복사
-```js
-const copyUser = Object.assign({}, user)
-console.log(copyUser === user) // false
-```
-* 전개 연산자를 통한 복사
-```js
-const copyUser = {...user}
-console.log(copyUser === user) // false
-```
-* 객체 데이터만 복사하였으므로 내부의 또다른 참조형 데이터인 `배열 데이터는 메모리 주소를 공유`하고 있다.
-```js
-user.emails.push('newemail@naver.com')
-console.log(user.emails === copyUser.emails) // true
-```
-### 깊은 복사
-* lodash의 [cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)을 이용한 깊은 복사를 통해 모든 데이터에 `별도의 메모리 주소`를 만들어줄 수 있다.
-```js
-// $ npm lodash i 설치 후
-
-import _ from 'lodash'
-const coopyUser = _.cloneDeep(user)
-```
-```js
-user.emails.push('newemail@naver.com')
-console.log(user.emails === copyUser.emails) // false
 ```
 
 # ✅ JS 데이터 실습
