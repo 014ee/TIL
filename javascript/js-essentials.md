@@ -27,13 +27,7 @@
 (서버 개발환경을 제공하는 것이 주된 목적이므로 DOM API 등의 클라이언트 사이드 WEB API는 제공하지 않고 대신 모듈, 파일 시스템, HTTP 등 빌트인 API를 제공)
 
 
-## 삼항 연산자
-* (조건 ? '참일 때 반환하는 값' : '거짓일 때 반환하는 값')
-```javascript
-console.log(true ? '참' : '거짓') // 참
-```
-
-## 조건문 (If Else, Switch)
+# ✅ 조건문 (If, Switch, 삼항 연산자)
 * Math의 랜덤함수와 내림처리를 통해 랜덤 숫자 추출하기
 ```javascript
 export default function random() {
@@ -43,23 +37,26 @@ export default function random() {
 import random from './getRandom'
 const a = random();
 ```
-* `If Else`
+##  `If Else`
 ```javascript
-if (a===0){
+if (a === 0){
  console.log('a is 0'); 
-} else if (a===2){
+} else if (a === 2){
  console.log('a is 2')
 }else {
  console.log('rest...')
 }
 ```
 
-* `Switch`: 조건을 여러 분기로 나누어 작성할 수 있다.
+##  `Switch`
+* 조건을 여러 분기로 나누어 작성할 수 있다.
 * 조건이 끝나면 뒤에 `break`를 넣어야 한다. (나머지를 처리하는 `default`에서는 생략 가능)
 * 딱 떨어지는 조건을 갖은 조건문에서 사용하면 코드를 깔끔하게 작성할 수 있다.
+* 타입스크립트에서 정해진 타입을 검사하는데 유용
 ```javascript
 switch (a) {
  case 0:
+ case -0:
  console.log('a is 0')
  break
  case 2:
@@ -72,8 +69,31 @@ switch (a) {
  console.log('rest...')
 }
 ```
+## `(조건 ? 참 : 거짓)` 삼항 연산자
+* (조건 ? '참일 때 반환하는 값' : '거짓일 때 반환하는 값')
+```javascript
+console.log( true === true ? '참' : '거짓') // 참
+```
 
-## 반복문 (For)
+# ✅ 반복문
+## while
+* 값이 false가 나올 때 까지 계속해서 반복
+* 조건이 맞을 때만 실행하고 싶을 때 사용
+```js
+let i = 3
+while (i > 0) {
+console.log(`while ${i}`) // while:3 / while:2 / while:1
+i--
+}
+```
+## do while
+* 블록을 먼저 실행하고 싶을 때 사용
+```js
+do {
+console.log(`do whild: ${i}`) // do while: 0
+} while (i > 0)
+```
+## For
 * (시작조건; 종료조건; 변화조건)
 * 반복문을 동작시킬 때 통상적으로 `i` 변수를 사용한다.
 ```javascript
@@ -89,6 +109,14 @@ for (let i = 0; i < 10; i += 1){
   })
  }
  ulEl.appendChild(li);
+}
+```
+* nested loops (cpu에 좋지 않으므로 가급적 자제)
+```js
+for (let i = 0; i < 10; i ++) {
+ for (let j = 0; j < 10; j ++) {
+  console.log(i, j)
+ }
 }
 ```
 
