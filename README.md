@@ -27,6 +27,7 @@
 - [BootStrap]()
 
 ### JS 베이직
+- [자바스크립트 역사](https://github.com/014ee/TIL/blob/main/javascript/aboutjs.md)
 - [데이터타입](https://github.com/014ee/TIL/blob/main/javascript/datatype.md)
 - [연산자](https://github.com/014ee/TIL/blob/main/javascript/operator.md)
 - [조건문·반복문](https://github.com/014ee/TIL/blob/main/javascript/js-essentials.md)
