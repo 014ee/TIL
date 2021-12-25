@@ -27,7 +27,7 @@
 (서버 개발환경을 제공하는 것이 주된 목적이므로 DOM API 등의 클라이언트 사이드 WEB API는 제공하지 않고 대신 모듈, 파일 시스템, HTTP 등 빌트인 API를 제공)
 
 
-# ✅ 조건문 (If, Switch, 삼항 연산자)
+# ✅ 조건문
 * Math의 랜덤함수와 내림처리를 통해 랜덤 숫자 추출하기
 ```javascript
 export default function random() {
@@ -69,7 +69,7 @@ switch (a) {
  console.log('rest...')
 }
 ```
-## `(조건 ? 참 : 거짓)` 삼항 연산자
+## `삼항 연산자`
 * (조건 ? '참일 때 반환하는 값' : '거짓일 때 반환하는 값')
 ```javascript
 console.log( true === true ? '참' : '거짓') // 참
