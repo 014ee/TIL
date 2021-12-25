@@ -29,6 +29,7 @@
 ### JS 베이직
 - [데이터타입](https://github.com/014ee/TIL/blob/main/javascript/datatype.md)
 - [연산자](https://github.com/014ee/TIL/blob/main/javascript/operator.md)
+- [조건문·반복문](https://github.com/014ee/TIL/blob/main/javascript/js-essentials.md)
 - [문자](https://github.com/014ee/TIL/blob/main/javascript/string.md)
 - [숫자](https://github.com/014ee/TIL/blob/main/javascript/number.md)
 - [심볼](https://github.com/014ee/TIL/blob/main/javascript/symbol.md)
