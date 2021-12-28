@@ -83,6 +83,20 @@ for (let i = 0; i < 10; i += 1){
  ulEl.appendChild(li);
 }
 ```
+```js
+function printAll(...args){
+ for (let i = 0; i < args.length; i++) {
+  console.log(arg[i])
+ } 
+ // for문은 아래와 같이 간략하게 쓸 수 있다.
+ for (const arg of args) {
+  console.log(arg)
+ } 
+ // .forEach()를 쓰면 더 간략하게 가능하다.
+  args.forEach((arg) => console.log(arg))
+}
+printAll('dream', 'codeing', 'ellie')
+```
 * `nested loops` (중첩 루프는 CPU에 좋지 않으므로 가급적 자제)
 ```js
 for (let i = 0; i < 10; i ++) {

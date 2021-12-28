@@ -31,13 +31,13 @@
 - [데이터타입](https://github.com/014ee/TIL/blob/main/javascript/datatype.md)
 - [연산자](https://github.com/014ee/TIL/blob/main/javascript/operator.md)
 - [조건문·반복문](https://github.com/014ee/TIL/blob/main/javascript/js-essentials.md)
+- [배열](https://github.com/014ee/TIL/blob/main/javascript/array.md)
+- [함수](https://github.com/014ee/TIL/blob/main/javascript/function.md)
+- [클래스](https://github.com/014ee/TIL/blob/main/javascript/class.md)
+- [객체](https://github.com/014ee/TIL/blob/main/javascript/object.md)
 - [문자](https://github.com/014ee/TIL/blob/main/javascript/string.md)
 - [숫자](https://github.com/014ee/TIL/blob/main/javascript/number.md)
 - [심볼](https://github.com/014ee/TIL/blob/main/javascript/symbol.md)
-- [클래스](https://github.com/014ee/TIL/blob/main/javascript/class.md)
-- [객체](https://github.com/014ee/TIL/blob/main/javascript/object.md)
-- [배열](https://github.com/014ee/TIL/blob/main/javascript/array.md)
-- [함수](https://github.com/014ee/TIL/blob/main/javascript/function.md)
 
 ### JS 레벨업
 - [json](https://github.com/014ee/TIL/tree/main/javascript)
