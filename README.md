@@ -23,7 +23,7 @@
 - [플렉스 박스]()
 - [반응형]()
 - [input 스타일]()
-- [SCSS]()
+- [SCSS](https://github.com/014ee/TIL/blob/main/css/scss.md)
 - [BootStrap]()
 
 ### JS 베이직
