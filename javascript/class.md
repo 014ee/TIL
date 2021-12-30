@@ -23,17 +23,6 @@ class User {
  const ellie = new User('ellie', 'Kim', 20)
  console.log(ellie.getFullName) // ellie Kim
  ```
- ## 참고: class가 생기기 전
- * class가 생기기 전에는 아래와 같이 template을 만들었다.
-```js
-function User (first, last) {
- this.firstName = first
- this.lastName = last
-}
-User.prototype.getFullName = function(){
- return `&{this.firstName} &{this.lastName}`
-}
-```
 
 # ✅ Getter/Setter
 * 내가 기대하는 범위의 값을 사용자가 입력하지 않았을 때를 대비하여 미리 반환할 값을 준비해놓는 것
