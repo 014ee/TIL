@@ -1,9 +1,34 @@
-# OBJECT (객체)
+# ✅ Object
+* 객체데이터 내 `속성과 메서드를 통틀어서 멤버`라고도 한다.
+```js
+const obj1 = {key: value};  // object literal
+const obj2 = new Object(); // object constructor
+```
+```js
+console.log(ellie.name) // 코딩하는 순간, 그 key에 해당하는 값을 받아오고 싶을 때
+console.log(ellie['name']) // 코딩하는 순간, 그 key에 해당하는 값이 얼마인지 모를 때
+```
+## `key in object`
+* 해당 object 안에 key가 있는지 없는지 체크
+```js
+console.log('name' in ellie); 
+```
 
----
-
-# 정적 메서드
-## Object.assign()
+## `for..in` vs `for..of`
+* ellie가 가지고 있는 key들이 지역변수에 할당
+```js
+for (key in ellie){
+ console.log(key); // name, age
+}
+```
+* array 배열 안에 있는 모든 값들이 value에 할당되면서 순차적으로 실행
+```js
+const array = [1, 2, 3, 4]
+for (value of array){
+ console.log(value) // 1, 2, 3, 4
+}
+```
+## `Object.assign()`
 * 대상 객체(첫번째 인수)에 하나 이상의 출처 객체 데이터를 병합시켜준다.
 * 속성명이 같으면 값을 덮어쓴다.
 ```js
@@ -21,7 +46,7 @@ console.log(target === returnedTarget) // true (단순히 값이 같아서가 �
 const newTarget = Object.assign({}, target, source)
 ```
 
-## Object.keys()
+## `Object.keys()`
 * 객체 데이터의 속성들(key)을 문자로 변환하여 배열 데이터로 만들어준다.
 ```js
 const user = {
@@ -38,4 +63,106 @@ console.log(keys) // ['name', 'age', 'email']
 ```js
 const values = keys.map(key => user[key])
 console.log(value) // ['Heropy', 85, 'email@naver.com']
+```
+
+# ✅  생성자 함수
+* class가 없었을 때, 아래와 같이 중복되는 object는 함수를 이용하여 template을 만들었다.
+```js
+const heropy = {
+ firstName: "Heropy"
+ lastName: "Park"
+ getFullName: function (){
+  return `&{this.firstName} &{this.lastName}`
+ }
+ 
+ const amy = {
+  firstName: "Amy"
+  lastName: "Lee"
+  getFullName: function (){
+  return `&{this.firstName} &{this.lastName}`
+ }
+}
+```
+* 별다른 계산 없이 순수하게 object를 생성하는 `생성자 함수`는 일반 함수와의 구분을 위해 관행적으로`PascalCase`로 작성한다.
+* 또한 class의 constructor과 같이 this를 사용하여 내용을 작성하며, 이렇게 작성하면 `js가 알아서 object를 생성`해준다. 
+* `Key와 Value의 이름이 동일하면 하나로 생략` 가능하다. (property value shorthand)
+```js
+function User (first, last) {
+ // this = {} 생략
+ this.firstName = first
+ this.lastName = last
+ // return this; 생략
+}
+```
+* 생성자 함수가 할당된 변수를 생성자 함수의 인스턴스라고 한다.
+```js
+const heropy = new User('Heropy', 'Park')
+const amy = new User('Amy', 'Lee')
+```
+* 아래와 같이 `로직이 완전히 동일한 경우 참조하는 방식으로 사용`할 수 있다.
+* 생성자 함수를 몇 개 만들던 아래 코드는 메모리에 딱 1번만 만들어져 성능적인 면에서 효과적이다.
+* js는 아래와 같이 prototype 개념을 많이 사용하고 있어서 `prototype 기반의 프로그래밍 언어`라고도 한다.
+```js
+User.prototype.getFullName = function(){
+ return `${this.firstName} ${this.lastName}`
+}
+
+console.log(heropy.getFullName()) // Heropy Park
+```
+
+# ✅  this
+* this가 지칭하는 것은 로직에 따라 일반 함수로 작성할지, 화살표 함수로 작성할지 정할 수 있어야 한다.
+* `일반 함수`는 `호출 위치`에 따라 this 정의
+```javascript
+const heropy = {
+ name: 'Heropy',
+ nomal: function () {
+  console.log(this.name)
+ },
+ arrow: () => {
+  console.log(this.name)
+ }
+ }
+
+heroopy.normal() // Heropy
+heropy.arrow() // undefined
+```
+* 일반함수는 메소드 속성을 아래와 같이 축약해서 사용할 수도 있다.
+```
+const heropy = {
+ name: 'Heropy',
+ nomal () {
+  console.log(this.name)
+ },
+ arrow: () => {
+  console.log(this.name)
+ }
+}
+
+heropy.normal() // Heropy
+heropy.arrow() // undefined
+```
+* 아래아 같이 다른 객체 데이터 내 함수를 가져올 수도 있다. 
+```js
+const amy = {
+ name: 'Amy',
+ normal: heropy.normal, 
+ arrow:heropy.arrow
+}
+amy.normal(); // Amy
+amy.arrow(); // undefined
+```
+* `화살표 함수`는 자신이 `선언된 함수 범위`에 따라 this 정의
+* 아래 코드의 setTimeout을 일반 함수로 작성하면 this는 함수가 호출되는 setTimeout에서 this를 찾으며, 결국 undefined로 출력된다.
+* 따라서 settimeout, setinterval 함수 사용시 (추후 this를 사용하기 위해) 화살표 함수로 작성하는 것이 활용도가 높다.
+```javascript
+const timer = {
+ name: 'Heropy',
+ timeout: function (){
+ setTimeout(() => {
+  console.log(this.name)
+  },2000)
+ }
+}
+timer.timeout();
 ```
