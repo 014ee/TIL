@@ -1,3 +1,105 @@
+# ✅  Classes (ES 6)
+## class
+* template(붕어빵을 만들 수 있는 틀)
+* 데이터는 들어있지 않고 틀만 만들어져 있어 실제 메모리에 올라가지 않는다.
+* 한번만 선언한다.
+ ```js
+class User {
+ constructor (firstName, lastName, age){
+  this.firstName = firstName
+  this.lastName = lastName
+  this.age = age
+ }
+ getFullName() {
+  return `${this.firstName} ${this.lastName}`
+ }
+}
+```
+## object
+* class를 이용해 만들어진 새로운 인스턴스(붕어빵)
+* 데이터가 들어가 있으므로 메모리에 올라간다.
+* 여러번 만들어낼 수 있다.
+ ```js
+ const ellie = new User('ellie', 'Kim', 20)
+ console.log(ellie.getFullName) // ellie Kim
+ ```
+ ## 참고: class가 생기기 전
+ * class가 생기기 전에는 아래와 같이 template을 만들었다.
+```js
+function User (first, last) {
+ this.firstName = first
+ this.lastName = last
+}
+User.prototype.getFullName = function(){
+ return `&{this.firstName} &{this.lastName}`
+}
+```
+
+# ✅ Getter/Setter
+* 내가 기대하는 범위의 값을 사용자가 입력하지 않았을 때를 대비하여 미리 반환할 값을 준비해놓는 것
+* 이 값을 다른 사람이 변경하는 것은 좋지 않기 때문에 인캡슐레이션화하여 숨길 수 있다.
+```js
+const steve = new User('steve', 'Lee', -1) // 나이가 -1인 것은 말이 안됨
+```
+ ```js
+class User {
+ constructor (firstName, lastName, age){
+  this.firstName = firstName
+  this.lastName = lastName
+  this.age = age
+ }
+ get age(){ // 값을 리턴
+  return this._age;
+ }
+ set age(value){ // 값을 설정
+ // if (value < 0){
+ //  throw Error('age can not be negative')
+ // }
+  this._age = value < 0 ? 0 : value;
+ }
+}
+```
+
+# ✅ 상속(확장)
+* class 상속을 통해 공통적으로 쓰이는 속성값을 재사용 할 수 있다. 
+```javascript
+class Vehicle {
+ constructor(name, wheel){
+  this.name = name
+  this.wheel = wheel
+ }
+}
+```
+```js
+class Car extends Vehicle {}
+```
+* super가 있는 자리에서 상속받은 class 속성이 실행된다.
+```js
+class Car extends Vehicle {
+ constructor(name, wheel, license) {
+  super(name, wheel) // 기존에 상속받은 속성은 유지(super)
+  this.license = license // 새로운 속성 추가
+ }
+}
+```
+```js
+const myCar = new Car ('벤츠', 4, true)
+const daughtersCar = new Car('포르쉐', 4, false)
+```
+
+# ✅ instanceof
+* 왼쪽에 있는 object가 오른쪽에 있는 class의 instance 인지 아닌지 확인(true/false) 
+```js
+console.log(Car instanceof Vehicle) // true
+console.log(Car instanceof Object) // true (js에서 만든 모든 object, class들은 js의 Object를 상속한 것)
+```
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 # ✅  생성자 함수
 * 객체데이터 내 속성과 매소드를 통틀어서 멤버라고도 한다.
 * 아래와 같이 중복되는 코드를 하나하나 작성하면 코드가 길어지고 비효율적이다.
@@ -100,49 +202,4 @@ const timer = {
 timer.timeout();
 ```
 
-## ES6 Classes
-```javascript
-function User (first, last) {
- this.firstName = first
- this.lastName = last
-}
-User.prototype.getFullName = function(){
- return `&{this.firstName} &{this.lastName}`
-}
-```
-* 일반 함수의 경우 아래와 같이 축약해서 사용할 수 있다.
-* 보기에 더 깔끔하고 리엑트에서 많이 쓰이는 방식이다.
-```javascript
-class User {
- constructor (first, last){
-  this.firstName = first
-  this.lastName = last
- }
- getFullName() {
-  return `&{this.firstName} &{this.lastName}`
- }
-}
-```
 
-## 상속(확장)
-* 클래스 함수를 상속(확장)하여 사용할 수 있다.
-```javascript
-class Vehicle {
- constructor(name, wheel){
-  this.name = name
-  this.whell = wheel
- }
-}
-const myVehicle = new Vehicle('운송수단', '2');
-```
-* super가 있는 자리에서 상속받은 Vehicle이 실행된다.
-```javascript
-class Car extends Vehicle {
- constructor(name, wheel, license) {
-  super(name, wheel)
-  this.license = license
- }
-}
-const myCar = new Car ('벤츠', 4, true)
-const daughtersCar = new Car('포르쉐', 4, false)
-```
