@@ -27,7 +27,7 @@
 - [BootStrap]()
 
 ### JS 베이직
-- [MDN JS 참고서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference)
+- [자바스크립트 참고서(MDN)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference)
 - [자바스크립트 역사](https://github.com/014ee/TIL/blob/main/javascript/about-js.md)
 - [데이터타입](https://github.com/014ee/TIL/blob/main/javascript/datatype.md)
 - [연산자](https://github.com/014ee/TIL/blob/main/javascript/operator.md)
