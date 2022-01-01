@@ -11,13 +11,13 @@ const str = pi.toFixed(2);
 console.log(str); // 3.14
 console.log(typeof str); // string
 ```
-* `parseInt()` 문자열로 작성된 숫자를 `소수점을 제외한 숫자 데이터로 반환`할 수 있다.
+* `parseInt()` 문자열로 작성된 숫자를 `숫자 데이터(정수)로 반환`할 수 있다.
 ```javascript
 const integer = parseInt(str); 
 console.log(integer) // 3
 consloe.log (typeof integer); // number
 ```
-* `parseFloat()` 문자열로 작성된 숫자를 `숫자 데이터로 반환`할 수 있다.
+* `parseFloat()` 문자열로 작성된 숫자를 `숫자 데이터(실수)로 반환`할 수 있다.
 ```javascript
 const float = parseFloat(str);
 console.log(float) // 3.14
