@@ -5,15 +5,33 @@ const obj1 = {key: value};  // object literal
 const obj2 = new Object(); // object constructor
 ```
 ```js
-console.log(ellie.name) // 코딩하는 순간, 그 key에 해당하는 값을 받아오고 싶을 때
-console.log(ellie['name']) // 코딩하는 순간, 그 key에 해당하는 값이 얼마인지 모를 때
+console.log(user.name) // 코딩하는 순간, 그 key에 해당하는 값을 받아오고 싶을 때
+console.log(user['name']) // 코딩하는 순간, 그 key에 해당하는 값이 얼마인지 모를 때
 ```
-## `key in object`
-* 해당 object 안에 key가 있는지 없는지 체크
+## Key in object
+* object 안에 특정 key 값이 있는지 없는지 체크
 ```js
-console.log('name' in ellie); // true
+const user = {
+ name: 'Heropy',
+ age: 85,
+ email: 'email@naver.com'
+}
 ```
-## `Object.assign()`
+```js
+console.log('name' in user); // true
+```
+## Object.keys()
+* 객체 데이터의 `key 값을 배열로 반환`한다.
+```js
+const keys = Object.keys(user)
+console.log(keys) // ['name', 'age', 'email']
+```
+* `.map()` 메서드를 이용해 속성에 대한 값들을 배열로 가져올 수 있다.
+```js
+const values = keys.map(key => user[key])
+console.log(value) // ['Heropy', 85, 'email@naver.com']
+```
+## Object.assign()
 * 대상 객체(첫번째 인수)에 하나 이상의 출처 객체 데이터를 병합시켜준다.
 * 속성명이 같으면 값을 덮어쓴다.
 ```js
@@ -30,25 +48,63 @@ console.log(target === returnedTarget) // true (단순히 값이 같아서가 �
 ```js
 const newTarget = Object.assign({}, target, source)
 ```
-
-## `Object.keys()`
-* 객체 데이터의 속성들(key)을 문자로 변환하여 배열 데이터로 만들어준다.
-```js
-const user = {
+# ✅  일반 함수의 This
+* 일반 함수는 `함수가 호출된 위치`에 따라 this를 정의한다.
+```javascript
+const heropy = {
  name: 'Heropy',
- age: 85,
- email: 'email@naver.com'
+ nomal: function () {
+  console.log(this.name)
+ },
+ arrow: () => {
+  console.log(this.name)
+ }
+ }
+
+heroopy.normal() // Heropy
+heropy.arrow() // undefined
+```
+* 일반함수는 메소드 속성을 아래와 같이 축약해서 사용할 수도 있다.
+```js
+const heropy = {
+ name: 'Heropy',
+ nomal () {
+  console.log(this.name)
+ },
+ arrow: () => {
+  console.log(this.name)
+ }
 }
+
+heropy.normal() // Heropy
+heropy.arrow() // undefined
 ```
+* 아래아 같이 다른 객체 데이터 내 함수를 가져올 수도 있다. 
 ```js
-const keys = Object.keys(user)
-console.log(keys) // ['name', 'age', 'email']
+const amy = {
+ name: 'Amy',
+ normal: heropy.normal, 
+ arrow:heropy.arrow
+}
+amy.normal(); // Amy
+amy.arrow(); // undefined
 ```
-* .map() 메서드를 이용해서 속성에 대한 값들을 배열로 가져올 수 있다.
-```js
-const values = keys.map(key => user[key])
-console.log(value) // ['Heropy', 85, 'email@naver.com']
+# ✅  화살표 함수의 This
+* 화살표 함수는 `함수가 선언된 범위`에 따라 this를 정의한다.
+* setTimeout 같은 전역함수를 일반 함수로 작성하면 함수가 호출되는 setTimeout에서 this를 찾으므로 undefined로 출력된다.
+* 따라서 `전역 함수 사용시` this를 사용할 확률이 있으면 화살표 함수로 작성하는 것이 활용도가 높다.
+```javascript
+const timer = {
+ name: 'Heropy',
+ timeout: function (){
+ setTimeout(() => {
+  console.log(this.name)
+  },2000)
+ }
+}
+timer.timeout();
 ```
+
 
 # ✅  생성자 함수
 * class가 없었을 때, 아래와 같이 중복되는 object는 함수를 이용하여 template을 만들었다.
@@ -93,61 +149,4 @@ User.prototype.getFullName = function(){
 }
 
 console.log(heropy.getFullName()) // Heropy Park
-```
-
-# ✅  this
-* this가 지칭하는 것은 로직에 따라 일반 함수로 작성할지, 화살표 함수로 작성할지 정할 수 있어야 한다.
-* `일반 함수`는 `호출 위치`에 따라 this 정의
-```javascript
-const heropy = {
- name: 'Heropy',
- nomal: function () {
-  console.log(this.name)
- },
- arrow: () => {
-  console.log(this.name)
- }
- }
-
-heroopy.normal() // Heropy
-heropy.arrow() // undefined
-```
-* 일반함수는 메소드 속성을 아래와 같이 축약해서 사용할 수도 있다.
-```
-const heropy = {
- name: 'Heropy',
- nomal () {
-  console.log(this.name)
- },
- arrow: () => {
-  console.log(this.name)
- }
-}
-
-heropy.normal() // Heropy
-heropy.arrow() // undefined
-```
-* 아래아 같이 다른 객체 데이터 내 함수를 가져올 수도 있다. 
-```js
-const amy = {
- name: 'Amy',
- normal: heropy.normal, 
- arrow:heropy.arrow
-}
-amy.normal(); // Amy
-amy.arrow(); // undefined
-```
-* `화살표 함수`는 자신이 `선언된 함수 범위`에 따라 this 정의
-* 아래 코드의 setTimeout을 일반 함수로 작성하면 this는 함수가 호출되는 setTimeout에서 this를 찾으며, 결국 undefined로 출력된다.
-* 따라서 settimeout, setinterval 함수 사용시 (추후 this를 사용하기 위해) 화살표 함수로 작성하는 것이 활용도가 높다.
-```javascript
-const timer = {
- name: 'Heropy',
- timeout: function (){
- setTimeout(() => {
-  console.log(this.name)
-  },2000)
- }
-}
-timer.timeout();
 ```
