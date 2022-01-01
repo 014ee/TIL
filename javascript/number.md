@@ -1,4 +1,4 @@
-# NUMBER (숫자)
+# ✅ Number
 정수 및 부동소수점 숫자를 나타낸다.
 
 ## .toFixed()
