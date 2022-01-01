@@ -11,22 +11,7 @@ console.log(ellie['name']) // 코딩하는 순간, 그 key에 해당하는 값�
 ## `key in object`
 * 해당 object 안에 key가 있는지 없는지 체크
 ```js
-console.log('name' in ellie); 
-```
-
-## `for..in` vs `for..of`
-* ellie가 가지고 있는 key들이 지역변수에 할당
-```js
-for (key in ellie){
- console.log(key); // name, age
-}
-```
-* array 배열 안에 있는 모든 값들이 value에 할당되면서 순차적으로 실행
-```js
-const array = [1, 2, 3, 4]
-for (value of array){
- console.log(value) // 1, 2, 3, 4
-}
+console.log('name' in ellie); // true
 ```
 ## `Object.assign()`
 * 대상 객체(첫번째 인수)에 하나 이상의 출처 객체 데이터를 병합시켜준다.
