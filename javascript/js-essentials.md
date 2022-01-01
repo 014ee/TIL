@@ -1,6 +1,6 @@
 # ✅ 조건문
 * 예시) Math의 랜덤함수와 내림처리를 통해 랜덤 숫자 추출하기
-```javascript
+```js
 export default function random() {
  return Math.floor(Math.random() * 10)
 }
@@ -20,11 +20,9 @@ if (a === 0){
 ```
 
 ##  `Switch`
-* 조건을 여러 분기로 나누어 작성할 수 있다.
+* 조건을 여러 분기로 나누어 작성할 수 있다. `타입스크립트에서 정해진 타입을 검사하는데 유용`
 * 조건이 끝나면 뒤에 `break`를 넣어야 한다. (나머지를 처리하는 `default`에서는 생략 가능)
-* 딱 떨어지는 여러개의 조건일 경우 if 보다 코드를 깔끔하게 작성할 수 있다.
-* 가령 타입스크립트에서 정해진 타입을 검사하는데 유용하다.
-```javascript
+```js
 switch (a) {
  case 0:
  case -0:
