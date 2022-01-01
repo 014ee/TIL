@@ -1,8 +1,8 @@
 # ✅ Number
 정수 및 부동소수점 숫자를 나타낸다.
 
-## .toFixed()
-* 소수점을 지정한 갯수 만큼만 남기고 자른 후, `문자 데이터로 반환`한다.
+## 숫자 → 문자
+* `.toFixed()` 소수점을 지정한 갯수 만큼만 남기고 자른 후, `문자 데이터로 반환`한다.
 ```js
 const pi = 3.14159265358979
 ```
@@ -11,7 +11,7 @@ const str = pi.toFixed(2);
 console.log(str); // 3.14
 console.log(typeof str); // string
 ```
-## 문자 to 숫자
+## 문자 → 숫자
 * `parseInt()` 문자열로 작성된 숫자를 `숫자 데이터(정수)로 반환`할 수 있다.
 ```js
 const integer = parseInt(str); 
@@ -24,8 +24,8 @@ const float = parseFloat(str);
 console.log(float) // 3.14
 consloe.log (typeof float); // number
 ```
----
-# Mach 객체
+
+# ✅ Mach 객체
 수학적인 상수와 함수를 위한 속성과 메서드를 가진 내장 객체 (함수 객체 x)  
 [Math mdn](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math)
 ## Math.abs()
