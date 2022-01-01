@@ -1,4 +1,41 @@
 # ✅ Array
+## 스프레드 인수
+```js
+const arr = [1, 2, 3, 4]
+```
+```js
+function printAll(param){
+  param.forEach((item) => console.log(item))
+}
+printAll(...array) // [1, 2, 3, 4]
+```
+## .map()
+* forEach()와 같이 콜백 함수가 각 요소마다 한번씩 반복해서 실행된다.
+* 콜백으로 만들어진 새로운 `데이터를 새로운 배열로 만들어 반환`해준다.
+```js
+const numbers = [1, 2, 3, 4]
+const fruits = [Apple, Banana, Cherry]
+```
+```js
+const a = fruits.map(function(fruit, index){
+ `${fruit}-${index}`
+})
+console.log(a) // [Apple-0, Banana-1, Cherry-2]
+```
+* `아이템들을 객체 데이터로 바꾼 후 새로운 배열`로 만들어 사용할 수도 있다.
+```js
+const b = fruits.map((fruit, index) => ({
+  id:'index',
+  name:'fruit'
+ }))
+console.log(b) // [{id:0, name:Apple}, {id:1, name:Banana}, {id:2, name:Cherry}]
+```
+* 조건에 대한 boolean 데이터값을 반환받을 수 도 있다.
+* 실행된 요소와 새로 반환된 배열의 요소 갯수는 일치한다.
+```js
+const c = numbers.map(number => number < 3)
+console.log(c) // [true, true, false, false]
+```
 
 # ✅ 아이템 정렬
 ## .reverse()
@@ -96,44 +133,4 @@ console.log(arr) // [1, 2]
 const numbers = [1, 2, 3, 4]
 numbers.splice(2, 1, 999) // index[2]에서 아이템을 0개 지우고 숫자 999를 추가해라
 console.log(numbers) // [1, 2, 999, 3, 4]
-```
-
-# ✅ 배열 반복
-## .forEach()
-* 배열 내 요소마다 한 번씩 주어진 함수(콜백)를 실행한다.
-* 밖으로 `값을 반환(return)하지 못한다.` (undefined 출력)
-```js
-const numbers = [1, 2, 3, 4]
-const fruits = ['Apple', 'Banana', 'Cherry']
-```
-```js
-const a = fruits.forEach((fuit, index) => {console.log(`${fruit}-${index}`)}) // Apple-0 / Banana-1 / Cherry-2
-console.log(a) // undefined
-```
-## .map()
-* forEach()와 같이 콜백 함수가 각 요소마다 한번씩 반복해서 실행된다.
-* 콜백으로 만들어진 새로운 `데이터를 새로운 배열로 만들어 반환`해준다.
-```js
-const numbers = [1, 2, 3, 4]
-const fruits = [Apple, Banana, Cherry]
-```
-```js
-const a = fruits.map(function(fruit, index){
- `${fruit}-${index}`
-})
-console.log(a) // [Apple-0, Banana-1, Cherry-2]
-```
-* `아이템들을 객체 데이터로 바꾼 후 새로운 배열`로 만들어 사용할 수도 있다.
-```js
-const b = fruits.map((fruit, index) => ({
-  id:'index',
-  name:'fruit'
- }))
-console.log(b) // [{id:0, name:Apple}, {id:1, name:Banana}, {id:2, name:Cherry}]
-```
-* 조건에 대한 boolean 데이터값을 반환받을 수 도 있다.
-* 실행된 요소와 새로 반환된 배열의 요소 갯수는 일치한다.
-```js
-const c = numbers.map(number => number < 3)
-console.log(c) // [true, true, false, false]
 ```
