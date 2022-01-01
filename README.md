@@ -27,18 +27,19 @@
 - [BootStrap]()
 
 ### JS 베이직
-- [자바스크립트 참고서(MDN)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference)
+- [자바스크립트 MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference)
 - [자바스크립트 역사](https://github.com/014ee/TIL/blob/main/javascript/about-js.md)
 - [데이터타입](https://github.com/014ee/TIL/blob/main/javascript/datatype.md)
 - [연산자](https://github.com/014ee/TIL/blob/main/javascript/operator.md)
 - [조건문·반복문](https://github.com/014ee/TIL/blob/main/javascript/js-essentials.md)
-- [배열](https://github.com/014ee/TIL/blob/main/javascript/array.md)
-- [함수](https://github.com/014ee/TIL/blob/main/javascript/function.md)
-- [클래스](https://github.com/014ee/TIL/blob/main/javascript/class.md)
-- [객체](https://github.com/014ee/TIL/blob/main/javascript/object.md)
 - [문자](https://github.com/014ee/TIL/blob/main/javascript/string.md)
-- [숫자](https://github.com/014ee/TIL/blob/main/javascript/number.md)
 - [심볼](https://github.com/014ee/TIL/blob/main/javascript/symbol.md)
+- [숫자](https://github.com/014ee/TIL/blob/main/javascript/number.md)
+- [배열](https://github.com/014ee/TIL/blob/main/javascript/array.md)
+- [객체](https://github.com/014ee/TIL/blob/main/javascript/object.md)
+- [클래스](https://github.com/014ee/TIL/blob/main/javascript/class.md)
+- [함수](https://github.com/014ee/TIL/blob/main/javascript/function.md)
+
 
 ### JS 레벨업
 - [json](https://github.com/014ee/TIL/tree/main/javascript)
