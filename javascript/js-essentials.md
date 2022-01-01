@@ -77,13 +77,34 @@ for (let i = 0; i < arr.length; i += 1){
  console.log(arr[i]) // 1 / 2 / 3 / 4
 }
 ```
-## For in for
 * `nested loops` (중첩 루프는 CPU에 좋지 않으므로 가급적 자제)
 ```js
 for (let i = 0; i < 10; i ++) {
  for (let j = 0; j < 10; j ++) {
   console.log(i, j)
  }
+}
+```
+## For...of
+* 배열 안에 있는 모든 아이템들이 순차적으로 실행
+```js
+const arr = [1, 2, 3, 4]
+for (items of arr){
+ console.log(items) // 1 / 2 / 3 / 4
+}
+```
+## For...in
+* 객체의 각 속성에 순차적으로 접근
+```js
+var person = {
+name : 'Amy',
+age: 28,
+address: 'Seoul'
+}
+```
+```js
+for (let keys in person){
+ console.log(person[keys]) // 'Amy' / 28 / 'Seoul'
 }
 ```
 ## ...배열
@@ -100,26 +121,4 @@ function printAll(...args){
   args.forEach((arg) => console.log(arg))
 }
 printAll('dream', 'codeing', 'ellie')
-```
-## For in
-* 객체의 각 속성에 접근 가능한 반복문
-```js
-var person = {
-name : 'Amy',
-age: 28,
-address: 'Seoul'
-}
-```
-```js
-for (let keys in person){
- console.log(person[keys]) // 'Amy' / 28 / 'Seoul'
-}
-```
-```js
-console.log('age' in person) // true
-console.log('job' in person) // false
-```
-* Object 속성을 통해서도 key값을 배열로 받을 수 있긴 하다. (대신 추가 작업을 진행하려면 for문 써야되서 복잡)
-```js
-Object.keys(person) // ['name', 'age', address]
 ```
