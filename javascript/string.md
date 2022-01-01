@@ -1,7 +1,4 @@
 # ✅ String
-
-
-# ✅ 문자열 메서드
 ## .charAT()
 * 텍스트 인덱싱
 ```js
@@ -19,7 +16,7 @@ const str = 'Hello world!'.indexOf('earth') // -1
 ```javascript
 console.log(str.indexOf('moon') !== -1) // false
 ```
-## .length()
+## .length
 * 문자의 갯수를 출력해줍니다.
 * `공백도 하나의 문자`로 인식합니다.
 ```javascript
