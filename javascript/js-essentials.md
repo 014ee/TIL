@@ -1,4 +1,5 @@
 # ✅ 조건문
+##  If Else
 * 예시) Math의 랜덤함수와 내림처리를 통해 랜덤 숫자 추출하기
 ```js
 export default function random() {
@@ -6,50 +7,53 @@ export default function random() {
 }
 
 import random from './getRandom'
-const a = random();
+const number = random();
 ```
-##  `If Else`
-```javascript
-if (a === 0){
- console.log('a is 0'); 
-} else if (a === 2){
- console.log('a is 2')
+```js
+if (number === 0){
+ console.log('number is 0'); 
+} else if (number === 2){
+ console.log('number is 2')
 }else {
  console.log('rest...')
 }
 ```
 
-##  `Switch`
+##  Switch
 * 조건을 여러 분기로 나누어 작성할 수 있다. `타입스크립트에서 정해진 타입을 검사하는데 유용`
-* 조건이 끝나면 뒤에 `break`를 넣어야 한다. (나머지를 처리하는 `default`에서는 생략 가능)
+* `break`를 넣어야 조건이 만족될 시 실행을 멈추고 빠져나온다. (`default`에서는 생략 가능)
 ```js
-switch (a) {
- case 0:
- case -0:
- console.log('a is 0')
+const color = 'red'
+```
+```js
+switch (color) {
+ case orange:
+ case tangerine:
+ console.log('color is orange')
  break
- case 2:
- console.log('a is 2')
+ case green:
+ console.log('color is green')
  break
- case 4:
- console.log('a is 4')
+ case red:
+ console.log('color is red')
  break
  default:
- console.log('rest...')
+ console.log('what color is it?')
 }
 ```
-## `삼항 연산자`
+## 삼항 연산자
 * (조건 ? '참일 때 반환하는 값' : '거짓일 때 반환하는 값')
-```javascript
+```js
 console.log( true === true ? '참' : '거짓') // 참
 ```
 
 # ✅ 반복문
 * 반복문을 동작시킬 때 통상적으로 `i` 변수를 사용한다.
-* `i`는 조건 내에서 변수에 할당 할 수도 있고, 외부에서 할당 후 사용할 수도 있다.
-## `while`
-* 값이 `false`가 나올 때 까지 계속해서 반복한다.
-* 보통 조건이 맞을 때만 실행하고 싶을 때 사용한다.
+* `while문에서 continue` : 반복문을 빠져나온 후 다시 조건식으로 올라가 조건이 맞으면 실행한다.
+* `for문에서 continue` : 반복문을 빠져나온 후 `업데이트 구문을 먼저 실행`하고, 조건이 맞으면 실행한다.
+* `break` : `while문`, `for문` 모두 즉시 실행을 종료하고 반복문에서 빠져나온다.
+## while
+* 조건이 맞는다면, 값이 `false`가 나올 때 까지 계속해서 반복한다.
 ```js
 let i = 3
 while (i > 0) {
@@ -57,30 +61,32 @@ while (i > 0) {
  i--
 }
 ```
-## `do while`
-* 조건보다 블록 안의 명령을 먼저 실행하고 싶을 때 사용한다.
+## do while
+* 블록 안의 명령을 일단 1번 이상은 실행하고 싶을 때 사용한다.
 ```js
 do {
  console.log(`do whild: ${i}`) // do while: 0
 } while (i > 0)
 ```
-## `For`
+## For
 * (`시작조건`; `종료조건`; `변화조건`)
-```javascript
-const ulEl = document.querySelector('ul');
+```js
+const arr = [1, 2, 3, 4]
 
-for (let i = 0; i < 10; i += 1){
- const li = document.createElement('li');
- li.textContent = `list-${i + 1}`
- 
- if ((i+1) % 2 === 0){
-  li.addEventListener('click', function(){
-   console.log(li.textContent)
-  })
- }
- ulEl.appendChild(li);
+for (let i = 0; i < arr.length; i += 1){
+ console.log(arr[i]) // 1 / 2 / 3 / 4
 }
 ```
+## For in for
+* `nested loops` (중첩 루프는 CPU에 좋지 않으므로 가급적 자제)
+```js
+for (let i = 0; i < 10; i ++) {
+ for (let j = 0; j < 10; j ++) {
+  console.log(i, j)
+ }
+}
+```
+## ...배열
 ```js
 function printAll(...args){
  for (let i = 0; i < args.length; i++) {
@@ -95,11 +101,25 @@ function printAll(...args){
 }
 printAll('dream', 'codeing', 'ellie')
 ```
-* `nested loops` (중첩 루프는 CPU에 좋지 않으므로 가급적 자제)
+## For in
+* 객체의 각 속성에 접근 가능한 반복문
 ```js
-for (let i = 0; i < 10; i ++) {
- for (let j = 0; j < 10; j ++) {
-  console.log(i, j)
- }
+var person = {
+name : 'Amy',
+age: 28,
+address: 'Seoul'
 }
+```
+```js
+for (let keys in person){
+ console.log(person[keys]) // 'Amy' / 28 / 'Seoul'
+}
+```
+```js
+console.log('age' in person) // true
+console.log('job' in person) // false
+```
+* Object 속성을 통해서도 key값을 배열로 받을 수 있긴 하다. (대신 추가 작업을 진행하려면 for문 써야되서 복잡)
+```js
+Object.keys(person) // ['name', 'age', address]
 ```
