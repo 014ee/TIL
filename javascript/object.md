@@ -48,7 +48,10 @@ console.log(target === returnedTarget) // true (단순히 값이 같아서가 �
 ```js
 const newTarget = Object.assign({}, target, source)
 ```
-# ✅  일반 함수의 This
+# ✅  This
+* this의 대상은 this를 사용하는 함수를 어떻게 실행하느냐에 따라 바뀐다.
+* `일반함수에서 this는 window` `'use strict' 모드의 일반함수에서 this는 undefined` 
+## 일반 함수의 this
 * 일반 함수는 `함수가 호출된 위치`에 따라 this를 정의한다.
 ```javascript
 const heropy = {
@@ -89,7 +92,7 @@ const amy = {
 amy.normal(); // Amy
 amy.arrow(); // undefined
 ```
-# ✅  화살표 함수의 This
+## 화살표 함수의 this
 * 화살표 함수는 `함수가 선언된 범위`에 따라 this를 정의한다.
 * setTimeout 같은 전역함수를 일반 함수로 작성하면 함수가 호출되는 setTimeout에서 this를 찾으므로 undefined로 출력된다.
 * 따라서 `전역 함수 사용시` this를 사용할 확률이 있으면 화살표 함수로 작성하는 것이 활용도가 높다.
