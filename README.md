@@ -42,6 +42,7 @@
 
 ### JS 레벨업
 - [이벤트](https://github.com/014ee/TIL/blob/main/javascript/event.md)
+- [ajax](https://github.com/014ee/TIL/blob/main/javascript/ajax.md)
 - [json](https://github.com/014ee/TIL/tree/main/javascript)
 - [비동기 콜백 함수](https://github.com/014ee/TIL/tree/main/javascript)
 - [프로미스](https://github.com/014ee/TIL/tree/main/javascript)
