@@ -46,8 +46,8 @@
 - [비동기 콜백 함수](https://github.com/014ee/TIL/tree/main/javascript)
 - [프로미스](https://github.com/014ee/TIL/tree/main/javascript)
 - [async&await](https://github.com/014ee/TIL/tree/main/javascript)
-- [이벤트 핸들링](https://github.com/014ee/TIL/blob/main/javascript/event.md)
-- [에러 핸들링](https://github.com/014ee/TIL/blob/main/javascript/error-handling.touch)
+- [이벤트](https://github.com/014ee/TIL/blob/main/javascript/event.md)
+- [예외처리](https://github.com/014ee/TIL/blob/main/javascript/exception.md)
 - [정규표현식](https://github.com/014ee/TIL/tree/main/regexp)
 - [타입스크립트]()
 
