@@ -94,6 +94,18 @@ const arr = [1, 2, 3, 4]
 arr.join() // 1, 2, 3, 4
 arr.join('') // 1234
 ```
+## .splice()
+* `원하는 index로부터 원하는 갯수만큼 아이템을 제거하거나 추가` 할 수 있다. `원본 수정`
+```js
+const arr = [1, 2, 3, 4]
+numbers.splice(2, 2) // index[2]에서 아이템을 2개 지워라
+console.log(arr) // [1, 2]
+```
+```js
+const numbers = [1, 2, 3, 4]
+numbers.splice(2, 1, 999) // index[2]에서 아이템을 0개 지우고 숫자 999를 추가해라
+console.log(numbers) // [1, 2, 999, 3, 4]
+```
 ## .concat()
 * `2개의 배열 데이터를 병합`해서 새로운 배열 데이터를 반환해준다. `원본 유지`
 ```js
@@ -121,16 +133,4 @@ const arr = [1, 2, 3, 4]
 ```js
 arr.shift() // [2, 3, 4]
 arr.unshift(0) // [0, 1, 2, 3, 4]
-```
-## .splice()
-* `원하는 index로부터 원하는 갯수만큼 아이템을 제거하거나 추가` 할 수 있다. `원본 수정`
-```js
-const arr = [1, 2, 3, 4]
-numbers.splice(2, 2) // index[2]에서 아이템을 2개 지워라
-console.log(arr) // [1, 2]
-```
-```js
-const numbers = [1, 2, 3, 4]
-numbers.splice(2, 1, 999) // index[2]에서 아이템을 0개 지우고 숫자 999를 추가해라
-console.log(numbers) // [1, 2, 999, 3, 4]
 ```
