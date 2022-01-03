@@ -61,9 +61,9 @@ console.log(toObject(...fruits)) // {a: 'Apple', b: 'Banana', c: ['Cherry', 'Ora
 *  `?.` 앞의 평가 대상이 `undefined`나 `null`이면 평가를 멈추고 `undefined`를 반환한다.
 ```js
 const Amy = {
-name: 'Amy',
-age: 20,
-job: {title:}
+ name: 'Amy',
+ age: 20,
+ job: {title:}
 }
 
 function displayJob(person){
