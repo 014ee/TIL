@@ -139,3 +139,12 @@ function pintMessage(text){
 printMessage('Hello') // Hello
 printMessage(null) // Nothing to display
 ```
+* `default parameter`과 다른 점 : defalt parmeter는 값이 null인건 null로 출력한다.
+```js
+function pintMessage(text = Nothing to display){
+  const message = text
+  console.log(message)
+}
+printMessage(undefined) // Nothing to display
+printMessage(null) // null
+```
