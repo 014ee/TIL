@@ -52,7 +52,7 @@ try {
 * return 구문과 비슷하게 에러를 나타낼 수 있는 인자를 사용한다.
 ```js
 try {
-throw new Error("에러");
+  throw new Error("에러");
 }catch(e){
   console.log(e) // Error: 에러
 }
