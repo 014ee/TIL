@@ -113,7 +113,7 @@ const arr = [1, 2, 3, 4]
 const fruits = ['Apple', 'Banana', 'Cherry']
 console.log(arr.concat(fruits)) // [1, 2, 3, 4, 'Apple', 'Banana', 'Cherry']
 ```
-## .push(),.pop()
+## .push(), .pop()
 * `.push()` 배열 맨 뒤에 아이템 추가
 * `.pop()` 배열 맨 뒤의 아이템 제거
 * `원본이 수정`될 수 있으니 주의
