@@ -128,13 +128,6 @@ obj && console.log(obj) // obj가 true일 때만 && 뒤의 코드를 실행하�
 const obj = 'cup'
 obj || console.log(obj) // obj가 false일 때만 || 뒤의 코드를 실행하므로 콘솔에 아무 것도 찍히지 않는다.
 ```
-
-# ✅ 삼항 연산자
-* (조건 ? '참일 때 반환하는 값' : '거짓일 때 반환하는 값')
-```js
-console.log( true === true ? '참' : '거짓') // 참
-```
-
 # ✅ nullish 병합 연산자
 * `a ?? b` a가 null 또는 undefined가 아니면 a, 그 외의 경우는 b 실행
 ```js
@@ -154,3 +147,11 @@ function pintMessage(text = Nothing to display){
 printMessage(undefined) // Nothing to display
 printMessage(null) // null
 ```
+
+# ✅ 삼항 연산자
+* (조건 ? '참일 때 반환하는 값' : '거짓일 때 반환하는 값')
+```js
+console.log( true === true ? '참' : '거짓') // 참
+```
+
+
