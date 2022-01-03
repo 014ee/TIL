@@ -48,6 +48,7 @@ console.log(target === returnedTarget) // true (단순히 값이 같아서가 �
 ```js
 const newTarget = Object.assign({}, target, source)
 ```
+
 # ✅  This
 * this의 대상은 this를 사용하는 함수를 어떻게 실행하느냐에 따라 바뀐다.
 * `일반함수에서 this는 window` `'use strict' 모드의 일반함수에서 this는 undefined` 
