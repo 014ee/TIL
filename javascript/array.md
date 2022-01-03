@@ -103,7 +103,7 @@ console.log(arr) // [1, 2]
 ```
 ```js
 const numbers = [1, 2, 3, 4]
-numbers.splice(2, 1, 999) // index[2]에서 아이템을 0개 지우고 숫자 999를 추가해라
+numbers.splice(2, 0, 999) // index[2]에서 아이템을 0개 지우고 숫자 999를 추가해라
 console.log(numbers) // [1, 2, 999, 3, 4]
 ```
 ## .concat()
