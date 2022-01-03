@@ -9,34 +9,6 @@ function printAll(param){
 }
 printAll(...array) // [1, 2, 3, 4]
 ```
-## .map()
-* forEach()와 같이 콜백 함수가 각 요소마다 한번씩 반복해서 실행된다.
-* 콜백으로 만들어진 새로운 `데이터를 새로운 배열로 만들어 반환`해준다.
-```js
-const numbers = [1, 2, 3, 4]
-const fruits = [Apple, Banana, Cherry]
-```
-```js
-const a = fruits.map(function(fruit, index){
- `${fruit}-${index}`
-})
-console.log(a) // [Apple-0, Banana-1, Cherry-2]
-```
-* `아이템들을 객체 데이터로 바꾼 후 새로운 배열`로 만들어 사용할 수도 있다.
-```js
-const b = fruits.map((fruit, index) => ({
-  id:'index',
-  name:'fruit'
- }))
-console.log(b) // [{id:0, name:Apple}, {id:1, name:Banana}, {id:2, name:Cherry}]
-```
-* 조건에 대한 boolean 데이터값을 반환받을 수 도 있다.
-* 실행된 요소와 새로 반환된 배열의 요소 갯수는 일치한다.
-```js
-const c = numbers.map(number => number < 3)
-console.log(c) // [true, true, false, false]
-```
-
 # ✅ 아이템 정렬
 ## .reverse()
 * 아이템을 반대로 정렬해준다. `원본 수정`
@@ -86,6 +58,34 @@ const arr = [1, 2, 3, 4]
 const includeItem = arr.includes(3)
 console.log(a) // true
 ```
+## .map()
+* forEach()와 같이 콜백 함수가 각 요소마다 한번씩 반복해서 실행된다.
+* 콜백으로 만들어진 새로운 `데이터를 새로운 배열로 만들어 반환`해준다.
+```js
+const numbers = [1, 2, 3, 4]
+const fruits = [Apple, Banana, Cherry]
+```
+```js
+const a = fruits.map(function(fruit, index){
+ `${fruit}-${index}`
+})
+console.log(a) // [Apple-0, Banana-1, Cherry-2]
+```
+* `아이템들을 객체 데이터로 바꾼 후 새로운 배열`로 만들어 사용할 수도 있다.
+```js
+const b = fruits.map((fruit, index) => ({
+  id:'index',
+  name:'fruit'
+ }))
+console.log(b) // [{id:0, name:Apple}, {id:1, name:Banana}, {id:2, name:Cherry}]
+```
+* 조건에 대한 boolean 데이터값을 반환받을 수 도 있다.
+* 실행된 요소와 새로 반환된 배열의 요소 갯수는 일치한다.
+```js
+const c = numbers.map(number => number < 3)
+console.log(c) // [true, true, false, false]
+```
+
 # ✅ 아이템 수정
 ## .join()
 * 아이템을 `문자열로 반환`해줍니다.
