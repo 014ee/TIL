@@ -13,15 +13,17 @@ const user = {
 }
 ```
 ```js
-const {name:heropy, age, email, address='Korea'} = user // user.name or user[name]
-console.log(`사용자의 이름은 ${heropy}입니다.`) // 사용자의 이름은 Heropy입니다.
-console.log(address) // undefined
+function displayPerson(user){
+ const {name:nickname, age, email, address='Korea'} = user
+ console.log(`사용자의 닉네임은 ${nickname}입니다.`) // 사용자의 닉네임은 Heropy입니다.
+ console.log(address) // undefined
+}
 ```
 ## 배열 구조분해
 * 배열의 구조분해는 배열된 데이터 순서대로 이루어진다.
 ```js
 const fruits = ['Apple', 'Banana', 'Cherry']
-cosnt [a, b, c, d] = fruits
+const [a, b, c, d] = fruits
 console.log(a, b, c, d) // Apple Banana Cherry undefined
 ```
 * 따라서 특정 데이터만 가져오고 싶으면 앞의 데이터는 변수명 없이 `,` 처리해주어야 한다. (ex. 바나나만 가져오고 싶은 경우)
