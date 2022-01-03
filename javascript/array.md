@@ -51,7 +51,8 @@ const findItem = fruit.find(fruit => /^B/.test(fruit)) // Banana
 ```js
 const banana = fruit.findIndex(fruit => /^B/.test(fruit))
 console.log(banana) // 1
-```## .filter()
+```
+## .filter()
 * `조건에 만족하는 모든 아이템을 필터링`하여 새로운 배열로 반환받을 수 있다.
 ```js
 const arr = [1, 2, 3, 4]
