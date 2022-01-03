@@ -128,3 +128,14 @@ obj && console.log(obj.name) // obj가 true일 때만 && 뒤의 코드를 실행
 ```js
 console.log( true === true ? '참' : '거짓') // 참
 ```
+
+# ✅ nullish 병합 연산자
+* `a ?? b` a가 null 또는 undefined가 아니면 a, 그 외의 경우는 b 실행
+```js
+function pintMessage(text){
+  const message = text ?? 'Nothing to display'
+  console.log(message)
+}
+printMessage('Hello') // Hello
+printMessage(null) // Nothing to display
+```
