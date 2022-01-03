@@ -1,4 +1,4 @@
-# ✅ 구조 분해 할당 (비구조화 할당)
+# ✅ 구조 분해 할당
 `객체` 및 `배열` 내 각각의 값을 변수로 출력할 수 있다. (ex. 점표기법`user.name`, 인덱싱`user['name']`)
 ## 객체 구조분해
 * 객체 구조분해 단계에서는 불러오는 객체의 속성명을 정확하게 입력해 주어야 한다.
@@ -54,6 +54,24 @@ console.log(toObject(...fruits)) // {a: 'Apple', b: 'Banana', c: [Cherry', 'Oran
 ```js
 const toObject(a, b, ...c) => ({a, b, c})
 console.log(toObject(...fruits)) // {a: 'Apple', b: 'Banana', c: ['Cherry', 'Orange']}
+```
+
+# ✅ 옵셔널 체이닝
+*  `?.`을 사용하면 속성값이 없는 중첩 객체에 에러 없이 안전하게 접근할 수 있다.
+*  `?.` 앞의 평가 대상이 `undefined`나 `null`이면 평가를 멈추고 `undefined`를 반환한다.
+```js
+const Amy = {
+name: 'Amy',
+age: 20,
+job: {title:}
+}
+
+function displayJob(person){
+ if(person.job?.title){
+  console.log(person.job.title)
+ }
+}
+
 ```
 
 # ✅ 내보내기, 가져오기
