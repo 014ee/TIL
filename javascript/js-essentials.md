@@ -41,11 +41,6 @@ switch (color) {
  console.log('what color is it?')
 }
 ```
-## 삼항 연산자
-* (조건 ? '참일 때 반환하는 값' : '거짓일 때 반환하는 값')
-```js
-console.log( true === true ? '참' : '거짓') // 참
-```
 
 # ✅ 반복문
 * 반복문을 동작시킬 때 통상적으로 `i` 변수를 사용한다.
