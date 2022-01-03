@@ -27,7 +27,7 @@ finally{
 ## if 문이 대체할 수 없는 이유
 ```js
 function errFunc(){
-  throw "error";
+  throw new Error("에러");
   console.log('이 코드는 실행되지 않습니다.')
 }
 
@@ -42,7 +42,7 @@ function func(){
 try {
   func();
 } catch(e) {
-  console.log(`catch : ${e}`) // catch : error / func에서 에러가 처리된 errFunc을 여기서 실행시켜줄 수 있습니다.
+  console.log(e) // Error: 에러 / func에서 에러가 처리된 errFunc을 여기서 실행시켜줄 수 있습니다.
 } finally {
   console.log('이 코드는 항상 실행됩니다.')
 }
@@ -52,8 +52,8 @@ try {
 * return 구문과 비슷하게 에러를 나타낼 수 있는 인자를 사용한다.
 ```js
 try {
-throw "error"
+throw new Error("에러");
 }catch(e){
-  console.log(`catch : ${e}`) // catch : error
+  console.log(e) // Error: 에러
 }
 ```
