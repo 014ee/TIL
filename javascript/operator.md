@@ -122,3 +122,9 @@ true
 const obj
 obj && console.log(obj.name) // obj가 true일 때만 && 뒤의 코드를 실행하므로 콘솔에 아무 것도 찍히지 않는다.
 ```
+
+# ✅ 삼항 연산자
+* (조건 ? '참일 때 반환하는 값' : '거짓일 때 반환하는 값')
+```js
+console.log( true === true ? '참' : '거짓') // 참
+```
