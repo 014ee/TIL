@@ -29,11 +29,12 @@ console.log(arr.sort()) // [1, 1000, 2, 3, 4]
 const arr = [1,2,3,4]
 console.log(arr.length) // 4
 ```
-## .filter()
-* `조건에 만족하는 모든 아이템을 필터링`하여 새로운 배열로 반환받을 수 있다.
+## .includes()
+* 특정 `아이템이 포함되어 있으면 true`, 아니면 `false`로 값을 반환해준다.
 ```js
 const arr = [1, 2, 3, 4]
-const filterItem = arr.filter(number => number < 3) // [1,2]
+const includeItem = arr.includes(3)
+console.log(a) // true
 ```
 ## .find()
 * `조건에 만족하는 첫번째 아이템만 찾아`주며, 다음 아이템에 대해서는 찾는 행위를 멈춘다.
@@ -50,16 +51,13 @@ const findItem = fruit.find(fruit => /^B/.test(fruit)) // Banana
 ```js
 const banana = fruit.findIndex(fruit => /^B/.test(fruit))
 console.log(banana) // 1
-```
-## .includes()
-* 특정 `아이템이 포함되어 있으면 true`, 아니면 `false`로 값을 반환해준다.
+```## .filter()
+* `조건에 만족하는 모든 아이템을 필터링`하여 새로운 배열로 반환받을 수 있다.
 ```js
 const arr = [1, 2, 3, 4]
-const includeItem = arr.includes(3)
-console.log(a) // true
+const filterItem = arr.filter(number => number < 3) // [1,2]
 ```
 ## .map()
-* forEach()와 같이 콜백 함수가 각 요소마다 한번씩 반복해서 실행된다.
 * 콜백으로 만들어진 새로운 `데이터를 새로운 배열로 만들어 반환`해준다.
 ```js
 const numbers = [1, 2, 3, 4]
