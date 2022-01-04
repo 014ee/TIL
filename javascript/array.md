@@ -22,6 +22,10 @@ arr.reverse() // [4, 3, 2, 1]
 const arr = [1, 2, 3, 4, 1000]
 console.log(arr.sort()) // [1, 1000, 2, 3, 4]
 ```
+```js
+const arr = [1, 2, 3, 4, 1000]
+console.log(arr.sort(a,b) => {return a - b}) // [1, 2, 3, 4, 1000]
+```
 # ✅ 아이템 검색
 ## .length
 * `아이템의 갯수`를 반환해준다.
