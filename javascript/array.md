@@ -24,7 +24,7 @@ console.log(arr.sort()) // [1, 1000, 2, 3, 4]
 ```
 ```js
 const arr = [1, 2, 3, 4, 1000]
-console.log(arr.sort(a,b) => {return a - b}) // [1, 2, 3, 4, 1000]
+arr.sort(function (a,b){return a-b}) // [1, 2, 3, 4, 1000]
 ```
 # ✅ 아이템 검색
 ## .length
