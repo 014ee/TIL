@@ -104,7 +104,7 @@ for (let keys in person){
 ```
 ## .forEach()
 * 배열의 아이템마다 한 번씩 주어진 함수(콜백)를 실행한다.
-* map이나 reduce와 달리 undefined를 반환하기 때문에 `break`, `continue`, `return` 구문을 사용해서 함수를 벗어날 수 없다.
+* map이나 reduce와 달리 `undefined를 반환`하기 때문에 break, continue, return 구문을 사용해서 함수를 벗어날 수 없다.
 ```js
 const fruits = ['Apple', 'Banana', 'Cherry']
 ```
