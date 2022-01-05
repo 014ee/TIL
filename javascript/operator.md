@@ -58,6 +58,15 @@ console.log(a == b) // true
 console.log(a + b) // '88'
 console.log(a - b) // 0
 ```
+
+## 명시적인 형변환
+* 형변환을 할 때에는 명시적으로 해주어야 한다.
+```js
+Boolean('문자열') // true
+Boolean('') // false
+Number('11') // 11
+```
+
 ## 형변환 더 알아보기
 * truthy (참같은 값)
 ```js
