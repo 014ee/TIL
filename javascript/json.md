@@ -3,8 +3,12 @@ AJAX를 위해 `자바스크립트의 데이터(객체)를 사람이 읽을 수 
 JSON 데이터를 JS파일에 import 키워드로 가져오면, JSON 포맷에 의해 객체 데이터처럼 불러와진다.  
 하나의 json 파일은 하나의 메모리만 참조하고 있어 데이터가 `가볍고 가독성이 좋다는 장점`이 있다.  
 또한 자바스크립트 뿐만 아니라 대부분의 프로그래밍 언어와 플랫폼에서 변환하여 활용 가능하다.
+(XML은 불필요한 태그가 많아 파일이 클 뿐만 아니라 가독성도 좋지 않아 많이 쓰지 않는 추세)
 
-* XML은 불필요한 태그가 많아 파일이 클 뿐만 아니라 가독성도 좋지 않아 많이 쓰지 않는 추세이다.
+[JSON Diff](http://www.jsondiff.com/)  
+[JSON Beautifier](https://jsonbeautifier.org/)  
+[Json Parser](https://jsonparser.org/)  
+[JSON Validator](https://tools.learningcontainer.com/json-validator/)  
 
 ```js
 {"user" : [ 
