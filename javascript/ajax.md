@@ -1,7 +1,7 @@
 # ✅ Ajax (Asynchronous Js and XML)
 브라우저에서 페이지를 이동하지 않고, 자바스크립트를 통해 HTTP Request를 보내고, 그 응답을 받아 처리할 수 있는 기술  
 [AJAX MDN](https://developer.mozilla.org/ko/docs/Web/Guide/AJAX/Getting_Started)
-## Request 보내기
+## Request 요청하기
 ### fetch API (IE지원 안함)
 * Promise 메커니즘을 이용한 최신 방법으로, 순차적이지 않은 것을 순차적으로 만들어준다.
 ```js
