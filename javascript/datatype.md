@@ -1,6 +1,6 @@
 # ✅ 데이터 타입
 
-## typeof
+## typeof, instanceof
 * `typeof`를 통해 특정 데이터 타입을 확인할 수 있다.
 ```js
 console.log(typeof 'Hello world!') // string
