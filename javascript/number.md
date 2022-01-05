@@ -14,7 +14,7 @@ console.log(typeof str); // string
 ## 문자 → 숫자
 * `parseInt()` 문자열로 작성된 숫자를 `숫자 데이터(정수)로 반환`할 수 있다.
 ```js
-const integer = parseInt(str); 
+const integer = parseInt(str, 10); // (문자, 10진수) 
 console.log(integer) // 3
 consloe.log (typeof integer); // number
 ```
