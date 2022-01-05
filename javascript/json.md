@@ -26,7 +26,7 @@ JSON 데이터를 JS파일에 import 키워드로 가져오면, JSON 포맷에 �
 * `null`  빈 값으로 null을 사용한다.
 
 ## parse
-* 인자로 받은 문자열을 Javascript Object로 변경해 반환
+* 인자로 받은 문자열을 자바스크립트 `객체로 반환`
 ```js
 const obj = JSON.parse(str)
 console.log(typeof str) // object
@@ -36,7 +36,7 @@ console.log(typeof str) // object
 import myData from './myData.json'
 ```
 ## stringify
-* 인자로 받은 객체를 JSON 문자열로 반환
+* 인자로 받은 객체를 JSON `문자열로 반환`
 ```js
 const str = JSON.stringify(obj)
 console.log(typeof obj) // string
