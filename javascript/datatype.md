@@ -8,7 +8,7 @@ console.log(typeof 1234) // number
 console.log(typeof true) // boolean
 console.log(typeof undefined) // undefined
 ```
-* `null`, `object`, `array` 자료형 데이터의 경우 `object`로 뭉뚱그려 반환되는 문제가 있다.
+* `null`, `object`, `array` 참조형 데이터의 경우 `object`로 뭉뚱그려 반환되는 문제가 있다.
 ```js
 console.log(typeof null) // object
 console.log(typeof {}) // object
