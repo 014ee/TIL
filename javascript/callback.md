@@ -80,3 +80,43 @@ userStorage.loginUser(id, password, (user) => {
   }
 })
 ```
+## 콜배지옥 > 프로미스
+```js
+class UserStorage {
+  return new Promise((resoleve, reject) => {
+  setTimeout(() => { // 임의로 설정한 데이터 전송 딜레이
+      if(
+        (id === 'ellie' && password === 'dream') ||
+        (id === 'coder' && password === 'academy')
+      ){
+        resolve(id)
+      } else{
+        reject(new Error('not found'))
+      }
+    }, 2000)v
+  })
+}
+  
+getRoles(user){
+  return new Promise((resolve, reject) => {
+   setTimeout(() => { // 임의로 설정한 데이터 전송 딜레이
+      if(user === 'ellie'){
+        resolve({name: 'ellie', role: 'admin'})
+      } else{
+        reject(new Error('no access'))
+      }
+    }, 1000)
+   })
+  }
+}
+```
+```js
+const userStorage = new UserStorage();
+const id = prompt('enter your id')
+const password = prompt('enter your password')
+userStorage
+  .loginUser(id, password)
+  .then(userStorage.getRoles)
+  .then(user => alert(`Hello ${userWithRole.name}, you hava a ${userWithRole.role} role`))
+  .catch(console.log)
+```
