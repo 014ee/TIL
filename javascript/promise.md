@@ -32,7 +32,6 @@ promise
 const fetchNumber = new Promise((resoleve, reject) => {
   setTimeout(() => resolve(1), 1000)
 })
-
 fetchNumber
 .then(num => num * 2)
 .then(num => num * 3)
