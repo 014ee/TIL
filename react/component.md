@@ -19,7 +19,7 @@ ReactDOM.render(
   <h1>type이 "태그 이름 문자열" 입니다.</h1>
 </div>
 ```
-### 2. 리액트 컴포넌트
+### 2. 리액트 컴포넌트 정의
 ```js
 const Component = () => {
   return React.createElement('p', null, `type이 "리액트 컴포넌트" 입니다.`)
@@ -135,4 +135,82 @@ ReactDOM.render(
     </div>
   </div>
 </div>
+```
+# ✅ Props
+* 컴포넌트 외부에서 컴포넌트에게 주는 데이터
+```js
+function Component (props){ // 객체 형식으로 들어옴 {message = "안녕하세요,"}
+  return (
+    <div><h1>{props.message}이것은 함수로 만든 컴포넌트 입니다.</h1></div>
+  )
+}
+
+Component.defaultProps = {
+   message: "함수, class 모두에서 사용 가능한 기본값 작성 방법"
+}
+
+ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
+```
+```js
+class Component extends React.Component{
+  render(){
+    return (
+      <div><h1>{this.props.message}이것은 클래스로 만든 컴포넌트 입니다.</h1></div>
+    )
+  }
+  static defaultProps = {
+     message: "class에서만 사용 가능한 기본값 작성 방법"
+  }
+}
+
+ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
+```
+* 기본값 주기
+```js
+Component.defaltProps = {
+  message: "기본값"
+}
+```
+# ✅ State
+* 컴포넌트 내부에서 변경할 수 있는 데이터
+* 현 강의(ch2) 기준 클래스에서만 가능 / 뒤에서 훅을 이용하면 함수에서도 가능함 
+* class 컴포넌트에서 state는 객체 형태로만 사용 가능하다.
+```js
+class Component extends React.Component{
+  // state 값 설정 방법 1
+  state = { 
+    count: 0,
+  }
+  // state 값 설정 방법 2
+  constructor(props){
+    super(props)
+    this.state = {count: 0}
+  }
+  render(){
+    return (
+      <div>
+        <h1>{this.props.message}이것은 클래스로 만든 컴포넌트 입니다.</h1>
+        <p>{this.state.count}</p>
+       </div>
+    )
+  }
+  componentDidMount(){
+    setTimeout(() => {
+    // state 값 변경 방법 1 (객체를 통째로 만들어서 새로 넣는 방식)
+      this.setState({ // React.Component에서 제공하는 문법
+        count: this.state.count + 1,
+      })
+      // state 값 변경 방법 2 (이전 값을 이용하는 방식)
+      this.setState((previousState) => {
+        const newState = {count: previousState.count + 1}
+        return newState
+      })
+    }, 1000)
+  }
+  static defaultProps = {
+     message: "class에서만 사용 가능한 기본값 작성 방법"
+  }
+}
+
+ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
 ```
