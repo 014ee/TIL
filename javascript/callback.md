@@ -93,7 +93,7 @@ class UserStorage {
       } else{
         reject(new Error('not found'))
       }
-    }, 2000)v
+    }, 2000)
   })
 }
   
