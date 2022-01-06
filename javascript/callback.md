@@ -80,7 +80,7 @@ userStorage.loginUser(id, password, (user) => {
   }
 })
 ```
-## 콜배지옥 > 프로미스
+## 콜배지옥 → 프로미스
 ```js
 class UserStorage {
   return new Promise((resoleve, reject) => {
