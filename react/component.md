@@ -214,3 +214,36 @@ class Component extends React.Component{
 
 ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
 ```
+# ✅ 이벤트 핸들링
+* `camelCase`로만 사용할 수 있다. `onClick``onMouseEnter`
+* `이벤트 = {함수}`와 같이 사용합니다.
+* 실제 DOM요소들에만 사용 가능하며, 리액트 컴포넌트에 사용하면 props로 전달됩니다.
+```js
+function Component(){
+  return <div><button onClick={() => {console.log('클릭!')}}>버튼</button></div>
+}
+ReactDOM.render(<Component />, document.querySelector('#root'))
+```
+```js
+class Component extends React.Component{
+  state = {
+    count: 0,
+  }
+  return (
+    <div>
+      <p>{this.state.count}</p>
+      <button onClick={this.click}>버튼</button>
+    </div>
+  )
+  
+  click = () => {
+    console.log('클릭!');
+    this.setState((state) => ({
+      ...state,
+      count: state.count + 1,
+    }))
+  }
+}
+
+ReactDOM.render(<Component />, document.querySelector('#root'))
+```
