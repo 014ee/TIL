@@ -40,39 +40,3 @@ document.querySelector('#btn_plus').addEventListener('click', () => {
   ) // 이벤트 발생시 다시 렌더
 }) 
 ```
-# ✅ 리액트 컴포넌트
-## `class` 컴포넌트 기본 구조
-* 정의법
-```js
-class ClassComponent extends React.Component{
-  render(){
-    return <div>Hello</div>
-  }
-}
-```
-* 사용법
-```js
-ReactDOM.render(
-  <ClassComponent/>,
-  document.querySelector('#root')
-)
-```
-## `function` 컴포넌트 기본 구조
-* 정의법 1
-```js
-function FunctionComponent(){
-  return <div>Hello</div>
-}
-```
-* 정의법 2
-```js
-const FunctionComponent = () => return <div>Hello</div>
-// props 없이 요소 정도만 출력하는 경우 화살표 함수로 하면 깔끔해보임
-```
-* 사용법
-```js
-ReactDOM.render(
-  <FunctionComponent/>,
-  document.querySelector('#root')
-)
-```
