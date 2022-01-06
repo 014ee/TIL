@@ -55,7 +55,8 @@
 
 ### React
 - [리액트 시작하기](https://github.com/014ee/TIL/blob/main/react/about-react.md)
-- [컴포넌트](https://github.com/014ee/TIL/blob/main/react/component.md)
+- [컴포넌트 만들기](https://github.com/014ee/TIL/blob/main/react/component.md)
+- [JSX](https://github.com/014ee/TIL/blob/main/react/jsx.md)
 - [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
 
 
