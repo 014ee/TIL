@@ -1,4 +1,4 @@
-# ✅ 컴포넌트 만들기
+# ✅ React.createElment
 ```js
 React.createElement(
   type, // 첫번째 인자: html 태그 || 리액트 컴포넌트 || React.Fragment
@@ -53,6 +53,7 @@ ReactDOM.render(
 </div>
 ```
 ### 번외) 복잡한 리액트 엘리먼트가 들어갈 경우 (width 순수 JS)
+* 아래와 같이 구조가 복잡할 경우 가독성이 좋지 않으므로, JSX 문법과 Babel을 이용한다.
 ```js
 ReactDOM.render(
   React.createElement(
@@ -86,20 +87,31 @@ ReactDOM.render(
   </div>
 </div>
 ```
-### 번외) 복잡한 리액트 엘리먼트가 들어갈 경우 (width JSX and [Babel](https://babeljs.io/))
+# ✅ JSX with [Babel](https://babeljs.io/)
+### JSX 문법
+* 최상위 요소는 하나여야 한다.
+* 최상위 요소를 리턴하는 경우 `()`로 감싸야 한다. (필수는 아닌데, 간혹 리턴 안될 경우)
+* 자식들을 바로 랜더링 하고 싶으면 빈 태그 `<>내용</>`을 사용한다. (= Fragment)
+* 자바스크립트 표현식을 사용하려면, `{표현식}`을 이용한다.
+* if문은 사용할 수 없습니다. `삼항 연산자` 혹은 `&&`를 사용한다.
+* 인라인 스타일링이 가능하다.
+* class는 자바스크립트 예약어이기 때문에 사용이 어렵고, 대신 `className`을 이용해 class를 적용할 수 있다.
+* 자식요소가 있으면 꼭 닫아야 하고, 자식요소가 없으면 열면서 닫아야 한다. `<br/>`
+### Babel이란?
 * 기본적으로 바벨은 최신 자바스크립트 문법을 예전 브라우저에서도 인식할 수 있도록 변환해주는 역할을 한다.
 * 또한 `JSX 문법을 순수한 자바스크립트로도 컴파일` 해주는데, 이를 활용해 리액트 컴포넌트를 보다 심플하게 만들 수 있다.  
 * 즉, HTML 처럼 생긴 JSX 문법으로 작성하면 React.CreacteElement() 문법으로 변환준다.  
-* JSX 쓰는 이유? 가독성 최고, babel과 같은 컴파일 과정(문법에 엄격)에서 문법적 오류를 인지하기 쉬움
+* 또한 문법에 엄격하기 때문에 컴파일 과정에서 문법적 오류를 인지하기 쉽다.
 ```js
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 ```
 ```js
 <script text="babel">
+  const title = "주제"
   ReactDOM.render(
     <div>
       <div>
-        <h1 class="title">주제</h1>
+        <h1 class="title">{title}</h1>
         <ul>
           <li>React</li>
           <li>Vue</li>
