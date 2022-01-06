@@ -40,14 +40,16 @@
 - [클래스](https://github.com/014ee/TIL/blob/main/javascript/class.md)
 - [함수](https://github.com/014ee/TIL/blob/main/javascript/function.md)
 
-### JS 레벨업
+### JS 비동기 처리
 - [ajax](https://github.com/014ee/TIL/blob/main/javascript/ajax.md)
 - [json](https://github.com/014ee/TIL/blob/main/javascript/json.md)
 - [비동기 콜백 함수](https://github.com/014ee/TIL/blob/main/javascript/callback.md)
 - [프로미스](https://github.com/014ee/TIL/edit/main/javascript/promise.md)
 - [async&await](https://github.com/014ee/TIL/tree/main/javascript)
-- [이벤트](https://github.com/014ee/TIL/blob/main/javascript/event.md)
 - [예외처리](https://github.com/014ee/TIL/blob/main/javascript/exception.md)
+
+### JS 레벨업
+- [이벤트](https://github.com/014ee/TIL/blob/main/javascript/event.md)
 - [정규표현식](https://github.com/014ee/TIL/tree/main/regexp)
 - [타입스크립트]()
 
