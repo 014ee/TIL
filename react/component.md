@@ -90,6 +90,7 @@ ReactDOM.render(
 * 기본적으로 바벨은 최신 자바스크립트 문법을 예전 브라우저에서도 인식할 수 있도록 변환해주는 역할을 한다.
 * 또한 `JSX 문법을 순수한 자바스크립트로도 컴파일` 해주는데, 이를 활용해 리액트 컴포넌트를 보다 심플하게 만들 수 있다.  
 * 즉, HTML 처럼 생긴 JSX 문법으로 작성하면 React.CreacteElement() 문법으로 변환준다.  
+* JSX 쓰는 이유? 가독성 최고, babel과 같은 컴파일 과정(문법에 엄격)에서 문법적 오류를 인지하기 쉬움
 ```js
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 ```
