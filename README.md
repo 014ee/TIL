@@ -54,6 +54,7 @@
 - [타입스크립트]()
 
 ### React
+- [리액트 문서](https://ko.reactjs.org/docs/hello-world.html)
 - [리액트 시작하기](https://github.com/014ee/TIL/blob/main/react/react.md)
 - [컴포넌트 만들기](https://github.com/014ee/TIL/blob/main/react/component.md)
 - [컴포넌트 생명주기](https://github.com/014ee/TIL/blob/main/react/life-cycle.md)
