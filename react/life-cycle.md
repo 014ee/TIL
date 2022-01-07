@@ -273,7 +273,7 @@ React.DOM.render(<App name = "Mark" />, document.querySelector('#root'))
 
 ## 컴포넌트 에러 캐치
 * `componentDidCatch`가 생기기 전에는 부분적인 오류 발생시에도 전체가 동작하지 않는 문제가 있었다.
-* [에러 바운더리 라이브러리](https://ko.reactjs.org/docs/error-boundaries.html) : 에러 바운더리는 밑에서 발생하는 에러만 처리하므로 최상위에 있어야 한다.
+* [에러 바운더리 라이브러리](https://ko.reactjs.org/docs/error-boundaries.html) : 에러 바운더리는 하위에서 발생하는 에러만 처리하므로 최상위에 있어야 한다.
 ```js
 class App etends React.Component{
   state = {
