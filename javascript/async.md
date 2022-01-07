@@ -63,7 +63,8 @@ function pickFruits(){
 
 pickFruits().then(console.log)
 ```
-## 프로미스 api
+## Promise.all api
+* 값을 병렬적으로 가져와준다.
 ```js
 function pickAllFruits(){
   return Promise.all([getApple(), getBanana()])
@@ -72,7 +73,8 @@ function pickAllFruits(){
 
 pickAllFruits().then(console.log)
 ```
-## 제일 먼저 반환되는 것만 출력하는 api
+## Promise.race api
+* 제일 먼저 리턴되는 하나의 값만 실행해준다.
 ```js
 function pickOnlyOne(){
   turn Promise.race([getApple(), getBanana()])
