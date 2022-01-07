@@ -184,3 +184,89 @@ componentWillUpdate | != |getSnapshotBeforeUpdate
 dom에 적용 | = |dom에 적용
 componentDidUpdate | = |componentDidUpdate
 componentWillUnmount | = |componentWillUnmount
+```js
+class App extends React.Component {
+  state = {
+    age: 39,
+  }
+  interval = null
+  constructor(props){
+  super(props)
+    console.log('constructor', props) // 1번째로 출력
+  }
+  render(){
+    console.log('render') // 3번째로 출력
+    return(
+      <div>
+        <h2>Hello {this.props.name} - {this.props.age}</h2>
+      </div>
+    )
+  }
+  static getDerivedStateFromProps(nextProps, prevState){ // v16.3 이후 라이프사이클 (보통 시간의 흐름에 따라 변하는 props에 state가 의존하는 특수한 상황에 쓰임)
+    console.log('getDerivedStateFromProps', nextProps, prevState)
+    return { // 리턴값이 없으면 에러 발생하므로 리턴 없을 경우 null로 지정
+      age: 390, // nextProps가 들어 왔을 때 state가 입력한 것과 같이 바뀜
+    } 
+  }
+  componentDidMount(){
+    console.log('componentDidMount') // 4번째로 출력
+    this.interval = setInterval(() => {
+      console.log('setInterval')
+      this.setInterval(state => ({...state, age: state.age + 1})) // state가 1초마다 바뀌므로, 콘솔창에 1초마다 render 문자가 찍힌다.
+    }, 1000)
+  }
+  componentWillReceiveProps(nextProps){  / 삭제?
+    console.log('componentWillReceiveProps', nextProps)
+  }
+  shouldComponentUpdate(nextProps, nextState){ // 5번째로 출력
+    console.log('shouldComponentUpdate', nextProps, nextState)
+    return true // true or false로 반환 (값에 따라 랜더 여부 결정)
+  }
+  componentWillUpdate(nextProps, nextState){ // 6번째로 출력 > 7번째로 render 출력 / 삭제?
+    console.log('componentWillUpdate', nextProps, nextState)
+  }
+  componentDidUpdate(prevProps, prevState){ // 8번째로 출력
+    console.log('componentDidUpdate', prevProps, prevState)
+  }
+  componentWillUnmouont(){ // 해당 컴포넌트가 사라지기 직전에 실행
+    clearInterval(this.interval) // componentDidMount 에서 설정한 setInterval 종료처리
+  }
+}
+
+let i = 0
+class App extends React.Component {
+  state = {
+    list: []
+  }
+  render(){
+    return (
+      <div id="list" style={{height: 100; overflow:"scroll"}}>
+        {this.state.list.map(i){
+          return <div>{i}</div>
+        }}
+      </div>
+    )
+  }
+  componentDidMound(){
+    setInterval(() => {
+      this.setState(state => ({
+        list: [...state.list, i++]
+      }), 1000)
+    })
+  }
+  getSnapshotBeforeUpdate(prevProps,  prevState){
+    if(prevState.list.length === this.state.list.length) return null
+    const list = document.querySelctor('#list')
+    return list.scrollHeight - list.scrollTop
+  }
+  componentDidUpdate(prevProps, prevState, snapshot){
+    console.log(snapshot)
+    if (snapshot === null) return
+    const list = document.querySelctor('#list')
+    list.scrollTop = list.scrollHeight - snapshot
+  }
+  
+}
+
+React.DOM.render(<App name = "Mark" />, document.querySelector('#root'))
+```
