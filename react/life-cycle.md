@@ -257,16 +257,36 @@ class App extends React.Component {
   getSnapshotBeforeUpdate(prevProps,  prevState){
     if(prevState.list.length === this.state.list.length) return null
     const list = document.querySelctor('#list')
-    return list.scrollHeight - list.scrollTop
+    return list.scrollHeight - list.scrollTop // DOM 업데이트 전 단계에서 필요한 값을 스냅샷 찍어놓고
   }
   componentDidUpdate(prevProps, prevState, snapshot){
     console.log(snapshot)
     if (snapshot === null) return
     const list = document.querySelctor('#list')
-    list.scrollTop = list.scrollHeight - snapshot
+    list.scrollTop = list.scrollHeight - snapshot // DOM 업데이트 후 snap으로 저장해둔 값을 이용해서 스크롤 위치 수정
   }
   
 }
 
 React.DOM.render(<App name = "Mark" />, document.querySelector('#root'))
+```
+
+## 컴포넌트 에러 캐치
+* `componentDidCatch`가 생기기 전에는 부분적인 오류 발생시에도 전체가 동작하지 않는 문제가 있었다.
+* [에러 바운더리 라이브러리](https://ko.reactjs.org/docs/error-boundaries.html) : 에러 바운더리는 밑에서 발생하는 에러만 처리하므로 최상위에 있어야 한다.
+```js
+class App etends React.Component{
+  state = {
+    hasEorror: flase
+  }
+  render(){
+    if(this.state.hasError){
+      return <div>예상치 못한 에러가 발생하였습니다.</div>
+    }
+    return <ourWebService/>
+  }
+  componentDidCath(error, info){
+    this.setState({hasError: true})
+  }
+}
 ```
