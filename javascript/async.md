@@ -1,20 +1,21 @@
 # ✅ asynce·await
-* 프로미스를 좀 더 간결하고 동기적으로 실행되는 것 처럼 보이게 만들어준다.
-프로미스 안에서는 무조건 resolve나 reject를 실행해야 한다.
+* 프로미스를 좀 더 간결하고 동기적으로 실행되는 것 처럼 보이게 만들어준다.  
+* (그렇다고 프로미스보다 더 좋은건 아니고 상황에 따라 선택)
+
 ## asynce
 ```js
 function fetchUser(){
   return new Promise((resolve, reject) => {
     // 사용자의 정보를 백앤드에서 받아오는데 10초 정도 걸린다고 가정
-    return 'ellie'
+    resolve('ellie')
   })
 }
 
 const user = fetchUser(); 
-user.ten(console.log)
+user.then(console.log)
 console.log(user)
 ```
-* `async`라는 키워드를 함수 앞에 쓰면 자동으로 Promise로 변환해준다.
+* `async`라는 키워드를 함수 앞에 쓰면 `자동으로 Promise로 변환`해준다.
 ```js
 async function fetchUser(){
   // 사용자의 정보를 백앤드에서 받아오는데 10초 정도 걸린다고 가정
@@ -22,7 +23,7 @@ async function fetchUser(){
 }
 
 const user = fetchUser(); 
-user.ten(console.log)
+user.then(console.log)
 console.log(user)
 ```
 ## await
@@ -42,7 +43,7 @@ async function getBanana(){
 }
 
 async function pickFruits(){
-  // 병렬적으로 실행
+  // 병렬적으로 실행(1초 후 실행)
   const applePromise = await getApple(); 
   const bananaPromise = await getBanana() 
   const apple = await applePromise;
