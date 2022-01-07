@@ -1,10 +1,9 @@
-# ✅ 컴포넌트 생명주기
+# ✅ 컴포넌트 라이프사이클
 * 컴포넌트가 브라우저 어딘가에 그려지는 순간부터 사라지는 순간까지
 * 컴포넌트는 생명주기 내에서 개발자가 작업이 가능하도록 매서드를 오버라이딩 할 수 있게 해준다.
 * 디클레러티브(선언적 성질): 라이프사이클 순간 순간을 선언적으로 표현해 놓으면, 해당 함수를 실행해서 사용할 수 있게 해준다.
 * 불필요하게 랜더되는 것을 방지하고 성능을 최적화 시키는데 도움을 준다.
 
-#### 리액트 버전 16.3 이전 라이프사이클 훅
 Initialization | Mounting | Updating - Props | Updating - States | Unmounting
 :--: | :--: | :--: | :--: | :--: 
 setup props, state | compnentWillMount | componentWillReceivePorps | shouldComponentUpdate | componentWillUnmount
@@ -13,6 +12,7 @@ setup props, state | compnentWillMount | componentWillReceivePorps | shouldCompo
 | - | - | render | componentDidUpdate | -
 | - | -  | componentDidUpdate  | - | -
 
+# ✅ v16.3 이전 라이프사이클
 ## 컴포넌트 생성 및 마운트
 * `constructor` 
 * `componentWillMount`
@@ -170,3 +170,17 @@ class App extends React.Component {
 
 React.DOM.render(<App name = "Mark" />, document.querySelector('#root'))
 ```
+# ✅ v16.3 이후 라이프사이클
+v16.3이전 | vs |  v16.3이후
+:--: | :--: | :--:
+constructor | = | constructor
+componentWillMount | != | getDerivedStateFromProps
+render | = |render
+componentDidMount | = |componentDidMount
+componentWillReviceProps | != |getDerivedStateFromProps
+shouldComponentUpdate | = |shouldComponentUpdate
+render | = |render
+componentWillUpdate | != |getSnapshotBeforeUpdate
+dom에 적용 | = |dom에 적용
+componentDidUpdate | = |componentDidUpdate
+componentWillUnmount | = |componentWillUnmount
