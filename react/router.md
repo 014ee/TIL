@@ -166,9 +166,9 @@ function App() {
 
 export default App;
  ```
- # ✅ NavLink
- Link와의 가장 큰 차이는 active 기능이 있다는 것(링크에 설정된 경로와,현재 브라우저 경로가 매칭되었을 때 상태를 처리해주는 것)
- 라우트의 path처럼 포함관계로 동작하기 때문에 exact가 동작한다.
+# ✅ NavLink
+* Link와의 가장 큰 차이는 active 기능 (링크에 설정된 경로와, 현재 브라우저 경로가 매칭되었을 때 상태를 처리해주는 것)  
+* 라우트의 path처럼 포함관계로 동작하기 때문에 exact가 동작한다.
  ```js
  import {NavLink} from "react-router-dom"
 const activeStyle= {color: 'green'}
@@ -191,4 +191,77 @@ export default function NavLinks(){
   )
 }
  ```
- 
+# ✅ js로 라우팅 이동하기
+```js
+import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import About from './pages/About';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
+import Login from './pages/Login';
+import Links from './components/Links';
+import NavLinks from './components/NavLinks';
+
+function App() {
+  return (
+     <BrowserRouter>
+      <Links/>
+      <NavLinks/>
+      <Switch>
+        <Route path='/login' component={Login} />
+        <Route path='/profile/:id' component={Profile} />
+        <Route path='/profile' component={Profile} />
+        <Route path='/about' component={About} />
+        <Route exact path='/' component={Home} />
+        <Route component={NotFound} />
+       </Switch>
+     </ BrowserRouter>
+  );
+}
+
+export default App;
+```
+### 방법1
+* 로그인 페이지 하위에 여러 섹션 컴포넌트가 있고, 거기에 button이 있을 경우 하나하나 props를 전달해줘야 하고,  
+이 과정에서 실수할 확률 높아짐
+```js
+export default function Login(props){
+  function login(){
+    setTimeout(() => {
+      // 페이지 이동 로직
+      props.history.push('/')
+    }, 1000)
+  }
+
+  return (<div>
+    <h2>Login 페이지 입니다.</h2>
+    <button onClick={login}>로그인하기</button>
+  </div>
+  )
+}
+```
+### 방법2
+* button 컴포넌트 분리 후 react-router-dom에서 제공하는 `withRouter`라는 함수 사용
+```js
+import LoginButton from '../components/LoginButton'
+export default function Login(){
+
+  return (<div>
+    <h2>Login 페이지 입니다.</h2>
+    <LoginButton />
+  </div>
+  )
+}
+```
+```js
+import { withRouter } from 'react-router-dom'
+export default withRouter(function LoginButton(props){
+  function login(){
+    setTimeout(() => {
+      props.history.push('/')
+    }, 1000)
+  }
+
+  return <button onClick={login}>로그인하기</button>
+})
+```
