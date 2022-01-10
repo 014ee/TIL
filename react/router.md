@@ -166,4 +166,29 @@ function App() {
 
 export default App;
  ```
+ # ✅ NavLink
+ Link와의 가장 큰 차이는 active 기능이 있다는 것(링크에 설정된 경로와,현재 브라우저 경로가 매칭되었을 때 상태를 처리해주는 것)
+ 라우트의 path처럼 포함관계로 동작하기 때문에 exact가 동작한다.
+ ```js
+ import {NavLink} from "react-router-dom"
+const activeStyle= {color: 'green'}
+
+export default function NavLinks(){
+  return (
+    <ul>
+      <li><NavLink to="/" exact activeStyle={activeStyle} >Home</NavLink></li>
+      <li><NavLink to="/profile" exact activeStyle={activeStyle}>Profile</NavLink></li>
+      <li><NavLink to="/profile/1" activeStyle={activeStyle}>Profile/1</NavLink></li>
+      <li><NavLink to="/about" exact activeStyle={activeStyle} isActive={(match, location) => {
+          return  match !== null && location.search === '';
+          console.log(match)
+        }}>About</NavLink></li>
+      <li><NavLink to="/about?name=mark" activeStyle={activeStyle} isActive={(match, location) => {
+        return match !== null && location.search === '?name=mark'
+        console.log(match)
+      }}>About?name=mark</NavLink></li>
+    </ul>
+  )
+}
+ ```
  
