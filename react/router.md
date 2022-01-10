@@ -96,9 +96,9 @@ export default function About(props){
 ```
  # ✅ Switch와 NotFound
  ## Switch
- * `Switch` 컴포넌트는 switch문과 유사하게 동작하며, 라우트를 입력한 순서에 따라 가장 먼저 보여지는 컴포넌트를 보여준다.
- * 때문에 순서만 잘 맞추면 exact를 쓰지 않고도 원하는대로 페이지 표현이 가능하다.
- * 또한 어느 path에도 맞지 않으면 not found 컴포넌트 페이지가 보여지도록 할 수 있다.
+ * `Switch`는 라우트가 입력된 순서대로 필터링하며 경로에 알맞은 컴포넌트 하나만 보여준다. (switch문과 유사)
+ * 때문에 순서만 맞추면 exact를 쓰지 않고도 원하는대로 페이지 표현이 가능하다.
+ * 이를 이용해 어느 path에도 맞지 않으면 not found 컴포넌트가 보여지도록 할 수 있다.
  ```js
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import About from './pages/About';
