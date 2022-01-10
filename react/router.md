@@ -265,3 +265,39 @@ export default withRouter(function LoginButton(props){
   return <button onClick={login}>로그인하기</button>
 })
 ```
+
+# ✅ Redirect
+* `<redirect to="/경로">` jsx 상에서 랜더가 되면 바로 to에 지정된 경로로 이동
+ 
+```js
+import {BrowserRouter, Redirect, Route, Switch, Link} from 'react-router-dom'
+import About from './pages/About';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
+import Login from './pages/Login';
+import Links from './components/Links';
+import NavLinks from './components/NavLinks';
+
+const isLogin = false
+
+
+function App() {
+  return (
+     <BrowserRouter>
+      <Links/>
+      <NavLinks/>
+      <Switch>
+        <Route path='/login' render={() => isLogin ? <Redirect to="/" /> : <Login />} />
+        <Route path='/profile/:id' component={Profile} />
+        <Route path='/profile' component={Profile} />
+        <Route path='/about' component={About} />
+        <Route exact path='/' component={Home} />
+        <Route component={NotFound} />
+       </Switch>
+     </ BrowserRouter>
+  );
+}
+
+export default App;
+```
