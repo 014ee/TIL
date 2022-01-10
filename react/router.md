@@ -94,3 +94,32 @@ export default function About(props){
   </div>
 }
 ```
+ # ✅ Switch와 NotFound
+ ## Switch
+ * `Switch` 컴포넌트는 switch문과 유사하게 동작하며, 라우트를 입력한 순서에 따라 가장 먼저 보여지는 컴포넌트를 보여준다.
+ * 때문에 순서만 잘 맞추면 exact를 쓰지 않고도 원하는대로 페이지 표현이 가능하다.
+ * 또한 어느 path에도 맞지 않으면 not found 컴포넌트 페이지가 보여지도록 할 수 있다.
+ ```js
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import About from './pages/About';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
+
+function App() {
+  return (
+     <BrowserRouter>
+      <Switch>
+        <Route path='/profile/:id' component={Profile} />
+        <Route path='/profile' component={Profile} />
+        <Route path='/about' component={About} />
+        <Route exact path='/' component={Home} /> // 최상위 루트는 모든 경로를 포함하고 있으므로 exact를 넣어줘야 한다.
+        <Route component={NotFound} /> // 경로를 찾지 못하면 나오는 컴포넌트
+      </Switch>
+     </ BrowserRouter>
+  );
+}
+
+export default App;
+ ```
+
