@@ -73,7 +73,7 @@ export default function About(props){
   </div>
 }
 ```
-### [query-string](ttps://www.npmjs.com/package/query-string)
+### [query-string](https://www.npmjs.com/package/query-string)
 ```
 npm i query-string
 import queryString from 'query-string'
