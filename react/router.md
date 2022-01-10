@@ -122,4 +122,48 @@ function App() {
 
 export default App;
  ```
+ 
+ # ✅ Link
+ * 링크 연결시 기존 a태그를 이용하면 새로고침 후 다시 랜더되므로 리액트를 사용하는 이유에 맞지 않는다.
+ * Link 컴포넌트를 이용하여 새로고침 없이 라우트를 이동할 수 있다.
+ ```js
+import {Link} from "react-router-dom"
 
+export default function Links(){
+  return (
+    <ul>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/profile">Profile</Link></li>
+      <li><Link to="/profile/1">Profile/1</Link></li>
+      <li><Link to="/about">About</Link></li>
+      <li><Link to="/about?name=mark">About?name=mark</Link></li>
+    </ul>
+  )
+}
+ ```
+ ```js
+ import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import About from './pages/About';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
+import Links from './components/Links';
+
+function App() {
+  return (
+     <BrowserRouter>
+      <Links/>
+      <Switch>
+        <Route path='/profile/:id' component={Profile} />
+        <Route path='/profile' component={Profile} />
+        <Route path='/about' component={About} />
+        <Route exact path='/' component={Home} />
+        <Route component={NotFound} />
+       </Switch>
+     </ BrowserRouter>
+  );
+}
+
+export default App;
+ ```
+ 
