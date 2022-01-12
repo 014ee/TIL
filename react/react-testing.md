@@ -17,7 +17,7 @@ npm test > 그때그때 테스트
 ```js
 npx jest --watchAll  > 항상 테스트 켜놓는 방법
 ```
-## 예시  
+## 간단한 사용 예시  
 `test('test 설명', 함수)`
 ```js
 // example.test.js
