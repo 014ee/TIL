@@ -2,7 +2,7 @@
 * 통합 테스트에 비해 빠르고 쉽게 문제를 찾아낼 수 있다.
 * 테스트 코드를 통해 어떻게 동작하는지 예측할 수 있다.
 * JEST는 facebook의 오픈소스로, create-react-app에 기본으로 설치되어 있어 많이 쓰이는 테스트 도구이다.  
-`easy setup` `instant reedback` `snapshot testing`
+`easy setup` `instant feedback` `snapshot testing`
 ## JEST 설치&명령어 세팅
 ```bash
 npm i jest -D
