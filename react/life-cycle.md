@@ -6,11 +6,11 @@
 
 Initialization | Mounting | Updating - Props | Updating - States | Unmounting
 :--: | :--: | :--: | :--: | :--: 
-setup props, state | compnentWillMount | componentWillReceivePorps | shouldComponentUpdate | componentWillUnmount
-| - | render | shouldComponentUpdate | componentWillUpdate | -
+setup props, state | compnentWillMount | componentWillReceivePorps | - | componentWillUnmount
+| - | render | shouldComponentUpdate | shouldComponentUpdate | -
 | - | componentDidMouont | componentWillUpdate | render | -
-| - | - | render | componentDidUpdate | -
-| - | -  | componentDidUpdate  | - | -
+| - | - | render | componentWillUpdate | -
+| - | -  | componentDidUpdate  | componentDidUpdate | -
 
 # ✅ v16.3 이전 라이프사이클
 ## 컴포넌트 생성 및 마운트
