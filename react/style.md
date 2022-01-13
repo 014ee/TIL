@@ -1,5 +1,10 @@
 # ✅ css, sass
-* scss 확장자를 css 확장자로 컴파일해주는 모듈을 설치해야한다. 
+* 스타일이 전역적으로 오염되지 않도록 주의해야 한다.
+```
+import './App.css'
+import './App.scss'
+```
+* scss 사용시 scss 확장자를 css 확장자로 컴파일해주는 모듈을 설치해야한다. 
 ```bash
 npm i sass
 ```
@@ -56,6 +61,7 @@ class Button extends React.Component {
 export default Button;
 ```
 * 위 방법은 복잡하므로 classnames라는 라이브러리 사용
+* falsy한 값의 classname은 출력하지 않는다.
 ```
 npm i classnames
 ```
@@ -73,13 +79,14 @@ class Button extends React.Component {
     loading: false
   }
   render(){
-    
     const {loading} = this.state
+    
     return <button
     onClick={this.startLoading}
     className = {cx('button', {loading})}
     {...this.props} />
   }
+  
   startLoading = () => {
     this.setState({
       loading: true,
@@ -95,21 +102,36 @@ class Button extends React.Component {
 export default Button;
 ```
 # ✅ Styled Components
+* 
 ```js
 npm i styled-components
 ```
 ```js
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 const StyledButton = styled.button`
   background: transparent;
   border-radius: 3px;
   border: 2px solid palevioletred;
-  color: palevioletred;
+  ${props =>
+    props.primary &&
+    css `palevioletred
+  `};
   margin: 0 1em;
   padding: 0.25em 1em;
   font-size: 20px;
 `;
 
 export default StyledButton;
+```
+기존 컴포넌트를 스타일 변경해서 쓰고 싶을 때
+```
+const newSyledButton = styled(StyledButton)`
+  background: blue
+`
+```
+기존 컴포넌트의 태그를 변경하거나 다른 컴포넌트로 덮어쓰고 싶을 때
+```
+<StyledButton as="a" href="/">버튼</StyledButton>
+<StyledButton as={newStyledButton}>버튼</StyledButton>
 ```
