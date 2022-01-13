@@ -8,8 +8,8 @@ Initialization | Mounting | Updating - Props | Updating - States | Unmounting
 :--: | :--: | :--: | :--: | :--: 
 setup props, state | compnentWillMount | componentWillReceivePorps | - | componentWillUnmount
 | - | render | shouldComponentUpdate | shouldComponentUpdate | -
-| - | componentDidMouont | componentWillUpdate | render | -
-| - | - | render | componentWillUpdate | -
+| - | componentDidMouont | componentWillUpdate | componentWillUpdate | -
+| - | - | render | render | -
 | - | -  | componentDidUpdate  | componentDidUpdate | -
 
 # ✅ v16.3 이전 라이프사이클
