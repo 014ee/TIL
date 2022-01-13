@@ -130,3 +130,49 @@ create-react-app 에서는 eslintConfig에 추가하면 됨
   ]
 },
 ```
+## [husky](https://github.com/typicode/husky)
+git hook을 쉽게 사용하도록 도와줌
+깃이 설치되어 있지 않은 상태에서 husky를 설치할 경우 hook을 사용할 수 없다.
+```
+git init
+npm i husky -D
+npx husky install
+```
+```
+  "scripts": {
+    "prepare": "husky install",
+  },
+```
+```
+npx husky add .husky/pre-commit "npm test" // 커밋을 하기 전 코드를 점검할 수 있게 해줌
+```
+## lint-staged
+```
+git init
+npm i husky -D
+npx husky install
+```
+```
+  "scripts": {
+    "prepare": "husky install",
+  },
+```
+```
+npx husky add .husky/pre-commit "lint-staged" // 커밋을 하기 전 코드를 점검할 수 있게 해줌
+```
+```
+npm i lint-staged -D
+```
+```
+npx lint-staged
+```
+```
+"lint-staged":{
+"**/*.js": [ // js 파일이 올라와 있으면
+  "eslint --fix", // eslint 점검/수정을 하고
+  "prettier --write" // prettier 점검/수정을 하고
+  "git add" // 다시 git add 해라
+]
+}
+```
+
