@@ -107,7 +107,7 @@ React.DOM.render(<App name = "Mark" />, document.querySelector('#root'))
 * props를 새로 지정했을 때 바로 호출된다.
 * state의 변경에 반응하지 않는다.
 * props의 값이 따라 state를 변경해야 한다면, setState를 이용한다.
-* props와 state 변경을 순차적으로 하는 것이 아니라 모아서 한번에 변경해준다.
+* 변경된 props와 state로 인한 shouldComponentUpdate로의 이동은 순차적으로 진행되는게 아니라 한번에 이동된다.
 
 ## shouldComponentUpdate
 * props만 변경되도, state만 변경되도, 둘 다 변경되도 실행된다.
