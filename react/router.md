@@ -191,7 +191,7 @@ export default function NavLinks(){
   )
 }
  ```
-# ✅ js로 라우팅 이동하기
+# ✅ js로 라우팅 이동하기 withRouter
 ```js
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import About from './pages/About';
