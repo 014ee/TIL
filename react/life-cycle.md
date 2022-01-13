@@ -18,7 +18,7 @@ setup props, state | compnentWillMount | componentWillReceivePorps | - | compone
 ## 컴포넌트 생성 및 마운트
 * `constructor` 
 * `componentWillMount`
-* `render` 
+* `render` (최초 랜더)
 * `componentDidMount`
 ```js
 class App extends React.Component {
