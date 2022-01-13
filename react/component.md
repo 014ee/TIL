@@ -45,7 +45,7 @@ React.createElement(
   [...children] // 세번째 인자: 자식으로 넣어주는 요소들(여러개 가능)
 );
 ```
-### 1. html 태그
+### html 태그
 ```js
 ReactDOM.render(
   React.createElement('h1', null, `type이 "태그 이름 문자열" 입니다.`),
@@ -57,7 +57,7 @@ ReactDOM.render(
   <h1>type이 "태그 이름 문자열" 입니다.</h1>
 </div>
 ```
-### 2. 리액트 컴포넌트 정의
+### 리액트 컴포넌트 정의
 ```js
 const Component = () => {
   return React.createElement('p', null, `type이 "리액트 컴포넌트" 입니다.`)
@@ -73,7 +73,7 @@ ReactDOM.render(
    <p>type이 "리액트 컴포넌트" 입니다.</p>
 </div>
 ```
-### 3. React.Fragment
+### React.Fragment
 ```js
 ReactDOM.render(
   React.createElement(
@@ -91,7 +91,7 @@ ReactDOM.render(
 </div>
 ```
 ### 번외) 복잡한 리액트 엘리먼트가 들어갈 경우
-* 아래와 같이 구조가 복잡할 경우 `React.createElement`로 컴퍼넌트를 생성하면 가독성이 좋지 않으므로, JSX 문법을 이용한다.
+아래와 같이 구조가 복잡할 경우 `React.createElement`로 컴퍼넌트를 생성하면 가독성이 좋지 않으므로, JSX 문법을 이용한다.
 ```js
 ReactDOM.render(
   React.createElement(
@@ -175,7 +175,9 @@ ReactDOM.render(
 </div>
 ```
 # ✅ Props
-* 컴포넌트 외부에서 컴포넌트에게 주는 데이터
+* 컴포넌트 외부로부터 전달받는 데이터 `변경시 재랜더링`
+## function
+함수로 작성시 props는 `인자`로 전달
 ```js
 function Component (props){ // 객체 형식으로 들어옴 {message = "안녕하세요,"}
   return (
@@ -189,6 +191,8 @@ Component.defaultProps = {
 
 ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
 ```
+## class
+클래스로 작성시 props는 `this.props`로 사용
 ```js
 class Component extends React.Component{
   render(){
@@ -203,27 +207,23 @@ class Component extends React.Component{
 
 ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
 ```
-* 기본값 주기
-```js
-Component.defaltProps = {
-  message: "기본값"
-}
-```
 # ✅ State
-* 컴포넌트 내부에서 변경할 수 있는 데이터
-* 현 강의(ch2) 기준 클래스에서만 가능 / 뒤에서 훅을 이용하면 함수에서도 가능함 
-* class 컴포넌트에서 state는 객체 형태로만 사용 가능하다.
+* 컴포넌트 내부에서 사용 및 변경할 수 있는 데이터 `변경시 재랜더링`
+* 원래는 class에서만 사용 가능했으나, hook 이후 함수에서도 사용 가능해짐
+* state를 변경할 때에는 React.Component에서 제공하는 `setState`를 통해서만 가능
+ ## class
+ * class 컴포넌트에서 state는 객체 형태로만 사용 가능
 ```js
 class Component extends React.Component{
-  // state 값 설정 방법 1
-  state = { 
+
+  state = {   // state 값 설정 방법 1
     count: 0,
   }
-  // state 값 설정 방법 2
-  constructor(props){
+  constructor(props){ // state 값 설정 방법 2 (잘 안씀)
     super(props)
     this.state = {count: 0}
   }
+  
   render(){
     return (
       <div>
@@ -232,19 +232,20 @@ class Component extends React.Component{
        </div>
     )
   }
+  
   componentDidMount(){
     setTimeout(() => {
-    // state 값 변경 방법 1 (객체를 통째로 만들어서 새로 넣는 방식)
-      this.setState({ // React.Component에서 제공하는 문법
+      this.setState({ // state 값 변경 방법 1 (객체를 통째로 새로 넣는 방식)
         count: this.state.count + 1,
       })
-      // state 값 변경 방법 2 (이전 값을 이용하는 방식)
-      this.setState((previousState) => {
+    
+      this.setState((previousState) => { // state 값 변경 방법 2 (이전 값을 활용하는 방식)
         const newState = {count: previousState.count + 1}
         return newState
       })
     }, 1000)
   }
+  
   static defaultProps = {
      message: "class에서만 사용 가능한 기본값 작성 방법"
   }
@@ -253,9 +254,9 @@ class Component extends React.Component{
 ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
 ```
 # ✅ 이벤트 핸들링
-* `camelCase`로만 사용할 수 있다. `onClick``onMouseEnter`
-* `이벤트 = {함수}`와 같이 사용합니다.
-* 실제 DOM요소들에만 사용 가능하며, 리액트 컴포넌트에 사용하면 props로 전달됩니다.
+* `이벤트 = {함수}`와 같이 사용한다.
+* 이벤트명은 `camelCase`로만 사용할 수 있다. `onClick` `onMouseEnter`
+* 실제 DOM 요소에만 사용 가능하며, 리액트 컴포넌트에 사용하면 props로 전달된다.
 ```js
 function Component(){
   return <div><button onClick={() => {console.log('클릭!')}}>버튼</button></div>
