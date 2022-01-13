@@ -103,3 +103,30 @@ npx eslint index.js // index.js eslint 검사해줌
 ```js
 npx eslint index.js --fix // 자동으로 검사 후 수정해줌
 ```
+## [prettier](https://prettier.io/docs/en/index.html)
+eslint와 마찬가지로 보통 플러그인 설치 후 설정에서 저장 시 자동으로 수정되도록 등록해서 사용  
+명령어로 하려면 아래 방식  
+가로 폭을 제한하는 특징이 리액트 코드를 정리하는데 도움됨
+```js
+npm i prettier -D
+npx prettier index.js // 실행은 안되고 어떻게 수정하겠다만 터미널로 보여줌
+npx prettier index.js --write // 바로 수정
+```
+프리티어 설정 변경하고 싶으면 프로젝트 루트에 `.prettierrc.json` 파일 생성 후 커스텀
+```js
+{
+  "singleQuote": true
+}
+```
+## eslint-config-prettier
+eslint 설정 중 prettier과 충돌할 수 있는 모든 규칙을 꺼줌  
+create-react-app 에서는 eslintConfig에 추가하면 됨
+```js
+"eslintConfig": {
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "prettier"
+  ]
+},
+```
