@@ -1,4 +1,43 @@
-# ✅ React.createElment
+# ✅ React 핵심 라이브러리
+## [react](https://ko.reactjs.org/docs/react-api.html)
+```js
+import React from 'react' // 컴포넌트를 만들 때 사용
+```
+#### `function component`
+```js
+export const FunctionComponent = () => {
+  return <div>Hello</div>
+}
+```
+```js
+export defalut function FunctionComponent(){
+  return <div>Hello</div>
+}
+```
+#### `class component`
+```js
+class ClassComponent extends React.Component{
+  render(){
+    return <div>Hello</div>
+  }
+}
+
+export ClassComponent
+```
+## [react-dom](https://ko.reactjs.org/docs/react-dom.html)
+```js
+import ReactDom from 'react-dom' // 컴포넌트 파일을 HTML 엘리먼트에 연결할 때 사용
+```
+```js
+ReactDOM.render(어떤 리액트 컴포넌트를, 어느 HTML 엘리먼트에 놓을지)
+```
+```js
+ReactDOM.render(
+  <FunctionComponent />,
+  document.getElementById('root') 
+);
+```
+# ✅ 컴포넌트 만들기
 ```js
 React.createElement(
   type, // 첫번째 인자: html 태그 || 리액트 컴포넌트 || React.Fragment
@@ -6,7 +45,6 @@ React.createElement(
   [...children] // 세번째 인자: 자식으로 넣어주는 요소들(여러개 가능)
 );
 ```
-## Type
 ### 1. html 태그
 ```js
 ReactDOM.render(
@@ -52,8 +90,8 @@ ReactDOM.render(
    type이 "리액트 프레그먼트" 입니다.type이 "리액트 프레그먼트" 입니다.type이 "리액트 프레그먼트" 입니다.
 </div>
 ```
-### 번외) 복잡한 리액트 엘리먼트가 들어갈 경우 (width 순수 JS)
-* 아래와 같이 구조가 복잡할 경우 가독성이 좋지 않으므로, JSX 문법과 Babel을 이용한다.
+### 번외) 복잡한 리액트 엘리먼트가 들어갈 경우
+* 아래와 같이 구조가 복잡할 경우 `React.createElement`로 컴퍼넌트를 생성하면 가독성이 좋지 않으므로, JSX 문법을 이용한다.
 ```js
 ReactDOM.render(
   React.createElement(
@@ -89,13 +127,13 @@ ReactDOM.render(
 ```
 # ✅ JSX with [Babel](https://babeljs.io/)
 ### JSX 문법
-* 최상위 요소는 하나여야 한다.
 * 최상위 요소를 리턴하는 경우 `()`로 감싸야 한다. (필수는 아닌데, 간혹 리턴 안될 경우)
+* 최상위 요소는 하나여야 한다.
 * 자식들을 바로 랜더링 하고 싶으면 빈 태그 `<>내용</>`을 사용한다. (= Fragment)
-* 자바스크립트 표현식을 사용하려면, `{표현식}`을 이용한다.
-* if문은 사용할 수 없습니다. `삼항 연산자` 혹은 `&&`를 사용한다.
+* 자바스크립트 ${표현식}은 `{표현식}`로 사용한다.
+* 자바스크립트 class는 `className`로 사용한다.
+* if문은 사용할 수 없으므로 `삼항 연산자` 혹은 `&&`를 사용한다.
 * 인라인 스타일링이 가능하다.
-* class는 자바스크립트 예약어이기 때문에 사용이 어렵고, 대신 `className`을 이용해 class를 적용할 수 있다.
 * 자식요소가 있으면 꼭 닫아야 하고, 자식요소가 없으면 열면서 닫아야 한다. `<br/>`
 * `boolean`, `null`, `undefined` 값은 무시된다.
 ### Babel이란?
