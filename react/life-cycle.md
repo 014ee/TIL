@@ -175,17 +175,10 @@ React.DOM.render(<App name = "Mark" />, document.querySelector('#root'))
 # ✅ v16.3 이후 라이프사이클
 v16.3이전 | vs |  v16.3이후
 :--: | :--: | :--:
-constructor | = | constructor
 componentWillMount | != | getDerivedStateFromProps
-render | = |render
-componentDidMount | = |componentDidMount
 componentWillReviceProps | != |getDerivedStateFromProps
-shouldComponentUpdate | = |shouldComponentUpdate
-render | = |render
 componentWillUpdate | != |getSnapshotBeforeUpdate
-dom에 적용 | = |dom에 적용
-componentDidUpdate | = |componentDidUpdate
-componentWillUnmount | = |componentWillUnmount
+
 ```js
 class App extends React.Component {
   state = {
