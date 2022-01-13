@@ -5,6 +5,7 @@
 * 불필요하게 랜더되는 것을 방지하고 성능을 최적화 시키는데 도움을 준다.
 * `shouldComponentUpdate`는 `true`와 `false`를 반환하며, 컴포넌트 업데이트 여부를 판단하여 불필요한 랜더를 줄이는데 중요한 역할을 한다.
 
+##### v16.3 이전
 Initialization | Mounting | Updating - Props | Updating - States | Unmounting
 :--: | :--: | :--: | :--: | :--: 
 setup props, state | compnentWillMount | componentWillReceivePorps | - | componentWillUnmount
