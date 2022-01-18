@@ -92,6 +92,12 @@ $ git merge FETCH_HEAD
 $ git fetch origin develop
 $ git merge FETCH_HEAD
 ```
+## [협업] 기관 레포 생성할 경우
+* 팀장은 팀원에게 Admin 권한을 부여한다.
+* 팀원은 레포 fork 후 기관 레포에 바로 push하여 대참사가 나는 것을 방지하기 위해 아래와 같이 upstream push 주소를 삭제한다.
+```bash
+git remote set-url upstream --push no_push
+```
 
 ## [협업] 하나의 파일을 두명이서 수정 후 그중 하나의 파일을 원격 저장소에 올렸을 경우
 ```
