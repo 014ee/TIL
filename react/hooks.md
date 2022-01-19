@@ -82,7 +82,7 @@ const UncontrolledComponent = () => {
 
   return (
     <div>
-      <input ref={inputRef} value={value} onChange={(e) => {setState(e.target.value)}}/>
+      <input ref={inputRef} />
       <button onClick={() => {console.log(inputRef.current.value)}}>버튼</button>
     </div>
   )
