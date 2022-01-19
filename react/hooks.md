@@ -58,7 +58,7 @@ useState를 대체할 수 있는 기능으로,
 
 # ✅ Controlled, Uncontrolled
 ## controlled component
-* 엘리먼트를 가지고 있는 컴포넌트가 해당 엘리먼트의 상태를 관리 (input, textarea, select)
+* 상태를 가지고 있는 엘리먼트(input, textarea, select)를 반환하는 있는 컴포넌트가 해당 엘리먼트의 상태를 관리 
 ```js
 const ControlledComponent = () => {
   const [ value, setValue ] = setStatus('')
