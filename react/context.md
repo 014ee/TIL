@@ -14,7 +14,7 @@ const data = [
 
 <MyContext.Provider value={data}>
   <App />
-</MyContext.Provider>
+</ MyContext.Provider>
 ```
 ## Consumer (데이터 Get)
 * `useContext` `Consumer` `this.context` 3가지 방법으로 사용 가능
