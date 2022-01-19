@@ -2,11 +2,10 @@
  `2019년 6월 정식 출시 (v16.8)`
 * 클래스 컴포넌트에서만 작동하던 기능들을 낚아채듯 가져와서 함수 컴포넌트에서도 사용할 수 있도록 도와주는 내부 라이브러리
 * hooks를 이용한 함수 컴포넌트는 클래스 컴포넌트보다 코드가 간결하고 재사용성이 좋다.
-* `use` 키워드가 앞에 붙는다. (useState, useEffect, useRef, useContext 등.. )
-
+* [나만의 HOOK](https://ko.reactjs.org/docs/hooks-custom.html)을 만들어서 사용할 수도 있다.
 
 ## [useState](https://ko.reactjs.org/docs/hooks-state.html)
-* setState 에 값 대신 함수를 전달하면 함수형 업데이트라고 한다. (최신 state값을 인자를 통해 참조)
+* 참고로 setState에 값 대신 함수를 전달하면 함수형 업데이트라고 한다. (최신 state값을 인자를 통해 참조)
 ```js
 const [state, setState] = useState(초기값: 문자, 숫자 또는 객체 데이터)
 ````
@@ -21,7 +20,7 @@ const Counter = () => {
   )
 }
 ```
-## [useEffect](https://ko.reactjs.org/docs/hooks-effect.html)
+## [useEffect](https://rinae.dev/posts/a-complete-guide-to-useeffect-ko)
 * useEffect를 통해 함수형 컴포넌트에서도 라이프사이클을 이용할 수 있다. 
 ```js
 useEffect(콜백함수, []) // 컴포넌트가 최초 마운트된 시점에만 실행
@@ -35,19 +34,36 @@ useEffect(콜백함수) // 리랜더가 발생할 때마다 실행
 ```js
 useEffect(() => {return 클린업 함수}, []) // 클린업 함수는 unmount 바로 직전 실행 (다음 mount에서 활용 가능)
 ```
-## useReducer
-유데미 강의자료 참고!!
+```js
+export const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const plus = setInterval(() => {
+      setCount((count) => count + 1);
+    }, 1000);
+    return () => {
+      clearInterval(plus);
+    };
+  }, []);
+
+  return <div>{count}</div>;
+};
+```
+## [useReducer](https://ko.reactjs.org/docs/hooks-reference.html#usereducer)
+* useState의 확장판으로 스위치 케이스 문법처럼 작동한다. (유데미 강의자료 참고)
+* 컴포넌트 내 복잡한 상태변화 로직을 컴포넌트 밖으로 분리해 쉽게 활용할 수 있다. `redux`
+
+- type: 액션 객체(상태변화를 설명할 객체)
+- dispatch가 호출되면 상태변화가 일어나야 하고, 상태변화는 reducer함수가 실행한다.
 ```js
 const Counter = () => {
 const [count, dispatch] =  useReducer(reducer, 1:기본값)
 return (<div>{count} <button onClick = {()=>dispatch({type:10}) }>add 10</div>)
 }
 ```
-useState를 대체할 수 있는 기능으로,
-컴포넌트 내 복잡하고 긴 상태변화 로직을 컴포넌트 밖으로 분리해 가볍게 작성할 수 있도록 도와줌
-(스위치 케이스 문법처럼 작동)
-- type: 액션 객체(상태변화를 설명할 객체)
-- dispatch가 호출되면 상태변화가 일어나야 하고, 상태변화는 reducer함수가 실행한다.
+![리덕스](https://miro.medium.com/max/724/0*Xr19JdGptaWdGKFe.gif)
+
 
 
 ## useMemo (memoization)
