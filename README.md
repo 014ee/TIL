@@ -54,7 +54,6 @@
 ### React
 - [react 공식 문서](https://ko.reactjs.org/docs/hello-world.html)
 - [create-react-app](https://github.com/014ee/TIL/blob/main/react/cra.md)
-- [create-react-app](https://github.com/014ee/TIL/blob/main/react/react.md)
 - [컴포넌트](https://github.com/014ee/TIL/blob/main/react/component.md)
 - [클래스 생명주기](https://github.com/014ee/TIL/blob/main/react/life-cycle.md)
 - [hooks](https://github.com/014ee/TIL/blob/main/react/hooks.md)
