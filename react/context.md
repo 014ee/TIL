@@ -17,21 +17,27 @@ const data = [
 </MyContext.Provider>
 ```
 ## Consumer (데이터 Get)
-* Consumer
-```js
-<MyContext.Consumer>
-  {date => <ul>{data.map(???)}</ul>}
-</MyContext.Consumer>
-```
-* this.context
-*
-* useContext
+* `useContext` `Consumer` `this.context` 3가지 방법으로 사용 가능
 ```js
 import DiaryItem from "./DiaryItem"
 const diaryList = useContext(DiaryStateContext)
 ```
-
-
 ```js
-const MyContext = React.createContext(defaultValue)
+export default function Component(){
+  return (
+    <MyContext.Consumer>
+      // map 등 으로 데이터 사용 
+    </MyContext.Consumer>
+  )
+}
+```
+```js
+export default class Component extens React.Component {
+  static contextType = MyContex;
+  
+  render(){
+    const data = this.context
+    return // map 등 으로 데이터 사용 
+  }
+}
 ```
