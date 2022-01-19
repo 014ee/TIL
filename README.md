@@ -52,21 +52,23 @@
 - [타입스크립트]()
 
 ### React
-- [react 공식 문서](https://ko.reactjs.org/docs/hello-world.html)
-- [create-react-app](https://github.com/014ee/TIL/blob/main/react/cra.md)
+- [React 공식 문서](https://ko.reactjs.org/docs/hello-world.html)
+- [Create-React-App](https://github.com/014ee/TIL/blob/main/react/cra.md)
 - [컴포넌트](https://github.com/014ee/TIL/blob/main/react/component.md)
 - [클래스 생명주기](https://github.com/014ee/TIL/blob/main/react/life-cycle.md)
 - [hooks](https://github.com/014ee/TIL/blob/main/react/hooks.md)
 - [context](https://github.com/014ee/TIL/blob/main/react/context.md)
+- [고차 컴포넌트 (HOC)](https://github.com/014ee/TIL/blob/main/react/hoc.md)
 - [리액트 라우터](https://github.com/014ee/TIL/blob/main/react/router.md)
 - [스타일링](https://github.com/014ee/TIL/blob/main/react/style.md)
-- [테스팅](https://github.com/014ee/TIL/blob/main/react/react-testing.md)
-- [어드밴스드](https://github.com/014ee/TIL/blob/main/react/react-advanced.md)
-- [배포](https://github.com/014ee/TIL/blob/main/react/deploy-react.md)
-- ...
-- [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
+- [리액트 테스팅](https://github.com/014ee/TIL/blob/main/react/react-testing.md)
+- [리액트 어드밴스드](https://github.com/014ee/TIL/blob/main/react/react-advanced.md)
+- [리액트 배포](https://github.com/014ee/TIL/blob/main/react/deploy-react.md)
+- [Redux 상태관리](https://github.com/014ee/TIL/blob/main/react/redux.md)
+- [mobX 상태관리](https://github.com/014ee/TIL/blob/main/react/mobx.md)
 
 
 ### 기타
 - [깃 명령어](https://github.com/014ee/TIL/blob/main/git/git-guide.md)
 - [마크다운](https://github.com/014ee/TIL/tree/main/git)
+- [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
