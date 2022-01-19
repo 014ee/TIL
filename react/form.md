@@ -1,6 +1,9 @@
 # ✅ [Form](https://ko.reactjs.org/docs/forms.html)
-## controlled component
-* 상태를 가지고 있는 엘리먼트(input, textarea, select)를 반환하는 있는 컴포넌트가 해당 엘리먼트의 상태를 관리 
+`input` `textarea` `select` `등`
+* 실시간으로 변경되는 값을 얻어야 하는지, 아닌지에 따라 선택해서 사용
+## Controlled Component
+* 상태값을 갖는 특성을 지닌 엘리먼트를 반환하는 컴포넌트가 직접 해당 엘리먼트의 상태를 관리할 경우
+* `실시간으로` 변하는 값을 얻을 수 있다.
 ```js
 const ControlledComponent = () => {
   const [ value, setValue ] = setStatus('')
@@ -8,19 +11,20 @@ const ControlledComponent = () => {
   return (
     <div>
       <input value={value} onChange={(e) => {setState(e.target.value)}}/>
-      <button onClick={() => {console.log(input.value)}}>버튼</button>
+      <button onClick={() => {console.log(value)}}>버튼</button>
     </div>
   )
 }
 ```
-## uncontrolled component
-* 레퍼런스라는 api 사용
-* 엘리먼트를 참조만 하고 컴포넌트가 소유하면 
-* 참조한 값은 변경될 때 마다 추척하는 것이 아니라, 필요할 때만 변경된 값을 요청할 수 있다. (실시간으로 변경되는 값의 상태를 알아야 할 때는 부적절)
+## Uncontrolled Component
+* 레퍼런스라는 api 사용하여 상태값을 갖는 특성을 지닌 엘리먼트를 참조하여 값을 얻어내는 경우 
+* `요청했을 때만` 값을 얻어낼 수 있다.
 ```js
 const UncontrolledComponent = () => {
-  const [ value, setValue ] = setStatus('')
-  inputRef = React.createRef() // 최초 랜더되었을 때는 null값, 최초 랜더 이후에 값이 들어감
+
+  // 최초로 랜더되었을 때는 {current: null}
+  // 최초 랜더 후 재랜더했을 때 값이 들어감 {current: input}
+  inputRef = React.createRef() 
 
   return (
     <div>
