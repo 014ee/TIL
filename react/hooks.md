@@ -1,18 +1,24 @@
-# ✅ Hooks
-* 클래스형 컴포넌트에서만 작동하던 기능들을 낚아채듯 가져와서 함수형 컴포넌트에서도 사용할 수 있도록 도와주는 것 
-* hooks를 이용해 만든 함수형 컴포넌트는 기존 클래스형 컴포넌트보다 코드 중복이 적고 코드를 간결하게 작성할 수 있어 가독성이 좋다.
+# ✅ [Hooks](https://ko.reactjs.org/docs/hooks-intro.html)
+ `2019년 6월 정식 출시`
+* 클래스 컴포넌트에서만 작동하던 기능들을 낚아채듯 가져와서 함수 컴포넌트에서도 사용할 수 있도록 도와주는 내부 라이브러리
+* hooks를 이용한 함수 컴포넌트는 클래스 컴포넌트보다 코드 중복이 적고 간결하다.
 * `use` 키워드가 앞에 붙는다. (useState, useEffect, useRef, useContext 등.. )
-* `2019년 6월 정식 출시`
-* `set~` 에는 값이 아닌 함수를 전달해도 된다. (함수형 업데이트라고 함) > 항상 최신의 state를 인자를 통해 참조
 
-## useState
+
+## [useState](https://ko.reactjs.org/docs/hooks-state.html)
+* `setState` 에는 값이 아닌 함수를 전달해도 된다. (함수형 업데이트 / 항상 최신의 state를 인자를 통해 참조)
 ```js
-const [state, setState] = useState(디폴트값)
+const Counter = () => {
+  const [count, setCount] = useState(디폴트값)
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={ ()=>{setState(state + 1)} }>+</button>
+    <div>
+  )
+}
 ```
-```js
-setState(state + 1)
-```
-## useEffect
+## [useEffect](https://ko.reactjs.org/docs/hooks-effect.html)
 * 함수형에서 라이프사이클을 이용하기 위해서 useEffect라는 키워드가 필요하다. 
 ```js
 useEffect(콜백함수, 뎁스: 의존성 배열) // 의존성 배열 내에 들어있는 값이 하나라도 변화하면 콜백 함수가 다시 실행된다.
