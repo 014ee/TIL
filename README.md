@@ -62,7 +62,7 @@
 - [고차 컴포넌트 (HOC)](https://github.com/014ee/TIL/blob/main/react/hoc.md)
 - [리액트 라우터](https://github.com/014ee/TIL/blob/main/react/router.md)
 - [스타일링](https://github.com/014ee/TIL/blob/main/react/style.md)
-- [리액트 테스팅](https://github.com/014ee/TIL/blob/main/react/react-testing.md)
+- [유닛 테스트](https://github.com/014ee/TIL/blob/main/react/react-testing.md)
 - [리액트 어드밴스드](https://github.com/014ee/TIL/blob/main/react/react-advanced.md)
 - [리액트 배포](https://github.com/014ee/TIL/blob/main/react/deploy-react.md)
 - [Redux 상태관리](https://github.com/014ee/TIL/blob/main/react/redux.md)
