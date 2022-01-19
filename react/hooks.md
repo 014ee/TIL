@@ -78,29 +78,40 @@ function click(){
 ```
 ![리덕스](https://miro.medium.com/max/724/0*Xr19JdGptaWdGKFe.gif)
 
+# ✅ 상태유지 Hooks
 ## [useMemo](https://ko.reactjs.org/docs/hooks-reference.html#usememo) (memoization)
-이미 계산해 연산 결과를 기억해두었다가
-동일한 계산을 해야할 때, 다시 연산하지 않고 기억해두었던 데이터를 반환하는 방법
-(유용하긴 한데, 메모리를 계속 차지하고 있으므로 적절한 때에만 사용해야 한다.)
-또한 함수가 아니라 값을 반환하는 점도 주의!
+* 이미 계산해본 연산 결과를 기억해두었다가, 동일한 계산을 해야할 때 다시 연산하지 않고 `기억해둔 값를 반환` (함수반환 X)
+* 유용하긴 한데, `메모리를 계속 차지`하고 있으므로 적절한 때에만 사용해야 한다.
+* 의존성 배열 내 값이 변해야만 콜백함수가 실행되도록 하여 불필요한 랜더를 막고 성능을 최적화시켜준다.
 ```js
-useMemo(콜백함수, 뎁스: 의존성 배열) // 콜백함수가 리턴하는 값을 최적화할 수 있게 도와줌 / 의존성 배열 내에 들어있는 값이 변해야만 함수가 다시 실행된다. (연산 최적화)
+useMemo(콜백함수, [뎁스: 의존성 배열])
 ```
-
 ### React.memo : 고차 컴포넌트(성능 최적화)
-부모의 state가 바뀜으로써 굳이 바뀌지 않아도 되는 자식 컴포넌트까지 재랜더되는 것을 막아줌
-즉, 랜더딩 되는 조건을 달아, 조건에 맞지 않으면 부모 state가 바뀌어도 해당 컴포넌트는 재랜더되지 않음
+* 부모의 state가 바뀜으로써 굳이 바뀌지 않아도 되는 자식 컴포넌트까지 재랜더되는 것을 막아줌
+* 즉, 랜더딩 되는 조건을 달아, 조건에 맞지 않으면 부모 state가 바뀌어도 해당 컴포넌트는 재랜더되지 않음
 ```js
 const Mycomponent = React.memo(function Mycomponent(props){
-
 })
 const props가 변하지 않으면 리랜더링 하지 않는 강화된 컴포넌트 = React.memo(function 나의 컴포넌트(props){
-
 })
 ```
 
-## useCallback
+## [useCallback](https://ko.reactjs.org/docs/hooks-reference.html#usecallback)
+* 의존성 배열 내 값이 변해야만 콜백함수가 실행?
+*  의존성 배열 내 값이 변화하지 않으면, memoization된 `콜백함수를 계속 재사용할 수 있도록 반환` (useMemo는 값을 반환!)
 ```js
-useCalback(콜백함수, 뎁스: 의존성 배열) // 의존성 배열 내 값이 변화하지 않으면, memoization된 콜백함수를 계속 재사용할 수 있도록 반환 (useMemo는 값을 반환!)
+useCalback(콜백함수, [뎁스: 의존성 배열])
 ```
 ## [useRef](https://ko.reactjs.org/docs/hooks-reference.html#useref)
+* useRef는 처음 레퍼런스를 만든 후 새로 랜더되도 레퍼런스 유지
+```js
+const inputRef = useRef();
+
+<input ref={ inputRef }> // 최초 랜더시 {current: undefined}, 업데이트 후 {current: input}
+```
+* 반면 createRef는 랜더 될 때마다 새로 레퍼런스를 만들어서 input을 넣어줌
+```js
+const inputRef = createRef();
+
+<input ref={ inputRef }> // 최초 랜더시 {current: null}, 업데이트 후 {current: null}
+```
