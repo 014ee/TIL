@@ -1,4 +1,4 @@
-# ✅ Controlled, Uncontrolled
+# ✅ [From](https://ko.reactjs.org/docs/forms.html)
 ## controlled component
 * 상태를 가지고 있는 엘리먼트(input, textarea, select)를 반환하는 있는 컴포넌트가 해당 엘리먼트의 상태를 관리 
 ```js
