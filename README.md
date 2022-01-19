@@ -65,9 +65,9 @@
 - [리액트 배포](https://github.com/014ee/TIL/blob/main/react/deploy-react.md)
 - [Redux 상태관리](https://github.com/014ee/TIL/blob/main/react/redux.md)
 - [mobX 상태관리](https://github.com/014ee/TIL/blob/main/react/mobx.md)
-- [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
 
 
 ### 기타
 - [깃 명령어](https://github.com/014ee/TIL/blob/main/git/git-guide.md)
 - [마크다운](https://github.com/014ee/TIL/tree/main/git)
+- [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
