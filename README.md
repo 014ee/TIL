@@ -24,11 +24,11 @@
 - [반응형]()
 - [input 스타일]()
 - [SCSS](https://github.com/014ee/TIL/blob/main/css/scss.md)
-- [BootStrap]()
+- [BootStrap](http://bootstrapk.com/getting-started/)
 
 ### JS 베이직
-- [자바스크립트 MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference)
-- [자바스크립트 역사](https://github.com/014ee/TIL/blob/main/javascript/about-js.md)
+- [JS MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference)
+- [JS 역사](https://github.com/014ee/TIL/blob/main/javascript/about-js.md)
 - [데이터타입](https://github.com/014ee/TIL/blob/main/javascript/datatype.md)
 - [연산자](https://github.com/014ee/TIL/blob/main/javascript/operator.md)
 - [조건문·반복문](https://github.com/014ee/TIL/blob/main/javascript/js-essentials.md)
@@ -39,14 +39,12 @@
 - [객체](https://github.com/014ee/TIL/blob/main/javascript/object.md)
 - [클래스](https://github.com/014ee/TIL/blob/main/javascript/class.md)
 - [함수](https://github.com/014ee/TIL/blob/main/javascript/function.md)
-
-### JS 비동기 처리
-- [ajax](https://github.com/014ee/TIL/blob/main/javascript/ajax.md)
-- [json](https://github.com/014ee/TIL/blob/main/javascript/json.md)
 - [비동기 콜백 함수](https://github.com/014ee/TIL/blob/main/javascript/callback.md)
 - [프로미스](https://github.com/014ee/TIL/blob/main/javascript/promise.md)
 - [async&await](https://github.com/014ee/TIL/blob/main/javascript/async.md)
 - [예외처리](https://github.com/014ee/TIL/blob/main/javascript/exception.md)
+- [ajax](https://github.com/014ee/TIL/blob/main/javascript/ajax.md)
+- [json](https://github.com/014ee/TIL/blob/main/javascript/json.md)
 
 ### JS 레벨업
 - [이벤트](https://github.com/014ee/TIL/blob/main/javascript/event.md)
@@ -54,16 +52,17 @@
 - [타입스크립트]()
 
 ### React
-- [리액트 문서](https://ko.reactjs.org/docs/hello-world.html)
-- [리액트 시작하기](https://github.com/014ee/TIL/blob/main/react/react.md)
-- [컴포넌트 만들기](https://github.com/014ee/TIL/blob/main/react/component.md)
-- [컴포넌트 생명주기](https://github.com/014ee/TIL/blob/main/react/life-cycle.md)
-- [리액트 라우터](https://github.com/014ee/TIL/blob/main/react/router.md)
-- [리액트 스타일링](https://github.com/014ee/TIL/blob/main/react/style.md)
-- [hook&context]()
-- [리액트 테스팅](https://github.com/014ee/TIL/blob/main/react/react-testing.md)
-- [리액트 어드밴스드](https://github.com/014ee/TIL/blob/main/react/react-advanced.md)
-- [리액트 배포](https://github.com/014ee/TIL/blob/main/react/deploy-react.md)
+- [react 문서](https://ko.reactjs.org/docs/hello-world.html)
+- [react 시작하기](https://github.com/014ee/TIL/blob/main/react/react.md)
+- [react 컴포넌트](https://github.com/014ee/TIL/blob/main/react/component.md)
+- [클래스 생명주기](https://github.com/014ee/TIL/blob/main/react/life-cycle.md)
+- [hooks&context]()
+- [react 라우터](https://github.com/014ee/TIL/blob/main/react/router.md)
+- [react 스타일링](https://github.com/014ee/TIL/blob/main/react/style.md)
+- [react 테스팅](https://github.com/014ee/TIL/blob/main/react/react-testing.md)
+- [react 어드밴스드](https://github.com/014ee/TIL/blob/main/react/react-advanced.md)
+- [react 배포](https://github.com/014ee/TIL/blob/main/react/deploy-react.md)
+- ...
 - [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
 
 
