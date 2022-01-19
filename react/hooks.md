@@ -115,3 +115,9 @@ const inputRef = createRef();
 
 <input ref={ inputRef }> // 최초 랜더시 {current: null}, 업데이트 후 {current: null}
 ```
+# ✅ [React-router Hooks](https://v5.reactrouter.com/web/api/Hooks)
+## useHistory()
+* props를 거치지 않고 바로 가져와서 사용할 수 있음
+
+## useParams()
+* ??
