@@ -58,6 +58,7 @@
 - [클래스 생명주기](https://github.com/014ee/TIL/blob/main/react/life-cycle.md)
 - [hooks](https://github.com/014ee/TIL/blob/main/react/hooks.md)
 - [context](https://github.com/014ee/TIL/blob/main/react/context.md)
+- [고차 컴포넌트 (HOC)](https://github.com/014ee/TIL/blob/main/react/hoc.md)
 - [리액트 라우터](https://github.com/014ee/TIL/blob/main/react/router.md)
 - [스타일링](https://github.com/014ee/TIL/blob/main/react/style.md)
 - [리액트 테스팅](https://github.com/014ee/TIL/blob/main/react/react-testing.md)
