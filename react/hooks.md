@@ -6,8 +6,12 @@
 * `set~` 에는 값이 아닌 함수를 전달해도 된다. (함수형 업데이트라고 함) > 항상 최신의 state를 인자를 통해 참조
 
 ## useState
-
-
+```js
+const [state, setState] = useState(디폴트값)
+```
+```js
+setState(state + 1)
+```
 ## useEffect
 * 함수형에서 라이프사이클을 이용하기 위해서 useEffect라는 키워드가 필요하다. 
 ```js
