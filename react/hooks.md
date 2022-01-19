@@ -96,9 +96,8 @@ const props가 변하지 않으면 리랜더링 하지 않는 강화된 컴포�
 })
 ```
 
-## [useCallback](https://ko.reactjs.org/docs/hooks-reference.html#usecallback)
-* 의존성 배열 내 값이 변해야만 콜백함수가 실행?
-*  의존성 배열 내 값이 변화하지 않으면, memoization된 `콜백함수를 계속 재사용할 수 있도록 반환` (useMemo는 값을 반환!)
+## [useCallback](https://ko.reactjs.org/docs/hooks-reference.html#usecallback) (memoization)
+*  의존성 배열 내 값이 변하지 않으면, `memoization된 콜백함수를 반환`(값반환 X) > 재사용 가능 
 ```js
 useCalback(콜백함수, [뎁스: 의존성 배열])
 ```
