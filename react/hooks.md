@@ -7,7 +7,7 @@
 ## [useState](https://ko.reactjs.org/docs/hooks-state.html)
 * 참고로 setState에 값 대신 함수를 전달하면 함수형 업데이트라고 한다. (최신 state값을 인자를 통해 참조)
 ```js
-const [state, setState] = useState(초기값: 문자, 숫자 또는 객체 데이터)
+const [state: 현재 상태, setState: 상태변화 함수] = useState(초기값: 문자, 숫자 또는 객체 데이터)
 ````
 ```js
 const Counter = () => {
@@ -26,7 +26,7 @@ const Counter = () => {
 useEffect(콜백함수, []) // 컴포넌트가 최초 마운트된 시점에만 실행
 ```
 ```js
-useEffect(콜백함수, 뎁스: 의존성 배열) // 의존성 배열 내 값이 바뀔 때 마다 실행
+useEffect(콜백함수, [뎁스: 의존성 배열]) // 의존성 배열 내 값이 바뀔 때 마다 실행
 ```
 ```js
 useEffect(콜백함수) // 리랜더가 발생할 때마다 실행
@@ -51,15 +51,29 @@ export const Counter = () => {
 };
 ```
 ## [useReducer](https://ko.reactjs.org/docs/hooks-reference.html#usereducer)
-* useState의 확장판으로 스위치 케이스 문법처럼 작동한다. (유데미 강의자료 참고)
-* 컴포넌트 내 복잡한 상태변화 로직을 컴포넌트 밖으로 분리해 쉽게 활용할 수 있다. `redux`
-
-- type: 액션 객체(상태변화를 설명할 객체)
-- dispatch가 호출되면 상태변화가 일어나야 하고, 상태변화는 reducer함수가 실행한다.
+* useState의 확장판으로 switch 문법처럼 작동한다. (유데미 강의자료 참고)
+* 컴포넌트 내 복잡한 상태변화 로직을 컴포넌트 밖으로 분리해 쉽게 활용할 수 있다. `redux: store`
+* dispatch가 호출되면 상태변화가 일어나야 하고, 상태변화는 reducer함수가 실행한다.
+* action은 객체 형태이며, 필수 프로퍼티로 type(상태변화 설명)을 가진다.
 ```js
-const Counter = () => {
-const [count, dispatch] =  useReducer(reducer, 1:기본값)
-return (<div>{count} <button onClick = {()=>dispatch({type:10}) }>add 10</div>)
+const [state: 현재 상태, dispatch: 상태변화 함수] =  useReducer(reducer: 함수, 초기값: 문자, 숫자, 객체)
+```
+```js
+const [state, dispatch] =  useReducer(reducer, {count:0})
+```
+```js
+const reducer = (state, action) => {
+ if(action.type === 'PLUS'){
+  return {
+   count: state.count + 1
+  }
+ }
+ return state
+}
+```
+```js
+function click(){
+ dispatch( {type: 'PLUS',} )
 }
 ```
 ![리덕스](https://miro.medium.com/max/724/0*Xr19JdGptaWdGKFe.gif)
