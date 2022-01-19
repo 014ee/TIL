@@ -278,20 +278,26 @@ class Component extends React.Component{
 }
 ```
 # ✅ 이벤트 핸들링
-* `이벤트 = {함수}`와 같이 사용한다.
-* 이벤트명은 `camelCase`로만 사용할 수 있다. `onClick` `onMouseEnter`
-* 실제 DOM 요소에만 사용 가능하며, 리액트 컴포넌트에 사용하면 props로 전달된다.
+* `이벤트 = {함수}`
+* 이벤트명은 `camelCase`로만 작성해야 한다.
+* 실제 DOM 엘리먼트에만 사용 가능하며, 리액트 컴포넌트에 사용시 props로 전달된다.
+## function
 ```js
 function Component(){
-  return <div><button onClick={() => {console.log('클릭!')}}>버튼</button></div>
+  return (
+    <div>
+      <button onClick={ () => {console.log('클릭!')} }>버튼</button>
+    </div>
+  )
 }
-ReactDOM.render(<Component />, document.querySelector('#root'))
 ```
+## class
 ```js
 class Component extends React.Component{
   state = {
     count: 0,
   }
+  
   return (
     <div>
       <p>{this.state.count}</p>
