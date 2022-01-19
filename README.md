@@ -52,16 +52,16 @@
 - [타입스크립트]()
 
 ### React
-- [react 문서](https://ko.reactjs.org/docs/hello-world.html)
-- [react 시작하기](https://github.com/014ee/TIL/blob/main/react/react.md)
-- [react 컴포넌트](https://github.com/014ee/TIL/blob/main/react/component.md)
+- [react 공식 문서](https://ko.reactjs.org/docs/hello-world.html)
+- [create-react-app](https://github.com/014ee/TIL/blob/main/react/react.md)
+- [컴포넌트](https://github.com/014ee/TIL/blob/main/react/component.md)
 - [클래스 생명주기](https://github.com/014ee/TIL/blob/main/react/life-cycle.md)
 - [hooks&context]()
-- [react 라우터](https://github.com/014ee/TIL/blob/main/react/router.md)
-- [react 스타일링](https://github.com/014ee/TIL/blob/main/react/style.md)
-- [react 테스팅](https://github.com/014ee/TIL/blob/main/react/react-testing.md)
-- [react 어드밴스드](https://github.com/014ee/TIL/blob/main/react/react-advanced.md)
-- [react 배포](https://github.com/014ee/TIL/blob/main/react/deploy-react.md)
+- [리액트 라우터](https://github.com/014ee/TIL/blob/main/react/router.md)
+- [스타일링](https://github.com/014ee/TIL/blob/main/react/style.md)
+- [테스팅](https://github.com/014ee/TIL/blob/main/react/react-testing.md)
+- [어드밴스드](https://github.com/014ee/TIL/blob/main/react/react-advanced.md)
+- [배포](https://github.com/014ee/TIL/blob/main/react/deploy-react.md)
 - ...
 - [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
 
