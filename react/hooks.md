@@ -51,7 +51,7 @@ export const Counter = () => {
 };
 ```
 ## [useReducer](https://ko.reactjs.org/docs/hooks-reference.html#usereducer)
-* useState의 확장판으로 switch 문법처럼 작동한다. (유데미 강의자료 참고)
+* useState의 확장판으로 여러 상태 관리가 가능하며, switch 문법처럼 작동한다. (유데미 강의자료 참고)
 * 컴포넌트 내 복잡한 상태변화 로직을 컴포넌트 밖으로 분리해 쉽게 활용할 수 있다. `redux: store`
 * dispatch가 호출되면 상태변화가 일어나야 하고, 상태변화는 reducer함수가 실행한다.
 * action은 객체 형태이며, 필수 프로퍼티로 type(상태변화 설명)을 가진다.
