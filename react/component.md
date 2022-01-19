@@ -283,9 +283,11 @@ class Component extends React.Component{
 ## function
 ```js
 function Component(){
+  const [count, setCount] = useCount(0)
   return (
     <div>
-      <button onClick={ () => {console.log('클릭!')} }>버튼</button>
+      <p>{ count }</p>
+      <button onClick={ () => {setCount(count+1)} }>+</button>
     </div>
   )
 }
@@ -300,12 +302,11 @@ class Component extends React.Component{
   return (
     <div>
       <p>{this.state.count}</p>
-      <button onClick={this.click}>버튼</button>
+      <button onClick={this.click}>+</button>
     </div>
   )
   
   click = () => {
-    console.log('클릭!');
     this.setState((state) => ({
       ...state,
       count: state.count + 1,
