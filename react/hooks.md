@@ -2,7 +2,7 @@
  `2019년 6월 정식 출시 (v16.8)`
 * 클래스 컴포넌트에서만 작동하던 기능들을 낚아채듯 가져와서 함수 컴포넌트에서도 사용할 수 있도록 도와주는 내부 라이브러리
 * hooks를 이용한 함수 컴포넌트는 클래스 컴포넌트보다 코드가 간결하고 재사용성이 좋다.
-* [나만의 HOOK](https://ko.reactjs.org/docs/hooks-custom.html)을 만들어서 사용할 수도 있다.
+* [나만의 Hook](https://ko.reactjs.org/docs/hooks-custom.html)을 만들어서 사용할 수도 있다.
 
 ## [useState](https://ko.reactjs.org/docs/hooks-state.html)
 * 참고로 setState에 값 대신 함수를 전달하면 함수형 업데이트라고 한다. (최신 state값을 인자를 통해 참조)
