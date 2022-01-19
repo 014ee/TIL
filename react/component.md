@@ -208,7 +208,6 @@ ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelecto
 * 컴포넌트 내부에서 사용 및 변경할 수 있는 데이터
 * 원래는 class에서만 사용 가능했으나, hooks 이후 함수에서도 사용 가능해짐
 * state를 변경할 때에는 React.Component에서 제공하는 `setState`를 통해서만 가능
-* 
 ## function
 ```js
 const Component = () => {
