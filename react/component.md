@@ -5,12 +5,12 @@ import React from 'react' // 컴포넌트를 만들 때 사용
 ```
 #### `function component`
 ```js
-export const FunctionComponent = () => {
+const FunctionComponent = () => {
   return <div>Hello</div>
 }
 ```
 ```js
-export defalut function FunctionComponent(){
+function FunctionComponent(){
   return <div>Hello</div>
 }
 ```
@@ -21,8 +21,6 @@ class ClassComponent extends React.Component{
     return <div>Hello</div>
   }
 }
-
-export ClassComponent
 ```
 ## [react-dom](https://ko.reactjs.org/docs/react-dom.html)
 ```js
@@ -91,7 +89,7 @@ ReactDOM.render(
 </div>
 ```
 ### 번외) 복잡한 리액트 엘리먼트가 들어갈 경우
-아래와 같이 구조가 복잡할 경우 `React.createElement`로 컴퍼넌트를 생성하면 가독성이 좋지 않으므로, JSX 문법을 이용한다.
+아래와 같이 구조가 복잡할 경우 `React.createElement`로 컴퍼넌트를 생성하면 가독성이 좋지 않으므로, `JSX 문법`을 이용한다.
 ```js
 ReactDOM.render(
   React.createElement(
@@ -175,11 +173,11 @@ ReactDOM.render(
 </div>
 ```
 # ✅ Props
-* 컴포넌트 외부로부터 전달받는 데이터 `변경시 재랜더링`
+* 컴포넌트 외부로부터 전달받는 데이터
+* `객체 형식`으로 들어온다. {message = "안녕하세요,"}
 ## function
-함수로 작성시 props는 `인자`로 전달
 ```js
-function Component (props){ // 객체 형식으로 들어옴 {message = "안녕하세요,"}
+function Component (props){
   return (
     <div><h1>{props.message}이것은 함수로 만든 컴포넌트 입니다.</h1></div>
   )
@@ -192,7 +190,6 @@ Component.defaultProps = {
 ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
 ```
 ## class
-클래스로 작성시 props는 `this.props`로 사용
 ```js
 class Component extends React.Component{
   render(){
@@ -208,28 +205,38 @@ class Component extends React.Component{
 ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
 ```
 # ✅ State
-* 컴포넌트 내부에서 사용 및 변경할 수 있는 데이터 `변경시 재랜더링`
-* 원래는 class에서만 사용 가능했으나, hook 이후 함수에서도 사용 가능해짐
+* 컴포넌트 내부에서 사용 및 변경할 수 있는 데이터
+* 원래는 class에서만 사용 가능했으나, hooks 이후 함수에서도 사용 가능해짐
 * state를 변경할 때에는 React.Component에서 제공하는 `setState`를 통해서만 가능
- ## class
- * class 컴포넌트에서 state는 객체 형태로만 사용 가능
+* 
+## function
+```js
+const Component = () => {
+  const [count, setCount ] = useState(0)
+  
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick = { () => {setCount(count+1)} }>+</button>
+    <div>
+  )
+}
+```
+
+## class
+* class 컴포넌트에서 state는 객체 형태로만 사용 가능
 ```js
 class Component extends React.Component{
 
   state = {   // state 값 설정 방법 1
     count: 0,
   }
-  constructor(props){ // state 값 설정 방법 2 (잘 안씀)
-    super(props)
-    this.state = {count: 0}
-  }
   
   render(){
     return (
       <div>
-        <h1>{this.props.message}이것은 클래스로 만든 컴포넌트 입니다.</h1>
         <p>{this.state.count}</p>
-       </div>
+      </div>
     )
   }
   
@@ -238,20 +245,37 @@ class Component extends React.Component{
       this.setState({ // state 값 변경 방법 1 (객체를 통째로 새로 넣는 방식)
         count: this.state.count + 1,
       })
+    }, 1000)
     
+  }
+}
+```
+```js
+class Component extends React.Component{
+
+  constructor(props){ // state 값 설정 방법 2 (잘 안씀)
+    super(props)
+    this.state = {count: 0}
+  }
+  
+  render(){
+    return (
+      <div>
+        <p>{this.state.count}</p>
+      </div>
+    )
+  }
+  
+  componentDidMount(){
+    setTimeout(() => {
       this.setState((previousState) => { // state 값 변경 방법 2 (이전 값을 활용하는 방식)
-        const newState = {count: previousState.count + 1}
+       const newState = {count: previousState.count + 1}
         return newState
       })
     }, 1000)
-  }
-  
-  static defaultProps = {
-     message: "class에서만 사용 가능한 기본값 작성 방법"
+    
   }
 }
-
-ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
 ```
 # ✅ 이벤트 핸들링
 * `이벤트 = {함수}`와 같이 사용한다.
@@ -283,6 +307,4 @@ class Component extends React.Component{
     }))
   }
 }
-
-ReactDOM.render(<Component />, document.querySelector('#root'))
 ```
