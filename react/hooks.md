@@ -78,10 +78,8 @@ function click(){
 ```
 ![리덕스](https://miro.medium.com/max/724/0*Xr19JdGptaWdGKFe.gif)
 
-
-
-## useMemo (memoization)
-이미 계산해 본 연산 결과를 기억해두었다가
+## [useMemo](https://ko.reactjs.org/docs/hooks-reference.html#usememo) (memoization)
+이미 계산해 연산 결과를 기억해두었다가
 동일한 계산을 해야할 때, 다시 연산하지 않고 기억해두었던 데이터를 반환하는 방법
 (유용하긴 한데, 메모리를 계속 차지하고 있으므로 적절한 때에만 사용해야 한다.)
 또한 함수가 아니라 값을 반환하는 점도 주의!
@@ -105,3 +103,4 @@ const props가 변하지 않으면 리랜더링 하지 않는 강화된 컴포�
 ```js
 useCalback(콜백함수, 뎁스: 의존성 배열) // 의존성 배열 내 값이 변화하지 않으면, memoization된 콜백함수를 계속 재사용할 수 있도록 반환 (useMemo는 값을 반환!)
 ```
+## [useRef](https://ko.reactjs.org/docs/hooks-reference.html#useref)
