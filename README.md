@@ -69,6 +69,6 @@
 
 
 ### 기타
-- [깃 명령어](https://github.com/014ee/TIL/blob/main/git/git-guide.md)
+- [깃](https://github.com/014ee/TIL/blob/main/git/)
 - [마크다운](https://github.com/014ee/TIL/tree/main/git)
 - [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
