@@ -277,8 +277,7 @@ class Component extends React.Component{
 }
 ```
 # ✅ 이벤트 핸들링
-* `이벤트 = {함수}`
-* 이벤트명은 `camelCase`로만 작성해야 한다.
+* `onClick = {함수}` (이벤트명은 `camelCase`로만 작성 가능)
 * 실제 DOM 엘리먼트에만 사용 가능하며, 리액트 컴포넌트에 사용시 props로 전달된다.
 ## function
 ```js
