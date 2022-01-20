@@ -76,7 +76,6 @@ function click(){
  dispatch( {type: 'PLUS',} )
 }
 ```
-![리덕스](https://miro.medium.com/max/724/0*Xr19JdGptaWdGKFe.gif)
 
 # ✅ 상태유지 Hooks
 ## [useMemo](https://ko.reactjs.org/docs/hooks-reference.html#usememo) (memoization)
