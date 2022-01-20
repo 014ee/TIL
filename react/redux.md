@@ -1,21 +1,16 @@
 # ✅ Redux
+
+![리덕스](https://miro.medium.com/max/724/0*Xr19JdGptaWdGKFe.gif)
+
 ```
 npm i redux
 ```
-
 # ✅ Action
-* 액션 생성자를 통해 만들어진 액션 객체는 리덕스 스토어에 보내진다.
-* 리덕스 스토어가 액션 객체를 받으면 스토어의 상태 값이 변경된다.
-* 변경된 상태 값에 의해 상태를 이용하고 있던 컴포넌트가 변경된다.
-
-## step 1 액션의 타입을 변수로 정의하는 단계 (선택)
-* Action 객체에서 type만이 필수 프로퍼티이며, type은 문자열이다.
-* 변수로 정의하지 않으면 그냥 문자열로 존재한다.
+`step 1` 추후 오타 방지를 위해서 사용할 액션 타입을 변수로 정의 (보통 언더바와 대문자 사용)
 ```js
-export const ADD_TODO = 'ADD_TODO'
+const ADD_TODO = "ADD_TODO"
 ```
-## step 2 액션 객체를 만들어내는 함수를 만드는 단계
-* 액션 생성자 함수로 액션을 생성해서, 액션 객체를 리턴해준다.
+`step 2` 액션 객체를 리턴하는 액션 생성함수 만들기 (type은 필수 프로퍼티)
 ```js
 function addTodo(todo){
   return {
@@ -26,42 +21,49 @@ function addTodo(todo){
 ```
 ```js
 {type: 'ADD_TODO'} // payload가 없는 액션
-{type: 'ADD_TODO', todo: 'todo'} // payload가 있는 액션
+{type: 'ADD_TODO', todo: '운동하기'} // payload가 있는 액션
 ```
 
-# ✅ Reducers
-* action을 전달받아 변경된 state를 리턴해준다.
-* 변경된 상태를 비교하고 처리하기 위해, 인자로 들어오는 previousState와 리턴되는 newState는 다른 곳을 참조(다른 객체)해야한다.
+# ✅ Reducer
+`step 3` 상태가 없을 경우를 대비해서 초기값을 먼저 설정
 ```js
-function 리듀서(previousState, action) {
-  return newState
-}
+const initialState = []
 ```
+`step 4` 현재 상태과 액션 객체를 받아 상태를 변경시킨 후, 변경된 상태값을 반환해주는 reducer 함수 생성  
 ```js
 import { ADD_TODO } from "./actions";
 
-const initialState = [] // 초기값 설정
-
-export function todoApp (previousState = initialState, action){
-
-  if (action.type === ADD_TODO){
-    return [...previousState, action.todo]
+function reducer (state = initialState, action){
+  if(action.type === ADD_TODO){
+    return [...state, action.todo]
   }
-
-  return previousState;
+  return state
 }
 ```
 
 # ✅ createStore
-스토어를 만드는 함수
-```js
-const store = createStore(리듀서)
-```
+`step 5` redux를 이용해 createStore 함수의 인자로 reducer 함수를 넣어 store 생성
 ```js
 import {createStore} from 'redux'
-import {todoApp} from './reducers'
 
-const store = createStore(todoApp)
-
-export default store;
+const store = createStore(reducer)
+export default store
+```
+자주 사용하는 store 객체 내장 함수
+```js
+store.getState() // 현재 상태 출력 ex.[]
+```
+```js
+store.dispatch(addTodo('점심먹기')) // action 함수를 인자로 넣어 상태를 변경시킴
+```
+```js
+store.subscribe(()=>{ // 스토어 내 상태를 구독하고 있다가 상태 변경을 감지하면 등록된 함수를 호출 시킴
+ console.log(store.getState())
+})  
+```
+```js
+const unsubscribe = store.subscribe(()=>{ // 구독을 해제하는 함수를 자동 리턴하므로, 변수로 받아 활용할 수 있다.
+ console.log(store.getState())
+})  
+unsubscribe() // 구독 해제
 ```
