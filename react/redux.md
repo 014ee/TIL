@@ -56,7 +56,7 @@ function addTodo(todo){
 ```
 
 ## Reducer
-`step 3` 더하기, 필터링 하기 등 관계가 없는 기능들은 쪼개서 별도의 reducer 함수로 생성 (ex. reducer 폴더 > todos파일)
+`step 3` 리스트 불러오기, 리스트 추가하기 등 관계가 없는 기능들은 쪼개서 별도의 reducer 함수로 생성 (ex. reducer 폴더 > todos파일)
 ```js
 const initialState = [] // 상태 초기값
 
