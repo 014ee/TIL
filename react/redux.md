@@ -1,4 +1,22 @@
 # ✅ Redux
+**헷갈리는 부분**
+* 작동 과정 !== 코드 작성 과정 (이걸 자꾸 일치시키려고 하면 헷갈림)
+* 상태값이 변경되면 view에 자동으로 적용되는게 아니고, useState와 useEffect를 이용해 직접 설정해줘야함  
+`<h2>{ store.getState() }</h2>` 이런식으로 하면 초기값은 등록되는데, 상태변화에 따른 view 변경 안되므로 아래 과정으로
+```js
+const [state, setState] = useState(store.getState());
+```
+```js
+useEffect(() => {
+  const unsubscribe = store.subscribe(() => {
+    console.log(store.getState());
+    setState(store.getState());
+  });
+  return () => {
+    unsubscribe();
+  };
+});
+```
 
 ![리덕스](https://miro.medium.com/max/724/0*Xr19JdGptaWdGKFe.gif)
 
