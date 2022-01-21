@@ -15,7 +15,7 @@ const Counter = () => {
   
   const increase = () => {
    setState(count + 1)
-   setState(count + 1) // 여러번 호출해도 번만 동작해서 +1 됨
+   setState(count + 1) // 여러번 호출해도 한번만 동작해서 +1 됨
   }
   
   const increase = () => {
