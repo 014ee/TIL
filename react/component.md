@@ -208,7 +208,7 @@ ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelecto
 ```
 # ✅ State
 * 컴포넌트 내부에서 사용 및 변경할 수 있는 데이터
-* 원래는 class에서만 사용 가능했으나, hooks 이후 함수에서도 사용 가능해짐 [useState 더보기](https://github.com/014ee/TIL/blob/main/react/hooks.md)
+* 원래는 class에서만 사용 가능했으나, hooks 이후 함수에서도 [useState](https://github.com/014ee/TIL/blob/main/react/hooks.md)로 사용 가능해짐
 ## function
 ```js
 const Component = () => {
