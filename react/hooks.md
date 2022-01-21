@@ -12,10 +12,21 @@ const [state: 현재 상태, setState: 상태변화 함수] = useState(초기값
 ```js
 const Counter = () => {
   const [count, setCount] = useState(0)
+  
+  const increase = () => {
+   setState(count + 1)
+   setState(count + 1) // 여러번 호출해도 번만 동작해서 +1 됨
+  }
+  
+  const increase = () => {
+   setState(count => count + 1)
+   setState(count => count + 1) // 호출한 횟수만큼 동작해서 +2 됨
+  }
+  
   return (
     <div>
       <p>{count}</p>
-      <button onClick={ () => {setState(state + 1)} }>+</button>
+      <button onClick={increase}>+</button>
     <div>
   )
 }
