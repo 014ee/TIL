@@ -176,6 +176,7 @@ ReactDOM.render(
 * 컴포넌트 외부로부터 전달받는 데이터
 * `객체 형식`으로 들어온다. {message = "안녕하세요,"}
 * 구조분해 할당으로 간결하게 값을 사용할 수 있다.
+* 속성 뿐만 아니라 내 컴포넌트의 자식 컴포넌드도 `{child}` 로 받아올 수 있다.
 ## function
 ```js
 function Component ({message}){
