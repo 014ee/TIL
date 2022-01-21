@@ -51,7 +51,7 @@ const UncontrolledComponent = () => {
 
   // 최초로 랜더되었을 때는 {current: null}
   // 최초 랜더 후 재랜더했을 때 값이 들어감 {current: input}
-  inputRef = React.createRef() 
+  const inputRef = React.createRef() 
 
   return (
     <div>
