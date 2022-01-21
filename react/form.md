@@ -16,6 +16,33 @@ const ControlledComponent = () => {
   )
 }
 ```
+## 여러개의 input 상태 관리
+* 각각의 input을 별도로 상태 관리하는 것이 아니라, 속성을 props로 받아 객체로 일괄 관리하는 것이 좋다.
+```js
+const [inputs, setInputs] = useState({
+  name: '',
+  nickname: ''
+});
+
+const { name, nickname } = inputs;
+
+const onChange = (e) => {
+  const { value, name } = e.target; 
+    setInputs({
+      ...inputs,
+      [name]: value,
+  });
+};
+  
+const Input = () => {
+  return (
+    <div>
+      <input name='name' value={name} onChange={onChange} placeholder="이름을 입력하세요" />
+      <input nickname='nickname' value={nickname} onChange={onChange} placeholder="닉네임을 입력하세요" />
+    </div>
+  )
+}
+```
 ## Uncontrolled Component
 * 레퍼런스라는 api 사용하여 상태값을 갖는 특성을 지닌 엘리먼트를 참조하여 값을 얻어내는 경우 
 * `요청했을 때만` 값을 얻어낼 수 있다.
