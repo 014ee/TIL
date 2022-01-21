@@ -5,7 +5,11 @@
 * [나만의 Hook](https://ko.reactjs.org/docs/hooks-custom.html)을 만들어서 사용할 수도 있다.
 
 ## [useState](https://ko.reactjs.org/docs/hooks-state.html)
-* 참고로 setState에 값 대신 함수를 전달하면 함수형 업데이트라고 한다. (최신 state값을 인자를 통해 참조)
+* setState는 shouldComponentUpdate를 트리거하여 상태를 비교한 후 변화되었으면 재랜더를 요청한다.
+* 때문에 react가 state를 직접 비교하고 변경할 수 있도록 state는 immutable해야한다. (직접 변경하면 안되고 비교대상을 만들어야 함)
+* 또한 비동기로 동작한다. 즉 동일한 상태를 연속적으로 업데이트 하는 경우, 동기로 처리되지 않고 일괄처리하여 한번만 실행된다.
+* setState에 값이 아닌 함수를 넣으면 각각 실행시킬 수 있고 이를 함수형 업데이트라고 한다.  
+* 비동기로 동작하기 때무에 함수가 여러 개면 큐에 저장되어 있다가 최신 state값을 인자로 받으며 순차적으로 실행된다.
 ```js
 const [state: 현재 상태, setState: 상태변화 함수] = useState(초기값: 문자, 숫자 또는 객체 데이터)
 ````
