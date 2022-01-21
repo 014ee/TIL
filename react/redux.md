@@ -36,6 +36,7 @@ useEffect(() => {
 ```
 npm i redux
 ```
+* [Ducks-Pattern](https://github.com/JisuPark/ducks-modular-redux)  
 ## Action
 `step 1` 오타 방지를 위해 액션 타입을 변수로 정의 (보통 언더바와 대문자 사용)
 ```js
