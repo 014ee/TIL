@@ -19,12 +19,12 @@ const Counter = () => {
   
   const increase = () => {
    setState(count + 1)
-   setState(count + 1) // 여러번 호출해도 한번만 동작해서 +1 됨
+   setState(count + 4) // 여러번 호출해도 마지막 값(+ 4)만 적용
   }
   
   const increase = () => {
    setState(count => count + 1)
-   setState(count => count + 1) // 호출한 횟수만큼 동작해서 +2 됨
+   setState(count => count + 1) // 큐에 저장되어 있다가 변경된 count 값을 가지고 동작
   }
   
   return (
