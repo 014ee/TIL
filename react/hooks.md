@@ -120,13 +120,13 @@ useCalback(콜백함수, [뎁스: 의존성 배열])
 ```js
 const inputRef = useRef();
 
-<input ref={ inputRef }> // 최초 랜더시 {current: undefined}, 업데이트 후 {current: input}
+<input ref={ inputRef } /> // 최초 랜더시 {current: undefined}, 업데이트 후 {current: input}
 ```
 * 반면 createRef는 랜더 될 때마다 새로 레퍼런스를 만들어서 input을 넣어줌
 ```js
 const inputRef = createRef();
 
-<input ref={ inputRef }> // 최초 랜더시 {current: null}, 업데이트 후 {current: null}
+<input ref={ inputRef } /> // 최초 랜더시 {current: null}, 업데이트 후 {current: null}
 ```
 # ✅ [React-router Hooks](https://v5.reactrouter.com/web/api/Hooks)
 ## useHistory()
