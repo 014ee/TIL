@@ -124,7 +124,7 @@ const inputRef = useRef();
 
 <input ref={ inputRef } /> // 최초 랜더시 {current: undefined}, 업데이트 후 {current: input}
 ```
-* 반면 createRef는 랜더 될 때마다 새로 레퍼런스를 만들어서 input을 넣어줌
+* 반면 createRef는 랜더 될 때마다 새롭게 레퍼런스를 생성한다.
 ```js
 const inputRef = createRef();
 
