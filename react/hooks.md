@@ -18,12 +18,12 @@ const Counter = () => {
   const [count, setCount] = useState(0)
   
   const increase = () => {
-   setState(count + 1) // 아래 값에 덮어 씌워짐 count: 1
-   setState(count + 4) // 여러번 호출해도 마지막 값만 적용 > count: 4
+   setState(count + 1) // count: 1
+   setState(count + 4) // 위 값을 모두 덮어 씌우고 마지막 값만 적용 > count: 4
   }
   
   const increase = () => {
-   setState(count => count + 1) // 동작 > count: 1
+   setState(count => count + 1) // count: 1
    setState(count => count + 1) // 큐에 저장되어 있다가 변경된 count 값을 가지고 동작 > count: 2
   }
   
