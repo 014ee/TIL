@@ -33,10 +33,10 @@ useEffect(() => {
 * 보통 switch 문법으로 동작한다.
 
 # ✅ Redux 사용 방법
+파일 및 폴더 구성은 [Ducks-Pattern](https://github.com/JisuPark/ducks-modular-redux) 참고
 ```
 npm i redux
 ```
-* [Ducks-Pattern](https://github.com/JisuPark/ducks-modular-redux)  
 ## Action
 `step 1` 오타 방지를 위해 액션 타입을 변수로 정의 (보통 언더바와 대문자 사용)
 ```js
