@@ -111,7 +111,8 @@ const props가 변하지 않으면 리랜더링 하지 않는 강화된 컴포�
 ```
 
 ## [useCallback](https://ko.reactjs.org/docs/hooks-reference.html#usecallback) (memoization)
-*  의존성 배열 내 값이 변하지 않으면, `memoization된 콜백함수를 반환` (값반환 X) > 재사용 가능 
+* useMemo가 특정 결과값을 재사용 할 때 사용된다면, useCallback은 특정 함수를 새로 만들지 않고 재사용하고 싶을때 사용
+* 의존성 배열 내 값이 변하지 않으면, `memoization된 콜백함수를 반환` (값반환 X) > 재사용 가능 
 ```js
 useCalback(콜백함수, [뎁스: 의존성 배열])
 ```
