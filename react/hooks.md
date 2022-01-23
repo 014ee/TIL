@@ -118,6 +118,7 @@ useCalback(콜백함수, [뎁스: 의존성 배열])
 ## [useRef](https://ko.reactjs.org/docs/hooks-reference.html#useref)
 * 윈도우 넓이, 엘리먼트 높이, 스크롤바 위치, 인풋 포커스 설정 등 실제 Dom에 접근해야 하는 경우 useRef를 사용한다.
 * useRef()로 ref 객체를 만들고, Dom에 연결하면 해당 Dom의 .current 값을 얻을 수 있다.
+* useRef()의 파라미터로 넣은 값은 재랜더링 없이 실시간으로 조회 및 수정이 가능하다. (id 생성 등에 활용)
 * useRef는 처음 레퍼런스를 만든 후 새로 랜더되도 레퍼런스를 유지한다.
 ```js
 const inputRef = useRef();
