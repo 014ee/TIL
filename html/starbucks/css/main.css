@@ -1,0 +1,134 @@
+/* VISUAL */
+.visual {margin-top:120px; background-image: url('../images/visual_bg.jpg'); background-position:center;}
+.visual .inner {height:646px;}
+.visual .title {position:absolute; left:-10px; top:88px; }
+.visual .title .btn {margin: 20px auto;}
+.visual img.cup1.image {position: absolute; right:-47px; bottom:0;}
+.visual img.cup1.text {position: absolute; right:171px; top:38px;}
+.visual img.cup2.image {position: absolute; right:162px; bottom:0;}
+.visual img.cup2.text {position: absolute; right:416px; top:321px;}
+.visual img.spoon {position: absolute; left:275px; bottom:0;}
+.visual .fade-in {opacity:0;}
+
+
+/* NOTICE */
+.notice .notice-line {position:relative;}
+.notice .notice-line .bg-left {position: absolute; left:0; top:0; width: 50%; height:100%; background:#333;}
+.notice .notice-line .bg-right {position: absolute; right:0; top:0; width: 50%; height:100%; background:#f6f5f0 }
+.notice .notice-line .inner {display:flex; height:62px;}
+.notice .notice-line .inner .inner__left{display:flex;align-items: center; width: 60%; height:100%; background:#333;}
+.notice .notice-line .inner .inner__left h2 {margin-right:20px; font-size:17px; font-weight:700; color:#fff;}
+.notice .notice-line .inner .inner__left .swiper {height:62px; flex-grow: 1;}
+.notice .notice-line .inner .inner__left .swiper .swiper-slide {height:62px; display: flex; align-items: center}
+.notice .notice-line .inner .inner__left .swiper .swiper-slide a {color:#fff;}
+.notice .notice-line .inner .inner__left a.notice-line__more {display:flex; justify-content:center; align-items:center; width:62px; height:62px;}
+.notice .notice-line .inner .inner__left a.notice-line__more .material-icons {font-size:30px; color:#fff;}
+.notice .notice-line .inner .inner__right{display:flex; justify-content: flex-end; align-items:center; width:40%; height:100%;}
+.notice .notice-line .inner .inner__right h2 {margin-right: 20px; font-size: 17px; font-weight: 700; color:#333;}
+.notice .notice-line .inner .inner__right .toggle-promotion {display:flex; justify-content: center; align-items: center; width:62px; height: 62px; cursor: pointer}
+.notice .notice-line .inner .inner__right .toggle-promotion .material-icons {font-size: 30px; color:#333;}
+.notice .promotion {overflow:hidden; width:100%; position:relative; height:638px; background:#f6f5f0; transition:.4s;}
+.notice .promotion.hide {height:0;}
+.notice .promotion .swiper {position:absolute; top:40px; left:50%; margin-left:calc((819px * 3 + 20px) / -2);  width:calc(819px * 3 + 20px); height:553px; 
+  text-align:center;}
+.notice .promotion .swiper .swiper-slide {position: relative; opacity: .5; transition: opacity 1s;}
+.notice .promotion .swiper .swiper-slide-active {opacity: 1}
+.notice .promotion .swiper .swiper-slide .btn {position:absolute; bottom:0 ; left:0; right:0; margin:auto; }
+.notice .promotion .swiper-pagination .swiper-pagination-bullet {background-image:url(../images/promotion_slide_pager.png);
+  width:12px; height:12px; margin-right:6px; outline:none;}
+.notice .promotion .swiper-pagination .swiper-pagination-bullet:last-child {margin-right:0;}
+.notice .promotion .swiper-pagination .swiper-pagination-bullet-active {background-image:url(../images/promotion_slide_pager_on.png); background-color: transparent;}
+.notice .promotion .swiper-prev,
+.notice .promotion .swiper-next {display:flex; justify-content:center; align-items:center;
+  position: absolute; top: 300px; width:42px; height:42px; border:2px solid #333; border-radius:50%; z-index:1; cursor:pointer; transition:.4s}
+.notice .promotion .swiper-prev {left:50%; margin-left:-480px;}
+.notice .promotion .swiper-next {right:50%; margin-right:-480px;}
+.notice .promotion .swiper-prev:hover,
+.notice .promotion .swiper-next:hover {background:#333; color:#fff;}
+
+
+/* REWARDS */
+.rewards {position: relative;}
+.rewards .bg-left {position:absolute; left:0; width:50%; height:100%; background:#272727;}
+.rewards .bg-right {position:absolute; right:0; width:50%; height:100%; background:#d5c798;}
+.rewards .inner {height:241px; background:url(../images/rewards.jpg) center no-repeat;}
+.rewards .inner .btn-group {display:flex; flex-wrap:wrap; width:250px;
+  position:absolute; bottom:24px; right:0;}
+.rewards .inner .btn-group .btn.sign-up {width:110px; margin-right:10px;}
+.rewards .inner .btn-group .btn.gift {flex-grow:1; margin-top:10px;}
+
+
+/* YOUTUBE */
+.youtube {overflow:hidden; position:relative; height:700px; background:#333;}
+.youtube .youtube__area {position:absolute; top:50%; margin-top:calc((1920px * 9 /16) / -2); left:50%; margin-left:calc(1920px / -2); width:1920px}
+.youtube .youtube__area #player {position:absolute; left:0; top:0; width:100%; height:100%;}
+.youtube .youtube__area::before {content:''; display:block; width:100%; height:0; padding-top: 56.25%;}
+.youtube .youtube__cover {position:absolute; left:0; top:0; width: 100%; height: 100%; background-image: url('../images/video_cover_pattern.png'); background-color: rgba(0,0,0,.3);}
+.youtube .inner {height:700px;}
+.youtube .inner .floating {position:absolute;}
+.youtube .inner .floating1{left:0; top:50px;}
+.youtube .inner .floating2{left:150px; top:350px;}
+
+
+/* SEASON PRODUCT */
+.season-product {background-image: url("../images/season_product_bg.jpg");}
+.season-product .inner {height: 400px;}
+.season-product .inner .floating3{position:absolute; right:0; top:-200px;}
+.season-product .text-group {position:absolute; right:100px; top:110px;}
+.season-product .text-group .title {margin-bottom:10px;}
+.season-product .text-group .description {margin-bottom:15px;}
+
+
+/* RESERVE COFFEE */
+.reserve-coffee {background-image: url("../images/reserve_bg.jpg");}
+.reserve-coffee .inner {height: 400px;}
+.reserve-coffee .reserve-logo {position:absolute; left:0; top:110px;}
+.reserve-coffee .text-group {position:absolute; left:208px; top:120px;}
+.reserve-coffee .product {position:absolute; right:0; top:0;}
+
+
+/* PICK YOUR FAVORITE */
+.pick-your-favorite {background:url('../images/favorite_bg.jpg') center no-repeat fixed; background-size:cover}
+.pick-your-favorite .inner {padding:110px 0}
+.pick-your-favorite .text-group {display:flex; flex-wrap:wrap; justify-content:flex-end; width:362px; margin-left:100px;}
+.pick-your-favorite .text-group .title {margin-bottom:40px;}
+.pick-your-favorite .text-group .description {margin-bottom:40px;}
+
+
+/* RESERVE STORE */
+.reserve-store {background:url('../images/reserve_store_bg.jpg') center  no-repeat fixed; background-size:cover}
+.reserve-store .inner {display:flex; justify-content:center; align-items:center; height:600px;}
+.reserve-store .medal {width:334px; height:334px; perspective:600px;}
+.reserve-store .medal .front,
+.reserve-store .medal .back {position:absolute; width:100%; height:100%; backface-visibility:hidden; transition:1s}
+.reserve-store .medal .front { transform: rotateY(0deg);}
+.reserve-store .medal:hover .front {transform:rotateY(180deg);}
+.reserve-store .medal .back {transform:rotateY(-180deg);}
+.reserve-store .medal:hover .back {transform:rotateY(0deg);}
+.reserve-store .medal .back .btn {position:absolute; top:240px; left:0; right:0; margin:auto;}
+
+
+/* FINE STORE */
+.fine-store {background:url('../images/find_store_bg.jpg');}
+.fine-store .inner {height:400px;}
+.fine-store .texture1 {position:absolute; left:400px; top:0;}
+.fine-store .texture2 {position:absolute; right:0; bottom:0;}
+.fine-store .picture {position:absolute; border-radius:50%; box-shadow:2px 2px 3px rgba(0,0,0,.5);}
+.fine-store .picture1 {left:0; top:-60px;}
+.fine-store .picture2 {left:250px; top:150px;}
+.fine-store .text-group {position:absolute; left:550px; top:120px;}
+.fine-store .text-group .title {margin-bottom:20px;}
+.fine-store .text-group .description {margin-bottom:20px;}
+
+
+/* AWARDS */
+.awards {background:#272727;}
+.awards .inner {padding:40px 0;}
+.awards .swiper-prev,
+.awards .swiper-next {display:flex; justify-content:center; align-items:center;
+position:absolute; top:0; bottom:0; margin:auto; width:42px; height:42px; border:2px solid #fff;
+border-radius: 50%; outline: none; color:#fff; opacity:.3; cursor:pointer;}
+.awards .swiper-prev {left:-100px;}
+.awards .swiper-next {right:-100px;}
+.awards .swiper-prev:hover,
+.awards .swiper-next:hover {background:#fff; color:#333;}
