@@ -13,7 +13,7 @@
 
 ### HTML
 - [브라우저 렌더링]()
-- [시멘틱 태그]()
+- [시멘틱 태그](https://github.com/014ee/TIL/blob/main/html/semantic.md)
 - [태그정리]()
 - [Form]()
 
@@ -73,3 +73,7 @@
 - [깃](https://github.com/014ee/TIL/blob/main/git/)
 - [마크다운](https://github.com/014ee/TIL/tree/main/git)
 - [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
+
+### 실습 예제
+- [스타벅스 랜딩페이지](https://github.com/014ee/TIL/tree/main/html/starbucks)
+- [리액트 투두리스트](https://github.com/014ee/TIL/tree/main/react/todo-app)
