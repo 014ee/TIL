@@ -101,13 +101,10 @@ function click(){
 useMemo(콜백함수, [뎁스: 의존성 배열])
 ```
 ### React.memo : 고차 컴포넌트(성능 최적화)
-* 부모의 state가 바뀜으로써 굳이 바뀌지 않아도 되는 자식 컴포넌트까지 재랜더되는 것을 막아줌
-* 즉, 랜더딩 되는 조건을 달아, 조건에 맞지 않으면 부모 state가 바뀌어도 해당 컴포넌트는 재랜더되지 않음
+* 부모의 state가 바뀌더라도 해당 컴포넌트의 props가 변하지 않으면 재랜더링을 하지 않도록 조건을 달아 성능을 최적화시켜준다.
+* 최적화하지 않을 컴포넌트에서의 React.memo 사용은 불필요하게 props 비교만 하는 것이기 때문에 실제로 랜더링 최적화가 가능한 상황에서만 사용할 것
 ```js
-const Mycomponent = React.memo(function Mycomponent(props){
-})
-const props가 변하지 않으면 리랜더링 하지 않는 강화된 컴포넌트 = React.memo(function 나의 컴포넌트(props){
-})
+const MyNewComponent = React.memo(function MyComponent(props){...})
 ```
 
 ## [useCallback](https://ko.reactjs.org/docs/hooks-reference.html#usecallback) (memoization)
