@@ -2,7 +2,6 @@
 [리액트 라우터  라이브러리](https://reactrouter.com/)를 통해 경로에 따라 컴포넌트가 바뀌는 SPA를 구현할 수 있다.  
 이것은 cra에 기본 내장되어 있지 않으며, facebook의 공식 패키지도 아니지만 가장 대표적인 라우팅 패키지이다.
 ```bash
-npx create-react-app 파일명
 npm i react-router-dom
 ```
 ```js
