@@ -136,5 +136,3 @@ const inputRef = createRef();
 ## useHistory()
 * props를 거치지 않고 바로 가져와서 사용할 수 있음
 
-## useParams()
-* ??
