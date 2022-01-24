@@ -139,7 +139,8 @@ export default function About(props){
 
   return <div>
     <h2>About 페이지 입니다.</h2>
-    <button onClick={() => {navigate('/home')}}>이동</button> // home으로 이동
+    <button onClick={() => {navigate('/home')}}>홈으로 이동</button> // home으로 이동
+    <button onClick={() => {navigate(-1)}}>뒤로가기</button> // -1만큼 뒤로가기
   </div>
 }
 ```
