@@ -25,7 +25,7 @@ export default App;
 ```
 
  # ✅ 다이나믹 라우팅
- ## :id
+ ## Path Variable `:id`
  ```js
 import {BrowserRouter, Route} from 'react-router-dom'
 import About from './pages/About';
@@ -45,17 +45,36 @@ function App() {
 
 export default App;
  ```
+ * props로 id 받아오는 방법
  ```js
  export default function Profile(props){
   const id = props.match.params.id
   console.log(id, typeof id) // string
-  return <div>
-    Profile 페이지 입니다.
-    {id && <h2>id는 {id} 입니다.</h2>} // id 값이 있을 때만 보임
-  </div>
+  
+  return(
+   <div>
+     Profile 페이지 입니다.
+     {id && <h2>id는 {id} 입니다.</h2>} // id 값이 있을 때만 보임
+   </div>
+  )
  }
  ```
- 
+ * `useParams` Hook으로 id 받아오는 방법
+ ```js
+import { useParams } from 'react-router-dom'
+
+export default function Profile(){
+  const {id} = useParams();
+  console.log(id)
+
+  return(
+   <div>
+     Profile 페이지 입니다.
+     {id && <h2>id는 {id} 입니다.</h2>} // id 값이 있을 때만 보임
+   </div>
+  )
+}
+```
  ## ?key=value
 * 쿼리스트링 형식은 있든 없든 같은 페이지이므로 따로 라우트 처리를 안해도 됨 (옵셔널한 요소)
 ### URLSearchParams 
