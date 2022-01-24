@@ -44,7 +44,7 @@ function App() {
 
 export default App;
  ```
- * props로 id 받아오는 방법
+### props
  ```js
  export default function Profile(props){
   const id = props.match.params.id
@@ -58,7 +58,7 @@ export default App;
   )
  }
  ```
- * `useParams` Hook으로 id 받아오는 방법
+### useParams
  ```js
 import { useParams } from 'react-router-dom'
 
@@ -74,8 +74,9 @@ export default function Profile(){
   )
 }
 ```
- ## ?key=value
-* 쿼리스트링 형식은 있든 없든 같은 페이지이므로 따로 라우트 처리를 안해도 됨 (옵셔널한 요소)
+ ## Query String `?key=value`
+* 웹 페이지에 데이터를 전달하는 가장 간단한 방법
+* 쿼리스트링이 있든 없든 같은 페이지이므로 따로 라우트 처리를 안해도 된다. (옵셔널한 요소)
 ### URLSearchParams 
 ```js
 export default function About(props){
@@ -109,6 +110,36 @@ export default function About(props){
   return <div>
     <h2>About 페이지 입니다.</h2>
     {query.name && <p>name은 {query.name}입니다.</p>}
+  </div>
+}
+```
+### useSearchParams
+```js
+import { useSearchParams } from "react-router-dom"
+
+export default function About(props){
+  const [searchParams, setSearchParams] = useSearchParams();
+  const id = searchParams.get('name')
+
+  return <div>
+    <h2>About 페이지 입니다.</h2>
+    {query.name && <p>name은 {query.name}입니다.</p>}
+    <button onClick={() => { setSearchParams({who: 'inhwa'}) }}>qs 바꾸기</button> // querystring을 바꿀 수도 있다.
+  </div>
+}
+```
+## Page Moving
+### useNavigate
+* 링크 태그를 클릭하지 않아도 의도적으로 경로를 바꿔야 할 때 사용 (ex. 로그인)
+```js
+import { useNavigate } from "react-router-dom"
+
+export default function About(props){
+  const navigate = useNavigate();
+
+  return <div>
+    <h2>About 페이지 입니다.</h2>
+    <button onClick={() => {navigate('/home')}}>이동</button> // home으로 이동
   </div>
 }
 ```
