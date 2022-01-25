@@ -50,7 +50,7 @@ export default App;
    // 스타일링
 }
 ```
-* 클래스가 여러개거나 조건부 스타일링 할 때 코드가 길어진다는 불편함이 있다. (classnames 사용해서 해결 가능)
+* 클래스가 여러개거나 조건부 스타일링 할 때 코드가 길어진다는 불편함이 있다. (classnames bind 기능으로 해결 가능)
 ```js
 ${styles.one} ${styles.two}
 ${styles.one} ${condition ? styles.two : ''}
