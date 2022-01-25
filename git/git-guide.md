@@ -130,6 +130,8 @@ $ git diff <commit 해시값> <commit 해시값> > 커밋간 비교
 
 ## 되돌리기
 ```
+$ git ls-files -d > 로컬 레포에서 삭제한 파일 리스트
+$ git ls-files -d | xargs git checkout -- > 로컬에서 삭제한 파일 전체 복구
 $ git mv sever.py main.py > 리네이밍
 $ git reset HEAD 파일명 > 파일명 언스테이징
 $ git rm -f 파일명 > 파일명 언스테이징 + 삭제
