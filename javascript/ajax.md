@@ -6,8 +6,13 @@
 * Promise 메커니즘을 이용한 최신 방법으로, 순차적이지 않은 것을 순차적으로 만들어준다.
 ```js
 fetch('https://jsonplaceholder.typicode.com/photos')
-  .then(response => response.json()) // json 문자로 바꾸고 반환
-  .then(obj => {start(obj)});
+  .then(response => {
+    if(!response.ok){
+      throw new Error('400 아니면 500 에러 발생')
+    }
+    return response.json()}) // json 문자로 바꾸고 반환
+  .then(obj => {start(obj)})
+  .catch (() => console.log(''))
   
 function start(photos){
 }
