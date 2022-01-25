@@ -11,15 +11,15 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 
 function App() {
-  return (
-     <BrowserRouter>
-      <Routes>
-       <Route path='/' element={<Home />} />
-       <Route path='/profile' element={<Profile />} />
-       <Route path='/about' element={<About />} />
-      </Routes>
-     </ BrowserRouter>
-  );
+ return (
+  <BrowserRouter>
+   <Routes>
+    <Route path='/' element={<Home />} />
+    <Route path='/profile' element={<Profile />} />
+    <Route path='/about' element={<About />} />
+   </Routes>
+  </ BrowserRouter>
+ );
 }
 
 export default App;
@@ -128,7 +128,7 @@ export default function About(props){
 }
 ```
  # ✅ Switch와 NotFound
- ## Switch
+ ## Switch (v5.1)
  * `Switch`는 라우트가 입력된 순서대로 필터링하며 경로에 알맞은 컴포넌트 하나만 보여준다. (switch문과 유사)
  * 때문에 순서만 맞추면 exact를 쓰지 않고도 원하는대로 페이지 표현이 가능하다.
  * 이를 이용해 어느 path에도 맞지 않으면 not found 컴포넌트가 보여지도록 할 수 있다.
@@ -201,7 +201,7 @@ export default function NavLinks(){
  ```
 # ✅ js로 라우팅 이동하기 withRouter
 ```js
-import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Routes, Link} from 'react-router-dom'
 import About from './pages/About';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -215,14 +215,14 @@ function App() {
      <BrowserRouter>
       <Links/>
       <NavLinks/>
-      <Switch>
-        <Route path='/login' component={Login} />
-        <Route path='/profile/:id' component={Profile} />
-        <Route path='/profile' component={Profile} />
-        <Route path='/about' component={About} />
-        <Route exact path='/' component={Home} />
-        <Route component={NotFound} />
-       </Switch>
+      <Routes>
+        <Route path='/login' element={Login} />
+        <Route path='/profile/:id' element={Profile} />
+        <Route path='/profile' element={Profile} />
+        <Route path='/about' element={About} />
+        <Route exact path='/' element={Home} />
+        <Route element={NotFound} />
+       </Routes>
      </ BrowserRouter>
   );
 }
@@ -278,7 +278,7 @@ export default withRouter(function LoginButton(props){
 * `<redirect to="/경로">` jsx 상에서 랜더가 되면 바로 to에 지정된 경로로 이동
  
 ```js
-import {BrowserRouter, Redirect, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter, Redirect, Route, Routes, Link} from 'react-router-dom'
 import About from './pages/About';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -295,14 +295,14 @@ function App() {
      <BrowserRouter>
       <Links/>
       <NavLinks/>
-      <Switch>
+      <Routes>
         <Route path='/login' render={() => isLogin ? <Redirect to="/" /> : <Login />} />
-        <Route path='/profile/:id' component={Profile} />
-        <Route path='/profile' component={Profile} />
-        <Route path='/about' component={About} />
-        <Route exact path='/' component={Home} />
-        <Route component={NotFound} />
-       </Switch>
+        <Route path='/profile/:id'element={Profile} />
+        <Route path='/profile' element={Profile} />
+        <Route path='/about' element={About} />
+        <Route exact path='/' element={Home} />
+        <Route element={NotFound} />
+      </Routes>
      </ BrowserRouter>
   );
 }
