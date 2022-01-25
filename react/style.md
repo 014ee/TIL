@@ -54,7 +54,7 @@ export default App;
 ```bash
 npm i classnames
 ```
-* props로 받아온 값을 객체 안에 넣은 후 classNames()에 포함시키면 값이 true일 때만 적용된다.
+* props로 받아온 값을 { outline }과 같이 객체 안에 넣어서 classNames()에 포함시키면 값이 true일 때만 적용된다. 
 ```js
 import classNames from 'classnames';
 
