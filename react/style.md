@@ -50,6 +50,11 @@ export default App;
    // 스타일링
 }
 ```
+* 클래스가 여러개거나 조건부 스타일링 할 때 코드가 길어진다는 불편함이 있다.
+```js
+${styles.one} ${styles.two}
+${styles.one} ${condition ? styles.two : ''}
+```
 # ✅ classnames
 ```bash
 npm i classnames
