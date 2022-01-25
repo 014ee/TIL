@@ -7,12 +7,12 @@
 ```js
 fetch('https://jsonplaceholder.typicode.com/photos')
   .then(response => {
-    if(!response.ok){
+    if(!response.ok){ // 에러 발생시
       throw new Error('400 아니면 500 에러 발생')
     }
     return response.json()}) // json 문자로 바꾸고 반환
   .then(obj => {start(obj)})
-  .catch (() => console.log(''))
+  .catch (() => console.log('')) // 에러 처리
   
 function start(photos){
 }
