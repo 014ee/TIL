@@ -1,4 +1,4 @@
-# ✅ css, sass
+# ✅ css, scss
 * 스타일이 전역적으로 오염되지 않도록 주의해야 한다.
 ```
 import './App.css'
