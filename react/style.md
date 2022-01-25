@@ -24,7 +24,7 @@ Button.defaultProps = {
 export default Button;
 ```
 # ✅ css module, sass module
-* 스타일이 중첩되지 않도록 해쉬 처리를 해준다.
+* 스타일이 중첩되지 않도록 해쉬 처리를 해주므로 짧고 흔한 클래스명 사용이 가능하다.
 * `styles`로 `import`한 스타일 객체의 값을 참조하는 방식으로 사용한다. 
 ```js
 App: "App_App__c8gNs" //파일명_클래스명_해쉬
