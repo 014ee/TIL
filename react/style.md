@@ -29,7 +29,7 @@ function App() {
 
 export default App;
 ```
-* 클래스 이름을 고유화하지 않고 전역적으로 사용하고 싶다면
+* 클래스 이름을 고유화하지 않고 전역적으로 사용하고 싶다면 `:global`을 이용한다.
 ```js
 :global .header {
    // 스타일링
