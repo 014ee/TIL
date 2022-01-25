@@ -71,7 +71,6 @@ function Button({ children, size, color, outline }) {
   );
 }
 ```
-* falsy한 값의 classname은 출력하지 않는다.
 * bind 기능을 사용하면, 클래스 이름을 `{cx('클래스이름')}` 과 같이 작성하면 된다. 
 ```js
 const cx = classNames.bind(styles)
