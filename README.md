@@ -66,7 +66,7 @@
 - [리액트 어드밴스드](https://github.com/014ee/TIL/blob/main/react/react-advanced.md)
 - [리액트 배포](https://github.com/014ee/TIL/blob/main/react/deploy-react.md)
 - [Redux 상태관리](https://github.com/014ee/TIL/blob/main/react/redux.md)
-- [api 연동하기](https://github.com/014ee/TIL/blob/main/react/react-api)
+- [api 연동하기](https://github.com/014ee/TIL/blob/main/react/react-api.md)
 
 
 ### 기타
