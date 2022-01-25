@@ -8,6 +8,21 @@ import './App.scss'
 ```bash
 npm i sass
 ```
+* props로 사이즈 유형을 입력받는 버튼 컴포넌트 예시
+```js
+import './Button.scss';
+
+function Button({ children, size }) {
+  return <button className={['Button', size].join(' ')}>{children}</button>;
+  // return <button className={`Button ${size}`}>{children}</button>;
+}
+
+Button.defaultProps = {
+  size: 'medium'
+};
+
+export default Button;
+```
 # ✅ css module, sass module
 * 스타일이 중첩되지 않도록 해쉬 처리를 해준다.
 * `styles`로 `import`한 스타일 객체의 값을 참조하는 방식으로 사용한다. 
@@ -36,9 +51,20 @@ export default App;
 }
 ```
 # ✅ classnames
-* bind 기능이 있는 classnames라는 라이브러리를 사용하면 스타일을 보다 간결하게 작성할 수 있다.
 ```bash
 npm i classnames
+```
+* props로 받아온 값을 객체 안에 넣은 후 classNames()에 포함시키면 값이 true일 때만 적용된다.
+```js
+import classNames from 'classnames';
+
+function Button({ children, size, color, outline }) {
+  return (
+    <button className={classNames('Button', size, color, { outline })}>
+      {children}
+    </button>
+  );
+}
 ```
 * falsy한 값의 classname은 출력하지 않는다.
 * bind 기능을 사용하면, 클래스 이름을 `{cx('클래스이름')}` 과 같이 작성하면 된다. 
