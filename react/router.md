@@ -1,11 +1,11 @@
- # ✅ react-router-dom (v5.1)
+ # ✅ react-router-dom (v6)
 [리액트 라우터  라이브러리](https://reactrouter.com/)를 통해 경로에 따라 컴포넌트가 바뀌는 SPA를 구현할 수 있다.  
 이것은 cra에 기본 내장되어 있지 않으며, facebook의 공식 패키지도 아니지만 가장 대표적인 라우팅 패키지이다.
 ```bash
 npm i react-router-dom
 ```
 ```js
-import {BrowserRouter, Route} from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import About from './pages/About';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -13,9 +13,11 @@ import Profile from './pages/Profile';
 function App() {
   return (
      <BrowserRouter>
-      <Route exact path='/' component={Home} />
-      <Route path='/profile' component={Profile} />
-      <Route path='/about' component={About} />
+      <Routes>
+       <Route path='/' element={<Home />} />
+       <Route path='/profile' element={<Profile />} />
+       <Route path='/about' element={<About />} />
+      </Routes>
      </ BrowserRouter>
   );
 }
@@ -25,25 +27,6 @@ export default App;
 
  # ✅ 다이나믹 라우팅
  ## Path Variable `:id`
- ```js
-import {BrowserRouter, Route} from 'react-router-dom'
-import About from './pages/About';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-
-function App() {
-  return (
-     <BrowserRouter>
-      <Route exact path='/' component={Home} />
-      <Route exact path='/profile' component={Profile} />
-      <Route path='/profile/:id' component={Profile} />
-      <Route path='/about' component={About} />
-     </ BrowserRouter>
-  );
-}
-
-export default App;
- ```
 ### props
  ```js
  export default function Profile(props){
