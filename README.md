@@ -39,9 +39,12 @@
 - [async&await](https://github.com/014ee/TIL/blob/main/javascript/async.md)
 - [예외처리](https://github.com/014ee/TIL/blob/main/javascript/exception.md)
 
-## 타입스크립트
-- [타입스크립트]()
-
+### 타입스크립트
+- [타입스크립트](https://github.com/014ee/TIL/blob/main/typescript/typescript.md)
+- [기본 타입](https://github.com/014ee/TIL/blob/main/typescript/basic-type.md)
+- [인터페이스](https://github.com/014ee/TIL/blob/main/typescript/interface.md)
+- [클래스](https://github.com/014ee/TIL/blob/main/typescript/class.md)
+- [제네릭](https://github.com/014ee/TIL/blob/main/typescript/generic.md)
 
 ### React
 - [React 공식 문서](https://ko.reactjs.org/docs/hello-world.html)
