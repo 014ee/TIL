@@ -16,7 +16,7 @@
 - [SCSS](https://github.com/014ee/TIL/blob/main/css/scss.md)
 - [BootStrap](http://bootstrapk.com/getting-started/)
 
-### JavaScript
+### 자바스크립트
 - [JS 역사](https://github.com/014ee/TIL/blob/main/javascript/about-js.md)
 - [데이터타입](https://github.com/014ee/TIL/blob/main/javascript/datatype.md)
 - [연산자](https://github.com/014ee/TIL/blob/main/javascript/operator.md)
@@ -46,7 +46,7 @@
 - [클래스](https://github.com/014ee/TIL/blob/main/typescript/class.md)
 - [제네릭](https://github.com/014ee/TIL/blob/main/typescript/generic.md)
 
-### React
+### 리액트
 - [React 공식 문서](https://ko.reactjs.org/docs/hello-world.html)
 - [Create-React-App](https://github.com/014ee/TIL/blob/main/react/cra.md)
 - [컴포넌트](https://github.com/014ee/TIL/blob/main/react/component.md)
