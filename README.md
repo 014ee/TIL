@@ -70,5 +70,5 @@
 - [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
 
 ### 실습 예제
-- [스타벅스 랜딩페이지](https://github.com/014ee/TIL/tree/main/html/starbucks)
-- [리액트 투두리스트](https://github.com/014ee/TIL/tree/main/react/todo-app)
+- [스타벅스 랜딩페이지 with Heropy](https://github.com/014ee/TIL/tree/main/html/starbucks)
+- [리액트 투두리스트 with Velopert](https://github.com/014ee/TIL/tree/main/react/todo-app)
