@@ -179,12 +179,12 @@ class Child extends Parent {
   
   constuctor(age: number) {
     super('Mark Jr.', age);
-    this.printInfo();
+    this.printInfo(); // Mark Jr. 1 
   }
 }
 
 const child = new Child(1); // Parent의 constuctor를 상속받음
-child.print(); // Mark Jr. 1 , 이름은 Mark Jr. 이고, 나이는 1 입니다.
+child.print(); // 이름은 Mark Jr. 이고, 나이는 1 입니다.
 ```
 
 ## Abstract Class
