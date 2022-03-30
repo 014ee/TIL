@@ -17,7 +17,7 @@ npm i -D parcel-bundler
   "build": "parcel build index.html"
 },
 ```
-## 정적 파일 연결
+## 정적 파일 연결하기
 파비콘 같은 정적 파일 사용시 dist 폴더에 직접 넣지 말고, 개발서버 오픈 또는 빌드시 자동으로 넣어주는 패키지 이용할 것
 ```
 npm i -D parcel-plugin-static-files-copy
@@ -29,7 +29,7 @@ npm i -D parcel-plugin-static-files-copy
   "staticPath":"static" // 최상위 static 폴더에 있는 파일을 개발서버 오픈 또는 빌드시 자동으로 dist 폴더로 넣어줌
 }
 ```
-## postCSS 패키지 설치
+## postCSS 사용하기
 구형 브라우저에서도 최신 css가 적용 되도록 자동으로 벤더 프리픽스 붙여주는 패키지 설치
 ```
 npm i -D postcss autoprefixer
@@ -49,7 +49,7 @@ module.exports = { // 노드 환경에서 작동하므로 commonJS를 사용
   plugins: [require('autoprefixer')],
 };
 ```
-## babel 패키지 설치
+## babel 사용하기
 package.json 파일의 browserlist 구성 옵션을 바벨해서도 참고하여 동작한다.    
 따라서 바벨을 사용하려면 browserlist가 추가되어 있어야 함
 ```
@@ -75,7 +75,7 @@ module.exports = {
   plugins: [['@babel/plugin-transform-runtime']],
 };
 ```
-## 기타 cli 옵션 중 하나를 적용해보자! (포트번호 변경)
+## 기타 CLI 옵션 중 하나를 적용해보자! (포트번호 변경)
 but, 파셀 번들러는 개발자가 별도의 설정을 하지않아도 작동되도록 하는 것이 파셀의 기본 컨셉이기 때문에 필요하지 않은 이상 크게 사용 x
 [https://ko.parceljs.org/cli.html](https://ko.parceljs.org/cli.html)
 ```
