@@ -1,6 +1,11 @@
 # ✅ Parcel
-- 별도의 구성 옵션이 필요 없어, 초기 세팅값 설정을 하지 않아도 됨
-- 소/중형 프로젝트에 적합
+- 2017년 출시
+- 캐싱을 하므로 두 번째 빌드부터 속도가 굉장히 빠름
+- Webpack과 달리 별도의 설정없이 진입 파일만 지정하면 바로 빌드 가능
+- 대신 디테일이나 안정성이 조금 떨어지므로 소/중형 프로젝트에 적합
+-  Babel, PostCSS 같은 트랜스파일러들을 내장하여 지원하므로 `.babelrc`, `.postcssrc` 같은 설정 파일들을 발견하면 자동으로 변환
+-  런타임 중 페이지를 새로고침 하지 않아도 모듈을 자동으로 업데이트하는 HTR(Hot Module Replacement) 내장
+-  배포용 빌드시 자동으로 압축 및 난독화를 활성화하여 실행 (비활성화 방법: `$ parcel build entry.js --no-minify`)
 ```
 npm i -D parcel-bundler
 ```
@@ -75,7 +80,7 @@ but, 파셀 번들러는 개발자가 별도의 설정을 하지않아도 작동
 [https://ko.parceljs.org/cli.html](https://ko.parceljs.org/cli.html)
 ```
 "scripts": {
-  "dev": "parcel index.html --port 1216",
+  "dev": "parcel index.html --port 4321",
   "build": "parcel build index.html"
 },
 ```
