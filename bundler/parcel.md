@@ -29,7 +29,7 @@ npm i -D parcel-plugin-static-files-copy
   "staticPath":"static" // 최상위 static 폴더에 있는 파일을 개발서버 오픈 또는 빌드시 자동으로 dist 폴더로 넣어줌
 }
 ```
-## autoprefixer, postcss 패키지
+## postcss 패키지 설치
 구형 브라우저에서도 최신 css가 적용 되도록 자동으로 벤더 프리픽스 붙여주는 패키지 설치
 ```
 npm i -D postcss autoprefixer
