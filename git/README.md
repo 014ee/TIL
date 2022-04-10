@@ -8,5 +8,3 @@
 * Roadmap
 * Contributing
 * License
-
----
