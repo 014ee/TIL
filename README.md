@@ -22,7 +22,7 @@
 - [Vue](https://github.com/014ee/TIL/edit/main/vue/vue.md)
 - [Regexp](https://github.com/014ee/TIL/tree/main/regexp)
 - [Git](https://github.com/014ee/TIL/blob/main/git/)
-- [MarkDown](https://github.com/014ee/TIL/tree/main/git)
+- [MarkDown](https://github.com/014ee/TIL/blob/main/etc/markdown.md)
 
 
 ### 실습 예제
