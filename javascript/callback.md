@@ -1,6 +1,7 @@
-# ✅ Call back
+# Call back
 
 ## 동기적 콜백
+
 ```js
 console.log(1) // 첫번째
 setTimeoust(() => console.log('2'), 1000) // 네번째
@@ -13,6 +14,7 @@ printImmediately(() => console.log('hello')) // 세번째
 ```
 
 ## 비동기적 콜백
+
 ```js
 console.log(1) // 첫번째
 setTimeoust(() => console.log('2'), 1000) // 네번째
@@ -30,7 +32,9 @@ printWithDelay(() => console.log('async callback'), 2000) // 다섯번째
 ```
 
 ## 콜백지옥 예제
+
 * 가독성, 문제분석, 유지보수, 수정 등이 어렵다.
+
 ```js
 class UserStorage {
   loginUser(id, password, onSuccess, onError){
@@ -58,6 +62,7 @@ class UserStorage {
   }
 }
 ```
+
 ```js
 const userStorage = new UserStorage();
 const id = prompt('enter your id')
@@ -80,7 +85,9 @@ userStorage.loginUser(id, password, (user) => {
   }
 })
 ```
+
 ## 콜배지옥 → 프로미스
+
 ```js
 class UserStorage {
   return new Promise((resoleve, reject) => {
@@ -110,6 +117,7 @@ getRoles(user){
   }
 }
 ```
+
 ```js
 const userStorage = new UserStorage();
 const id = prompt('enter your id')

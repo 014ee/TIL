@@ -1,8 +1,11 @@
-# ✅ axios
+# axios
+
 * axios 라이브러리를 사용하여 간편하게 데이터를 받아올 수 있다.
+
 ```bash
 npm i axios
 ```
+
 ```js
 import React, {useState, useEffect} from "react";
 import axios from 'axios'

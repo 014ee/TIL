@@ -1,8 +1,9 @@
-# ✅ scss
+# scss
 
 [css to scss](https://www.sassmeister.com/)
 
 ## 상위(부모) 선택자 참조
+
 ```css
 .container {
  ul {
@@ -18,6 +19,7 @@
  }
 }
 ```
+
 ```css
 .container ul li {font-size: 52px}
 .container ul li .name {color: orange}
@@ -25,7 +27,9 @@
 ```
 
 ## 중접된 속성
+
 * 동일한 네임스페이스를 갖는 속성에서 사용할 수 있다.
+
 ```css
 .box {
  font: {
@@ -35,6 +39,7 @@
  }
 }
 ```
+
 ```css
 .box {
  font-weight: bold;
@@ -44,8 +49,10 @@
 ```
 
 ## 변수
-* 자바스크립트처럼 변수가 {선언된 위치}에 따라 유효한 범위를 갖는다. 
+
+* 자바스크립트처럼 변수가 {선언된 위치}에 따라 유효한 범위를 갖는다.
 * 변수의 값은 let과 같이 재할당이 가능하다.
+
 ```css
 .box {
  $size = 100px;
@@ -59,10 +66,12 @@
 ```
 
 ## 산술연산
+
 * `+`, `-`, `*`, `%` 기호를 사용할 수 있다.
 * `/`는 단축속성을 의미하는 기호와 동일하므로 `()`로 감싸거나, `변수`를 사용하거나 `다른 연산자와 함께 작성`해야 한다.
 * 산술연산을 할 때에는 동일한 단위의 기호끼리 사용해야 한다.
 * calc함수를 사용하면, 다른 단위의 기호도 사용할 수 있다.
+
 ```css
 div {
  $size: 40px;
@@ -76,10 +85,12 @@ div {
 ```
 
 ## 재활용
+
 * `@mixin` 키워드로 재활용할 속성을 등록하고, `@include`를 통해 사용할 수 있다.
 * 인수를 받을 수 있는 매개변수를 만들어 원하는 값으로 변경하여 재활용 할 수도 있다.
 * `:` 기호를 통해 매개변수에 별도의 값을 지정하지 않았을 경우 사용할 기본 값을 설정할 수 있다.
 * 여러 매개변수 중 하나만 수정해서 사용하고 싶으면, 키워드 인수를 사용해야 한다.
+
 ```css
 @mixin box($size:100px, $color: tomato) {
   width: $size;
@@ -96,7 +107,9 @@ div {
 ```
 
 ## 반복문
+
 * 자바스크립트와 다르게 `1`부터 시작된다.
+
 ```css
 @for $i from 1 through 10 {
  .box:nth-chld(#{i}) {
@@ -106,6 +119,7 @@ div {
 ```
 
 ## 함수
+
 ```css
 @function ratio($size, $ratio) {
  @return $size * $ratio
@@ -117,6 +131,7 @@ height: ratio($width, 9/16)
 ```
 
 ## 색상 내장 함수
+
 ```css
 .box {
   $color: orange;
@@ -137,6 +152,7 @@ height: ratio($width, 9/16)
 ```
 
 ## 외부에서 scss 파일 가져오기
+
 ```css
 @import url('./sub.scss')
 @import './sub.scss'
@@ -144,6 +160,7 @@ height: ratio($width, 9/16)
 ```
 
 ## 데이터 종류
+
 ```js
 $number: 1; / .5, 100px, 1em
 $string: bold; // relative, '../ima/a.png'
@@ -159,11 +176,13 @@ $map : (
 ```
 
 ## 반복문 @each
+
 ```css
 @each  $color in $list {
  .box {color: $c}
 }
 ```
+
 ```css
 @each  $key, $value in $map {
  .box-#{$key} {color: $value}
@@ -171,6 +190,7 @@ $map : (
 ```
 
 ## 재활용 @content
+
 ```css
 @mixin left-top{
  position: absolute;
