@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Intro](README.md)
-* [html](html/README.md)
+* [HTML](html/README.md)
   * [semantic](html/semantic.md)
   * [STARBUSKS](html/starbucks/README.md)
 * [목차](css/README.md)
