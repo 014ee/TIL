@@ -52,7 +52,7 @@
 * [redux](redux/README.md)
   * [redux](redux/redux.md)
 * [RegEx](regexp/README.md)
-* [Quick Start](typescript/README.md)
+* [TypeScript](typescript/README.md)
   * [Basic Type](typescript/basic-type.md)
   * [class](typescript/class.md)
   * [generic](typescript/generic.md)
