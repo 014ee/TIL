@@ -1,4 +1,4 @@
-# 03-Mutable-Object-References
+# 02-Mutable-Object-References
 
 ## ✅참조형 데이터
 

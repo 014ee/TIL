@@ -1,4 +1,4 @@
-# 06-Const-Let-Var
+# 05-Const-Let-Var
 
 ## ✅ 구조 분해 할당
 

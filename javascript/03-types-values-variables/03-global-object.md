@@ -1,2 +1,0 @@
-# 04-Global-Object
-
