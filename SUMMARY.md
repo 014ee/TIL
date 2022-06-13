@@ -30,6 +30,7 @@
   * [09-Classes](javascript/09-classes/README.md)
     * [dd](javascript/09-classes/dd.md)
   * [10-Modules](javascript/10-modules.md)
+    * [module](javascript/10-modules/module.md)
     * [js-levelup](javascript/js-levelup.md)
   * [11-Standard-Library](javascript/11-standard-library/README.md)
     * [json](javascript/json.md)
