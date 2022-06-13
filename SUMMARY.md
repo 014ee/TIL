@@ -75,7 +75,7 @@
     * [git-guide-dd](tools-extensions/git-dd/git-guide-dd.md)
     * [git-flow-guide-dd](tools-extensions/git-dd/git-flow-guide-dd.md)
     * [readmd-write](tools-extensions/git-dd/readmd-write.md)
-    * [conventional-commits](etc/git/conventional-commits.md)
+    * [conventional-commits-dd](tools-extensions/git-dd/conventional-commits-dd-1.md)
   * [md-write](tools-extensions/md-write.md)
   * [bundler-dd](tools-extensions/bundler-dd/README.md)
     * [rollup-dd](tools-extensions/bundler-dd/rollup-dd.md)
