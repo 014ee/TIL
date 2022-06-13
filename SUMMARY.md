@@ -6,7 +6,7 @@
 * [CSS](css/README.md)
   * [scss](css/scss.md)
 * [JavaScript](javascript/README.md)
-  * [01-Intro](javascript/01-intro/README.md)
+  * [1장. 자바스크립트 소개](javascript/01-intro/README.md)
     * [01-History](javascript/01-intro/01-history.md)
     * [02-Feature](javascript/01-intro/02-feature.md)
   * [02-Lexical-Structure](javascript/02-lexical-structure/README.md)
