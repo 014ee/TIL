@@ -8,6 +8,8 @@
 * [JavaScript](javascript/README.md)
   * [01-Intro](javascript/01-intro/README.md)
     * [Test](javascript/01-intro/test.md)
+  * [02-Lexical Structure](javascript/02-lexical-structure/README.md)
+    * [test](javascript/02-lexical-structure/test.md)
   * [01-about-js](javascript/about-js.md)
   * [Ajax (Asynchronous Js and XML)](javascript/ajax.md)
   * [array](javascript/array.md)
