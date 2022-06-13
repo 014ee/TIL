@@ -1,4 +1,6 @@
-# git-guide
+# git-guide-dd
+
+
 
 ### git 설치 후 초기설정(\~/.gitconfig에 저장됨)
 

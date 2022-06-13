@@ -1,4 +1,6 @@
-# about-gitignore
+# gitignore-dd
+
+
 
 ### .gitignore 이란?
 
