@@ -4,7 +4,7 @@
 
 웹 개발과 관련하여 새로 배운 기술들을 정리합니다.
 
-{% embed url="https://inhwalee.gitbook.io/til/" %}
+[GitBook으로 보기 →](https://inhwalee.gitbook.io/til/)
 
 ### 📃 작성 규칙
 
