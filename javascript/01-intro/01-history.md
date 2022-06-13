@@ -1,4 +1,4 @@
-# 01-History
+# 자바스크립트의 역사
 
 ## ✅ JS의 역사
 
@@ -26,3 +26,4 @@
 * `2016년` ES 7 (지수연산자, Array.prototype.includes, String.prototype.includes)
 * `2017년` ES 8 (async/await, Object 정적 메소드)
 * `2018년` ES 9 (Object Rest/Spread 프로퍼티)
+* 현재 ES6가 메이저로 사용되는 최신 JS (IE 는 ES5까지 지원)
