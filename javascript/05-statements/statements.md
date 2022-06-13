@@ -1,8 +1,6 @@
 # statements
 
-
-
-## ✅ 조건문
+## ✅조건문
 
 ### If Else
 
