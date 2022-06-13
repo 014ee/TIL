@@ -1,6 +1,52 @@
 # operator
 
+## ✅ 전개 연산자
 
+* 배열 데이터가 `,`로 구분된 `각각의 문자 데이터`로 전개되어 출력된다.
+
+```js
+const fruits = ['Apple', 'Banana', 'Cherry', 'Orange']
+console.log(...fruits) // Apple Banana Cherry Orange
+```
+
+* 매개변수에 전개 연산자를 사용하면 나머지 값을 전부 받아내는 용도로 사용할 수 있으며, 이를 `나머지 매개변수`라고 한다.
+
+```js
+function toObject(a, b, ...c) {
+ return {
+ a: a,
+ b: b,
+ c: c
+ }
+}
+console.log(toObject(...fruits)) // {a: 'Apple', b: 'Banana', c: [Cherry', 'Orange']}
+```
+
+* 객체 데이터에서 속성의 이름과 변수의 이름이 같으면 축약해서 사용할 수 있다.
+
+```js
+const toObject(a, b, ...c) => ({a, b, c})
+console.log(toObject(...fruits)) // {a: 'Apple', b: 'Banana', c: ['Cherry', 'Orange']}
+```
+
+## ✅ 옵셔널 체이닝
+
+* `?.`을 사용하면 속성값이 없는 중첩 객체에 에러 없이 안전하게 접근할 수 있다.
+* `?.` 앞의 평가 대상이 `undefined`나 `null`이면 평가를 멈추고 `undefined`를 반환한다.
+
+```js
+const Amy = {
+ name: 'Amy',
+ age: 20,
+ job: {title:}
+}
+
+function displayJob(person){
+ if(person.job?.title){
+  console.log(person.job.title)
+ }
+
+```
 
 ## ✅ 할당 연산자
 
