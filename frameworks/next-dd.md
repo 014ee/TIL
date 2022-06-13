@@ -1,4 +1,6 @@
-# Next
+# next-dd
+
+
 
 ```
 npx create-next-app 프로젝트명
@@ -12,5 +14,5 @@ npx create-next-app@latest --typescript 프로젝트명 // next + ts 프로젝�
 
 ```
 npx create-next-app 프로젝트명
-npm install typescript @types/react @types/node --save-dev  // ts + react에서 필요한 추가 타입스크립트 라이브러리 설치해야함
+npm install typescript @types/react @types/node --save-dev  // ts + react에서 필요한 추가 타입스크립트 라이브러리 설치해야
 ```
