@@ -1,4 +1,6 @@
-# Promise
+# promisee
+
+
 
 * 비동기적인 것을 수행할 때 콜백함수 대신 간편하게 실행시켜주는 자바스크립트 내장 객체
 * 상태: `pending(실행중)` → `fulfilled(완료)` or `rejected(실패)`
