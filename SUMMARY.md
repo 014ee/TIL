@@ -18,7 +18,7 @@
     * [04-Type-Conversions](javascript/03-types-values-variables/type-conversions.md)
     * [05-Const-Let-Var](javascript/03-types-values-variables/const-let-var.md)
   * [04-Expressions-Operators](javascript/04-expressions-operators/README.md)
-    * [operator](javascript/operator.md)
+    * [operator](javascript/04-expressions-operators/operator.md)
   * [05-Statements](javascript/05-statements/README.md)
     * [js-essentials](javascript/js-essentials.md)
   * [06-Objects](javascript/06-objects/README.md)
