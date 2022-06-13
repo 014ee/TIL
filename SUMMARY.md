@@ -24,7 +24,7 @@
   * [06-Objects](javascript/06-objects/README.md)
     * [object](javascript/06-objects/object.md)
   * [07-Arrays](javascript/07-arrays/README.md)
-    * [array](javascript/array.md)
+    * [array](javascript/07-arrays/array.md)
   * [08-Functions](javascript/08-functions/README.md)
     * [function](javascript/function.md)
   * [09-Classes](javascript/09-classes/README.md)
