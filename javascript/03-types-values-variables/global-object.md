@@ -1,2 +1,2 @@
-# 03-Global-Object
+# Global-Object
 
