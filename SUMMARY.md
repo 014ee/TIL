@@ -35,7 +35,7 @@
     * [RegExp](javascript/11-standard-library/regexp.md)
     * [error](javascript/11-standard-library/error.md)
     * [json-customizations](javascript/11-standard-library/json-customizations.md)
-  * [12-Iterators-Generators](javascript/12-iterators-generators/README.md)
+  * [12-Iterators-Generators](javascript/12-iterators-generators.md)
     * [test](javascript/12-iterators-generators/test.md)
   * [13-Asynchronous](javascript/13-asynchronous/README.md)
     * [promisee](javascript/13-asynchronous/promisee.md)
