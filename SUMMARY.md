@@ -1,7 +1,6 @@
 # Table of contents
 
-* [Intro](README.md)
-* [Today I Learned](today-i-learned.md)
+* [Today I Learned](README.md)
 * [HTML](html/README.md)
   * [semantic](html/semantic.md)
 * [CSS](css/README.md)
