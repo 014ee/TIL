@@ -129,3 +129,38 @@ const str = `
 #### 유튜브 주소에서 아이디만을 가져오고 싶은 경우
 
 * `/(?:https?:\/\/)?(?:www\.)?youtu.be\/([a-zA-Z0-9]{11})/gm`
+
+``
+
+```
+// Some code
+ <h1>Hello world</h1>
+  <script>
+    let str = `
+      010-1234-5678
+      theemail@naver.com
+      https://www.omdbapi.com/?apikey=7035c60c&s=frozen
+      The quick brown fox jumps over the lazy dog.
+      a_bb_ccc_dddd
+    `
+    /* 생성자 함수 방식
+    const regexp = new RegExp('the', 'gi')
+    */
+
+    /* 리터럴 방식
+    const regexp = /the/gi
+    console.log(str.match(regexp)) // 일치하는 문자의 배열 반환*/
+
+    /* 문자 수저 후 재할당
+    const regexp = /fox/gi
+    console.log(regexp.test(str)) // true
+    str = console.log(str.replace(regexp, 'CAT')) */
+
+    // const regexp = /the/g
+    // console.log(str.match(/\.$/gim))
+
+    console.log(str.match(/\bf\w{1,}\b/g))
+  </script>
+```
+
+``
