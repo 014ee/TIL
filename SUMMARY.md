@@ -18,7 +18,7 @@
   * [08-Functions](javascript/08-functions.md)
   * [09-Classes](javascript/09-classes.md)
   * [10-Modules](javascript/10-modules.md)
-  * [11-JS-Standard-Library](javascript/11-js-standard-library.md)
+  * [11-Standard-Library](javascript/11-standard-library.md)
   * [12-Iterators-Generators](javascript/12-iterators-generators.md)
   * [13-Asynchronous](javascript/13-asynchronous.md)
   * [14-Metaprogramming](javascript/14-metaprogramming.md)
