@@ -28,7 +28,7 @@
   * [08-Functions](javascript/08-functions/README.md)
     * [function](javascript/08-functions/function.md)
   * [09-Classes](javascript/09-classes/README.md)
-    * [class](javascript/class.md)
+    * [dd](javascript/09-classes/dd.md)
   * [10-Modules](javascript/10-modules.md)
     * [js-levelup](javascript/js-levelup.md)
   * [11-Standard-Library](javascript/11-standard-library/README.md)
