@@ -1,2 +1,2 @@
-# 02-Lexical Structure
+# 02-Lexical-Structure
 
