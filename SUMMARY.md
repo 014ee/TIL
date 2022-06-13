@@ -12,7 +12,6 @@
   * [02-Lexical-Structure](javascript/02-lexical-structure/README.md)
     * [test](javascript/02-lexical-structure/test.md)
   * [03-Types-Values-Variables](javascript/03-types-values-variables/README.md)
-    * [01-test](javascript/03-types-values-variables/01-test.md)
     * [01-Immutable-Primitive-Values](javascript/03-types-values-variables/01-immutable-primitive-values.md)
     * [02-Mutable-Object-References](javascript/03-types-values-variables/mutable-object-references.md)
     * [03-Global-Object](javascript/03-types-values-variables/global-object.md)
