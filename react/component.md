@@ -1,29 +1,20 @@
-# component
-
-## ✅ React 핵심 라이브러리
-
-### [react](https://ko.reactjs.org/docs/react-api.html)
-
+# ✅ React 핵심 라이브러리
+## [react](https://ko.reactjs.org/docs/react-api.html)
 ```js
 import React from 'react' // 컴포넌트를 만들 때 사용
 ```
-
-**`function component`**
-
+#### `function component`
 ```js
 const FunctionComponent = () => {
   return <div>Hello</div>
 }
 ```
-
 ```js
 function FunctionComponent(){
   return <div>Hello</div>
 }
 ```
-
-**`class component`**
-
+#### `class component`
 ```js
 class ClassComponent extends React.Component{
   render(){
@@ -31,26 +22,20 @@ class ClassComponent extends React.Component{
   }
 }
 ```
-
-### [react-dom](https://ko.reactjs.org/docs/react-dom.html)
-
+## [react-dom](https://ko.reactjs.org/docs/react-dom.html)
 ```js
 import ReactDom from 'react-dom' // 컴포넌트 파일을 HTML 엘리먼트에 연결할 때 사용
 ```
-
 ```js
 ReactDOM.render(어떤 리액트 컴포넌트를, 어느 HTML 엘리먼트에 놓을지)
 ```
-
 ```js
 ReactDOM.render(
   <FunctionComponent />,
   document.getElementById('root') 
 );
 ```
-
-## ✅ 컴포넌트 만들기
-
+# ✅ 컴포넌트 만들기
 ```js
 React.createElement(
   type, // 첫번째 인자: html 태그 || 리액트 컴포넌트 || React.Fragment
@@ -58,24 +43,19 @@ React.createElement(
   [...children] // 세번째 인자: 자식으로 넣어주는 요소들(여러개 가능)
 );
 ```
-
-#### html 태그
-
+### html 태그
 ```js
 ReactDOM.render(
   React.createElement('h1', null, `type이 "태그 이름 문자열" 입니다.`),
   document.querySelector('#root')
 )
 ```
-
 ```html
 <div id="root">
   <h1>type이 "태그 이름 문자열" 입니다.</h1>
 </div>
 ```
-
-#### 리액트 컴포넌트 정의
-
+### 리액트 컴포넌트 정의
 ```js
 const Component = () => {
   return React.createElement('p', null, `type이 "리액트 컴포넌트" 입니다.`)
@@ -86,15 +66,12 @@ ReactDOM.render(
   document.querySelector('#root')
 )
 ```
-
 ```html
 <div id="root">
    <p>type이 "리액트 컴포넌트" 입니다.</p>
 </div>
 ```
-
-#### React.Fragment
-
+### React.Fragment
 ```js
 ReactDOM.render(
   React.createElement(
@@ -106,17 +83,13 @@ ReactDOM.render(
   document.querySelector('#root')
 )
 ```
-
 ```html
 <div id="root">
    type이 "리액트 프레그먼트" 입니다.type이 "리액트 프레그먼트" 입니다.type이 "리액트 프레그먼트" 입니다.
 </div>
 ```
-
-#### 번외) 복잡한 리액트 엘리먼트가 들어갈 경우
-
+### 번외) 복잡한 리액트 엘리먼트가 들어갈 경우
 아래와 같이 구조가 복잡할 경우 `React.createElement`로 컴퍼넌트를 생성하면 가독성이 좋지 않으므로, `JSX 문법`을 이용한다.
-
 ```js
 ReactDOM.render(
   React.createElement(
@@ -137,7 +110,6 @@ ReactDOM.render(
   document.querySelector('#root')
 )
 ```
-
 ```html
 <div id="root">
   <div>
@@ -151,11 +123,8 @@ ReactDOM.render(
   </div>
 </div>
 ```
-
-## ✅ JSX with [Babel](https://babeljs.io/)
-
-#### JSX 문법
-
+# ✅ JSX with [Babel](https://babeljs.io/)
+### JSX 문법
 * 최상위 요소를 리턴하는 경우 `()`로 감싸야 한다. (필수는 아닌데, 간혹 리턴 안될 경우)
 * 최상위 요소는 하나여야 한다.
 * 자식들을 바로 랜더링 하고 싶으면 빈 태그 `<>내용</>`을 사용한다. (= Fragment)
@@ -165,18 +134,14 @@ ReactDOM.render(
 * 인라인 스타일링이 가능하다.
 * 자식요소가 있으면 꼭 닫아야 하고, 자식요소가 없으면 열면서 닫아야 한다. `<br/>`
 * `boolean`, `null`, `undefined` 값은 무시된다.
-
-#### Babel이란?
-
+### Babel이란?
 * 기본적으로 바벨은 최신 자바스크립트 문법을 예전 브라우저에서도 인식할 수 있도록 변환해주는 역할을 한다.
-* 또한 `JSX 문법을 순수한 자바스크립트로도 컴파일` 해주는데, 이를 활용해 리액트 컴포넌트를 보다 심플하게 만들 수 있다.
-* 즉, HTML 처럼 생긴 JSX 문법으로 작성하면 React.CreacteElement() 문법으로 변환준다.
+* 또한 `JSX 문법을 순수한 자바스크립트로도 컴파일` 해주는데, 이를 활용해 리액트 컴포넌트를 보다 심플하게 만들 수 있다.  
+* 즉, HTML 처럼 생긴 JSX 문법으로 작성하면 React.CreacteElement() 문법으로 변환준다.  
 * 또한 문법에 엄격하기 때문에 컴파일 과정에서 문법적 오류를 인지하기 쉽다.
-
 ```js
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 ```
-
 ```js
 <script text="babel">
   const title = "주제"
@@ -194,7 +159,6 @@ ReactDOM.render(
   )
 </script> 
 ```
-
 ```html
 <div id="root">
   <div>
@@ -208,17 +172,13 @@ ReactDOM.render(
   </div>
 </div>
 ```
-
-## ✅ Props
-
-* 컴포넌트 외부로부터 전달받는 읽기 전용 데이터
-* props 수정해서는 안되며, props를 다룰 때에는 반드시 순수 함수처럼 동작해야 한다.
+# ✅ Props
+* 컴포넌트 외부로부터 전달받는 읽기 전용 데이터 
+* props  수정해서는 안되며, props를 다룰 때에는 반드시 순수 함수처럼 동작해야 한다. 
 * `객체 형식`으로 들어온다. {message = "안녕하세요,"}
 * 구조분해 할당으로 간결하게 값을 사용할 수 있다.
 * 속성 뿐만 아니라 내 컴포넌트의 자식 컴포넌드도 `{child}` 로 받아올 수 있다.
-
-### function
-
+## function
 ```js
 function Component ({message}){
   return (
@@ -232,9 +192,7 @@ Component.defaultProps = {
 
 ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
 ```
-
-### class
-
+## class
 ```js
 class Component extends React.Component{
   render(){
@@ -249,14 +207,10 @@ class Component extends React.Component{
 
 ReactDOM.render(<Component message = "안녕하세요,"/>, document.querySelector('#root'))
 ```
-
-## ✅ State
-
+# ✅ State
 * 컴포넌트 내부에서 사용 및 변경할 수 있는 데이터
 * 원래는 class에서만 사용 가능했으나, hooks 이후 함수에서도 [useState](https://github.com/014ee/TIL/blob/main/react/hooks.md)로 사용 가능해짐
-
-### function
-
+## function
 ```js
 const Component = () => {
   const [count, setCount ] = useState(0)
@@ -270,10 +224,8 @@ const Component = () => {
 }
 ```
 
-### class
-
+## class
 * class 컴포넌트에서 state는 객체 형태로만 사용 가능
-
 ```js
 class Component extends React.Component{
 
@@ -299,7 +251,6 @@ class Component extends React.Component{
   }
 }
 ```
-
 ```js
 class Component extends React.Component{
 
@@ -327,14 +278,10 @@ class Component extends React.Component{
   }
 }
 ```
-
-## ✅ 이벤트 핸들링
-
+# ✅ 이벤트 핸들링
 * `onClick = {함수}` (이벤트명은 `camelCase`로만 작성 가능)
 * 실제 DOM 엘리먼트에만 사용 가능하며, 리액트 컴포넌트에 사용시 props로 전달된다.
-
-### function
-
+## function
 ```js
 function Component(){
   const [count, setCount] = useCount(0)
@@ -346,9 +293,7 @@ function Component(){
   )
 }
 ```
-
-### class
-
+## class
 ```js
 class Component extends React.Component{
   state = {

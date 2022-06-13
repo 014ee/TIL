@@ -1,20 +1,14 @@
-# react-testing
-
-## ✅ Utit Test with [JEST](https://jestjs.io/)
-
+# ✅ Utit Test with [JEST](https://jestjs.io/)
 * 통합 테스트에 비해 빠르고 쉽게 문제를 찾아낼 수 있다.
 * 테스트 코드를 통해 어떻게 동작하는지 예측할 수 있다.
-* JEST는 facebook의 오픈소스로, create-react-app에 기본으로 설치되어 있어 많이 쓰이는 테스트 도구이다.\
-  `easy setup` `instant feedback` `snapshot testing`
+* JEST는 facebook의 오픈소스로, create-react-app에 기본으로 설치되어 있어 많이 쓰이는 테스트 도구이다.  
+`easy setup` `instant feedback` `snapshot testing`
 * [jest-dom](https://github.com/testing-library/jest-dom)
 * [user-event](https://testing-library.com/docs/ecosystem-user-event/)
-
-### JEST 설치&명령어 세팅
-
+## JEST 설치&명령어 세팅
 ```bash
 npm i jest -D
 ```
-
 ```js
 "scripts": {
   "test": "jest"
@@ -22,24 +16,18 @@ npm i jest -D
 
 npm test > 그때그때 테스트
 ```
-
 ```js
 npx jest --watchAll  > 항상 테스트 켜놓는 방법
 ```
-
-### 간단한 사용 예시
-
+## 간단한 사용 예시  
 `test('test 설명', 함수)`
-
 ```js
 // example.test.js
 test('adds 1 + 2 to equal 3', () => {
   expect(1 + 2).toBe(3);
 })
 ```
-
 여러 테스트를 `describe`로 묶어서 관리할 수도 있다.
-
 ```js
 describe('expect test', ()=>{
   it('adds 1 + 2 to equal 3', () => {
@@ -53,9 +41,7 @@ describe('expect test', ()=>{
   })
 })
 ```
-
-### 자주 쓰는 테스트 함수
-
+## 자주 쓰는 테스트 함수
 ```js
 describe('expect test', ()=>{
 
@@ -93,9 +79,7 @@ describe('expect test', ()=>{
   
 })
 ```
-
 `.not`을 붙여 사용할 수도 있다.
-
 ```js
 describe('not expect test', ()=>{
 
@@ -106,9 +90,7 @@ describe('not expect test', ()=>{
   
 })
 ```
-
-### 비동기 로직 테스트
-
+## 비동기 로직 테스트 
 ```js
 describe('use async test', ()=>{
   it('async-await', async ()=>{
@@ -125,7 +107,6 @@ describe('use async test', ()=>{
   })
 })
 ```
-
 ```js
 describe('use async test', ()=>{
   it('async-await, catch', async ()=>{
@@ -144,11 +125,8 @@ describe('use async test', ()=>{
   })
 })
 ```
-
-## ✅ React Component Test
-
+# ✅ React Component Test
 `create-react-app`으로 프로젝트를 생성하면 별도의 세팅 없이 바로 `npm test` 사용 가능
-
 ```js
 // package.json에서 설치된 테스트 라이브러리 확인 가능
 
@@ -158,7 +136,6 @@ describe('use async test', ()=>{
   "@testing-library/user-event": "^13.5.0",
 },
 ```
-
 ```js
 // App.test에서 확인 가능
 
@@ -172,12 +149,9 @@ test('renders learn react link', () => {
 });
 ```
 
-## ✅ @testing-library/react 실습
-
-### 1. 컴포넌트 랜더
-
+# ✅ @testing-library/react 실습
+## 1. 컴포넌트 랜더
 테스트 코드 먼저 작성시 유의해야 할 점은 먼저 실제 코드는 테스트 코드를 통화시킬 정도로만 간단히 작성하는 것
-
 ```js
 // Button.jsx
 
@@ -185,7 +159,6 @@ export default function Button(){
   return <></>;
 }
 ```
-
 ```js
 // Button.test.js
 
@@ -199,9 +172,7 @@ describe('Button 컴포넌트 (@testing-library/react)', ()=>{
   })
 })
 ```
-
-### 2. button이라고 쓰여있는 엘리먼트는 HTMLButtonElement 이다.
-
+## 2. button이라고 쓰여있는 엘리먼트는 HTMLButtonElement 이다.
 ```js
 // Button.jsx
 
@@ -209,7 +180,6 @@ export default function Button(){
   return <button>button</button>;
 }
 ```
-
 ```js
 // Button.test.js
 
@@ -226,9 +196,7 @@ describe('Button 컴포넌트 (@testing-library/react)', ()=>{
   });
 })
 ```
-
-### 3. 버튼을 클릭하면 P태그 안에 '버튼이 방금 눌렸다' 라고 쓰여진다.
-
+## 3. 버튼을 클릭하면 P태그 안에 '버튼이 방금 눌렸다' 라고 쓰여진다.
 ```js
 // Button.jsx
 
@@ -239,7 +207,6 @@ export default function Button(){
   </div>);
 }
 ```
-
 ```js
 // Button.test.js
 
@@ -261,9 +228,7 @@ describe('Button 컴포넌트 (@testing-library/react)', ()=>{
   });
 })
 ```
-
-### 4. 버튼을 클릭하기 전에는, P태그 안에 '버튼이 눌리지 않았다.' 라고 쓰여진다.
-
+## 4. 버튼을 클릭하기 전에는, P태그 안에 '버튼이 눌리지 않았다.' 라고 쓰여진다.
 ```js
 // Button.jsx
 
@@ -282,7 +247,6 @@ export default function Button(){
   }
 }
 ```
-
 ```js
 // Button.test.js
 
@@ -303,11 +267,8 @@ describe('Button 컴포넌트 (@testing-library/react)', ()=>{
   });
 })
 ```
-
-### 5. 버튼을 클릭하고 5초 뒤에는 P태그 안에 "버튼이 눌리지 않았다" 라고 쓰여진다.
-
-state의 변화가 있는 테스트를 할 때 [act](https://ko.reactjs.org/docs/test-utils.html#act) 라는 함수 안에서 작동시켜야 한다. ([AAA 테스트 방법론 참고](http://wiki.c2.com/?ArrangeActAssert))
-
+## 5. 버튼을 클릭하고 5초 뒤에는 P태그 안에 "버튼이 눌리지 않았다" 라고 쓰여진다.
+state의 변화가 있는 테스트를 할 때 [act](https://ko.reactjs.org/docs/test-utils.html#act)  라는 함수 안에서 작동시켜야 한다. ([AAA 테스트 방법론 참고](http://wiki.c2.com/?ArrangeActAssert))
 ```js
 // Button.jsx
 
@@ -328,7 +289,6 @@ export default function Button(){
   }
 }
 ```
-
 ```js
 // Button.test.js
 
@@ -359,9 +319,7 @@ describe('Button 컴포넌트 (@testing-library/react)', ()=>{
   });
 })
 ```
-
-**중간 리팩토링**
-
+#### 중간 리팩토링
 ```js
 // Button.jsx
 
@@ -397,9 +355,7 @@ export default function Button(){
   }
 }
 ```
-
-### 6. 버튼을 클릭하면, 5초 동안 버튼이 비활성화 된다.
-
+## 6. 버튼을 클릭하면, 5초 동안 버튼이 비활성화 된다.
 ```js
 // Button.jsx
 
@@ -435,7 +391,6 @@ export default function Button(){
     }
 }
 ```
-
 ```js
 // Button.test.js
 
