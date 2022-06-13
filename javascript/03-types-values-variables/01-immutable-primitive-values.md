@@ -1,4 +1,25 @@
-# 02-Immutable-Primitive-Values
+# 01-Immutable-Primitive-Values
+
+## ✅원시 데이터
+
+`String`, `Number`, `Boolean`, `Undefined`, `Null`, `Symbol`
+
+* 원시 데이터는 `할당된 값 자체가 메모리에 저장`된다.
+* 새로 입력한 값이 메모리 주소 이미 있으면, 새로운 메모리를 만들지 않고 기존의 메모리 주소를 바라보도록 지정해준다.
+* 따라서 원시 데이터는 한번 메모리에 만들어지면 불변한다. (생긴게 같으면 같은 데이터, 다르면 다른 데이터)
+
+```js
+let a = 1
+let b = 4
+
+console.log(a, b, a === b) // 1, 4, false  (a와 b는 다른 메모리를 바라봄)
+b = a
+console.log(a, b, a === b) // 1, 1, true (a와 b는 같은 메모리를 바라봄)
+a = 7
+console.log(a, b, a === b) // 7, 1, false (a와 b는 다른 메모리를 바라봄)
+let c = 1
+console.log(b, c, b === c) // 1, 1, true (b와 c는 같은 메모리를 바라봄)
+```
 
 ## ✅ Number
 
