@@ -84,4 +84,4 @@
     * [Redux](redux/README.md)
       * [redux](redux/redux.md)
     * [Recoil](recoil/README.md)
-  * [Lodash 사용법](javascript/ladash.md)
+  * [lodash\_](tools-extensions/lodash\_.md)
