@@ -1,4 +1,4 @@
-# Mark Down 작성법
+# md-write
 
 [깃헙에서 제공하는 마크다운 문법](https://cran.r-project.org/web/packages/gluedown/vignettes/github-spec.html)
 
