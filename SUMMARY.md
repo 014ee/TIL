@@ -13,7 +13,6 @@
     * [Lexical-Structure](javascript/02-lexical-structure/lexical-structure.md)
   * [3장. 타입, 값, 변수](javascript/03-types-values-variables/README.md)
     * [Immutable-Primitive-Values](javascript/03-types-values-variables/immutable-primitive-values.md)
-    * [01-Immutable-Primitive-Values](javascript/03-types-values-variables/01-immutable-primitive-values.md)
     * [Mutable-Object-References](javascript/03-types-values-variables/mutable-object-references.md)
     * [03-Global-Object](javascript/03-types-values-variables/global-object.md)
     * [04-Type-Conversions](javascript/03-types-values-variables/type-conversions.md)
