@@ -36,7 +36,7 @@ const fruit = {
   banana: null
 }
 
-fruit['banana'].color // TypeError
+fruit['banana'].color  // TypeError
 fruit['banana']?.color // undefined
 ```
 
@@ -55,11 +55,11 @@ let count = 0;
 try {
   func(count++);
 } catch(e) {
-  count; // 1 => 예외가 일어나기 전 증가
+  count;  // 1 => 예외가 일어나기 전 증가
 }
 
 func?.(count++);
-count; // 1 => 단축 평가이므로 평가가 중단되어 증가하지 않음
+count;    // 1 => 단축 평가이므로 평가가 중단되어 증가하지 않음
 
 ```
 
