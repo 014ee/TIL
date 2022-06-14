@@ -18,7 +18,7 @@
     * [04-Type-Conversions](javascript/03-types-values-variables/type-conversions.md)
     * [05-Const-Let-Var](javascript/03-types-values-variables/const-let-var.md)
   * [4장. 표현식과 연산자](javascript/04-expressions-operators/README.md)
-    * [Expressions](javascript/04-expressions-operators/expressions.md)
+    * [표현식](javascript/04-expressions-operators/undefined.md)
     * [Operators](javascript/04-expressions-operators/operators.md)
     * [operator](javascript/04-expressions-operators/operator.md)
   * [5장. 문](javascript/05-statements/README.md)
