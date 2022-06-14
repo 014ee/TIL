@@ -1,4 +1,4 @@
-# 표현식
+# Expressions
 
 {% hint style="info" %}
 어떤 **값으로 평가**되는 구절
