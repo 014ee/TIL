@@ -10,7 +10,7 @@
     * [자바스크립트의 역사](javascript/01-intro/01-history.md)
     * [자바스크립트의 특징](javascript/01-intro/02-feature.md)
   * [2장. 어휘 구조](javascript/02-lexical-structure/README.md)
-    * [test](javascript/02-lexical-structure/test.md)
+    * [Lexical-Structure](javascript/02-lexical-structure/lexical-structure.md)
   * [3장. 타입, 값, 변수](javascript/03-types-values-variables/README.md)
     * [01-Immutable-Primitive-Values](javascript/03-types-values-variables/01-immutable-primitive-values.md)
     * [02-Mutable-Object-References](javascript/03-types-values-variables/mutable-object-references.md)
