@@ -2,30 +2,6 @@
 
 ## ✅ 데이터 타입
 
-###
-
-> **typeof 연산자**
->
-> 값은 피연산자의 타입을 나타내는 문자열이다.
->
-> null을 object로 반환하기 때문에 null과 객체를 구분하려면 별도의 테스트를 해야한다.
->
-> &#x20;함수는 일종의 객체이지만, 반환값을 달리 할만큼 독특하다고 판단하여 function을 반환한다.
->
-> 나머지는 뭉뜽그려 표현하므로 typeof는 객체와 기본 타입을 구별하는 용도 정도로만 사용할 수 있다. &#x20;
-
-```
-typeof undefined        // undefined
-typeof null             // object
-typeof true 또는 false   // boolean
-typeof 숫자 or NaN       // number
-typeof BigInt           // bigint
-typeof 문자열            // string
-typeof 심벌              // symbol
-typeof 함수              // function
-typeof 함수를 제외한 객체  // object
-```
-
 ### typeof (+ instanceof, Number.isNaN(), Array.isArray())
 
 * `typeof`를 통해 특정 데이터 타입을 확인할 수 있다.
