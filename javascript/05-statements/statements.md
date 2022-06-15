@@ -1,53 +1,146 @@
 # statements
 
-{% hint style="info" %}
-자바스크립트의 문장이나 명령어라고 할 수 있으며 **실행을 통해 어떤 동작을 수행**한다.\
-자바스크립트 인터프리터는 기본적으로 문을 작성된 순서대로 실행하지만, 다양한 제어문을 통해 기본 실행 순서를 바꾸어 동작하도록 할  있다.
-{% endhint %}
+## ✅조건문
 
-## 🐇 표현문
+### If Else
 
-> **표현문**
->
-> 자바스크립트에서 가장 단순한 문은 부수 효과가 있는 표현식이다. 할당이나 함수 호출처럼 부수 효과가 있는 표현식은 그 자체로 문이 될 수 있으며 이렇게 사용한 표현식을 표현문이라고 부른다. 함수 호출은 표현식이지만 프로그램의 상태나 호스트 환경에 영향을 미치는 부수 효과가 있으며, 함수에 부수 효과가 없다면 더 큰 표현식이나 할당문의 일부가 아닌 한 호출할 의미가 없다.
+* 예시) Math의 랜덤함수와 내림처리를 통해 랜덤 숫자 추출하기
 
-```
-const greeting = 'hello' + name;
-counter++;
-delete person.tel;
-console.log('hello world');
-displaySpinner();
+```js
+export default function random() {
+ return Math.floor(Math.random() * 10)
+}
+
+import random from './getRandom'
+const number = random();
 ```
 
-## 🐇 복합문과 빈 문
-
-> **복합문**
->
-> 표현식 여러개를 하나로 묶는 콤마 연산자와 마찬가지로 문 여러 개를 문 블록이라고 하는 중괄호로 묶어 문이 하나인 것 처럼 동작하는 복합문을 만들 수 있다. 문 블록은 세미콜론으로 끝나지 않는다.
-
-```
-{
-  x = Math.PI;
-  cx = Math.cos(x);
-  console.log('cos = ' + cx);
+```js
+if (number === 0){
+ console.log('number is 0'); 
+} else if (number === 2){
+ console.log('number is 2')
+}else {
+ console.log('rest...')
 }
 ```
 
-> **빈 문**
->
-> 문이 있을 것으로 예상되는 곳에 문을 쓰지 않을 수도 있다. 자바스크립트 인터프리터는 빈 문을 실행할 때 아무 일도 하지 않으며, 빈 바디를 갖는 루프를 만들고자 할 때 유용하다. 빈 문을 사용할 때는 의도치 않게 찾기 힘든 버그가 생기는 것을 방지하기 위해 명시적으로 주석을 작성해주는 것이 좋다.
+### Switch
 
+* 조건을 여러 분기로 나누어 작성할 수 있다. `타입스크립트에서 정해진 타입을 검사하는데 유용`
+* `break`를 넣어야 조건이 만족될 시 실행을 멈추고 빠져나온다. (`default`에서는 생략 가능)
+
+```js
+const color = 'red'
 ```
-for(let i = 0; i < a.length; a[i++] = 0) /*의도적으로 비움*/ ;
+
+```js
+switch (color) {
+ case orange:
+ case tangerine:
+ console.log('color is orange')
+ break
+ case green:
+ console.log('color is green')
+ break
+ case red:
+ console.log('color is red')
+ break
+ default:
+ console.log('what color is it?')
+}
 ```
 
-## 🐇 기타 문
+## ✅ 반복문
 
+* 반복문을 동작시킬 때 통상적으로 `i` 변수를 사용한다.
+* `while문에서 continue` : 반복문을 빠져나온 후 다시 조건식으로 올라가 조건이 맞으면 실행한다.
+* `for문에서 continue` : 반복문을 빠져나온 후 `업데이트 구문을 먼저 실행`하고, 조건이 맞으면 실행한다.
+* `break` : `while문`, `for문` 모두 즉시 실행을 종료하고 반복문에서 빠져나온다.
 
+### while
 
+* 조건에 대한 값이 `false`가 나올 때 까지 반복한다.
 
+```js
+let i = 3
+while (i > 0) {
+ console.log(`while ${i}`) // while:3 / while:2 / while:1
+ i--
+}
+```
 
-## 🐇 선언
+### do while
 
+* 블록 안의 명령을 일단 1번 이상은 실행 후 조건을 대입한다.
 
+```js
+do {
+ console.log(`do whild: ${i}`) // do while: 0
+} while (i > 0)
+```
 
+### for (조건 안에서 반복)
+
+* for(`시작조건`; `종료조건`; `변화조건`){}
+
+```js
+const arr = [1, 2, 3, 4]
+
+for (let i = 0; i < arr.length; i += 1){
+ console.log(arr[i]) // 1 / 2 / 3 / 4
+}
+```
+
+* `nested loops` (중첩 루프는 CPU에 좋지 않으므로 가급적 자제)
+
+```js
+for (let i = 0; i < 10; i ++) {
+ for (let j = 0; j < 10; j ++) {
+  console.log(i, j)
+ }
+}
+```
+
+### for...of (배열)
+
+* 배열 안에 있는 모든 아이템들이 순차적으로 실행
+
+```js
+const arr = [1, 2, 3, 4]
+for (items of arr){
+ console.log(items) // 1 / 2 / 3 / 4
+}
+```
+
+### for...in (객체)
+
+* 객체의 각 속성에 순차적으로 접근 (인덱스값을 가져오지 않으므로 배열에서는 사용하지 않는다.)
+
+```js
+var person = {
+name : 'Amy',
+age: 28,
+address: 'Seoul'
+}
+```
+
+```js
+for (let keys in person){
+ console.log(person[keys]) // 'Amy' / 28 / 'Seoul'
+}
+```
+
+### .forEach()
+
+* 배열의 아이템마다 한 번씩 주어진 함수(콜백)를 실행한다.
+* map이나 reduce와 달리 `undefined를 반환`하기 때문에 break, continue, return 구문을 사용해서 함수를 벗어날 수 없다.
+
+```js
+const fruits = ['Apple', 'Banana', 'Cherry']
+```
+
+```js
+const a = fruits.forEach((fruit, index) => {console.log(`${fruit}-${index}`)}) // Apple-0 / Banana-1 / Cherry-2
+console.log(a) // undefined
+```
