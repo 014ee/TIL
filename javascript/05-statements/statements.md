@@ -98,4 +98,4 @@ function func(obj) {
 
 * 스트릭트 모드에서는 **eval과 argument 식별자가 키워드로 취급**되며 그 값을 바꿀 수 없다.\
 
-* 스트릭 모드에서는 **콜스택을 살펴보는 이 제한**된다. arguments.caller 와 arguments.callee는 모두 스트릭트 모드 함수에서 TypeError을 일으킨다. 함수의 caller 와 arguments 프로퍼티를 읽으려 해도 TypeError가 발생한다.
+* 스트릭 모드에서는 **콜스택을 살펴보는 것이 제한**된다. arguments.caller 와 arguments.callee는 모두 스트릭트 모드 함수에서 TypeError을 일으킨다. 함수의 caller 와 arguments 프로퍼티를 읽으려 해도 TypeError가 발생한다.
