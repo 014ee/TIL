@@ -25,7 +25,7 @@
     * [Conditionals](javascript/05-statements/conditionals.md)
     * [Loops](javascript/05-statements/loops.md)
     * [Jumps](javascript/05-statements/jumps.md)
-    * [Page 1](javascript/05-statements/page-1.md)
+    * [Declarations](javascript/05-statements/declarations.md)
   * [6장. 객체](javascript/06-objects/README.md)
     * [object](javascript/06-objects/object.md)
   * [7장. 배열](javascript/07-arrays/README.md)
