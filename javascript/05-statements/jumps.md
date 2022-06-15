@@ -122,8 +122,20 @@ function factorial(x) {
 ## 🐇 try/catch/finally
 
 {% hint style="info" %}
-try 절은 처리하려 하는 예외가 담긴 코드 블록이다. try 절 다음에는 catch 절이 있으며, try 블록에서 예외가 일어나면 catch절이 호출된다. catch 절 다음에는 finally 블록이 있는데, 이 절은 try 블록에서 무슨 일이 있어났든 관계 없이 실행되는 일종의 정리 코드이다. catch 와 finally 블록은 선택 사항이지만 try 블록 뒤에 둘 중 하나는 반드시 써야 한다. 또한 try/catch/finally 문에서 중괄호는 필수사항이다.
+catch 와 finally 블록은 선택 사항이지만 try 블록 뒤에 둘 중 하나는 반드시 써야 한다. 또한 try/catch/finally 문에서 중괄호는 필수사항이다.
 {% endhint %}
+
+> **try**
+>
+> 처리하려 하는 예외가 담긴 코드 블록이다.&#x20;
+
+> **catch**
+>
+> try 블록에서 예외가 일어나면 catch절이 호출된다. **** catch 키워드 뒤에는 일반적으로 괄호 안에 식별자를 쓰는데, 이 식별자는 예외를 캐치해서 그 예외와 연관된 값을 매개변수에 할당한다. 예외를 처리할 catch 블록이 없다면 인터프리터는 먼저 try 다음 finally 블록을 실행하고, 이후 가장 가까운 catch 절로 점프한다.
+
+> **finally**
+>
+> try 블록에서 무슨 일이 있어났든 관계 없이 실행되는 일종의 정리 코드이다. continu, break, return 문으로 인해 try 블록을 중단하는 경우에도 다음 목적지로 이동하기 전에 finally 문을 실행한다. finally 블록 자체에 return, continu, break, throw 문이 있거나 예외를 일으키는 함수를 호출하면 인터프리터는 대기시켜 둔 점프를 취소하고 finally 블록을 따라 점프한다. 즉, finally 절에서 예외를 일으키면 그 예외는 처리 중이던 예외를 모두 무시하고 우선권을 갖는다.
 
 ```
 try {
@@ -142,14 +154,34 @@ finally {
 }
 ```
 
-{% hint style="info" %}
-catch 키워드 뒤에는 일반적으로 괄호 안에 식별자를 쓰는데, 이 식별자는 예외를 캐치하면 그 예외와 연관된 값을 매개변수에 할장한다. 예외를 처리할 catch 블록이 없다면 인터프리터는 먼저 finally 블록을 실행하고, 가장 가까운 catch 절로 점프한다.
-{% endhint %}
+> **단순 catch 절 (ES2019)**
+>
+> 예외의 타입이나 값이 무엇이든 상관 없이 예외를 감지하고 전파를 막을 목적으로만 catch 절을 사용하고 싶을 때, 괄호와 식별자를 생략하고 catch 키워드만 쓸 수 있다.
 
 ```
-initialize;
-while(test) {
-  try {body;}
-  finally {increment;}
+function parseJSON(data) {
+  try {
+    return JSON.parse(data);
+  } catch {
+    // 문제가 발생해도 신경 쓰지 않는다.
+    return undefined;
+  }
+}
+```
+
+> **try/finally를 이용해 while 문로 for 문 흉내내기**
+>
+> continue 문의 동작 방식 차이 때문에 일반적으로 while 루프로 for 루프를 완전히 흉내 낼 수는 없으나, try/finally 문을 사용하면 for 루프처럼 동작하며 continue 문 도 정확하게 처리하는 while 루프를 만들 수 있다. (하지만 body 에 break 문이 들어있다면 종료 전에 i++가 한번 더 실행되므로 다르게 동작한다.)
+
+```
+// for(let i = 0; i < 10; i++)
+let i = 0;
+while(i < 10) {
+  try {
+    body;
+  }
+  finally {
+    i++;
+  }
 }
 ```
