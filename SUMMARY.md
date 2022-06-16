@@ -14,7 +14,7 @@
   * [3장. 타입, 값, 변수](javascript/03-types-values-variables/README.md)
     * [Immutable-Primitive-Values](javascript/03-types-values-variables/immutable-primitive-values.md)
     * [Mutable-Object-References](javascript/03-types-values-variables/mutable-object-references.md)
-    * [03-Global-Object](javascript/03-types-values-variables/global-object.md)
+    * [Global-Object](javascript/03-types-values-variables/global-object.md)
     * [04-Type-Conversions](javascript/03-types-values-variables/type-conversions.md)
     * [05-Const-Let-Var](javascript/03-types-values-variables/const-let-var.md)
   * [4장. 표현식과 연산자](javascript/04-expressions-operators/README.md)
