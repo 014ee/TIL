@@ -138,126 +138,75 @@ console.log(target === returnedTarget) // true (단순히 값이 같아서가 �
 const newTarget = Object.assign({}, target, source)
 ```
 
-## ✅ This
+## 🐇 객체 확장
 
-* this의 대상은 this를 사용하는 함수를 어떻게 실행하느냐에 따라 바뀐다.
-* `일반함수에서 this는 window` `'use strict' 모드의 일반함수에서 this는 undefined`
+{% hint style="info" %}
+객체의 프로퍼티를 다른 객체에 복사하는 것은 흔한 일이며, 이런 기능을 쉽게 사용할 수 있도록 ES6에서 Object.assgin()을 도입하였다.
+{% endhint %}
 
-#### 일반 함수의 this
-
-* 일반 함수는 `함수가 호출된 위치`에 따라 this를 정의한다.
-
-```
-const heropy = {
- name: 'Heropy',
- nomal: function () {
-  console.log(this.name)
- },
- arrow: () => {
-  console.log(this.name)
- }
- }
-
-heroopy.normal() // Heropy
-heropy.arrow() // undefined
-```
-
-* 일반함수는 메소드 속성을 아래와 같이 축약해서 사용할 수도 있다.
+> **Object.keys()**
+>
+> ES6 전에는 key를 순회하며 하나씩 복사하는 방법을 사용했다.
 
 ```
-const heropy = {
- name: 'Heropy',
- nomal () {
-  console.log(this.name)
- },
- arrow: () => {
-  console.log(this.name)
- }
+let target = {}, source = {a: 1, b: 2};
+for(let key of source) {
+  target[key] = source[key]
 }
-
-heropy.normal() // Heropy
-heropy.arrow() // undefined
+target // {a: 1, b: 1}
 ```
 
-* 아래아 같이 다른 객체 데이터 내 함수를 가져올 수도 있다.
+> **Object.assign()**
+>
+> 첫번째 인자는 수정해서 반환할 대상 객체이며, 두번째 또는 그 이후의 인자는 소스 객체이다. 각 소스 객체를 인자에 입력한 순서대로 순회하면 열거 가능한 자체 프로퍼티(심벌 포함)를 대상 객체에 복사한다. 나중에 입력한 소스 객체가 이전에 입력한 소스 객체와 동일한 프로퍼티를 가지고 있다면 덮어 쓰게 되며, 소스 객체에 게터 메서드가 있다면 복사 도중 호출되긴 하지만 메서드 자체를 복사하지는 않는다.
 
 ```
-const amy = {
- name: 'Amy',
- normal: heropy.normal, 
- arrow:heropy.arrow
-}
-amy.normal(); // Amy
-amy.arrow(); // undefined
+let obj = {a: 0}
+Object.assign(obj, {a: 1}, {b: 2});
+obj  // {a: 1, b: 2}: 이름이 동일한 기존 프로퍼티가 기존 값을 덮어다.
 ```
 
-#### 화살표 함수의 this
-
-* 화살표 함수는 `함수가 선언된 범위`에 따라 this를 정의한다.
-* setTimeout 같은 전역함수를 일반 함수로 작성하면 함수가 호출되는 setTimeout에서 this를 찾으므로 undefined로 출력된다.
-* 따라서 `전역 함수 사용시` this를 사용할 확률이 있으면 화살표 함수로 작성하는 것이 활용도가 높다.
+{% hint style="info" %}
+값을 전부 덮어 쓰는 것이 아니라 소스 객체에 기본 값을 정의해 두고 대상 객체에 그런 이름이 존재하지 않는다면 복사해서 쓰는 등의 목적으로 사용하려면 아래와 같이 사용해야 한다.
+{% endhint %}
 
 ```
-const timer = {
- name: 'Heropy',
- timeout: function (){
- setTimeout(() => {
-  console.log(this.name)
-  },2000)
- }
-}
-timer.timeout();
+let obj = {a: 0}
+obj = Object.assign({}, {a: 1}, {b: 2}, x);
+obj  // {a: 0, b: 2}: 기본 값을 마지막에 덮어써 주었다.
 ```
 
-## ✅ 생성자 함수
-
-* class가 없었을 때, 아래와 같이 중복되는 object는 함수를 이용하여 template을 만들었다.
+```
+let obj = {a: 0}
+obj = {...{a: 1}, ...{b: 2}, ...obj}  // 분해 연산자를 이용해 값을 덮어 쓸 수도 있다.
+```
 
 ```
-const heropy = {
- firstName: "Heropy"
- lastName: "Park"
- getFullName: function (){
-  return `&{this.firstName} &{this.lastName}`
- }
- 
- const amy = {
-  firstName: "Amy"
-  lastName: "Lee"
-  getFullName: function (){
-  return `&{this.firstName} &{this.lastName}`
- }
+// 또는 직접 구현할 수도 있다.
+
+functin merge(target, ...sources) {
+  for(let source of sources) {             // 복사할 소스 객체 배열 순회
+    for(let key of Object.keys(source)) {  // 소스 객체 내 key 값 순회
+      if(!(key in target)) {               // 대상 객체에 해당 key가 없는 경우에만 
+        target[key] = source[key];         // 새로운 프로퍼티로 할당
+      }
+    }
+  }
 }
 ```
 
-* 별다른 계산 없이 순수하게 object를 생성하는 `생성자 함수`는 일반 함수와의 구분을 위해 관행적으로`PascalCase`로 작성한다.
-* 또한 class의 constructor과 같이 this를 사용하여 내용을 작성하며, 이렇게 작성하면 `js가 알아서 object를 생성`해준다.
-* `Key와 Value의 이름이 동일하면 하나로 생략` 가능하다. (property value shorthand)
+## 🐇 객체 직렬화
 
-```
-function User (first, last) {
- // this = {} 생략
- this.firstName = first
- this.lastName = last
- // return this; 생략
-}
-```
+{% hint style="info" %}
+객체 직렬화는 객체를 문자열로 변환하는 작업을 말하며 **JSON.stringify()**를 사용하여 수행할 수 있다. 이 문자열은 **JSON.parse()**를 사용하여 다시 객체로 되돌릴 수 있다.&#x20;
 
-* 생성자 함수가 할당된 변수를 생성자 함수의 인스턴스라고 한다.
+여기서 사용하는 JSON 문법은 자바스크립트 문법의 부분 집합이며, 자바스크립트 값 전체를 표현하지는 못한다. 객체, 배열, 문자열, 유한한 숫자, true, false, null 은 직렬화와 복원 모두 가능한 반면 함수, RegExp, Error 객체, undefined의 경우 직렬화와 복원 모두 불가능하다.
+{% endhint %}
 
-```
-const heropy = new User('Heropy', 'Park')
-const amy = new User('Amy', 'Lee')
-```
+> **JSON.stringify()**
+>
+> JSON.stringify()는 열거 가능한 자체 프로퍼티만 직렬화한다. 프로퍼티 값을 직렬화할 수 없다면 해당 프로퍼티는 결과 문자열에서 생략된다. 또한 NaN, Infinity, -Infinity는 null로 직렬화다.&#x20;
 
-* 아래와 같이 `로직이 완전히 동일한 경우 참조하는 방식으로 사용`할 수 있다.
-* 생성자 함수를 몇 개 만들던 아래 코드는 메모리에 딱 1번만 만들어져 성능적인 면에서 효과적이다.
-* js는 아래와 같이 prototype 개념을 많이 사용하고 있어서 `prototype 기반의 프로그래밍 언어`라고도 한다.
-
-```
-User.prototype.getFullName = function(){
- return `${this.firstName} ${this.lastName}`
-}
-
-console.log(heropy.getFullName()) // Heropy Park
-```
+> **JSON.parse()**
+>
+> Date 객체는 ISO 형식 문자열로 직렬화 되지만 복원시에는 문자열을 그대로 둘 뿐 Date 객체로 복원되지 않는다.&#x20;
