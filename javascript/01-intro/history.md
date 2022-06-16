@@ -128,15 +128,11 @@
 두번째 주기(2009\~2019): 언어로써의 영역을 확장시키 위해 노력한 시기. 오늘날 생태계 핵심을 이루는 Node, NPM, Transpiler, build, bundler, 다양한 프레임워크가 등장하며 도약한다.
 {% endhint %}
 
-* **2015년** ES6 (let, const, class, arrow function, template literal, destructuring assignment, spead,\
-  &#x20;                     rest parameter, symbol, promise, iterator/generator, module, default parameters)
+* **2015년** ES6 (let, const, class, arrow function, template literal, destructuring assignment, spead, rest parameter, symbol, promise, iterator/generator, module, default parameters)
 * **2016년** ES2016 (지수연산자, Array.prototype.includes, String.prototype.includes)
-* **2017년** ES2017 (async/await, Object.values/entries, Object.getOwnPropertyDescriptors,\
-  &#x20;                           trailing commas in function parameter lists and calls, async functions)
+* **2017년** ES2017 (async/await, Object.values/entries, Object.getOwnPropertyDescriptors, trailing commas in function parameter lists and calls, async functions)
 * **2018년** ES2018 (Object rest/spread, promise finally, async iteration, 정규표현식 강화)
-* **2019년** ES2019 (Object.fromEntries, Array.prototype.flat, Array.prototype.flatMap, \
-  &#x20;                           String.prototype.trimStart/trimEnd/trimLeft/trimRight, optional catch,\
-  &#x20;                           Symbol.description)
+* **2019년** ES2019 (Object.fromEntries, Array.prototype.flat, Array.prototype.flatMap, String.prototype.trimStart/trimEnd/trimLeft/trimRight, optional catch, Symbol.description)
 
 {% hint style="info" %}
 세번째 주기(2020\~): 레거시 영역의 정리, 여러 도구로 인해 형성된 레이어의 제거가 이뤄질 것으로 예측, CommonJS/AMD(RequireJS)와 같은 비표준적 모듈 사용에 의존하는 수많은 생태계가 ECM 모듈로 전환될 것으로 예측, 타입 사용을 통한 성능 향상(TypeScript, Rust ) &#x20;
@@ -144,8 +140,7 @@
 
 * **2020년** ES2020 (String.prototype.matchAll)
 * **2021년** ES2021 (String.prototype.replaceAll, Promise.any(), WeakRef, ??=, ||=, &&=,1\_000  )
-* **2022년** ES2022 (Class Field(private, static), Top level await, at, Object.prototype.hasOwn(),\
-  &#x20;                           Error Cause)
+* **2022년** ES2022 (Class Field(private, static), Top level await, at, Object.prototype.hasOwn(), Error Cause)
 
 
 
