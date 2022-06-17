@@ -1,5 +1,76 @@
 # function
 
+## 🐇 This
+
+* this의 대상은 this를 사용하는 함수를 어떻게 실행하느냐에 따라 바뀐다.
+* `일반함수에서 this는 window` `'use strict' 모드의 일반함수에서 this는 undefined`
+
+#### 일반 함수의 this
+
+* 일반 함수는 `함수가 호출된 위치`에 따라 this를 정의한다.
+
+```
+const heropy = {
+ name: 'Heropy',
+ nomal: function () {
+  console.log(this.name)
+ },
+ arrow: () => {
+  console.log(this.name)
+ }
+ }
+
+heroopy.normal() // Heropy
+heropy.arrow() // undefined
+```
+
+* 일반함수는 메소드 속성을 아래와 같이 축약해서 사용할 수도 있다.
+
+```
+const heropy = {
+ name: 'Heropy',
+ nomal () {
+  console.log(this.name)
+ },
+ arrow: () => {
+  console.log(this.name)
+ }
+}
+
+heropy.normal() // Heropy
+heropy.arrow() // undefined
+```
+
+* 아래아 같이 다른 객체 데이터 내 함수를 가져올 수도 있다.
+
+```
+const amy = {
+ name: 'Amy',
+ normal: heropy.normal, 
+ arrow:heropy.arrow
+}
+amy.normal(); // Amy
+amy.arrow(); // undefined
+```
+
+#### 화살표 함수의 this
+
+* 화살표 함수는 `함수가 선언된 범위`에 따라 this를 정의한다.
+* setTimeout 같은 전역함수를 일반 함수로 작성하면 함수가 호출되는 setTimeout에서 this를 찾으므로 undefined로 출력된다.
+* 따라서 `전역 함수 사용시` this를 사용할 확률이 있으면 화살표 함수로 작성하는 것이 활용도가 높다.
+
+```
+const timer = {
+ name: 'Heropy',
+ timeout: function (){
+ setTimeout(() => {
+  console.log(this.name)
+  },2000)
+ }
+}
+timer.timeout();
+```
+
 
 
 ## ✅ JS 함수 베이직
