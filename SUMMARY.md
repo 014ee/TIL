@@ -33,6 +33,8 @@
   * [7장. 배열](javascript/07-arrays/README.md)
     * [Arrays](javascript/07-arrays/arrays.md)
     * [Methods](javascript/07-arrays/methods.md)
+    * [Array-Like-Objects](javascript/07-arrays/array-like-objects.md)
+    * [Strings-as-Arrays](javascript/07-arrays/strings-as-arrays.md)
   * [8장. 함수](javascript/08-functions/README.md)
     * [function](javascript/08-functions/function.md)
   * [9장. 클래스](javascript/09-classes/README.md)
