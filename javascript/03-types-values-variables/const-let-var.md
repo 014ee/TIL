@@ -85,6 +85,8 @@ ES6 에서는 선언과 할당을 합친 일종의 복합 문법을 도입했으
 {% endhint %}
 
 ```
+let [charA, charB, charC] = 'ABC';     // charA: 'A', charB: 'B', charC: 'C'
+
 function calculation(x, y) {
   return [x + y, x - y];
 }
