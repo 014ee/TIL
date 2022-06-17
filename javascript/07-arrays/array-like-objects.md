@@ -72,5 +72,5 @@ let a = {
 Array.prototype.join.call(a, '+');                 // zero + one + two
 Array.prototype.map.call(a, x => x.toUpperCase()); // ['ZERO', 'ONE', 'TWO']
 Array.prototype.slice.call(a, 0); // ['zero', 'one', 'two']: 정확한 배열 복사
-Array.from(a);                    // ['zero', 'one', 'two']: 더 쉬운 복사 방
+Array.from(a);                    // ['zero', 'one', 'two']: 더 쉬운 복사
 ```
