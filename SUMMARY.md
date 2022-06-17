@@ -16,7 +16,7 @@
     * [Mutable-Object-References](javascript/03-types-values-variables/mutable-object-references.md)
     * [Global-Object](javascript/03-types-values-variables/global-object.md)
     * [04-Type-Conversions](javascript/03-types-values-variables/type-conversions.md)
-    * [05-Const-Let-Var](javascript/03-types-values-variables/const-let-var.md)
+    * [Let-Const-Var](javascript/03-types-values-variables/const-let-var.md)
   * [4장. 표현식과 연산자](javascript/04-expressions-operators/README.md)
     * [Expressions](javascript/04-expressions-operators/expressions.md)
     * [Operators](javascript/04-expressions-operators/operators.md)
