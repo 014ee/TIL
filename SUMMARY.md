@@ -31,7 +31,7 @@
     * [Properties](javascript/06-objects/properties.md)
     * [Methods](javascript/06-objects/methods.md)
   * [7장. 배열](javascript/07-arrays/README.md)
-    * [array](javascript/07-arrays/array.md)
+    * [Arrays](javascript/07-arrays/arrays.md)
     * [Methods](javascript/07-arrays/methods.md)
   * [8장. 함수](javascript/08-functions/README.md)
     * [function](javascript/08-functions/function.md)
