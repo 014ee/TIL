@@ -113,8 +113,6 @@ const words = pharases.flatMap(phrase => phrase.split(' '));
 words // ['hello', 'world', 'hello', 'earth']
 ```
 
-
-
 ## 🐇 배열 병합
 
 > **concat() => 새 배열 반환**
@@ -273,9 +271,9 @@ a.reverse();  // [4, 3, 2, 1]
 Array 클래스에는 배열을 문자열로 변환하는 메서드가 세 가지 있는데 일반적으로 로그나 에러 메세지를 만들 때 이 메서드를 사용한다. 나중에 재사용할 목적을 ㅗ뱅려 콘텐츠를 텍스트 형태로 바꾸는 것이라면 JSON.stringify()를 사용해야 한다.
 {% endhint %}
 
-> **join() => 새 문자열 반환(**
+> **join() => 새 문자열 반환**
 >
-> 배열 요소 전체를 문자열로 변환한 다음 이들을 병합한 결과를 반환한다. 인자에 결과 문자열에서 각 요소를 구분하는 문자열을 선택 사항으로 지정할 수도 있으며, 구분자를 지정하지 않으면 콤마를 사용한다.
+> 배열 요소 전체를 문자열로 변환한 다음 이들을 병합한 결과를 반환한다. 인자에 결과 문자열에서 각 요소를 구분하는 문자열을 선택 사항으로 지정할 수도 있으며, 구분자를 지정하지 않으면 콤마를 사용한다.&#x20;
 
 ```
 let a = [1, 2, 3];
@@ -286,21 +284,33 @@ let b = new Array(10);
 b.join('-'); // '---------'
 ```
 
-> toSting)
+> **toSting()**
 >
->
+> toString()은 join() 메서드를 인자 없이 호출하는 것과 동일하다.
 
-> toLocaleString()
->
->
+```
+[1, 2, 3].toString();       // '1,2,3'
+['a', 'b', 'c'].toString(); // 'a,b,c'
+[1, [2, 'c']].toString();   // '1,2,c'
+```
 
+> **toLocaleString()**
+>
+> toLocaleString()은 toString()을 해당 지역에 맞게 바꾼 버전이다.
 
+```
+let a = [1, 'a', new Date()];
+a.toLocaleString('kr');  // '1,a,2022. 6. 17. 오후 9:14:32'
+a.toLocaleString('en');  // '1,a,6/17/2022, 9:14:32 PM'
+```
 
 ## 🐇 정적 배열 함수
 
 {% hint style="info" %}
-
+위 배열 메서드 외에도 Array 클래스에는 Array 생성자를 사용해 호출할 수 있는 정적 함수가 세가지 있다. Arrays 페이지의 배열 생성에서 설명한 Array.of()와 Array.from()은 새 배열을 만드는 팩토리 메서드이고 Array.isArray()는 값이 배열인지 확인해주는 메서드이다.
 {% endhint %}
 
-
-
+```
+Array.isArray([]);  // true
+Array.isArray({});  // false
+```
