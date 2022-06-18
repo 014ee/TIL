@@ -35,6 +35,7 @@
     * [Methods](javascript/07-arrays/methods.md)
     * [Like-Arrays](javascript/07-arrays/like-arrays.md)
   * [8장. 함수](javascript/08-functions/README.md)
+    * [Functions](javascript/08-functions/functions.md)
     * [function](javascript/08-functions/function.md)
   * [9장. 클래스](javascript/09-classes/README.md)
     * [dd](javascript/09-classes/dd.md)
