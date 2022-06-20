@@ -39,7 +39,6 @@
     * [Closures](javascript/08-functions/closures.md)
     * [Properties-Methods](javascript/08-functions/properties-methods.md)
     * [Functional-Programming](javascript/08-functions/functional-programming.md)
-    * [function](javascript/08-functions/function.md)
   * [9장. 클래스](javascript/09-classes/README.md)
     * [dd](javascript/09-classes/dd.md)
   * [10장. 모듈](javascript/10-modules.md)

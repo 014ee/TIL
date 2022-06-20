@@ -154,6 +154,10 @@ ES2020부터 함수 표현식과 여는 괄호 사이에 ?.을 넣어서 함수�
 
 ## 🐇 함수 호출 컨텍스트
 
+{% hint style="info" %}
+this의 대상은 this를 사용하는 함수를 어떻게 실행하느냐에 따라 바뀐다.
+{% endhint %}
+
 > **일반 함수의 this**
 >
 > 일반 함수는 호출시 자신만의 호출 컨텍스트를 생성하고 이것이 this의 키워드 값이 된다. 일반 모드에서 함수의 호출 컨텍스트는 전역 객체이고 스트릭트 모드에서 호출 컨텍스트는 undefined이다. 메서드가 아닌 함수는 일반적으로 this 키워드를 전혀 사용하지 않는다. 하지만 this 키워드를 사용해서 스크릭트 모드에 있는지 확인하는 것은 가능하다.
@@ -167,37 +171,18 @@ const isStrict = (function() {return !this;})();  // 스트릭트 모드면 true
 > 화살표 함수는 일반 함수와 달리 항상 자신이 정의된 곳의 this 값을 상속받는다. 이것은 화살표 함수에서 중요하고 유용한 기능이다.&#x20;
 
 ```
-const obj = {
- name: 'Lee',
- normal() {
-  return this.name;
- },
- arrow: () => {
-  return this.name;
- }
- }
-
-heropy.normal();  // Lee
-heropy.arrow();   // undefined
-```
-
-> **메서드의 this**
->
-> 객체 프로퍼티로 할당된 함수를 객체의 메서드라고 부르며 객체를 통해 함수를 호출하면, 그 객체가 호출 컨텍스트(this)가 된다.
-
-```
 let obj = {name: 'Lee',}
-obj.normal = function() {return `hello, ${this.name}!`}
-obj.arrow = () => {return `hello! ${this.name}`}
-obj.normal();  // 'hello! Lee!
-obj.arrow();   // 'hello!'
+obj.normal = function() {return this.name}
+obj.arrow = () => {return this.name}
+obj.normal();  // 'Lee'
+obj.arrow();   // undefined
 ```
 
 > **중첩된 함수의 this**&#x20;
 >
-> this는 키워드이므로 자바스크립트 문법에서는 this에 값을 할당할 수 없다. 또한 this 키워드는 변수의 스코프 규칙을 따르지 않는다. 즉, 예외인 화살표 함수를 제외하면 중첩된 함수는 자신을 포함하는 함수의 this 값을 상속받지 않는다.
+> this 키워드는 변수의 스코프 규칙을 따르지 않는다. 즉, 예외인 화살표 함수를 제외하면 중첩된 함수는 자신을 포함하는 함의 this 값을 상속받지 않는다.
 >
-> 메서드 안에 정의된 함수를 함수로 호출하면 this를 통해 메서드의 호출 컨텍스트를 참조할 수 있다고 생하기도 하는데 이는 흔히 저지르는 실수이다. 아래 예시에서 중첩된 함수 f() 에서 this 키워드는 객체 obj와 다르다. 이것은 자바스크립트 언어의 결함으로 지적받는 부분이고, 반드시 인지하고 있어야 한다. 메서드 m 안에서 this 값을 변수 self에 할당한 후, 중첩된 함수 f 안에서 그 값을 참조하는 방식으로 해결할 수 있다.
+> 메서드 안에 정의된 함수를 함수로 호출하면 this를 통해 메서드의 호출 컨텍스트를 참조할 수 있다고 생각하기도 하는데 이는 흔히 저지르는 실수이다. 아래 예시에서 중첩된 함수 f() 에서 this 키워드는 객체 obj와 다르다. 이것은 자바스크립트 언어의 결함으로 지적받는 부분이고, 반드시 인지하고 있어야 한다. 메서드 m 안에서 this 값을 변수 self에 할당한 후, 중첩된 함수 f 안에서 그 값을 참조하는 방식으로 해결할 수 있다.
 
 ```
 let obj = {
@@ -210,7 +195,7 @@ let obj = {
       this === obj;  // false: this는 전역 객체이거나 undefined이다.
       self === obj;  // true: self는 외부 this 값이다.
     }
-  }s
+  }
 }
 obj.m()
 ```
@@ -247,12 +232,12 @@ const f = (function() {
 
 ```
 function getPropertyNames(obj, arr) {
-  if(arr == undefined) arr = [];  // 정의되지 않으면 빈 배열 할당
+  if(arr === undefined) arr = [];  // 정의되지 않으면 빈 배열 할당
   for(let property in obj) arr.push(property);
   return arr;
 }
 
-// 위와 동일한 코
+// 위와 동일한 코드
 function getPropertyNames(obj, arr = []) {
   for(let property in obj) arr.push(property);
   return arr;
@@ -278,7 +263,7 @@ function max(first = -Infinity, ...rest) {
 max(1, 10, 100, 2, 3, 1000, 4, 5, 6); // 1000
 ```
 
-> **Argument 객체 => 사용X(나머지 매개변수로 대체 가능)**
+> **Argument 객체 => 사용X(나머지 매개변수로 대체)**
 >
 > 나머지 매개변수가 도입되기 전에는 Arguments 객체를 사용해서 가변 함수를 만들었다. 함수 바디 안에서 식별자 arguments는 해당 호출의 Arguments 객체를 참조한다. Arguments 객체는 배열 비슷한 객체이며, 함수에 전달된 인자 값을 이름이 아닌 숫자로 참조할 수 있게 한다. Arguments 객체는 자바스크립트 초기 버전부터 있었지만, 이상하게 동작하고 비효율적이며 최적화하기도 어렵다. 때문에 나머지 매개변수를 활용하는 편이 좋다.&#x20;
 
@@ -350,7 +335,7 @@ sum([1, 2, 3]);    // 6
 sum([1, 2, '3']);  // TypeError: '3'은 숫자가 아니다.
 ```
 
-## 🐇 값인 함수
+## 🐇 함수 내 정적 변수
 
 {% hint style="info" %}
 자바스크립트 함수는 문법일 뿐 아니라 값(데이터)이기도 하다. 때문에 변수에 할당하거나 객체 프로퍼티 또는 배열 요소로 저장할 수 있으며, 함수의 인자로 전달할 수도 있다.&#x20;
