@@ -359,7 +359,7 @@ sum([1, 2, '3']);  // TypeError: '3'은 숫자가 아니다.
 // 호출할 때 마다 서로 다른 고유한 정수를 반환하는 함수 예시
 uniqueInteger.counter = 0;
 function uinqueInteger() {
-  return uniqueInterget.coutere++;   // counter 프로퍼티를 반환하고 증가시킨다.
+  return uniqueInterget.counter++;   // counter 프로퍼티를 반환하고 증가시킨다.
 }
 ```
 
@@ -378,4 +378,19 @@ fucntion fatorial() {
 factorial[1] = 1; // 캐시 초기화
 factorial(6);     // 720
 factorial[5];     // 120: 캐시에 존재
+```
+
+{% hint style="info" %}
+&#x20;클로저 활
+
+uniqueInteger 함수의 경우 버그나 악의적인 코드에서 카운터를 리셋하거나 정수가 아닌 값으로 바꿔서 함수가 자신의 목적을 잃게 만들 수 있다는 단점이 있다. (이는 클로저가 함수 호출 시점의 로컬 변수를 캡처하여 이 변수를 비공개 상태로 사용할 수 있다는 점을 활용하여 개선할 수 있다.)
+{% endhint %}
+
+```
+let uinqueInteger = (function() {
+  let counter = 0;
+  return function() {return counter++;}
+}());
+uinqueInteger(); // 0
+uinqueInteger(); // 1
 ```
