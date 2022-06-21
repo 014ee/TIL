@@ -43,7 +43,6 @@
     * [Before-ES6](javascript/09-classes/before-es6.md)
     * [After-ES6](javascript/09-classes/after-es6.md)
     * [Subclasses](javascript/09-classes/subclasses.md)
-    * [dd](javascript/09-classes/dd.md)
   * [10장. 모듈](javascript/10-modules.md)
     * [module](javascript/10-modules/module.md)
   * [11장. 표준 라이브러리](javascript/11-standard-library/README.md)
