@@ -8,6 +8,7 @@
 * [JavaScript](javascript/README.md)
   * [1장. 자바스크립트 소개](javascript/01-intro/README.md)
     * [History](javascript/01-intro/history.md)
+    * [Version](javascript/01-intro/version.md)
     * [Feature](javascript/01-intro/feature.md)
   * [2장. 어휘 구조](javascript/02-lexical-structure/README.md)
     * [Lexical-Structure](javascript/02-lexical-structure/lexical-structure.md)
