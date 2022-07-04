@@ -65,7 +65,7 @@
     * [Generators](javascript/12-iterators-generators/test.md)
   * [13장. 비동기 자바스크립트](javascript/13-asynchronous/README.md)
     * [Callbacks](javascript/13-asynchronous/callbacks.md)
-    * [promisee](javascript/13-asynchronous/promisee.md)
+    * [promises](javascript/13-asynchronous/promisee.md)
     * [async-await](javascript/13-asynchronous/async-await.md)
     * [ajaxx](javascript/13-asynchronous/ajaxx.md)
   * [14장. 메타프로그래밍](javascript/14-metaprogramming.md)
