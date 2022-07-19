@@ -83,9 +83,7 @@ function C() {
 ## 🐇 instanceof
 
 {% hint style="info" %}
-생성자 함수에서는 서로 다른 생성자 함수의 prototype 프로퍼티가 같은 프로토타입 객체를 참조할 수 있다. 그리고 두 생성자가 같은 클래스의 인스턴스를 초기화 할 수 있다.
-
-엄밀히 말해 instanof 연산자는 obj 객체가 Range 생성자를 통해 초기화 됐는지는 체크하지 않는다. 이 연산자는 obj가 Range.prototype을 상속하는지만 체크한다.&#x20;
+생성자 함수에서는 서로 다른 생성자 함수의 prototype 프로퍼티가 같은 프로토타입 객체를 참조할 수 있다. 그리고 두 생성자가 같은 클래스의 인스턴스를 초기화 할 수 있다. 엄밀히 말해 instanof 연산자는 obj 객체가 Range 생성자를 통해 초기화 됐는지는 체크하지 않는다. 이 연산자는 obj가 Range.prototype을 상속받는지만 체크한다.&#x20;
 {% endhint %}
 
 ```
