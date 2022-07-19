@@ -1,3 +1,2 @@
-# 03-Types-Values-Variables
+# 3장. 타입, 값, 변수
 
-## Summary
