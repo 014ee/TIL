@@ -139,7 +139,7 @@ true == 1          // true
 ```
 
 {% hint style="info" %}
-자바스크립트에서의 문자열 비교는 두 문자열을 구성하는 값(16비트 정수)의 비교이므로, 인코딩에 따라 순서가 다를 수 있다. 따라서 문자열 비교 알고리즘이 필요할 때는 해당 지역에 맞는 알파벳 순서를 판단 기준에 포함하는 String.localeCompare() 메서드를 사용하거나, String.toLowerCase()나 String.toUpperCase를 사용해 전부 소문자 또는 대문자로 통일하여비하는 것이 좋다. 또한 Intl.Collator 클래스를 이용하면 좀 더 상식적인 문자열 비교 결과를 얻을 수 있다.
+자바스크립트에서의 문자열 비교는 두 문자열을 구성하는 값(16비트 정수)의 비교이므로, 인코딩에 따라 순서가 다를 수 있다. 따라서 문자열 비교 알고리즘이 필요할 때는 해당 지역에 맞는 알파벳 순서를 판단 기준에 포함하는 String.localeCompare() 메서드를 사용하거나, String.toLowerCase()나 String.toUpperCase를 사용해 전부 소문자 또는 대문자로 통일하여비교하는 것이 좋다. 또한 Intl.Collator 클래스를 이용하면 좀 더 상식적인 문자열 비교 결과를 얻을 수 있다.
 {% endhint %}
 
 > **in 연산자**
@@ -160,7 +160,7 @@ const list = [7, 8, 9]
 
 > **instanceof 연산자**
 >
-> 프로토타입 체인을 통해 분석하 왼쪽에 있는 객체가 오른쪽에 있는 클래스의 인스턴스라면 true, 아니라면 false를 반환한다. 오른쪽 피연산자가 객체가 아니라면 TypeError가 발생한다.
+> 프로토타입 체인을 통해 분석하경우 왼쪽에 있는 객체가 오른쪽에 있는 클래스의 인스턴스라면 true, 아니라면 false를 반환한다. 오른쪽 피연산자가 객체가 아니라면 TypeError가 발생한다.
 
 ```
 const today = new Date();
@@ -245,7 +245,7 @@ message('Hello')  // Hello
 message(null)     // 안녕하세요.
 ```
 
-* 참고) defalt parmeter는 값이 null인 null로 출력한다.
+* 참고) defalt parmeter는 값이 null인  경우 null로 출력한다.
 
 ```js
 function message(text = '안녕하세요.'){
