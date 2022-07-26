@@ -2,3 +2,6 @@
 
 ## 🐇 Mode
 
+```
+// 'none', 'development', 'produc
+```
