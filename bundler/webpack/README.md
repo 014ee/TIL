@@ -14,7 +14,7 @@
 
 ## 🐇 웹팩을 사용하는 이유
 
-* 자바스크립트 전역 변수 유효 범위의 문제를 ESM과 모듈 번들링으로 해결할 수 있다.
-* 한번에 보낼 수 있는 HTTP 요청 갯수는 제한되어 있는데, 이로 인한 성능 문제를 개선할 수 있다.
+* 자바스크립트 전역 변수 유효 범위의 문제를 ESM과 번들링으로 해결할 수 있다.
+* 한번에 보낼 수 있는 [HTTP 요청 갯수](https://joshua1988.github.io/webpack-guide/motivation/problem-to-solve.html#%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EB%B3%84-http-%EC%9A%94%EC%B2%AD-%EC%88%AB%EC%9E%90%EC%9D%98-%EC%A0%9C%EC%95%BD)는 제한되어 있는데, 이로 인한 성능 문제를 개선할 수 있다.
 * 사용하지 않는 코드를 자동으로 관리해준다.
-* Code Splitting으로 Dynamic Loading과 Lazy Loading을 구현하여 초기 로딩 속도를 높일 수 있다.&#x20;
+* [Code Splitting](https://webpack.kr/guides/code-splitting/)으로 Dynamic Loading과 Lazy Loading을 구현하여 초기 로딩 속도를 높일 수 있다.&#x20;
