@@ -7,7 +7,7 @@
 ## 🐇 웹팩이란?
 
 {% hint style="info" %}
-웹팩은 모던 자바스크립트 애플리케이션을 위한 정적 모듈 번들러이다. 웹팩은 엔트리 포인트를 기점으로 프로젝트에 필요한 모든 모듈을 내부적으로 매핑하고, 하나 이상의 번들을 생성하는 [디펜던시 그래프](https://webpack.kr/concepts/dependency-graph/)를 만든다. 기본적으로 웹팩은 js와 json파일만 인식하지만, [module 옵션](concepts/loaders.md)을 별도로 지정하여 다른 유형의 파일(html, css, images, font 등)도 유효한 모듈로 변환하 디펜던시 그래프에 추가할 수 있다.&#x20;
+웹팩은 모던 자바스크립트 애플리케이션을 위한 정적 모듈 번들러이다. 웹팩은 엔트리 포인트를 기점으로 프로젝트에 필요한 모든 모듈을 내부적으로 매핑하고, 하나 이상의 번들을 생성하는 [디펜던시 그래프](https://webpack.kr/concepts/dependency-graph/)(모듈 간 의존관계를 나타내는 구조)를 만든다. 기본적으로 웹팩은 js와 json파일만 인식하지만, [module 옵션](concepts/loaders.md)을 별도로 지정하여 다른 유형의 파일(html, css, images, font 등)도 유효한 모듈로 변환하고 디펜던시 그래프에 추가할 수 있다.&#x20;
 {% endhint %}
 
 ![](../../.gitbook/assets/0\_MztcXroPHZ5nkHOS.png)
