@@ -11,7 +11,7 @@ npm i webpack webpack-cli webpack-dev-server -D
 ```javascript
 // package.json
 "scripts": {
-  "dev": "webpack-dev-server"
+  "dev": "webpack serve"
   "build": "webpack"
 }
 ```
@@ -34,16 +34,22 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    port: 9000,
+    proxy: {
+      '/api': {
+        target: 'domain.com',
+        changeOrigin: true
+      }
+    }
   },
 };
 ```
 
-## 04. 로더 추가
+## 04. 로더/플러그인 추가
+
+### Babel
 
 ```bash
 npm i @babel/core @babel/preset-env babel-loader -D
-npm i css-loader -D
 ```
 
 ```javascript
@@ -51,39 +57,61 @@ npm i css-loader -D
 module.exports = {
   // ...
   module: {
-    rules: [{
-      // babel loader
-      test: /\.m?js$/,
-      exclude: /(node_modules|bower_components)/,
-      use: {
-        loader: 'babel-loader',
-        options: {presets: ['@babel/preset-env']},
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {presets: ['@babel/preset-env']},
+        }
       }
-    }, {
-      // css loader
-      test: /\.css$/,
-      use: [{ loader: MiniCssExtractPlugin.loader }, "css-loader"]
-    }]
+    ]
   }, 
 };
 ```
 
+### CSS
 
-
-## 05. 플러그인 추가
+* css-loader :&#x20;
+* style-loader :
+* mini-css-extract-plugin : 별도의 css 파일을 생성하여 내부스타일이 아닌 외부스타일로 번들해줌
 
 ```bash
-npm i html-webpack-plugin mini-css-extract-plugin -D
+npm i css-loader style-loader mini-css-extract-plugin -D
 ```
 
 ```javascript
 // webpack.config.js
-var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   // ...
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [{ loader: MiniCssExtractPlugin.loader }, "css-loader"]
+      },
+    ]
+  }, 
   plugins: [
     new MiniCssExtractPlugin(),
+  ],
+};
+```
+
+### HTML
+
+```bash
+npm i html-webpack-plugin -D
+```
+
+```javascript
+// webpack.config.js
+module.exports = {
+  // ...
+  plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html', 
     }),
@@ -91,7 +119,7 @@ module.exports = {
 };
 ```
 
-## 06. 기타 설정
+## 05. 기타 설정
 
 ```javascript
 // webpack.config.js
