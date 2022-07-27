@@ -3,10 +3,8 @@
 ## 🐇 Entry
 
 {% hint style="info" %}
-[entry points](https://webpack.kr/concepts/entry-points/)는 웹팩이 웹 자원을 변환하기 위해 최초로 진입하는 자바스크립트 파일로, 해당 파일을 기준으로 모듈의 의존 관계를 분석하고 번들링한다. 때문에 엔트리 파일 안에는 대게 웹 애플리케이션의 전반적인 구조와 내용이 담겨있어야 한다. 별도의 설정을 하지 않을 경우 기본 값은 `./src/index.js` 이며 다른 또는 여러 엔트리 포인트를 지정할 수 있다.
+[entry](https://webpack.kr/concepts/entry-points/) 속성은 웹팩이 웹 자원을 변환하기 위해 최초로 진입하는 자바스크립트 파일로, 해당 파일을 기준으로 모듈의 의존 관계를 분석하고 번들링한다. 때문에 엔트리 파일 안에는 대게 웹 애플리케이션의 전반적인 구조와 내용이 담겨있어야 한다. 별도의 설정을 하지 않을 경우 기본 값은 `./src/index.js` 이며 다른 또는 여러 엔트리 포인트를 지정할 수 있다.
 {% endhint %}
-
-![](../../../.gitbook/assets/ukz25x0zjhsu9docg5ob.png)
 
 ## 🐇  Single Entry
 

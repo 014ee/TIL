@@ -3,7 +3,7 @@
 ## 🐇 Loader (module)
 
 {% hint style="info" %}
-[loader](https://webpack.kr/configuration/module/)를 사용하면 다른 유형의 파일(html, css, images, font 등)도 유효한 모듈로 변환할 수 있다.&#x20;
+[loader](https://webpack.kr/configuration/module/) 속성을 사용하여 다른 유형의 파일(html, css, images, font 등)도 유효한 모듈로 변환할 수 있다.&#x20;
 {% endhint %}
 
 * `test` : 로더를 적용할 파일 유형 (일반적으로 정규 표현식 사용)
@@ -60,9 +60,66 @@ module.exports = {
 }
 ```
 
-## 🐇 자주 사용는 로더
+## 🐇 자주 사용하는 로더
 
-* [Babel loader](https://webpack.js.org/loaders/babel-loader/#root)
-* [Sass loader](https://webpack.js.org/loaders/sass-loader/#root)
-* [File loader](https://v4.webpack.js.org/loaders/file-loader/)
-* [TS Loader](https://webpack.js.org/guides/typescript/#loader)
+### [Babel loader](https://webpack.kr/loaders/babel-loader/)
+
+```bash
+npm i @babel/core @babel/preset-env babel-loader -D
+```
+
+```javascript
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {presets: ['@babel/preset-env']},
+        }
+      }
+    ]
+  }, 
+};
+```
+
+### [Sass loader](https://webpack.kr/loaders/sass-loader/)
+
+* css-loader :&#x20;
+* style-loader&#x20;
+* postcss-loader :&#x20;
+* sass-loader :&#x20;
+* mini-css-extract-plugin : 별도의 css 파일을 생성하여 내부스타일이 아닌 외부스타일로 번들해줌
+
+```bash
+npm i css-loader style-loader mini-css-extract-plugin -D
+```
+
+```javascript
+// webpack.config.js
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [{ loader: MiniCssExtractPlugin.loader }, "css-loader"]
+      },
+    ]
+  }, 
+  plugins: [
+    new MiniCssExtractPlugin(),
+  ],
+};
+```
+
+### [File loader](https://v4.webpack.js.org/loaders/file-loader/)
+
+
+
+### [TS loader](https://webpack.kr/guides/typescript/)
+

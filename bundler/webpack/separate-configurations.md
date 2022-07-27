@@ -1,6 +1,6 @@
 # Separate Configurations
 
-## 🐇웹팩 머 (파일 구분 전략)
+## 🐇 웹팩 머지 (파일 구분 전략)
 
 {% hint style="info" %}
 일반적으로 웹 애플리케이션을 제작할 떄는 웹팩 설정을 개발(Development)용과 배포(Production)용으로 나누어 적용한다. 실행 모드에 따라 조건문으로 설정을 구분할 수 있으나 실제로 파일을 구분하는 [webpack merge](https://webpack.kr/guides/production/) 방식이 더 권장된다.

@@ -24,6 +24,22 @@ module.exports = {
 
 * [ProgressPlugin](https://webpack.js.org/plugins/progress-plugin/#root) : 웹팩의 빌드 진행율을 표시해주는 플러그인
 * [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) : 웹팩으로 빌드한 결과물로 HTML 파일을 생성해주는 플러그인
+
+```bash
+npm i html-webpack-plugin -D
+```
+
+```javascript
+// webpack.config.js
+module.exports = {
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'index.html', 
+    }),
+  ],
+};
+```
+
 * [split-chunks-plugin](https://webpack.js.org/plugins/split-chunks-plugin/) :&#x20;
 * [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) :
 * [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) :

@@ -3,7 +3,7 @@
 ## 🐇 Mode
 
 {% hint style="info" %}
-웹팩 버전 4.0.0 에서 추가된 속성으로 빌드 실행 모드를 설정할 수 있다.
+[mode](https://webpack.kr/configuration/mode/) 속성은 웹팩 버전 4.0.0 에서 추가되었으며 빌드 실행 모드를 지정할 수 있다.
 {% endhint %}
 
 * `none` : 모드의 기본 값을 설정하지 않으면 `production` 모드로 자동 설정된다.
