@@ -1,7 +1,5 @@
 # git-flow-guide-dd
 
-
-
 ### Git Flow 사용 가이드
 
 https://danielkummer.github.io/git-flow-cheatsheet/index.ko\_KR.html
