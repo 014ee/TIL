@@ -55,7 +55,6 @@ npm i @babel/core @babel/preset-env babel-loader -D
 ```javascript
 // webpack.config.js
 module.exports = {
-  // ...
   module: {
     rules: [
       {
@@ -86,7 +85,6 @@ npm i css-loader style-loader mini-css-extract-plugin -D
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  // ...
   module: {
     rules: [
       {
@@ -110,7 +108,6 @@ npm i html-webpack-plugin -D
 ```javascript
 // webpack.config.js
 module.exports = {
-  // ...
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html', 
@@ -124,10 +121,9 @@ module.exports = {
 ```javascript
 // webpack.config.js
 module.exports = {
-  // ...
   stats: {
     colors: true
   },
   devtool: 'source-map'
-};
+}; 
 ```
