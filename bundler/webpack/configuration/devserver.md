@@ -18,10 +18,14 @@ module.exports = {
   },
 ```
 
-## 🐇 devServer.proxy
+## devServer.host
+
+
+
+## devServer.proxy
 
 {% hint style="info" %}
-[proxy](https://webpack.kr/configuration/dev-server/#devserverproxy) 설정은 실무에서 가장 흔하게 사용하는 속성으로 다음과 같은 설정을 통해 개발 중 API를 요청했을 때 발생하는 CORS 오류를 해결할 수 있다. 실제로는 localhost로 요청하지만 중간에 프록시 서버로 인해 domain.com 서버는 같은 도메인에서 온 요청으로 인식하여 CORS 에러를 일으키지 않는다.
+프록시 설정은 실무에서 가장 흔하게 사용하는 속성으로 다음과 같은 설정을 통해 개발 중 API를 요청했을 때 발생하는 CORS 오류를 해결할 수 있다. 실제로는 localhost로 요청하지만 중간에 프록시 서버로 인해 domain.com 서버는 같은 도메인에서 온 요청으로 인식하여 CORS 에러를 일으키지 않는다.
 {% endhint %}
 
 ```javascript
@@ -38,10 +42,10 @@ module.exports = {
 };
 ```
 
-## 🐇 devServer.hot
+## devServer.hot
 
 {% hint style="info" %}
-[Hot Module Replacement](https://webpack.kr/configuration/dev-server/#devserverhot) 기능을 활성화시키면 브라우저를 새로고침하지 않고도 빌드한 결과물이 웹 애플리케이션에 실시간으로 반영될 수 있게 할 수 있다. 기본값은 true이므로 값이 true일 때는 별도의 설정을 하지 않아도 된다.
+웹팩의 Hot Module Replacement 기능을 활성화시키면 브라우저를 새로고침하지 않고도 빌드한 결과물이 웹 애플리케이션에 실시간으로 반영될 수 있게 할 수 있다. 기본값은 true이므로 값이 true일 때는 별도의 설정을 하지 않아도 된다.
 {% endhint %}
 
 ```javascript
@@ -51,19 +55,4 @@ module.exports = {
     hot: true
   }
 }
-```
-
-## 🐇 devServer.host
-
-{% hint style="info" %}
-[host](https://webpack.kr/configuration/dev-server/#devserverhost) 설정을 통해 사용할 호스트를 지정할 수 있다. 외부에서 서버에 접근할 수 있도록 하려면 다음과 같이 지정하면 된다.
-{% endhint %}
-
-```javascript
- // webpack.config.js
-module.exports = {
-  devServer: {
-    host: '0.0.0.0',
-  }
-};
 ```
