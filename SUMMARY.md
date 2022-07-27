@@ -99,7 +99,7 @@
   * [Parcel](bundler/parcel.md)
   * [Webpack](bundler/webpack/README.md)
     * [Quick Start](bundler/webpack/quick-start.md)
-    * [Webpack Merge](bundler/webpack/webpack-merge.md)
+    * [Webpack Merge](bundler/webpack/separate-configurations.md)
     * [Concepts](bundler/webpack/concepts/README.md)
       * [Mode](bundler/webpack/concepts/mode.md)
       * [Entry](bundler/webpack/concepts/entry.md)
