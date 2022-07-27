@@ -30,7 +30,7 @@ module.exports = {
   mode: 'none',
   entry: './src/index.js',
   output: {
-    filename: 'main.bundle.js', 
+    filename: '[name].bundle.js', 
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
