@@ -1,17 +1,74 @@
 # Quick Start
 
-## 01. NPM 설치
+## 기본 환경
+
+* VSCODE에 ESLint 확장 프로그램 설치
+* settings.json 폴더에 아래 속성 추가 (VSCODE => ctrl + shift + p)n
+
+```json
+// settings.json 
+"editor.tabSize": 2,
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+ },
+"eslint.workingDirectories": [{ "mode": "auto" }],
+"eslint.validate": [
+  "javascript",
+  "typescript"
+],
+"eslint.alwaysShowStatus": true
+```
+
+## 자바스크립트 + 바벨 환경
 
 ```bash
 npm i eslint prettier eslint-plugin-prettier -D
-npm i @babel/eslint-parser -D (?)
-npm i @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+npm i @babel/eslint-parser -D 
 ```
-
-## 02. 설정 파일
 
 ```javascript
 // .eslintrc.js
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    node: true,
+  },
+  extends: ['eslint:recommended'],
+  plugins: ['prettier'],
+  rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        semi: true,
+        useTabs: false,
+        tabWidth: 2,
+        printWidth: 80,
+        bracketSpacing: true,
+        arrowParens: 'avoid',
+        endOfLine: 'auto',
+      },
+    ],
+  },
+  parser: '@babel/eslint-parser',
+};
+```
+
+```
+// .eslintignore
+./node_modules
+./dist 
+```
+
+## 타입스크립트 환경
+
+```bash
+npm i @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+```
+
+```javascript
+
 module.exports = {
   root: true,
   env: {
@@ -43,12 +100,4 @@ module.exports = {
     parser: '@typescript-eslint/parser',
   },
 };
-
-
-```
-
-```
-// .eslintignore
-./node_modules
-./dist 
 ```
