@@ -27,7 +27,7 @@ module.exports = {
 
 ```javascript
 // webpack.dev.js
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -42,7 +42,7 @@ module.exports = merge(common, {
 
 ```javascript
 // webpack.prod.js
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
