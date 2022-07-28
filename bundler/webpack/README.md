@@ -3,6 +3,7 @@
 * [웹팩 공식문서](https://webpack.kr/concepts/)
 * [웹팩 핸드북](https://joshua1988.github.io/webpack-guide/guide.html) by 캡틴판교
 * [웹팩 소개 영상](https://www.youtube.com/watch?v=WQue1AN93YU)&#x20;
+* [번들러 설정 파일 자동 완성](https://createapp.dev/webpack/no-library)
 
 ## 🐇 웹팩이란?
 
