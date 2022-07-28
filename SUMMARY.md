@@ -114,7 +114,7 @@
         * [Resolve](bundler/webpack/configuration/resolve.md)
         * [DevServer](bundler/webpack/configuration/devserver.md)
         * [Devtool](bundler/webpack/configuration/devtool.md)
-  * [Code Formatter](tools-extensions/code-formatter/README.md)
+  * [Code Formatter](tools-extensions/code-formatter.md)
     * [Quick Start](tools-extensions/code-formatter/quick-start.md)
     * [ESLint](tools-extensions/code-formatter/eslint.md)
     * [Prettier](tools-extensions/code-formatter/prettier.md)

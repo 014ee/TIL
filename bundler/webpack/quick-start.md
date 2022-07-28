@@ -11,7 +11,7 @@ npm i webpack webpack-cli webpack-dev-server -D
 ```javascript
 // package.json
 "scripts": {
-  "dev": "webpack-dev-server --mode=development",
+  "dev": "webpack server --mode=development",
   "build": "webpack --mode=production"
 }
 ```
@@ -24,10 +24,10 @@ webpack.config.js 파일에서 프로젝트에 따른 유연한 설정이 가능
 
 ```javascript
 // webpack.config.js
-var path = require('path');
+const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './js/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js', 
@@ -44,16 +44,15 @@ npm i html-webpack-plugin copy-webpack-plugin -D
 
 ```javascript
 // webpack.config.js
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  // ...
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html', // index.html 파일 번들러에 포함
+    new HtmlPlugin({
+      template: './index.html', // index.html 파일을 번들러에 포함시켜줌
     }),
-    new CopyWebpackPlugin({
+    new CopyPlugin({
       patterns: [
         {from: 'static'} // static 폴더 내 파일들을 번들러에 포함시켜줌
       ]
@@ -62,38 +61,87 @@ module.exports = {
 };
 ```
 
-## 04. 로더/플러그인 추가
+## 04. 바벨 로더 추가
 
 ```bash
-npm i style-loader css-loader mini-css-extract-plugin -D
-npm i sass sass-loader -D
-npm I postcss postcss-loader autoprefixer -D
+npm i babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime -D
 ```
 
 ```javascript
 // webpack.config.js
-
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js', 
-    clean: true,
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          'babel-loader'
+        ]
+      }
+    ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {from: 'static'}
-      ]
-    }),
-  ],
 };
 ```
 
-## 05. 기타 설정
+```javascript
+// .babelrc.js
+module.exports = {
+  presets: ['@babel/preset-env'],
+  plugins: [
+    ['@babel/plugin-transform-runtime']
+  ]
+}
+```
+
+## 05. CSS 로더 추가
+
+```bash
+npm i style-loader css-loader mini-css-extract-plugin -D
+npm i sass sass-loader -D
+npm i postcss postcss-loader autoprefixer -D
+```
+
+```javascript
+// webpack.config.js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module: {
+  rules: [
+    {
+      test: /\.s?css$/,
+      use: [
+        { loader: MiniCssExtractPlugin.loader },
+        'css-loader',
+        'postcss-loader',
+        'sass-loader'
+      ]
+    },
+  ]
+},
+plugins: [
+  new MiniCssExtractPlugin(),
+],
+```
+
+```javascript
+// .postcssrc.js
+module.exports = {
+  plugins: [
+    require('autoprefixer')
+  ]
+}
+```
+
+```json
+// package.jsonon
+"browerslist": [
+  "> 1%",
+  "last 2 versions"
+]
+```
+
+## 06. 기타 설정(보)
 
 ```javascript
 // webpack.config.js
