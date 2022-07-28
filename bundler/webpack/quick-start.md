@@ -11,8 +11,8 @@ npm i webpack webpack-cli webpack-dev-server -D
 ```javascript
 // package.json
 "scripts": {
-  "dev": "webpack server --mode=development",
-  "build": "webpack --mode=production"
+  "dev": "webpack serve",
+  "build": "webpack"
 }
 ```
 
@@ -27,7 +27,8 @@ webpack.config.js 파일에서 프로젝트에 따른 유연한 설정이 가능
 const path = require('path');
 
 module.exports = {
-  entry: './js/main.js',
+  mode: 'none',
+  entry: './index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js', 
@@ -50,11 +51,11 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   plugins: [
     new HtmlPlugin({
-      template: './index.html', // index.html 파일을 번들러에 포함시켜줌
+      template: './index.html', // index.html 파일을 번들에 포함
     }),
     new CopyPlugin({
       patterns: [
-        {from: 'static'} // static 폴더 내 파일들을 번들러에 포함시켜줌
+        {from: 'static'} // static 폴더 내 파일들을 번들에 포함
       ]
     }),
   ],
@@ -74,10 +75,8 @@ module.exports = {
     rules: [
       {
         test: /\.m?js$/,
+        use: ['babel-loader'],
         exclude: /(node_modules|bower_components)/,
-        use: [
-          'babel-loader'
-        ]
       }
     ]
   },
@@ -106,9 +105,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module: {
   rules: [
     {
-      test: /\.s?css$/,
+      test: /\.(sass|scss|css)$/,
       use: [
-        { loader: MiniCssExtractPlugin.loader },
+        MiniCssExtractPlugin.loader,
         'css-loader',
         'postcss-loader',
         'sass-loader'
@@ -136,16 +135,4 @@ module.exports = {
   "> 1%",
   "last 2 versions"
 ]
-```
-
-## 06. 기타 설정(보)
-
-```javascript
-// webpack.config.js
-module.exports = {
-  stats: {
-    colors: true
-  },
-  devtool: 'source-map'
-}; 
 ```

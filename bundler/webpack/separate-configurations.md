@@ -52,3 +52,11 @@ module.exports = merge(common, {
   },
 });
 ```
+
+```json
+// package.json
+"scripts": {
+  "dev": "cross-env NODE_ENV=development webpack serve --config webpack.dev.js",
+  "build": "cross-env NODE_ENV=production webpack  --config webpack.prod.js"
+},
+```
