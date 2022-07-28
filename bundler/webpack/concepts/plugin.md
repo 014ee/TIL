@@ -23,10 +23,9 @@ module.exports = {
 
 ## 🐇 자주 사용하는 플러그인
 
-* [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) : 웹팩으로 빌드한 결과물로 HTML 파일을 생성해준다.
-* [CopyWebpackPlugin](https://webpack.kr/plugins/copy-webpack-plugin/) : 개별 파일 또는 전체 디렉토리(ex. assets)를 빌드 디렉토리에 복사해준다.
-* [MiniCssExtractPlugin](https://webpack.kr/plugins/mini-css-extract-plugin/) : 별도의 css 파일을 생성하여 내부스타일이 아닌 외부스타일로 빌드해준다.
 * [ProgressPlugin](https://webpack.js.org/plugins/progress-plugin/#root) : 웹팩의 빌드 진행율을 표시해준다.
+* [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) : 웹팩으로 빌드한 결과물로 HTML 파일을 생성해준다.
+* [MiniCssExtractPlugin](https://webpack.kr/plugins/mini-css-extract-plugin/) : 별도의 css 파일을 생성하여 내부스타일이 아닌 외부스타일로 빌드해준다.
 * [split-chunks-plugin](https://webpack.js.org/plugins/split-chunks-plugin/)&#x20;
 * [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin)
 * [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader)

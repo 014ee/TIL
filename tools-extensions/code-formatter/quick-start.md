@@ -4,6 +4,7 @@
 
 ```bash
 npm i eslint prettier eslint-plugin-prettier -D
+npm i @babel/eslint-parser -D (?)
 npm i @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 ```
 

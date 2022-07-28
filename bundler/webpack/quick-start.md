@@ -11,8 +11,8 @@ npm i webpack webpack-cli webpack-dev-server -D
 ```javascript
 // package.json
 "scripts": {
-  "dev": "webpack server --mode=development",
-  "build": "webpack --mode=production"
+  "dev": "webpack-dev-server"
+  "build": "webpack"
 }
 ```
 
@@ -24,124 +24,32 @@ webpack.config.js 파일에서 프로젝트에 따른 유연한 설정이 가능
 
 ```javascript
 // webpack.config.js
-const path = require('path');
+var path = require('path');
 
 module.exports = {
-  entry: './js/main.js',
+  mode: 'none',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js', 
-    clean: true,
+    path: path.resolve(__dirname, 'dist'),
+  },
+  devServer: {
+    port: 8080,
   },
 };
 ```
 
-## 03. 기본 플러그인 추가
+## 04. 로더/플러그인 추가
 
 ```bash
-npm i html-webpack-plugin copy-webpack-plugin -D
+npm i
 ```
 
 ```javascript
 // webpack.config.js
-const HtmlPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-
-module.exports = {
-  plugins: [
-    new HtmlPlugin({
-      template: './index.html', // index.html 파일을 번들러에 포함시켜줌
-    }),
-    new CopyPlugin({
-      patterns: [
-        {from: 'static'} // static 폴더 내 파일들을 번들러에 포함시켜줌
-      ]
-    }),
-  ],
-};
 ```
 
-## 04. 바벨 로더 추가
-
-```bash
-npm i babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime -D
-```
-
-```javascript
-// webpack.config.js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          'babel-loader'
-        ]
-      }
-    ]
-  },
-};
-```
-
-```javascript
-// .babelrc.js
-module.exports = {
-  presets: ['@babel/preset-env'],
-  plugins: [
-    ['@babel/plugin-transform-runtime']
-  ]
-}
-```
-
-## 05. CSS 로더 추가
-
-```bash
-npm i style-loader css-loader mini-css-extract-plugin -D
-npm i sass sass-loader -D
-npm i postcss postcss-loader autoprefixer -D
-```
-
-```javascript
-// webpack.config.js
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-module: {
-  rules: [
-    {
-      test: /\.s?css$/,
-      use: [
-        { loader: MiniCssExtractPlugin.loader },
-        'css-loader',
-        'postcss-loader',
-        'sass-loader'
-      ]
-    },
-  ]
-},
-plugins: [
-  new MiniCssExtractPlugin(),
-],
-```
-
-```javascript
-// .postcssrc.js
-module.exports = {
-  plugins: [
-    require('autoprefixer')
-  ]
-}
-```
-
-```json
-// package.jsonon
-"browerslist": [
-  "> 1%",
-  "last 2 versions"
-]
-```
-
-## 06. 기타 설정(보)
+## 05. 기타 설정
 
 ```javascript
 // webpack.config.js
