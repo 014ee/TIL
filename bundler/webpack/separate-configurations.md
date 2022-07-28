@@ -17,7 +17,7 @@ npm install webpack-merge -D
 ```javascript
 // webpack.common.js
 module.exports = {
-  entry: './src/index.js',
+  entry: './index.js',
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin(),
@@ -33,10 +33,18 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   mode: 'development',
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
+    clean: true,
   },
   devtool: 'inline-source-map',
-  devServer: { contentBase: './dist' }
+  devServer: {
+    historyApiFallback: true,
+    open: true,
+    compress: true,
+    hot: true,
+    port: 8080,
+  },
 });
 ```
 
@@ -48,8 +56,12 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   mode: 'production',
   output: {
-    filename: '[name].[contenthash].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'js/[name].[contenthash].bundle.js',
+    clean: true,js',
   },
+  devtool: false,
+  // 최적
 });
 ```
 

@@ -37,7 +37,7 @@ module.exports = {
 };
 ```
 
-## 03. 기본 플러그인 추가
+## 04. 기본 플러그인 추가
 
 ```bash
 npm i html-webpack-plugin copy-webpack-plugin -D
@@ -62,7 +62,7 @@ module.exports = {
 };
 ```
 
-## 04. 바벨 로더 추가
+## 05. 바벨 로더 추가
 
 ```bash
 npm i babel-loader @babel/core @babel/preset-env -D
@@ -90,7 +90,7 @@ module.exports = {
 }
 ```
 
-## 05. CSS 로더 추가
+## 06. CSS 로더 추가
 
 ```bash
 npm i style-loader css-loader mini-css-extract-plugin -D
@@ -135,4 +135,16 @@ module.exports = {
   "> 1%",
   "last 2 versions"
 ]
+```
+
+## 07. 기타 속성 추가
+
+```javascript
+// webpack.config.js
+module.exports = {
+  resolve: {
+    modules: ['node_modules'],
+    extensions: ['.js', '.jsx', '.json'],
+  },
+}
 ```
