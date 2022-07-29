@@ -130,4 +130,5 @@
     * [git-guide-dd](tools-extensions/git-dd/git-guide-dd.md)
     * [gitignore-dd](tools-extensions/git-dd/gitignore-dd.md)
   * [lodash](tools-extensions/lodash-dd.md)
+  * [Console](tools-extensions/console.md)
 * [Http](http.md)

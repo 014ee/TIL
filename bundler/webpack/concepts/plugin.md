@@ -23,11 +23,10 @@ module.exports = {
 
 ## 🐇 자주 사용하는 플러그인
 
-* [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) : 웹팩으로 빌드한 결과물로 HTML 파일을 생성
-* [CopyWebpackPlugin](https://webpack.kr/plugins/copy-webpack-plugin/) : 개별 파일 또는 전체 디렉토리(ex. assets)를 빌드 디렉토리에 복사
-* [MiniCssExtractPlugin](https://webpack.kr/plugins/mini-css-extract-plugin/) : 별도의 css 파일을 생성하여 내부스타일이 아닌 외부스타일로 빌드
-* [ProgressPlugin](https://webpack.js.org/plugins/progress-plugin/#root) : 웹팩의 빌드 진행율을 표시
-* [split-chunks-plugin](https://webpack.js.org/plugins/split-chunks-plugin/) : 청크를 나눠 중복되는 의존성 개선
-* [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) : 빌드 전 기존 빌드 폴더 정리
-* [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) : 웹팩용 이미지 로더
-* [webpack-bundle-analyzer-plugin](https://github.com/webpack-contrib/webpack-bundle-analyzer) : 모든 번들 내용에 대한 대화형 트리맵을 시각화
+* [ProgressPlugin](https://webpack.js.org/plugins/progress-plugin/#root) : 웹팩의 빌드 진행율을 표시해준다.
+* [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) : 웹팩으로 빌드한 결과물로 HTML 파일을 생성해준다.
+* [MiniCssExtractPlugin](https://webpack.kr/plugins/mini-css-extract-plugin/) : 별도의 css 파일을 생성하여 내부스타일이 아닌 외부스타일로 빌드해준다.
+* [split-chunks-plugin](https://webpack.js.org/plugins/split-chunks-plugin/)&#x20;
+* [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin)
+* [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader)
+* [webpack-bundle-analyzer-plugin](https://github.com/webpack-contrib/webpack-bundle-analyzer)
