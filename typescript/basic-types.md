@@ -53,11 +53,11 @@ let color: Color = Color.black;
 ## Any
 
 ```javascript
-// 아무 타입의 값이나 들어올 수 있으며, 어떤 타입의 메서드를 호출해도 에러를 발생시키지 않는다.
+// 아무 타입의 값이나 들어올 수 있다.
 function notSure(x: any): any {
   console.log(x);
 }
-parseInt(notSure('아무거나')); // 문자가 들어와도 parseInt 작성 가능
+parseInt(notSure('아무거나')); // 어떤 타입의 메서드를 호출해도 에러를 발생시키지 않는다.
 ```
 
 ## Unknown
@@ -74,8 +74,9 @@ if (typeof maybe === 'string') const s: string = maybe;
 
 ```javascript
 // undefined와 null만 할당 가능하며, 보통 함수에서 반환값이 없을 때 사용된다.
-let unusable: void = undefined;
-unusable = null;  // 성공  `--strictNullChecks` 을 사용하지 않을때만
+function sayHi(): void {
+  console.log('hi')
+};
 ```
 
 ## Null and Undefined
@@ -107,9 +108,7 @@ if (typeof a !== 'string') {
 
 ```javascript
 // 원시 타입을 제외한 모든 타입은 object 타입이다.
-declare function create(o: object | null): void;
-create({ prop: 0 });
-create(null);
+const obj: object = {};
 ```
 
 ## Type Assertions <a href="#type-assertions" id="type-assertions"></a>
