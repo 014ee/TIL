@@ -111,3 +111,11 @@ declare function create(o: object | null): void;
 create({ prop: 0 });
 create(null);
 ```
+
+## Type Assertions <a href="#type-assertions" id="type-assertions"></a>
+
+```javascript
+// 개발자가 해당 값에 대해 컴파일러보다 더 잘 알고 일을 때, 타입을 단언해줄 수 있다.
+let someValue: any = "this is a string";
+let strLength: number = (someValue as string).length;
+```
