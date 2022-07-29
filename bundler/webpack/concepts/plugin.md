@@ -29,5 +29,5 @@ module.exports = {
 * [ProgressPlugin](https://webpack.js.org/plugins/progress-plugin/#root) : 웹팩의 빌드 진행율을 표시
 * [split-chunks-plugin](https://webpack.js.org/plugins/split-chunks-plugin/) : 청크를 나눠 중복되는 의존성 개선
 * [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) : 빌드 전 기존 빌드 폴더 정리
-* [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) : 웹팩용 이미지 로더 모
+* [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) : 웹팩용 이미지 로더
 * [webpack-bundle-analyzer-plugin](https://github.com/webpack-contrib/webpack-bundle-analyzer) : 모든 번들 내용에 대한 대화형 트리맵을 시각화
