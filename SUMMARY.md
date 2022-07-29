@@ -79,6 +79,7 @@
   * [Interface](typescript/interface.md)
   * [Class](typescript/class.md)
   * [Generic](typescript/generic.md)
+  * [Utility](typescript/utility.md)
   * [Type System](typescript/typescript.md)
 * [Frameworks](frameworks/README.md)
   * [react-dd](frameworks/react-dd/README.md)
