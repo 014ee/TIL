@@ -8,7 +8,7 @@
 
 ## 🐇 적용 순서
 
-1. 자바스크립트 파일에 JSDoc으로 타입 시스템 입히기
+1. 마이그레이션이 쉽지 않을 경우 자바스크립트 파일에 JSDoc으로 타입 시스템 입히기
 2. 타입스크립트의 기본 환경 구성
    * [x] npm 초기화
    * [x] 타입스크립트 라이브러리 설치
@@ -17,6 +17,7 @@
    * [x] `tsc` 명령어로 타입스크립트 컴파일하기
 3. 명시적인 `any` 선언하기
    * [x] `tsconfig.json` 파일에 `noImplicitAny`를 `true`로 설정하기
+   * [x] 라이브러리를 쓰는 경우 [DefinitelyTyped](https://www.typescriptlang.org/dt/search?search=)에서 `@types` 라이브러리 찾아 설치
    * [x] 가능한 구체적인 타입으로 타입 정의
 4. 프로젝트 환경 구성babel, eslint, prettier 등의 환경 설정
 5. 외부 라이브러리 모듈화
@@ -50,7 +51,6 @@ npm i typescript -D
 ```json
 // packge.json
 "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
   "build": "tsc"
-}bash
+}
 ```
