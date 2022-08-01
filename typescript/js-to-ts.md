@@ -8,7 +8,7 @@
 
 ## 🐇 적용 순서
 
-1. 자바스크립트 파일에 JSDoc으로 타입 시스템 입히기
+1. 마이그레이션이 쉽지 않을 경우 자바스크립트 파일에 JSDoc으로 타입 시스템 입히기
 2. 타입스크립트의 기본 환경 구성
    * [x] npm 초기화
    * [x] 타입스크립트 라이브러리 설치
@@ -50,7 +50,6 @@ npm i typescript -D
 ```json
 // packge.json
 "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
   "build": "tsc"
-}bash
+}
 ```
