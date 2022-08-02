@@ -18,6 +18,21 @@ module.exports = {
   },
 ```
 
+## 🐇 devServer.hot
+
+{% hint style="info" %}
+[Hot Module Replacement](https://webpack.kr/configuration/dev-server/#devserverhot) 기능을 활성화시키면 브라우저를 새로고침하지 않고도 빌드한 결과물이 웹 애플리케이션에 실시간으로 반영될 수 있게 할 수 있다. 기본값은 true이므로 값이 true일 때는 별도의 설정을 하지 않아도 된다.
+{% endhint %}
+
+```javascript
+// webpack.config.js
+module.exports = {
+  devServer: {
+    hot: true
+  }
+}
+```
+
 ## 🐇 devServer.proxy
 
 {% hint style="info" %}
@@ -36,21 +51,6 @@ module.exports = {
     }
   }
 };
-```
-
-## 🐇 devServer.hot
-
-{% hint style="info" %}
-[Hot Module Replacement](https://webpack.kr/configuration/dev-server/#devserverhot) 기능을 활성화시키면 브라우저를 새로고침하지 않고도 빌드한 결과물이 웹 애플리케이션에 실시간으로 반영될 수 있게 할 수 있다. 기본값은 true이므로 값이 true일 때는 별도의 설정을 하지 않아도 된다.
-{% endhint %}
-
-```javascript
-// webpack.config.js
-module.exports = {
-  devServer: {
-    hot: true
-  }
-}
 ```
 
 ## 🐇 devServer.host
