@@ -2,6 +2,8 @@
 
 * [Today I Learned](README.md)
 * [HTML](html/README.md)
+  * [Metadata](html/metadata.md)
+  * [Meta Tag](html/meta-tag.md)
   * [semantic](html/semantic.md)
 * [CSS](css/README.md)
   * [scss](css/scss.md)
