@@ -79,20 +79,20 @@
 \<base>, \<title>, \<link>, \<style>, \<script> 과 같은 다른 메타관련 요소로 나타낼 수 없는 문서 레벨 메타데이터를 나타낸다.
 {% endhint %}
 
-* [`charset`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/meta#attr-charset) : 문자 인코딩을 선언하는 속성으로, 값은 반드시 문자열 "utf-8"의 대소문자 구분 없는 ASCII 표현이어야 한다.
+* [`charset`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/meta#attr-charset) : 해당 문서의 문자 인코딩 방식을 명시하는 속성으로, 값은 "utf-8"의 대소문자 구분 없는 ASCII 표현이다.
 
 ```
 <meta charset="utf-8">
 ```
 
-* [`http-equiv`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/meta#attr-http-equiv) : 프래그마 지시문을 정의하며, 값은 특정 HTTP 헤더로 `content` 속성에 담는다.
+* [`http-equiv`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/meta#attr-http-equiv) : 프래그마 지시문으로, `content` 속성에 명시된 값에 대한 HTTP 헤더를 제공한다.
 
 ```
 <!-- 3초 후 리다이렉트 -->
 <meta http-equiv="refresh" content="3;url=https://www.mozilla.org">
 ```
 
-* [`name`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/meta/name) :  문서의 메타데이터를 이름-값 쌍으로 제공하며 값은 `content` 속성에 담는다.
+* [`name`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/meta/name) :  `content` 속성과 함께 문서의 메타데이터를 이름-값 쌍으로 제공한다.
 
 ```
 <meta name='application-name' content='웹 페이지에서 구동 중인 애플리케이션 이름'>
