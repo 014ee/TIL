@@ -2,9 +2,11 @@
 
 * [Today I Learned](README.md)
 * [HTML](html/README.md)
-  * [Head](html/head.md)
   * [Meta Tag Template](html/meta-tag-template.md)
-  * [semantic](html/semantic.md)
+  * [Head](html/head.md)
+  * [Body](html/body.md)
+  * [Semantic](html/semantic.md)
+  * [Form](html/form.md)
 * [CSS](css/README.md)
   * [scss](css/scss.md)
 * [JavaScript](javascript/README.md)
