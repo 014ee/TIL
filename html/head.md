@@ -195,14 +195,24 @@ module을 지원하는 브라우저는 nomodule 속성을 가진 모든 <script>
 
 ```html
 <head>
-<template id="template">
-  <li>사과<li>
-</template>
+  <template id="template">
+    <li>과일</li>
+  </template>
 </head>
 <body>
   <ul id='container'>
-    <!-- 템플릿이 들어가는 자 -->
+    <!-- 템플릿이 들어가는 자리 -->
   </ul>
+  <script type='text/javascript'>
+    // 브라우저가 HTML 템플릿 엘리먼트를 지원하는지 확인
+    if ('content' in document.createElement('template')) {
+      const template = document.getElementById('template');
+      const container = document.getElementById("container");
+      const clone = document.importNode(template.content, true);
+      let li = clone.querySelector("li");
+      li.textContent = '사과'
+      container.appendChild(clone);
+    }
+  </script>
 </body>
 ```
-
