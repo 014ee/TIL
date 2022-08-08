@@ -11,7 +11,7 @@
   &#x3C;meta name="title" content="페이지 제목">
   &#x3C;meta name="description" content="페이지 요약입니다.">
   &#x3C;meta name="keywords" conetent="쉼표로 구분한 페이지 키워드">
-  &#x3C;meta name="location" content="사업지 주소">
+  &#x3C;meta name="location" content="사업 주소">
   
   &#x3C;!-- OG -->
   &#x3C;meta property="og:type" conetent="website">
