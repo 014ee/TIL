@@ -136,3 +136,4 @@
     * [gitignore-dd](tools-extensions/git-dd/gitignore-dd.md)
   * [lodash](tools-extensions/lodash-dd.md)
 * [Http](http.md)
+* [Organize Notes](organize-notes.md)
