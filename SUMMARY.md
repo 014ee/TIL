@@ -138,5 +138,4 @@
 * [HTTP](http/README.md)
   * [Internet-network](http/internet-network.md)
   * [URI-URL-URN](http/uri-url-urn.md)
-* [Page 1](page-1.md)
-* [Organize Notes](organize-notes.md)
+  * [HTTP](http/http.md)
