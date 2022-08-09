@@ -135,5 +135,7 @@
     * [git-guide-dd](tools-extensions/git-dd/git-guide-dd.md)
     * [gitignore-dd](tools-extensions/git-dd/gitignore-dd.md)
   * [lodash](tools-extensions/lodash-dd.md)
-* [Http](http.md)
+* [HTTP](http/README.md)
+  * [Internet-network](http/internet-network.md)
+* [Page 1](page-1.md)
 * [Organize Notes](organize-notes.md)
