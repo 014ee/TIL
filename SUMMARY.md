@@ -139,3 +139,5 @@
   * [Internet-network](http/internet-network.md)
   * [URI-URL-URN](http/uri-url-urn.md)
   * [HTTP](http/http.md)
+  * [HTTP Method](http/http-method.md)
+  * [HTTP Status](http/http-status.md)

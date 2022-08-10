@@ -57,7 +57,7 @@ IP 프로토콜의 한계
 
 ![](<../.gitbook/assets/image (5) (1).png>)
 
-![](<../.gitbook/assets/image (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1).png>)
 
 ![](<../.gitbook/assets/image (7).png>)
 
@@ -153,7 +153,7 @@ tcp 3 way handshake의 성공에 대한 결과 => 서버와 클라이언트의 �
 
 49152번 \~ 65535번 : 동적 포트 ( dynamic port )
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/image (1) (1).png>)
 
 서버쪽 포트 번호는 개발자가 포트 포워딩을 통해 몇 번 포트를 열어둘 지 결정하거나 관례적으로 정해진 포트를 사용한다.
 
@@ -181,7 +181,7 @@ tcp 3 way handshake의 성공에 대한 결과 => 서버와 클라이언트의 �
 
 우리가 어떤 URL을 입력하게 되면(www.example.com을 입력하면) 우선 DNS에서 이 URL에 해당하는 IP 주소를 획득해야 합니다. 이때 사용자가 위치에서 가장 가까운 DNS(로컬 DNS)에 IP주소를 질의(query)하게 됩니다. 로컬 DNS내부에 해당 URL가 매칭되는 IP주소가 캐싱되어 있지 않다면 로컬 DNS는 루트 DNS로 www.example.com IP주소를 질의합니다. 루트 DNS 에서도 www.example.com을 알지 못하기에 .com 을 관리하는 DNS의 주소를 알려줍니다. 그러면 로컬 DNS는 .com 을 관리하는 DNS 서버로 가서 www.example.com 을 질의 합니다. 이런식으로 최종 IP 주소를 알아낼 때까지 질의를 반복합니다. (이를 DNS iterative query 라고 합니다)
 
-![](<../.gitbook/assets/image (14) (1).png>)
+![](<../.gitbook/assets/image (14).png>)
 
 
 

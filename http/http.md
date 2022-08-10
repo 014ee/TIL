@@ -58,13 +58,13 @@
 
 CF) 서버에 클라이언트가 접속하면 서버 입장에서는 Request객체도 생성하고 Response 객체도 생성하는 등 내부적으로 많은 일을 합니다. 그리고 그런 동작에는 메모리와 CPU 등의 자원(리소스)이 소모됩니다. 그리고 이런 자원 사용을 최소화 하지 않으면 클라이언트가 몰렸을 때 부하가 일어납니다. 그래서 무상태 프로토콜을 구현함으로 써 이런 자원 사용을 최소화 한다는 의미입니다.
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (1).png>)
 
-![](<../.gitbook/assets/image (15).png>)
+![](<../.gitbook/assets/image (10).png>)
 
 ### HTTP 메세지를 통해 통신한다.
 
-![](<../.gitbook/assets/image (13).png>)
+![](<../.gitbook/assets/image (3).png>)
 
 #### 1. 시작라인 : request-line(요청 메세) / status line (응답 메세지)
 

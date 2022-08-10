@@ -9,9 +9,9 @@
 
 포트명을 직접 기입하지 않으면 웹 브라우져가 미리 약속한 80, 443 포트를 사용합니다. 이것은 HTTP, HTTPS의 포트를 이것으로 사용하겠다는 표준화가 되어 있기 때문에 가능한 것이지요.
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (3) (4).png>)
 
-![](<../.gitbook/assets/image (4).png>)
+![](../.gitbook/assets/image.png)
 
 ## URL (Uniform Resource Locator)
 
@@ -20,7 +20,7 @@
 *
 * cf. 서버는 80번 포트를 사용하는 것이 관례이기에 사용자가 URL뒤에 포트 번호를 생략할 경우 80번을 기본값으로 사용합니다.
 
-![](<../.gitbook/assets/image (13) (1).png>)
+![](<../.gitbook/assets/image (13).png>)
 
 ![](<../.gitbook/assets/image (5).png>)
 
@@ -32,9 +32,9 @@
 
 ![](<../.gitbook/assets/image (12).png>)
 
-![](<../.gitbook/assets/image (8).png>)
+![](<../.gitbook/assets/image (8) (2).png>)
 
-![](<../.gitbook/assets/image (10).png>)
+![](<../.gitbook/assets/image (10) (1).png>)
 
 
 
