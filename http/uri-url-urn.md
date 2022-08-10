@@ -11,7 +11,7 @@
 
 ![](<../.gitbook/assets/image (3).png>)
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (4).png>)
 
 ## URL (Uniform Resource Locator)
 
@@ -20,7 +20,7 @@
 *
 * cf. 서버는 80번 포트를 사용하는 것이 관례이기에 사용자가 URL뒤에 포트 번호를 생략할 경우 80번을 기본값으로 사용합니다.
 
-![](<../.gitbook/assets/image (13).png>)
+![](<../.gitbook/assets/image (13) (1).png>)
 
 ![](<../.gitbook/assets/image (5).png>)
 
@@ -58,7 +58,7 @@
 1. 검색창에 웹사이트 주소 입력 후 엔터를 치면
 2. 프로토콜과 DNS를 조회해서 포트 번호와 IP 주소를 알아냄
 3. HTTP 요청 메세지 생성한  ex. GET /search?q=hello\&hl=ko HTTP/1.1 HOST: www.google.com
-4. socket 라이브러리(지속적인 연결)를 통해 데이터를 TCP/IP 계층(OS)으로 내려보낸 후  3 way handshake를 해서 TCP/IP 연결이 가능한지 물리계층을 통해 인터넷망에 전달해서 먼저 확인
+4. socket 라이브러리(지속적인 연결)를 통해 데이터를 TCP/IP 계층(OS)으로 내려보낸 후  3 way handshake를 해서 TCP/IP 연결이 가능한지 물리계층을 통해 인터넷망에 전달해서 먼저 확인 (내가 요청 보낼 곳과 연결할 수 있는지를 체크하는 로직)
 5. 연결이 가능하다면 HTTP 메세지를 포함한 TCP/IP 패킷을 생성 후 물리계층을 통해 인터넷망에 전달
 6. 인터넷 망의 최적의 경로를 통해 이동하고, 구글 서버에서 TCP/IP 패킷을 받음&#x20;
 7. 전달받은 패킷에서 HTTP 메세지를 꺼낸 후 해석
