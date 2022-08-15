@@ -7,8 +7,6 @@
 * 스위치와 라우터의 차이
 * ARP와 이더넷 프레임
 
-![](../.gitbook/assets/1.png)
-
 ## IP 프로토콜 (Internet Protocol)
 
 {% hint style="info" %}
