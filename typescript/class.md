@@ -15,54 +15,52 @@
 타입스크립트 class 속성들은 기본적으로 public이며 외부에서 접근 가능하다. 클래스 내부의 모든 곳(생성자, 프로퍼티, 메서드)에 설정 가능하다.
 {% endhint %}
 
-* `public` : class 외부에서 접근 가능하도록 해준다. (default 설정이므로 생략 가능)
-* `private` : class 내부에서만 접근 가능하도록 해준다. (private한 키워드에는 언더바를 붙이는 컨벤션이 있다.)\
+* `public` : class의 기본 값으로, class 내부에서든 외부에서든 접근할 수 있다.
+* `protected` : class 외부에서는 접근 불가능하지만, 상속 관계가 있는 곳에서는 접근 가능하다.
+* `private` : 오직 class 내부에서만 접근 가능하다.\
   참고) 자바스크립트에서는 public, private을 기본 스펙으로 제공하지 않아 private한 값에는 언더바를 붙여 표기한다. (바벨 사용시 private 사용 가능) (construct에 private 속서을 주면 외부에서 접근 불가능하므로 싱글톤 패턴에서 활용할 수 있다.)
-* `protected` : private처럼 class 외부에서는 접근 불가능 하지만, 상속 관계가 있는 곳에서는 접근 가능하다.
 
 ```typescript
 class Person {
-  private contry: string = 'Korea'
-  
-  constuctor(vate name: string, private age: number){ 
-    this.name;
-    this.age;
+  private address: string = "Seoul";
+
+  constructor(public name: string, private _age: number, address?: string) {
+    this.name = name;
+    this._age = _age; // private한 키워드에는 언더바를 붙이는 컨벤션이 있다.
   }
 }
 
-const teacher = new Person('Mark', 30);
-teacher.name = 'Woongjae'; // 에
+const teacher = new Person("Inhwa", 30);
 ```
 
 ## Getter\&Setter
 
 {% hint style="info" %}
-getter나 setter 둘중에 하나만 사용해서 읽기 전용 또는 쓰기 전용 값으로 설정할 수 있다.
+getter나 setter를 사용해서 값을 읽기 전용 또는 쓰기 전용으로 만들 수 있다. 값을 원하는 형태로 안전하게 세팅하거나 가져올 수 있다.
 {% endhint %}
 
 * `getter` : 값을 가져오는 함수 (함수 내에서 뭔가 처리를 한 후 값을 반환할 수 있다.)
-* `setter` : 값을 세팅하는 함수 (무언가 인자로 받아 값을 설정할 수 있다.)
+* `setter` : 값을 세팅하는 함수 (인자로 뭔가 받아 값을 설정할 수 있다.)
 
 ```typescript
 class Person {
-  public constuctor(private name: string, private age: number){}
-  
-  get personName(){
-    return this.name + 'Lee';
+  private address: string = "Seoul";
+
+ constructor(public name: string, private _age: number, address?: string) {
+    this.name = name;
+    this._age = _age; // private한 키워드에는 언더바를 붙이는 컨벤션이 있다.
   }
   
-  set personName(nickName: string){
-    this.name = nickName;
+  get age(){
+    return `만s._age`;
+  }
+  
+  set age(age: number){
+    this._age = age + 1;
   }
 }
 
-const teacher = new Person('Mark', 30);
-```
-
-```javascript
-console.log(teacher.personName); // Mark Lee (getter)
-teacher.personName = 'Woongjae'; // setter
-console.log(teacher.personName); // Woongjae Lee (getter)
+const teacher = new Person('Mark', 29);
 ```
 
 ## Readonly
