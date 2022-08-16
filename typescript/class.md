@@ -22,15 +22,16 @@
 
 ```typescript
 class Person {
-  private address: string = "Seoul";
+  private _country: string;
 
-  constructor(public name: string, private _age: number, address?: string) {
+  constructor(public name: string, private _age: number) {
     this.name = name;
     this._age = _age; // private한 키워드에는 언더바를 붙이는 컨벤션이 있다.
+    this._country = = "Korea";
   }
 }
 
-const teacher = new Person("Inhwa", 30);
+const teacher = new Person('Mark', 30);
 ```
 
 ## Getter\&Setter
@@ -44,15 +45,16 @@ getter나 setter를 사용해서 값을 읽기 전용 또는 쓰기 전용으로
 
 ```typescript
 class Person {
-  private address: string = "Seoul";
+  private _country: string;
 
- constructor(public name: string, private _age: number, address?: string) {
+ constructor(public name: string, private _age: number) {
     this.name = name;
     this._age = _age; // private한 키워드에는 언더바를 붙이는 컨벤션이 있다.
+    this._country = = "Korea";
   }
   
   get age(){
-    return `${this._age}세 (한국나)`;
+    return this._age;
   }
   
   set age(age: number){
@@ -60,41 +62,44 @@ class Person {
   }
 }
 
-const teacher = new Person('Mark', 29);
+const teacher = new Person('Mark', 30);
 ```
 
 ## Readonly
 
 {% hint style="info" %}
-readonly 로 읽기 전용 속성으로 만들면 초기화 이후 절대 값을 재설정할 수 없다.
+readonly를 붙 읽기 전용 속성으로 만들면, 초기화 이후 외부에서든 내부에서든 절대 값을 변경 할 수 없다.
 {% endhint %}
 
 ```typescript
 class Person {
-  public readonly name: string = 'Mark'
-  private readonly country: string = 'Korea'
+  private readonly _country: string;
   
-  public constuctor(private name: string){
-    this.country = 'Korea' 
+  constructor(public readonly name: string, private _age: number) {
+    this.name = name;
+    this._age = _age; // private한 키워드에는 언더바를 붙이는 컨벤션이 있다.
+    this._country = 'Korea'
   }
   
   hello(){
-    this.country = 'Japan'; // 에러 => country는 readonly이므로 값을 세팅할 수 없다. 
+    this.country = 'Japan'; // 에러 (readonly 이므로 값을 바꿀 수 없음)
   }
 }
 
-const teacher = new Person('Mark');
-teacher.personName = 'Woongjae'; // 에러 
+const teacher = new Person('Mark', 30);
+teacher.name = 'Woongjae'; // 에러 (readonly 이므로 값을 바꿀 수 없음)
 ```
 
 ## Index Signature
 
-* class 객체 내 속성이 고정된 형태가 아니라 동적으로 변화되는 경우 사용할 수 있다.
-* `index`는 지정한 타입에만 충족되면 어떠한 내용도 입력할 수 있다.
+{% hint style="info" %}
+class 객체 내 속성이 동적으로 변하는 경우 사용할 수 있다. index는 지정한 타입에만 충족되면 어떠한 내용도 입력할 수 있다.
+{% endhint %}
 
 ```typescript
 class Students {
-  [index: string]: 'male' | 'female'; // 어떤 속성이든 문자열 타입이고, 값은 'male' 또는 'female' 이다.
+  // 어떤 속성이든 문자열 타입여야 하고, 값은 'male' 또는 'female'이다.
+  [index: string]: 'male' | 'female';
 }
 ```
 
@@ -115,37 +120,41 @@ classB.anna = 'female'
 console.log(classB); // {chloe: 'female', alex: 'male', anna: 'female'}
 ```
 
-## Static Properties\&Methods
+## Static
 
-* class 내부에서 `static`이 설정된 데이터는 공통적으로 공유된다.
-* ex) woongjae에서 CITY 값을 바꾸면, inhwa에서도 바뀐 값으로 보인다.
+{% hint style="info" %}
+static이 설정된 속성 또는 메서드는 instance를 통해 생성되는 것이 아니라 class로부터 공유된다. 따라서 여러 instance에서 공통적으로 사용해야 하는 데이터가 있을 때 유용하다. &#x20;
+{% endhint %}
 
 ```typescript
 class Person {
-  private static CITY = 'Seoul' // Person 클래스로 생성한 모든 오브젝트에서 공유되는 값
-  
-  public hello() {
-    console.log('Welcome' Person.CITY)
+  private static day: string = '토';
+
+  public greet() {
+    return `안녕하세요, 오늘은 신나는 ${Person.day}요일입니다!`
   }
-  public change() {
-    Person.CITY = 'LA'
+
+  public changeDay() {
+    Person.day = '일'
   }
-  
 }
 ```
 
 ```typescript
-const woongjae = new Person();
-woongjae.hello(); // Welcome Seoul
-woongjae.change(); // CITY 값을 변경함
+const teacher = new Person();
+const student = new Person();
 
-const inhwa = new Person();
-inhwa.hello(); // Welcome LA 
+teacher.greet(); // 안녕하세요, 오늘은 신나는 토요일입니다!
+teacher.changeDay();
+teacher.greet(); //안녕하세요, 오늘은 신나는 일요일입니다!
+student.greet(); //안녕하세요, 오늘은 신나는 일요일입니다!
 ```
 
-### Singletons
+#### Singleton Pattern (싱글턴 패)
 
-* private과 static 키워드를 가지고 단일 오브젝트를 공유하는 싱글톤 패턴을 만들 수 있다.
+{% hint style="info" %}
+private과 static 키워드를 가지고 단일 오브젝트를 공유하는 싱글톤 패턴을 만들 수 있다.
+{% endhint %}
 
 ```typescript
 class SingleObj {
@@ -170,14 +179,14 @@ const c = SingleObj.getInstance(); // b 가 만들어 놓은 object를 리턴
 console.log(b === c); // true
 ```
 
-## Class 상속
+## 상속과 믹스
 
-* 이미 작성된 class를 상속받은 후, 기존 기능에 자신만의 기능을 추가할 수 있다. (+ 접근 제어자를 오버라이딩해서 외부에서 접근 가능하도록 수정 할 수 있다.)
-* constuctor 생성자 함수를 상속받아 오버라이딩 할 때는 super를 먼저 실행해줘야 한다.
-* 부모의 영역에서 할 수 있는 것 , 자식의 영역에서 할 수 있는 것을 구분해서 사용해야 할 때 유용
+{% hint style="info" %}
+이미 작성된 class를 상속받은 후, 기능을 추가하거나 접근 제어자를 오버라이딩 할 수 있다. 생성자 함수를 상속받아 오버라이딩 할 때는 super()를 먼저 실행해야 한다.
+{% endhint %}
 
 ```typescript
-class Parent {
+class { {
   constuctor(protected _name: string, private _age: number) {}
   
   public print(): void {
