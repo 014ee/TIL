@@ -48,10 +48,10 @@ npm i typescript -D
     // "noImplicitAny": true, // any 타입이 의도치않게 발생할 경우 에러 발생
     
     // 기타 옵션
-    // sourceMap: true // 컴파일시 소스맵을 생성할건
+    // sourceMap: true // 컴파일시 소스맵을 생성할건지
   },
   "include": ["./src/**/*"], // js로 변환할 파일의 경로
-  "exclude": ["node_modules", "dist"], // js로 변환하지 않을 파 경로
+  "exclude": ["node_modules", "dist"], // js로 변환하지 않을 파일 경로
 }
 
 ```
