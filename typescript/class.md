@@ -52,7 +52,7 @@ class Person {
   }
   
   get age(){
-    return `만s._age`;
+    return `만${this._age}세`;
   }
   
   set age(age: number){
