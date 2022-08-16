@@ -179,67 +179,80 @@ const c = SingleObj.getInstance(); // b 가 만들어 놓은 object를 리턴
 console.log(b === c); // true
 ```
 
-## 상속과 믹스
+## 상속
 
 {% hint style="info" %}
 이미 작성된 class를 상속받은 후, 기능을 추가하거나 접근 제어자를 오버라이딩 할 수 있다. 생성자 함수를 상속받아 오버라이딩 할 때는 super()를 먼저 실행해야 한다.
 {% endhint %}
 
-```typescript
-class { {
-  constuctor(protected _name: string, private _age: number) {}
-  
-  public print(): void {
-    console.log(`이름은 ${this._name}이고, 나이는 ${this._age} 입니다.`)
+<pre class="language-typescript"><code class="lang-typescript">class Person {
+<strong>  protected name: string;
+</strong><strong>  private _age: number;
+</strong><strong> 
+</strong>  constructor(name: string, _age: number) {
+    this.name = name;
+    this._age = _age;
   }
   
-  protected printInfo(): void {
-    console.log(this._name, this._age);
+  introduce(): void {
+    console.log(`이름은 ${this.name}이고, ${this._age} 입니다.`)
+  }
+  
+  protected printProteted(): void {
+    console.log('proteted는 private과 달리 instance에서 접근 가능하다.');
   }
 }
 
-const parent = new Parent('Mark', 30);
-console.log(parent._name) // 에러 => protected는 private와 동일하게 외부에서 접근 불가능하다.
-parent.print(); // 이름은 Mark 이고, 나이는 30 입니다.
+const person = new Person('Mark', 30);
+person.introduce(); // 이름은 Mark이고, 30살 입니다.
+console.log(person.name) // 에러 (protected는 외부에서 접근 불가능)</code></pre>
+
+```typescript
+class Teacher extends Person {
+  job: string;  
+  
+  constructor(name: string, age: number, job: string) {
+    super(name, age);
+    this.job = job;
+    this.printProteted(); // proteted는 private과 달리 instance에서 접근 가능하다
+  }
+}
+
+const teacher = new Teacher('Mark', 30, 'teacher');
+teacher.introduce(); // 이름은 Mark이고, 30살 입니다.
+```
+
+## Abstract
+
+{% hint style="info" %}
+class 내부에 완전하지 않은 기능이 있어도 해당 class 앞에 `abstract`라는 키워드를 붙이면 에러처리 되지 않는다. 완전하지 않은 class는 new를 이용해서 오브젝트를 생성할 수 없다. 따라서 상속을 통해 완전하게 만든 후 오브젝트를 생성해야 한다.
+{% endhint %}
+
+```typescript
+abstract class Message {
+  protected name: string;
+
+  constructor(name: string) {
+    this.name;
+  }
+
+  abstract render(name: string): void; // 미완성 기능이지만 에러 처리 안됨
+}
+
+
+new Message(); // 에러
 ```
 
 ```typescript
-class Child extends Parent {
-  public gender = 'male';  
-  
-  constuctor(age: number) {
-    super('Mark Jr.', age);
-    this.printInfo(); // Mark Jr. 1 
+class WelcomeMessage extends Message {
+  constructor(name: string) {
+    super(name);
+  }
+  render(): void {
+    console.log(`환영합니다. ${this.name}님!`);
   }
 }
 
-const child = new Child(1); // Parent의 constuctor를 상속받음
-child.print(); // 이름은 Mark Jr. 이고, 나이는 1 입니다.
-```
-
-### Abstract Class
-
-* class 내부에 완전하지 않은 기능이 있어도 해당 class 앞에 `abstract`라는 키워드를 붙이면 에러처리 되지 않는다.
-* 완전하지 않은 class는 new를 이용해서 오브젝트를 생성할 수 없다.
-* 따라서 상속을 통해 완전하게 만든 후 오브젝트를 생성해야 한다.
-
-```typescript
-abstract class AbstractPerson {
-  protected _name: string = 'Mark';
-  
-  abstract setName(name: string): void; // 미완성 기능이지만 에러 처리 안됨
-}
-
-new AbstractPerson(); // 에러
-```
-
-```typescript
-class Person extends AbstractPerson {
-  setName(name: string): void {
-    this._name = name
-  }
-}
-
-const person = new Person(); // 정상 작동 
-person.setName(); // 정상 작동
+const welcomeMessage = new WelcomeMessage("Mark"); // 정상 작동
+welcomeMessage.render(); // 정상 작동
 ```
