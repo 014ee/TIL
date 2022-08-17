@@ -247,7 +247,7 @@ class WelcomeMessage extends Message {
     super(name);
   }
   render(): void {
-    console.log(`안녕하 .name}님! `);
+    console.log(`안녕하세요, ${..name}님! `);
   }
 }
 
