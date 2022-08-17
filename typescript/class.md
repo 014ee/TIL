@@ -3,7 +3,7 @@
 ## Class
 
 {% hint style="info" %}
-타입스크립트에서는 class도 하나의 타입이다. class 문법은 es6에서 도입되었으므로 타입스크립트 설정파일에서 target을 es5로 입력하면 es5에서는 class 문법을 사용할 수 없으므로 함수 형태로 컴파일된다.
+타입스크립트에서 class는 하나의 타입이다. class 문법은 es6에서 도입되었으므로 타입스크립트 설정파일에서 target을 es5로 입력하면 es5에서는 class 문법을 사용할 수 없으므로 함수 형태로 컴파일된다.
 {% endhint %}
 
 * `!` class 내부에서 값을 할당하지 않고, 외부에서 나중에 처리할 경우 `!`를 붙여 위험을 표시한다.
@@ -150,31 +150,33 @@ teacher.greet(); //안녕하세요, 오늘은 신나는 일요일입니다!
 student.greet(); //안녕하세요, 오늘은 신나는 일요일입니다!
 ```
 
-#### static을 활용한 Singleton Pattern 예시
+#### Singleton Pattern (싱글턴 패)
 
 {% hint style="info" %}
-private과 static 키워드를 활용하 단class로부터 단 하나의 객체만을 만들어내는 싱글톤 패턴을 만들 수 있다.
+private과 static 키워드를 가지고 단일 오브젝트를 공유하는 싱글톤 패턴을 만들 수 있다.
 {% endhint %}
 
 ```typescript
-class Singleton {
-  private constructor(){}
+class SingleObj {
+  private static instance: SingleObj | null = null;
   
-  private static instance: Singleton | null = null;
-  
-  public static getInstance(): Singleton {
-    if(Singleton.instance === null){
-      Singleton.instance = new SingleObj(); // 생성된 instance가 없으면 만든다.
+  public static getInstance(): SingleObj {
+    // SingleObj으로부터 생성된 object가 없으면 만든다.
+    if(ClassName.instance === null){
+      ClassName.instance = new ClassName();
     }
-    return Singleton.instance; // 생성된 instance가 있으면 그 값을 리턴한다.
+    // SingleObj으로부터 만든 object가 있으면 그걸 리턴한다.
+    return ClassName.instance;
   }
+  
+  private constructor(){} // 외부에서 new 키워드로 object 생성 불가
 }
 
-new SingleObj(); // 에러 (생성자 함수 private이므로 외부에서 호출 불가)
+const a = new SingleObj(); // 에러 => private 설정을 했으므로 외부에서 호출 불가
 
-const a = Singleton.getInstance(); // 새로운 instance를 만들어서 리턴
-const b = Singleton.getInstance(); // 만들어진 instance를 리턴
-console.log(a === b); // true
+const b = SingleObj.getInstance(); // object를 만들어서 리턴
+const c = SingleObj.getInstance(); // b 가 만들어 놓은 object를 리턴
+console.log(b === c); // true
 ```
 
 ## 상속
@@ -247,7 +249,7 @@ class WelcomeMessage extends Message {
     super(name);
   }
   render(): void {
-    console.log(`안녕하세요, ${..name}님! `);
+    console.log(`환영합니다. ${this.name}님!`);
   }
 }
 
