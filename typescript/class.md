@@ -150,33 +150,31 @@ teacher.greet(); //안녕하세요, 오늘은 신나는 일요일입니다!
 student.greet(); //안녕하세요, 오늘은 신나는 일요일입니다!
 ```
 
-#### Singleton Pattern (싱글턴 패)
+#### static을 활용한 Singleton Pattern 예시
 
 {% hint style="info" %}
-private과 static 키워드를 가지고 단일 오브젝트를 공유하는 싱글톤 패턴을 만들 수 있다.
+private과 static 키워드를 활용하 단class로부터 단 하나의 객체만을 만들어내는 싱글톤 패턴을 만들 수 있다.
 {% endhint %}
 
 ```typescript
-class SingleObj {
-  private static instance: SingleObj | null = null;
+class Singleton {
+  private constructor(){}
   
-  public static getInstance(): SingleObj {
-    // SingleObj으로부터 생성된 object가 없으면 만든다.
-    if(ClassName.instance === null){
-      ClassName.instance = new ClassName();
+  private static instance: Singleton | null = null;
+  
+  public static getInstance(): Singleton {
+    if(Singleton.instance === null){
+      Singleton.instance = new SingleObj(); // 생성된 instance가 없으면 만든다.
     }
-    // SingleObj으로부터 만든 object가 있으면 그걸 리턴한다.
-    return ClassName.instance;
+    return Singleton.instance; // 생성된 instance가 있으면 그 값을 리턴한다.
   }
-  
-  private constructor(){} // 외부에서 new 키워드로 object 생성 불가
 }
 
-const a = new SingleObj(); // 에러 => private 설정을 했으므로 외부에서 호출 불가
+new SingleObj(); // 에러 (생성자 함수 private이므로 외부에서 호출 불가)
 
-const b = SingleObj.getInstance(); // object를 만들어서 리턴
-const c = SingleObj.getInstance(); // b 가 만들어 놓은 object를 리턴
-console.log(b === c); // true
+const a = Singleton.getInstance(); // 새로운 instance를 만들어서 리턴
+const b = Singleton.getInstance(); // 만들어진 instance를 리턴
+console.log(a === b); // true
 ```
 
 ## 상속
@@ -249,7 +247,7 @@ class WelcomeMessage extends Message {
     super(name);
   }
   render(): void {
-    console.log(`환영합니다. ${this.name}님!`);
+    console.log(`환영합니다. ${this.name}님! `);
   }
 }
 
