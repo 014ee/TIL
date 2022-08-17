@@ -45,10 +45,7 @@ npm i typescript -D
     
     // 강한 타입 체크
     // "strict": true, // strict 관련 모드 전부 켜기
-    // "noImplicitAny": true, // any 타입이 의도치않게 발생할 경우 에러 발생
-    // "strictNullChecks": true, // 모든 타입에 서브타입으로 존재하는 null, undefined 제외
     // "noImplicitReturns": true, // 리턴값이 없는 함수는 에러 발생
-    // "strictFunctionType": true , // 함수의 매개변수가 지정한 타입과 다르거나, 슈퍼타입이 아닌 경우 에러 발생
     
     // 기타 옵션
     // sourceMap: true // 컴파일시 소스맵을 생성할건지
