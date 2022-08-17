@@ -3,14 +3,14 @@
 ## Interface
 
 {% hint style="info" %}
-내부적으로는 숨겨져 있고 외부적으로만 들어나는 객체의 사용 방식
+내부적으로는 숨겨져 있고 외부적으로만 들어나는 객체의 사용 방식을 정의한 타입을 interface라고 한다.
 {% endhint %}
 
 ```typescript
 interface Person {
   name: string;
   age?: number | undefined;
-  [index: string]: any; // 어떤 내용도 string 타입으로만 입력하면 프로퍼티로 지정됨 ex. teacher['brothers'] = 'Alex'
+  [index: string]: any;
   hello(): void;
 }
 
