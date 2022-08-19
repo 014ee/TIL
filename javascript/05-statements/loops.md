@@ -67,7 +67,7 @@ for 키워드를 사용하지만 일반적인 for 루프와는 완전히 다르�
 
 ```js
 let data = [1, 2, 3, 4, 5], sum = 0;
-for (let item of data){
+for (let item of data){ // 이터러블 객체인 data의 iterator 메서드를 실행시켜 value와 done이 담긴 이터러블 객체를 반환받은 후, done이 false 일 때까지 순회하며 value를 꺼내 item에 넣음
  sum += item;
 }
 ```

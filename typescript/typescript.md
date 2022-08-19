@@ -167,3 +167,22 @@ type PersonType = {
 type CalcType = (num: number) => number;
 ```
 
+## is 타입 가드 기
+
+```typescript
+interface Person {
+  name: string;
+  age: 30;
+}
+
+function isPerson(arg: any): arg is Person {
+  return arg.name !== undefined;
+}
+
+isPerson({ name: 'Lee', age: 30}); // true
+```
+
+
+
+
+

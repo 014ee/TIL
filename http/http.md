@@ -4,6 +4,8 @@
 
 {% hint style="info" %}
 초기에는 하이퍼 텍스트(html)를 위한 프로토콜로 개발되었는데, 현재는 이미지, 음성, 영상, JSON, XML 등 거의 모든 형태의 데이터를 주고 받는데 사용된다. (심지어 서버간에 데이터를 주고 받을 때도 HTTP를 사용한다. 참고로 HTTP 방식 말고 Socket 방식으로 HTTP 메세지 없이 TCP/IP에서 직접 3 handshake 후 데이터 전송할 수도 있다.)
+
+http => 비동기적 프로토 (동기적 프로토콜로는 websocket이 있다.)
 {% endhint %}
 
 
