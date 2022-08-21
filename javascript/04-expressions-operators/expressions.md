@@ -11,7 +11,7 @@
 * 단독으로 존재하는 가장 단순한 표현식 `1.23` `'hello'` `true` `null` `/pattern/` `this` `i`&#x20;
 * 리터럴 방식을 통한 초기화 표현식
 
-```
+```javascript
 const 배열리터럴 = [1, 2, , , 3+5]
 const 객체리터럴 = {x: 3, y: 8}
 const 함수리터럴 = function funcName(x, y) {return x*y}
@@ -31,7 +31,7 @@ const 함수리터럴 = function funcName(x, y) {return x*y}
 >
 > 자바스크립트에서 유일하게 null과 undefined는 프로퍼티를 갖지 못한다. 때문에 원래는 프로퍼티의 왼쪽에 위치한 값이 null이나 undefined면 TypeError를 반환한다.
 
-```
+```javascript
 const fruit = {
   banana: null,
 }
@@ -44,7 +44,7 @@ fruit['banana']?.color // undefined
 >
 > 함수 표현식이 null이나 undefined로 평가될 때, 호출 표현식 전체를 undefined로 평가한다. null이나 undefined로 평가되면 함수 인자는 평가하지 않으므로 부수 효과 예방 할 수 있다. 값이 함수인지는 체크하지 않으므로 다른 값이 들어오면 예외가 발생한다.
 
-```
+```javascript
 const func = null;
 let count = 0;
 
