@@ -4,7 +4,7 @@
 
 ## 상위(부모) 선택자 참조
 
-```css
+```scss
 .container {
  ul {
   li {
@@ -20,7 +20,7 @@
 }
 ```
 
-```css
+```scss
 .container ul li {font-size: 52px}
 .container ul li .name {color: orange}
 .container ul li .age {color: blue}
@@ -30,7 +30,7 @@
 
 * 동일한 네임스페이스를 갖는 속성에서 사용할 수 있다.
 
-```css
+```scss
 .box {
  font: {
   weight: bold;
@@ -40,7 +40,7 @@
 }
 ```
 
-```css
+```scss
 .box {
  font-weight: bold;
  font-size: 10px;
@@ -53,7 +53,7 @@
 * 자바스크립트처럼 변수가 {선언된 위치}에 따라 유효한 범위를 갖는다.
 * 변수의 값은 let과 같이 재할당이 가능하다.
 
-```css
+```scss
 .box {
  $size = 100px;
  width: $size; // 100px
@@ -72,7 +72,7 @@
 * 산술연산을 할 때에는 동일한 단위의 기호끼리 사용해야 한다.
 * calc함수를 사용하면, 다른 단위의 기호도 사용할 수 있다.
 
-```css
+```scss
 div {
  $size: 40px;
  width: 10px + 10px;
@@ -91,7 +91,7 @@ div {
 * `:` 기호를 통해 매개변수에 별도의 값을 지정하지 않았을 경우 사용할 기본 값을 설정할 수 있다.
 * 여러 매개변수 중 하나만 수정해서 사용하고 싶으면, 키워드 인수를 사용해야 한다.
 
-```css
+```scss
 @mixin box($size:100px, $color: tomato) {
   width: $size;
   height: $size;
@@ -110,7 +110,7 @@ div {
 
 * 자바스크립트와 다르게 `1`부터 시작된다.
 
-```css
+```scss
 @for $i from 1 through 10 {
  .box:nth-chld(#{i}) {
   width: 100px * $i;
@@ -120,7 +120,7 @@ div {
 
 ## 함수
 
-```css
+```scss
 @function ratio($size, $ratio) {
  @return $size * $ratio
 }
@@ -132,7 +132,7 @@ height: ratio($width, 9/16)
 
 ## 색상 내장 함수
 
-```css
+```scss
 .box {
   $color: orange;
   width:200px;
@@ -153,7 +153,7 @@ height: ratio($width, 9/16)
 
 ## 외부에서 scss 파일 가져오기
 
-```css
+```scss
 @import url('./sub.scss')
 @import './sub.scss'
 @import './sub','./sub2' 
@@ -161,14 +161,14 @@ height: ratio($width, 9/16)
 
 ## 데이터 종류
 
-```js
+```scss
 $number: 1; / .5, 100px, 1em
 $string: bold; // relative, '../ima/a.png'
 $color: red; // #fff, rgba(0,0,0,.1)
 $boolean: true; // false
 $null: null;
 $list: orange, roalblue, yellow;
-$map : (
+$map : (sa
  o: orange,
  r: royalblue,
  y: yellow
@@ -177,13 +177,13 @@ $map : (
 
 ## 반복문 @each
 
-```css
+```scss
 @each  $color in $list {
  .box {color: $c}
 }
 ```
 
-```css
+```scss
 @each  $key, $value in $map {
  .box-#{$key} {color: $value}
 }
@@ -191,7 +191,7 @@ $map : (
 
 ## 재활용 @content
 
-```css
+```scss
 @mixin left-top{
  position: absolute;
  left: 0;

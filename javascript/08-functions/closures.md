@@ -6,7 +6,7 @@
 함수 안에서 선언한 변수는 함수 바깥에서 보이지 않는다. 따라서 전역 네임스페이스를 어지럽히지 않도록 임시 네임스페이스 기능을 하는 함수를 정의하는 것이 유용할 때도 있다.&#x20;
 {% endhint %}
 
-```
+```javascript
 function chunkNamespace() {
   // 코드는 여기에 존재한다.
   // 함수에서 정의한 변수는 모두 로컬 변수이므로 전역 네임스페이스를 어지럽히지 않는다.
@@ -20,7 +20,7 @@ chunkNamespace(); // 단 호출을 해줘야 한다.
 프로퍼티 하나라도 전역에 남겨두고 싶지 않다면 표현식 하나로 익명함수를 정의하고 즉시 호출할 수 있다.&#x20;
 {% endhint %}
 
-```
+```javascript
 (function() {  // 여는 괄호로 감싸줘야 인터프리터가 function을 선언이 아닌 표현식으로 인식
   // 코드는 여기 존재한다.
 })();  // 함수 리터럴을 종료하고 즉시 호출한다.
@@ -38,7 +38,7 @@ chunkNamespace(); // 단 호출을 해줘야 한다.
 엄밀히 말해 자바스크립트 함수는 모두 클로저이니잠 대부분의 함수가 자신이 정의된 곳과 같은 스코프에서 호출되므로 보통은 클로저인지 아닌지 따질 필요가 없다. 클로저가 유용할 때는 함수가 정의된 곳과 다른 스코프에서 호출될 때 뿐이다. 가장 흔한 예시는 함수가 함수를 정의해 반환하는 경우이다. 클로저는 자신을 정의한 외부 함수의 로컬 변수와 매개변수를 그대로 캡쳐한다.&#x20;
 {% endhint %}
 
-```
+```javascript
 let scope = 'global scope';
 function checkscope() {
   let scope = 'local scope';
@@ -48,7 +48,7 @@ function checkscope() {
 checkscope();  // 'local scope': 자신이 정의된 곳에서 스코프를 갖는다.
 ```
 
-```
+```javascript
 let scope = 'global scope';
 function checkscope() {
   let scope = 'local scope';
@@ -62,7 +62,7 @@ checkscope()();  // 'local scope': func을 어디서 실행하는 정의된 스�
 &#x20;다음 예제에서 즉시 호출하는 함수 표현식에서 네임스페이스를 정의하고, 클로저가 이 네임스페이스를 사용해 비공개 상태를 유지하도록 할 수 있다. 중첩된 함수는 자신의 스코프에 있는 변수에 접근할 수 있으며 일단 외부 함수가 종료되면 다른 코드에서는 내부 변수를 볼 수 없다.
 {% endhint %}
 
-```
+```javascript
 function counter() {
   let num = 0;
   return {
@@ -82,7 +82,7 @@ counter2.count();  // 1: counter 함수는 호출할 때마다 독립된 새 스
 &#x20;클로저 기법과 프로퍼티 게터와 세터를 조합할 수도 있다. 게터와 세터를 활용하면 로컬 변수를 선언하지 않고 매개변수 num에 프로퍼티 접근자 메서드에서 공유한 비공개 상태를 담을 수 있다.
 {% endhint %}
 
-```
+```javascript
 function counter(num) {
   return {
     get count() {return num++},
@@ -102,7 +102,7 @@ c.count = 2000; // Error: 카운트는 더 큰 값으로만 바꿀 수 있습니
 
 
 
-```
+```javascript
 function addPrivateProperty(obj, name, predicate) {
   let value;
   obj[`get${name}`] = function() return value;

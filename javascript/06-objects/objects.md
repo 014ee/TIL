@@ -51,7 +51,7 @@
 > 객체를 생성하는 가장 쉬운 방법으로 이름: 값 쌍을 콤마로 구분해 중괄호로 감싼 형태이다.\
 > 객체 리터럴은 평가할 때마다 새 객체가 만들어자며, 각 프로퍼티의 값 역시 리터럴을 평가할 때마다 평가된다. 따라서 객체 리터럴 자체가 바뀌지 않더라도 반복적으로 호출되는 함수나 루프 바디 안에 있다면 새 객체를 여러개 만들 수 있으며, 이 객체들의 프로퍼티 값 역시 매번 달라질 수 있다.
 
-```
+```javascript
 const obj = {x: point.x, y: point.y+1,} // Object.prototype으로부터 프로토타입 상속
 /* 
 * 객체 리터럴의 마지막 프로퍼티에 콤마를 사용하면
@@ -64,7 +64,7 @@ const obj = {x: point.x, y: point.y+1,} // Object.prototype으로부터 프로�
 > new는 새 객체를 생성하고 초기화하는 연산자로, new 키워드 뒤에는 반드시 함수 호출이 있어야 한다.\
 > 이런 형태로 사용되는 함수를 생성자 함수라고 부르며, new 키워드로 새로 생성된 객체를 초기화하는 목적으로 사용된다. 자바스크립트 내장 타입에도 생성자가 있으며, 직접 생성자 함수를 만들 수도 있다.
 
-```
+```javascript
 const obj = new Object();  // Object.prototype으로부터 프로토타입 상속
 const array = new Array(); // Array.prototype으로부터 프로토타입 상속
 const date = new Date();   // Date.prototype으로부터 프로토타입 상
@@ -76,7 +76,7 @@ const date = new Date();   // Date.prototype으로부터 프로토타입 상
 >
 > 임의의 프로토타입을 사용해 새 객체를 만들 수 있는 것은 강력한 기능이며, 서드 파티 라이브러리에서 부주의하게 객체의 프로퍼티 값을 변경하지 못하게 하기 위 목적으로 사용할 수 있다.
 
-```
+```javascript
 const nothing = Object.create(null);         // 아무것도 상속받지 않는 빈 객
 const obj = Object.create(Object.prototype);
 const obj = Object.create({x: 1, y: 2,});
@@ -92,7 +92,7 @@ const obj = Object.create({x: 1, y: 2,});
 >
 > 객체의 프로퍼티 이름과 할당할 값이 담긴 변수의 이름이 같다면 콜론을 생략할 수 있다.
 
-```
+```javascript
 const a = 1, b = 2;
 const obj = {a, b};
 ```
@@ -101,7 +101,7 @@ const obj = {a, b};
 >
 > 프로퍼티 이름이 변수에 저장되어 있거나 함수의 반환값일 때, 객체 리터럴 안에서 추가할 수 있다. 대괄호 안에는 임의의 자바스크립트 표현식이 들어가며, 표현식을 평가한 값이 프로퍼티 이름으로 사용된다.
 
-```
+```javascript
 const NAME = 'name';
 function computePropertyName() {return 'age'}
 const person = {
@@ -114,7 +114,7 @@ const person = {
 >
 > 계산된 프로퍼티 문법을 통해 프로퍼티 이름에 문자열이나 심벌을 쓸 수 있게 되었다. 심벌은 다른 어떤 심벌과도 같지 않으므로 **고유한 프로퍼티 이름을 만들 때 안성맞춤**이다. 예를 들어 직접 제어할 수 없는 서드 파티 코드에서 가져온 객체에 프로퍼티를 추가하고 싶지만, 추가한 프로퍼티가 이미 존재하는 프로포티와 충돌하지 않는다고 확신할 수 없을 때 심벌을 통해 안전하게 추가할 수 있다. 하지만 서드 파티 코드에서 Object.getOwnPropertySymbos()를 사용해 추가한 심벌을 확인한다면 수정이나 삭제가 가능해지므로 심벌의 목적은 보안이 아니라 자바스크립트 객체가 사용할 수 있는 **안전한 확장 메커니즘을 정의**한다는 것을 숙지하고 있어야 한다.
 
-```
+```javascript
 const extension = Symbol('myExtension');
 const obj = {
   myExtension: '기존 프로퍼티'
@@ -127,7 +127,7 @@ obj  // {extension: "기존 프로퍼티", Symbol(extension): {a: 1}}
 >
 > 객체 리터럴 안에서 **분해 연산자 ... 를 사용해 기존 객체의 자체 프로퍼티를 새 객체에 복사**할 수 있다. 같은 이름의 프로퍼티를 갖는다면 마지막에 오는 값이 덮어쓰게 되며, 자체 프로퍼티만 분해할 뿐 상속받은 프로퍼티는 분해하지 않는다.
 
-```
+```javascript
 const apple = {apple: '사과', price: 1000}
 const banana = {banana: '바나나', price: 2000}
 const fruits = {...apple, ...banana}
@@ -142,7 +142,7 @@ fruits  // {apple: '사과', banana: '바나나', price: 2000}
 >
 > ES6이후 메서드를 정의할 때 function 키워드와 콜론을 생략할 수 있으며, 이를 통해 데이터와 메서드를 명확하게 구분할 수 있게 되었다.  프로퍼티 이름에는 객체 리터럴 안에 쓸 수 있다면 문자열, 계산된 프로퍼티, 심벌 등 무엇이든 쓸 수 있다. (for/of 루프에서 사용할 수 있도록 이터러블로 만드려며 반드시 심벌 이름을 사용해 메서드를 정의해야 한다.)
 
-```
+```javascript
 const square = {
   side: 10,
   area() {return this.side * this.side;}
@@ -165,7 +165,7 @@ const square = {
 세터 메서드 하나만 있다면 쓰기 전용 프로퍼티(데이터 프로퍼티에서는 불가능)이며, 값을 읽으려고 하면 항상 undefined로 평가된다.
 {% endhint %}
 
-```
+```javascript
 const obj = {
   max: 10,                  // 일반적인 데이터 프로퍼티
   min: 1,                   // 일반적인 데이터 프로퍼티
@@ -181,7 +181,7 @@ const obj = {
 
 > 접근자 프로퍼티를 사용하는 이유 중에는 프로퍼티에 쓸 때 유효성 검사를 하고, 읽을 때마다 다른 값을 반환하게 하는 것도 있다.
 
-```
+```javascript
 const serialNum = {
   // 프로퍼티에 있는 _는 내부에서만 사용한다는 일종의 컨벤션이다.
   _num: 0;
@@ -210,7 +210,7 @@ serialNum.next        // 11
 >
 > ES6 전에는 key를 순회하며 하나씩 복사하는 방법을 사용했다.
 
-```
+```javascript
 let target = {}, source = {a: 1, b: 2};
 for(let key of source) {
   target[key] = source[key]
@@ -222,7 +222,7 @@ target // {a: 1, b: 1}
 >
 > 첫번째 인자는 수정해서 반환할 대상 객체이며, 두번째 또는 그 이후의 인자는 소스 객체이다. 각 소스 객체를 인자에 입력한 순서대로 순회하면 열거 가능한 자체 프로퍼티(심벌 포함)를 대상 객체에 복사한다. 나중에 입력한 소스 객체가 이전에 입력한 소스 객체와 동일한 프로퍼티를 가지고 있다면 덮어 쓰게 되며, 소스 객체에 게터 메서드가 있다면 복사 도중 호출되긴 하지만 메서드 자체를 복사하지는 않는다.
 
-```
+```javascript
 let obj = {a: 0}
 Object.assign(obj, {a: 1}, {b: 2});
 obj  // {a: 1, b: 2}: 이름이 동일한 기존 프로퍼티가 기존 값을 덮어다.
@@ -232,18 +232,18 @@ obj  // {a: 1, b: 2}: 이름이 동일한 기존 프로퍼티가 기존 값을 �
 값을 전부 덮어 쓰는 것이 아니라 소스 객체에 기본 값을 정의해 두고 대상 객체에 그런 이름이 존재하지 않는다면 복사해서 쓰는 등의 목적으로 사용하려면 아래와 같이 사용해야 한다.
 {% endhint %}
 
-```
+```javascript
 let obj = {a: 0}
 obj = Object.assign({}, {a: 1}, {b: 2}, x);
 obj  // {a: 0, b: 2}: 기본 값을 마지막에 덮어써 주었다.
 ```
 
-```
+```javascript
 let obj = {a: 0}
 obj = {...{a: 1}, ...{b: 2}, ...obj}  // 분해 연산자를 이용해 값을 덮어 쓸 수도 있다.
 ```
 
-```
+```javascript
 // 또는 직접 구현할 수도 있다.
 
 functin merge(target, ...sources) {

@@ -36,7 +36,7 @@
 내보낼 값과 그렇지 않은 값을 구분하여 자바스크립트 코드를 모듈화할 수 있다. 다음 코드는 웹팩이나 파셀 같은 코드 번들링 도구가 하는 일을 간단히 요약한 것이며 노드 프로그램에서 사용하는 require() 함수도 이와 비슷하게 동작한다.
 {% endhint %}
 
-```
+```javascript
 const modules = {};
 function require(moduleName) {return modules[moduleName]};
 

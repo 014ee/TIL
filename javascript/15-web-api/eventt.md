@@ -4,14 +4,14 @@
 
 * HTML 태그 속성에 EventHandler 추가
 
-```js
+```javascript
  <h1 onclick="console.log('clicked');">클릭</h1>
  <input type="text" onchange="console.log('changed');" onkeydown="console.log('typed');">
 ```
 
 * js에서 property에 직접 EventHandler 설정
 
-```js
+```javascript
 document.getElementById("form").onsubmit = function eventHandler(){
   console.log("from property");
   return false; // 브라우저의 submit 처리(페이지 이동) 비활성
@@ -20,7 +20,7 @@ document.getElementById("form").onsubmit = function eventHandler(){
 
 * addEventListener, removeEventListener (여러개의 이벤트 핸들러를 등록할 수 있음)
 
-```js
+```javascript
 document.getElementById("form1").addEventListener("submit", 
   function eventHandler(){
     console.log("from addEventListener");

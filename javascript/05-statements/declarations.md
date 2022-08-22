@@ -36,7 +36,7 @@ import 와 export 선언은 다른 모듈에서 정의한 값을 사용할 수 �
 >
 > 다른 모듈에서 하나 이의 값을 가져오고, 현재 모듈에서 사용할 이름을 부여한다.&#x20;
 
-```
+```javascript
 import Circle from './circle.js';
 import {PI, TAU} from './constants.js';
 import {magnitude as hypotenuse} from './utils.js'
@@ -47,7 +47,7 @@ import {magnitude as hypotenuse} from './utils.js'
 > 모듈에 있는 값은 비공개이며 명시적으로 내보내지는 한 다른 모듈에서 가져올 수 없다.\
 > export 지시자는 현재 모듈에서 정의한 하나 이상의 값을 내보낼 수 있다.
 
-```
+```javascript
 const PI = Math.PI;
 const TAU = 2 * PI;
 export {PI, TAU};

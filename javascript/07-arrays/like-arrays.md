@@ -19,7 +19,7 @@
 특히 알고리즘이 배열을 읽기 전용인 것 처럼 다루거나, 최소한 배열 길이는 건드리지 않는다면 더욱 배열과의 차이가 없는 것 처럼 보일 수 있으며 자바스크립트 배열 메서드는 대부분 배열 비슷한 객체에서도 정확히 동작할 수 있도록 범용으로 설계되었다.
 {% endhint %}
 
-```
+```javascript
 let likeArray = {};
 let i = 0;
 while(i < 10) {
@@ -39,7 +39,7 @@ for(let j = 0; j < likeArray.length; j++) {
 실제 클라이언트 사이드 자바스크립트에는 document.querySelectorAll() 처럼 HTML 문서에서 배열 비슷한 객체를 반환하는 메서드가 많이 있는데, 다음 함수를 통해 해당 객체를 배열처럼 쓸 수 있는지 체크할 수 있다.
 {% endhint %}
 
-```
+```javascript
 function isArrayLike(obj) {
   if(obj &&                         // obj가 null, undefined 등이 아니고 
     typeof obj === 'object' &&      // 객체이며
@@ -61,7 +61,7 @@ isArrayLike('hello world');           // false: 문자열을 받으면 false를 
 &#x20;배열 비슷한 객체에는 Array.prototype을 상속받지 않으므로 배열 메서드를 직접 호출할 수는 없다. 하지만 Function.call 메서드를 통해 간접적으로 호출할 수는 있다.
 {% endhint %}
 
-```
+```javascript
 let a = {
   0: 'zero',
   1: 'one',
@@ -81,7 +81,7 @@ Array.from(a);                    // ['zero', 'one', 'two']: 더 쉬운 복사
 &#x20;자바스크립트 **문자열은 UTF-16 유니코드 문자로 구성된 읽기 전용 배열처럼 동작**한다. 때문에 charAt() 메서드 대신 대괄호를 서서 개별 문자에 접근할 수 있다. 다만 typeof 연산자는 문자열에 대해 'string'을 반환하며 Array.isArray() 메서드는 문자열을 받으면 false를 반환한다.
 {% endhint %}
 
-```
+```javascript
 const string = 'hello world';
 string.charAt(0); // 'h'
 string[0];        // 'h'
@@ -93,6 +93,6 @@ string[0];        // 'h'
 push(), sort(), reverse(), splice() 처럼 원래 배열을 정하는 배열 메서드는 문자열에서 동작하지 않으며, 에러 없이 조용히 실패한다.
 {% endhint %}
 
-```
+```javascript
 Array.prototype.join.call('안녕하세요', '.'); // '안.녕.하.세.요.'
 ```

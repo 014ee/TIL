@@ -179,7 +179,7 @@ today instanceof RegExp  // false
 >
 > boolean 피연산자와 사용시 양 피연산자가 모두 true일 때에만 true를 반환한다. 왼쪽 피연산자가 false면 오른쪽 표현식은 평가하지 않으며, 왼쪽 피연산자가 true면 전체적인 값은 오른쪽에 있는 값이 된다. 따라서 왼쪽에 있는 값이 true면 && 연산자는 오른쪽에 있는 값을 평가 후 반환한다. 이를 이용해서 코드를 조건부로 실행할 수 있다.
 
-```
+```javascript
 (x === y) && add(x); // x가 y일 때 add 함수 실행
 ```
 
@@ -187,7 +187,7 @@ today instanceof RegExp  // false
 >
 > boolean 피연산자와 사용시 양쪽 피연산자 중 하나만 true여도 true를 반환한다. 왼쪽 피연산자 값이 true면, 오른쪽 표현식은 평가하지 않고 바로 왼쪽 값을 반환한다. 반면 왼쪽 피연산자 값이 false면 두번째 피연산자를 평가하고 그 값을 반환한다.
 
-```
+```javascript
 let color = pointColor || color.pointColor || 'orange'
 ```
 
@@ -195,7 +195,7 @@ let color = pointColor || color.pointColor || 'orange'
 >
 > 단일한 피연산자 앞에 사용하며, 해당 피연산자의 boolean 값을 부정하여 항상 true 또는 false를  반환한다.
 
-```
+```javascript
 // NOT 연산자를 이용한 드모르간의 법칙
 !(p && q) === (!p || !q) // true: p와 q의 값이 어떻든 관계 없음
 ```
@@ -206,7 +206,7 @@ let color = pointColor || color.pointColor || 'orange'
 >
 > \= 오른쪽에 있는 값을 외쪽에 있는 변수나 프로퍼티에 할당한다.
 
-```
+```javascript
 x = y = z = 0 // 세 변수 모두 0으로 초기화
 ```
 
@@ -214,7 +214,7 @@ x = y = z = 0 // 세 변수 모두 0으로 초기화
 >
 > 할당 연산자를 다른 연산자와 결합하여 연산과 할당을 동시에 수행하는 단축 표현을 할 수 있다. 함수 호출이나 증가 연산자가 있을 경우 부수 효과가 있을 수 있다.
 
-```
+```javascript
 const data = [1, 2, 3, 4, 5]
 let i = 0;
 
@@ -228,7 +228,7 @@ data[i++] = data[i++] + 2; // 5, i = 3
 >
 > 조건 ? '참일 때 반환하는 값' : '거짓일 때 반환하는 값'
 
-```js
+```javascript
 const age = 30
 age > 20 ? '성인입니다.' : '학생입니다.' // '성인입니다.'
 ```
@@ -237,7 +237,7 @@ age > 20 ? '성인입니다.' : '학생입니다.' // '성인입니다.'
 >
 > 왼쪽 피연산자가 null 또는 undefined가 아니면 그 값을, 맞다면 오른쪽 피연산자 값을 반환한다.
 
-```
+```javascript
 function message(text){
   return text ?? '안녕하세요.'
 }
@@ -247,7 +247,7 @@ message(null)     // 안녕하세요.
 
 * 참고) defalt parmeter는 값이 null인  경우 null로 출력한다.
 
-```js
+```javascript
 function message(text = '안녕하세요.'){
   return text
 }

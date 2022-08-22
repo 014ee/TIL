@@ -24,7 +24,7 @@
 >
 > call()과 apply()는 함수를 마치 다른 객체의 메서드인 것 처럼 간접적으로 호출한다. 첫번째 인자는 함수를 호출할 객체이며 이 인자가 호출 컨텍스트가 되어 함수 바디 안에서 this 키워드의 값이 된다.&#x20;
 
-```
+```javascript
 f.call(obj);   // obj.m = f;
 f.apply(obj);  // obj.m = f;
 ```
@@ -33,14 +33,14 @@ f.apply(obj);  // obj.m = f;
 
 > call()을 사용할 때 두번째 인자는 호출될 함수에 전달된다. 이 인자는 화살표함수에서도 무시되지 않는다. apply() 메서드도 call()과 비슷하지만, 함수에 전달할 인자가 배열로 제공된다는 점이 다르다. ES6 이후라면 그냥 분해 연산자를 써도 되지만 ES5 코드에서는 함수가 받는 인자 개수에 제한이 없다면 apply() 메서드를 써서 임의의 길이를 가진 배열을 전달해 함수를 호출했다.&#x20;
 
-```
+```javascript
 f.call(obj, 1, 2);
 f.apply(obj, [1, 2]);
 ```
 
 > 다음 trace()함수는 timed() 함수와 비슷하지만 함수가 아니라 메서드를 대상으로 동작한다.&#x20;
 
-```
+```javascript
 functin trace(obj, m) {
   let original = obj[m];
   obj[m] = function(...args) {
@@ -56,7 +56,7 @@ functin trace(obj, m) {
 >
 > &#x20;bind()의 주요 목적은 함수를 객체에 결합시키는 것이다. 함수 func 에서 bind() 메서드를 호출하면서 객체 obj를 전달하면 새 함수를 반환한다. 새 함수를 함수로 호출하면 원래 함수 func이 obj의 메서드로 호출된다.
 
-```
+```javascript
 function func(y) {return this.x = y};
 let obj = {x: 1};
 let m = func.bind(obj);
@@ -68,13 +68,13 @@ newObj.m(2); // 3: m는 여전히 obj에 결합되어 있다.
 
 > bind() 함수를 호출하는 목적은 대개 화살표 함수가 아닌 함수를 화살표 함수처럼 사용하는 것이므로 화살표 함수에서 결합이 이루어지지 않는다는 것은 문제가 되지 않는다. bind() 메서드는 단순히 함수를 객체에 결합하는 것으로 끝나지 않는다. bind()에 전달하는 인자 중 첫번째를 제외한 나머지는 this 값과 함께 결합된다. 이러한 부분 적용은 화살표 함수에서도 동작한다. 부분 적용은 함수형 프로그래밍에서 널리 쓰이는 기법이며 커링이라고 부르기도 한다.
 
-```
+```javascript
 let sum = (x, y) => x + y;
 let succ = sum.bind(null, 1); // sum의 첫번째 인자 x와 1을 결합
 succ(2); // 3: x는 1이고 y는 2이다.
 ```
 
-```
+```javascript
 function f(y, z) {return this.x + y + z;}
 let a = f.bind({x: 1}, 2); // this와 y를 결합
 a(3); // 6: this.x는 1, y는 2, z는 3

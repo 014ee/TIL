@@ -12,7 +12,7 @@
 어떤 문이든 그 앞에 식별자와 콜론을 붙여서 라벨을 만들 수 있다. 라벨에 사용하는 식별자는 예약어를 제외한 무엇이든 사용할 수 있다. 또한 라벨의 네임 스페이스는 변수나 함수의 네임스페이스와는 다르므로 같은 문 라벨에 쓴 식별자를 변수와 함수의 이름에 쓸 수 있다. (문 라벨이 정의되는 영역은 해당 라벨이 적용되는 문 뿐이다. 자신을 포함한 문과 같은 라벨을 붙일 수 없지만, 중첩되지 않은 두 문에는 같은 라벨을 붙일 수 있다.)
 {% endhint %}
 
-```
+```javascript
 mainloop: while(token !== null) {
   // 코드 생략
   continue mainloop  // 이 루프의 다음 반복으로 건너뛴다.
@@ -26,7 +26,7 @@ mainloop: while(token !== null) {
 인터프리터를 루프를 비롯한 다른 문의 끝으로 이동시킨다. 단독으로 사용하면 자신을 포함하고 있는 가장 가까운 문을 즉시 빠져나간다. 어떤 이유로든 루프를 더 진행할 필요가 없을 때 일찍 끝내는 용도로 사용한다. 탈출하려는 문이 가장 가까운 문이 아닐 때에는 문 라벨을 사용해서 해당 라벨의 문을 종료할 수 있다. (하지만 함수 바깥으로 제어권을 넘길 수는 없다.)
 {% endhint %}
 
-```
+```javascript
 let matrix = getDate();
 let sum = 0, success = false;
 
@@ -67,7 +67,7 @@ computeSum: if(matrix) {
 >
 > 다음 값 또는 프로퍼티 이름이 변수에 할당
 
-```
+```javascript
 for(let i = 0; i < data.length; i++) {
   if(!data[i]) continue;  // 정의되지 않은 데이터는 처리하지 않고 건너뛴다.
   total += data[i];
@@ -80,7 +80,7 @@ for(let i = 0; i < data.length; i++) {
 return 문은 함수 바디 안에서만 사용할 수 있으며, 인터프리터가 함수에서 즉시 빠져나와 호출자에게 함수 호출 값을 전달하게 한다. return 문이 없는 함수 호출은 함수 바디의 각 문을 차례대로 실행한 다음 호출자에게 돌아가며, 호출 표현식은 undefined로 평가된다.
 {% endhint %}
 
-```
+```javascript
 function sum(num1, num2) {
   if(typeof num1 !== number && typeof num2 !== number) return;
   return num1 + num2;
@@ -93,7 +93,7 @@ function sum(num1, num2) {
 yield은 return과 비슷한 문으로, 제너레이터에서 제어권은 넘기지 않고 다음 값만 넘길 때 사용한다. 엄밀히 말하면 문 보다는 연산자에 가깝다.
 {% endhint %}
 
-```
+```javascript
 function* range(from, to) {
   for(let i = from; i <= to; i++) {
     yield i;
@@ -107,7 +107,7 @@ function* range(from, to) {
 자바스크립트에서 예외는 런타임에 에러가 일어났을 때 또는 프로그램에서 직접 throw 문을 통해 에러나 예외 신호를 보낼 때 발생한다. throw문으로 전달하는 값은 숫자나 문자열 등 어떤 타입으로든 평가될 수 있으며, 인터프리터는 에러를 일으킬 때 Error 클래스와 그 서브 클래스를 사용한다. Error 객체에는 에러 타입을 나타내는 name 프로퍼티와 생성자 함수에 전달될 문자열을 담을 message 프로퍼티가 있다.&#x20;
 {% endhint %}
 
-```
+```javascript
 function factorial(x) {
   if(x < 0) throw new Error('x에는 음수가 들어올 수 없습니다.');
   let f;
@@ -138,7 +138,7 @@ catch 와 finally 블록은 선택 사항이지만 try 블록 뒤에 둘 중 하
 >
 > try 블록에서 무슨 일이 있어났든 관계 없이 실행되는 일종의 정리 코드이다. continu, break, return 문으로 인해 try 블록을 중단하는 경우에도 다음 목적지로 이동하기 전에 finally 문을 실행한다. finally 블록 자체에 return, continu, break, throw 문이 있거나 예외를 일으키는 함수를 호출하면 인터프리터는 대기시켜 둔 점프를 취소하고 finally 블록을 따라 점프한다. 즉, finally 절에서 예외를 일으키면 그 예외는 처리 중이던 예외를 모두 무시하고 우선권을 갖는다.
 
-```
+```javascript
 try {
   // 문제가 없을 경우 블록 위에서 아래로 실행된다.
   // throw 문을 통해 예외를 직접 일으키거나
@@ -159,7 +159,7 @@ finally {
 >
 > 예외의 타입이나 값이 무엇이든 상관 없이 예외를 감지하고 전파를 막을 목적으로만 catch 절을 사용하고 싶을 때, 괄호와 식별자를 생략하고 catch 키워드만 쓸 수 있다.
 
-```
+```javascript
 function parseJSON(data) {
   try {
     return JSON.parse(data);
@@ -174,7 +174,7 @@ function parseJSON(data) {
 >
 > continue 문의 동작 방식 차이 때문에 일반적으로 while 루프로 for 루프를 완전히 흉내 낼 수는 없으나, try/finally 문을 사용하면 for 루프처럼 동작하며 continue문도 정확하게 처리하는 while 루프를 만들 수 있다. (하지만 body 에 break 문이 들어있다면 종료 전에 i++가 한번 더 실행되므로 다르게 동작한다.)
 
-```
+```javascript
 // for(let i = 0; i < 10; i++)
 let i = 0;
 while(i < 10) {

@@ -10,7 +10,7 @@
 
 클래스를 이터러블로 만들기 위해서는 반드시 이름이 Symbol.iterator인 메서드를 만들어야 하며, 이 메서드는 반드시 next() 메서드가 있는 이터레이터 객체를 반한해야 한다. next() 메서드는 반드시 순회 결과 객체를 반환해야 하며, 순회 결과 객체에는 value 프로퍼티와 done 프로퍼티 중 하나는 반드시 존재해야 한다.
 
-```
+```javascript
 class Range {
   constructor(from, to) {
     this.from = from;
@@ -39,7 +39,7 @@ for(let x of new Range(1, 10)) console.log(x);
 
 ### 이터러블 기반의 map() 함
 
-```
+```javascript
 function map(iterable, func) {
   let iterator = iterable[Symbol.iterator]();
   return {
@@ -60,7 +60,7 @@ function map(iterable, func) {
 
 ### 이터러블 기반의 filter() 함
 
-```
+```javascript
 function filter(iterable, predicate) {
   let iterator = iterable[Symbol.iterator]();
   return {
@@ -85,7 +85,7 @@ function filter(iterable, predicate) {
 이터러블 객체와 이터레이터의 핵심 특징 중 하나는 이들이 본직적으로 느긋하다는 것이다. 다음 값을 얻기 위해 계산이 필요하다면 그 값이 실제로 필요할 때까지 계산을 늦출 수 있다. 이를 활용하면 불필요한 계산 또는 메모리 낭비를 방지할 수 있다. 다음은 문자열을 메모리에 한번에 담지 않고 느긋하게 순회하는 함수이다.
 {% endhint %}
 
-```
+```javascript
 function words(s) {
   var r = /\s+|$/g;                    // 하나 이상의 스페이스와 일치
   r.lastIndex = s.match(/[^ ]/).index; // 스페이스가 아닌 첫번째 위치에서 검색을 시작

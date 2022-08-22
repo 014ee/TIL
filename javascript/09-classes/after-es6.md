@@ -12,7 +12,7 @@ ES6부터는 class 키워드를 도입해 클래스를 쉽게 정의할 수 있�
 클래스 바디는 피상적으로 보면 객체 리터럴과 비슷해 보이지만 다르며, 특히 이름-값으로 프로퍼티를 정의하는 것을 허용하지 않는다. constructor 키워드는 클래스의 생성자 함수를 정의하는데, 정의된 함수에 실제로 constructor이라는 이름을 쓰지는 않는다. class 선언문은 새 변수 Range를 정의하고, constuctor 함수의 값을 그 변수에 할당한다. 클래스 초기화가 전혀 필요하지 않다면 constructor 키워드와 그 바디를 생략할 수 있으며, 이럴 경우 빈 생성자 함수가 묵시적으로 생성된다.
 {% endhint %}
 
-```
+```javascript
 class Range {
   constructor(from, to) {
     this.from = from;
@@ -37,7 +37,7 @@ obj.toString();   // '1~3'
 >
 > 함수 선언과 마찬가지로 클래스 선언에도 문 형태와 표현식 형태가 있다. 또한 함수 표현식과 마찬가지로 클래스 정의 표현식에도 선택 사항으로 클래스 이름을 쓸 수 있으며 해당 클래스 이름은 클래스 바디 안에서만 볼 수 있다. 함수 표현식은 널리 쓰이지만, 클래스 표현식은 클래스를 인자로 받고 서브클래스를 반환하는 함수를 작성하는 경우 외에는 자주 사용되지 않는다. 또한 함수 선언과 달리 클래스 선언은 끌어올려지지 않는다.&#x20;
 
-```
+```javascript
 class Range {constructor(from, to){...}}        // 클래스 선언문
 let Range = class {constructor(from, to){...}}  // 클래스 표현식
 ```
@@ -60,7 +60,7 @@ let Range = class {constructor(from, to){...}}  // 클래스 표현식
 >
 > 공개 필드나 비공개 필드 선언 앞에 static을 추가하면 그 필드는 인스턴스 프로퍼티가 아니라 생성자 함수의 프로퍼티로 생성된다.&#x20;
 
-```
+```javascript
 class Buffer {
   #size = 0;
   get size(){return this.#size;}
@@ -77,7 +77,7 @@ class Buffer {
 이 클래스는 비교적 단순하지만 게터를 포함한 인스턴스 메서드, 정적 메서드 인스턴스 필드, 정적 필드가 모두 포함되어 있다.
 {% endhint %}
 
-```
+```javascript
 class Complex {
   #r = 0;
   #i = 0;

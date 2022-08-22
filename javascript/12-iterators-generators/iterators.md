@@ -10,7 +10,7 @@
 * 이후 이터레이터 객체의 next() 메서드를 반복적으로 호출한다.
 * next() 메서드의 반환 값 중 done 프로퍼티가 true가 되면 반복을 멈춘다.
 
-```
+```javascript
 let iterable = [99];
 let iterator = iterable[Symbol.iterator]();
 for(let result = iterator.next(); !result.done; result = iterator.next();) {
@@ -18,7 +18,7 @@ for(let result = iterator.next(); !result.done; result = iterator.next();) {
 }
 ```
 
-```
+```javascript
 let list = [1, 2, 3, 4, 5];
 let iter = list[Symbol.iterator]();  // 이터레이터 객체 반환
 let head = iter.next().value; // 1

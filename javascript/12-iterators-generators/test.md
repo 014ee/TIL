@@ -6,7 +6,7 @@
 &#x20;제너레이터는 ES6부터 사용 가능한 일종의 이터레이터이다. 제너레이터는 순회할 값이 데이터 구조의 요소가 아니라 계산 결과일 때 특히 유용하다. 제너레이터를 만들기 위해서는 반드시 먼저 제너레이터 함수를 정의해야 하는데 제너레이터 함수는 function 뒤에 \*를 붙인 function\* 키워드를 사용하며 함수 선언식과 표현식 어느걸로든 정의 가능하지만 화살표 함수 문법으로는 정의할 수 없다. 제너레이터 함수를 호출하면 함수 바디를 실행하는 것이 아니라 제너레이터를 반환하는데 이 제너레이터 객체는 이터레이터이다. 따라서 제너레이터 객체에는 Symbol.iterator 메서드가 있으며, 다른 이터러블 타입처럼 사용할 수 있다. 또한 제너레이터 객체에 next() 메서드를 호출하면 제너레이터 함수의 바디가 처음 또는 현재 위치에서 실행되며 yield문을 만나면 멈춘다. yield는 ES6에서 처음 등장했으며 return 문과 비슷하다. 이터레이터에서 next()를 호출하면 yield문의 값을 반환한다.
 {% endhint %}
 
-```
+```javascript
 // 한자리 소수를 전달하는 제너레이터 함수
 function* onDigitPrimes() {
   yield 2;
@@ -29,7 +29,7 @@ for(let prime of onDigitPrimes()) sum += prime;  // sume: 9
 메서드 정의할 때는 functin 키워드를 생략한 단축 프로퍼티 표기법을 쓸 수 있다.
 {% endhint %}
 
-```
+```javascript
 let o = {
   x: 1, y: 2, z: 3,
   *g() {
@@ -46,7 +46,7 @@ let o = {
 제너레이터를 사용하면 이터러블 클래스를 만들기 쉽ㄴ다.
 {% endhint %}
 
-```
+```javascript
 *[Symbol.iterator]() {
   for(let x = Math.ceil(this.from); x <= this.to; x++) yield x;
 }
@@ -58,7 +58,7 @@ let o = {
 &#x20;제너레이터는 계산을 통해 전달할 값을 생성할 때 더욱 유용하다. 다음은 주어진 숫자의 횟수만큼의 피보나치 수열을 전달하는 제너레이터 함수의 예시이다.&#x20;
 {% endhint %}
 
-```
+```javascript
 function* fibonacciSequence() {
   let x = 0, y = 1;
   for(;;) {
@@ -80,7 +80,7 @@ fibonacci(4);  // 5: 1 => 1 => 2 => 3 => 5
 &#x20;fibonacciSequence 같은 무제한 제너레이터는 다음과 같은 take() 제너레이터와 함께 사용하면 더욱 유용하다.
 {% endhint %}
 
-```
+```javascript
 function* take(n, iterable) {
   let it = iterable[Symbol.iterator]();
   while(n-- >= 0) {
@@ -97,7 +97,7 @@ function* take(n, iterable) {
 &#x20;다음은 여러가지 이터러블 객체의 요소를 번갈아 끼워 넣는 유용한 제너레이터 함수이다.
 {% endhint %}
 
-```
+```javascript
 function* zip(...iterables) {
   let iteratos = iterables.map(it => it[Symbol.iterator]());
   let indext = 0;
@@ -123,7 +123,7 @@ function* zip(...iterables) {
 &#x20;여러가지 이터러블 객체를 섞지 않고 순서대로 전달하는 제너레이터 함수도 만들어 두면 편리하다.
 {% endhint %}
 
-```
+```javascript
 function* sequence(...iterables) {
   for(let iterable of iterables) {
     for(let item of iterable) {
@@ -141,7 +141,7 @@ function* sequence(...iterables) {
 &#x20;위와 같이 다른 이터러블 객체으 요소를 전달하는 제너레이터 함수는 자주 사용되는데 ES6부터는 yield\* 키워드를 통해 이를 간단히 구현할 수 있다. yield\*는 yield와 비슷하지만 값 하나를 전달하는 것이 아니라 이터러블  객체를 순회하면서 각각의 값을 전달한다는 특징이 있다.
 {% endhint %}
 
-```
+```javascript
 function sequence(...iterables) {
   for(let iterable of iterables) {
     yield* iterable;
@@ -155,7 +155,7 @@ function sequence(...iterables) {
 &#x20;forEach() 메서드는 배열 요소를 순회하기 좋은 방법이므로 sequence() 함수를 다음과 같이 작성할 수 있다고 생각하기 쉬운데, yield와 yield\*는 제너레이터 함수 안에서만 사용할 수 있으므로 다음과 같은 일반적인 함수(중첩된 화살표 함수) 안에서는 동작하지 않는다.&#x20;
 {% endhint %}
 
-```
+```javascript
 function sequence(...iterables) {
   iterables.forEach(iterable => yield* iterable);  // 에
 }
@@ -173,7 +173,7 @@ function sequence(...iterables) {
 &#x20;지금까지의 제너레이터 함수에서는 return 문이 없었고 있다 하더라고 일찍 종료하기 위한 것일 뿐 반환할 목적으로 쓰이지 않았다. 하지만 제너레이터 함수도 다른 함수와 마찬가지로 값을 반환할 수 있다. 이를 이해하기 위해서 순회가 어떻게 이루어지는지 알고 있어야 하는데, 일반적인 이터레이터와 제너레이터에서는 value 프로퍼티가 있다면 done 프로퍼티는 정의죄기 않았거나 값이 false이다. 그리고 done이 true 이면 value는 정의되지 않는다. 값을 반환하는 제너레이터에서 next()를 마지막으로 호출했을 때 반환하는 객체헤는 value 와 done이 모두 존재한다. value 프로퍼티는 제너레이터 함수의 반환 값을 담고 있고 done 프로퍼티가 true 이므로 순회할 값이 더는 남아있지 않는다. for/of 루프와 분해연산자는 이 값을 무시하지만 next)를 명시적으로 호출해서 순회하는 코드를 직접 만들 수 있다.
 {% endhint %}
 
-```
+```javascript
 function* oneAndDone() {
   yield 1;
   return 'done';
@@ -193,7 +193,7 @@ generator.next();  // {value: undefined, done: true}
 yield는 표현식이기 때문에 값을 받을 뿐만 아니라 값을 가질 수도 있다. 제너레이터의 next() 메서드를 호출하면 제너레이커 함수는 yield 표현식을 만날때까지 실행되는데, yield 키워드 다음에 있는 표현식을 평가한 값이 next()의 반환값이 되고, 이 시점에서 제너레이터 함수는 실행을 즉시 멈춘다.  제너레이터의 next() 메서드를 다음에 호출할 때 next()에 전달된 인자는 멈췄던 yield 표현식의 값이 된다. 제너레이터는 yield로 호출자에게 값을 반환하며 호출자는 next()를 통해 제너레이터에 값을 전달한다. 즉 제너레이터와 호출자는 값과 실행 권한을 주고받는 별도의 실행 스트림이다.&#x20;
 {% endhint %}
 
-```
+```javascript
 function* smallNumbers() {
   console.log('next()가 처음 호출었으며 인자는 무시됩니다.');
   let y1 = yield 1;

@@ -14,7 +14,7 @@
 >
 > 객체 프로퍼티에 접근할 때는 프로퍼티 이름을 문자열로 표현한다. 문자열은 **데이터 타입이므로 프로그램이 실행되는 동안 새로 생성할 수도 있고 조작할 수도 있다.** 대괄호 연산자처럼 문자열을 인덱스로 사용하는 배열을 연관 배열, '해시', '맵', '딕셔너리' 라고 한다.
 
-```
+```javascript
 obj.property;       // C나 자바에서 정적 필드에 접근하는 것과 유사
 obj['property'];    // 문자열을 인덱스로 사용하는 배열에 접근하는 것과 유사
 ```
@@ -42,7 +42,7 @@ obj 객체에 x 프로퍼티 값을 할당하면 먼저 프로토타입 체인�
 자바스크립트 객체에서 존재하지 않는 프로퍼티를 검색하는 것은 에러가 아니며 자체 프로퍼티나 상속받은 프로퍼티 모두에서 찾고자 하는 프로퍼티를 찾지 못하면 프로퍼티 undefined로 평가된다. null과 undefined에는 프로퍼티가 없으므로 이런 값에서 프로퍼티를 검색하려 하는 것은 에러이다.
 {% endhint %}
 
-```
+```javascript
 const obj = {}
 obj.x          // undefined
 obj.x.length   // TypeError
@@ -52,7 +52,7 @@ obj.x.length   // TypeError
 >
 > 따라서 obj.x.length같은 표현식을 만들 때 obj 와 obj.x가 실제로 정의돼었는지 확신할 수 없다면 주의해야 하며, 다음과 같은 방법들 대응할 수 있다.
 
-```
+```javascript
 obj && obj.x && obj.x.length;  // && 연산자의 단축평가 
 obj?.x?.length;                // 조건부 프로퍼티 접근 연산
 ```
@@ -69,7 +69,7 @@ obj?.x?.length;                // 조건부 프로퍼티 접근 연산
 delete 연산자를 이용해 객체에서 프로퍼티를 삭제할 수 있다. delete 연산자는 자체 프로퍼티만 삭제할 뿐 상속받은 프로퍼티는 삭제하지 않는다. delete 표현식은 삭제에 성공했을 때, 또는 존재하지 않는 프로퍼티 삭제를 시도하는 등 효과가 없었을 때 true로 평가된다.
 {% endhint %}
 
-```
+```javascript
 delete obj.x;   // true: 이제 obj에는 x 프로퍼티가 없다.
 ```
 
@@ -77,7 +77,7 @@ delete obj.x;   // true: 이제 obj에는 x 프로퍼티가 없다.
 >
 > delete는 변경 가능 속성이 false인 프로퍼티는 제거하지 않으며, 내장 객체의 일부 프로퍼티, 변수 선언이나 함수 전언으로 생성된 전역 객체의 프로퍼티는 변경 불가하다. 스트릭스 모드에서는 변경 불가인 프로퍼티를 삭제하려 하면 TypeError가 발생하며, 일반 모드에서는 에러가 일어나지 않고 false로 평가된다.
 
-```
+```javascript
 delete Object.prototype // TypeError (일반 모드에서는 false)
 function func() {}      // 전역에서 선언한 함수도 삭제할 수 없다.
 delete globalTils.func  // TypeError (일반 모드에서는 false)
@@ -93,7 +93,7 @@ in 연산자, hasOwnProperty(), propertyIsEnumerable() 메서드를 사용하거
 >
 > 직접 프로퍼티를 검색하고 !==를 사용해 undefined가 아님을 확이나는 경우도 있다.
 
-```
+```javascript
 const obj = {a: undefined};
 obj.a !== undefined;         // false: 프로퍼티가 존재하지만 정의되지 않았다.
 obj.toString !== undefined;  // true
@@ -103,7 +103,7 @@ obj.toString !== undefined;  // true
 >
 > in 연산자는 왼쪽에 프로퍼티 이름, 오른쪽에 객체를 예상하며, 객체에 이름을 가진 자체 프로퍼티나 상속 프로퍼가 있다면 true를 반환한다. in 연산자는 존재하지 않는 프로퍼티와 존재하지만 값이 undefined인 프로퍼티를 구분할 수 있다.
 
-```
+```javascript
 'a' in obj;         // true: 값이 undefined라도 프로퍼티는 정의되었다.(직접 검색과 차)
 'toString' in obj;  // true
 ```
@@ -112,7 +112,7 @@ obj.toString !== undefined;  // true
 >
 > 객체에 주어진 이름을 가진 자체 프로퍼티가 있는지 테스트하며, 상속된 프로퍼티는 false를 반환한다.
 
-```
+```javascript
 obj.hasOwnProperty('a');        // true: 자체 프로퍼
 obj.hasOwnProperty('toString'); // fale: 자체 프로퍼티가 아님
 ```
@@ -121,7 +121,7 @@ obj.hasOwnProperty('toString'); // fale: 자체 프로퍼티가 아님
 >
 > hasOwnProperty()를 더 제한한 버전으로, 지정된 프로퍼티가 자체 프로퍼티이며, 열거 가능 속성이 true일 대만 true를 반환한다. (일부 내장 프로퍼티는 열거 불가이다.)
 
-```
+```javascript
 obj.propertyIsEnumerable('a');                  // true: 열거 가능 프로퍼티
 obj.hasOwnProperty('toString');                 // fale: 자체 프로퍼티가 아
 obj.prototype.propertiIsEnumerable('toString'); // false: 열거 불가능
@@ -135,7 +135,7 @@ obj.prototype.propertiIsEnumerable('toString'); // false: 열거 불가능
 지정된 객체의 상속 여부를 구분하지 않고 열거 가능 프로퍼티마다 그 이름을 루프 변수에 할당하면서 루프 바디를 실행한다. (내장 메서드는 열거 불가이지만, 직접 추가한 프로퍼티는 기본적으로 열거 가능이다.) 아래와 같이 명시적으로 체크하여 상속받은 프로퍼티는 열거되지 않도록 할 수 있다.&#x20;
 {% endhint %}
 
-```
+```javascript
 for(let item in obj) {
   if(!obj.hasOwnProperty(item)) continue;       // 상속받은 프로퍼티는 건너뛴다.   
   if(typeof obj[item] === 'function') continue; // 메서드는 건너뛴다.

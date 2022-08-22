@@ -114,7 +114,7 @@ new PersonExtends(30);
 
 
 
-<pre class="language-javascript"><code class="lang-javascript">function getProperty&#x3C;Type, Key extends keyof Type>(obj: Type, key: Key) {
+<pre class="language-typescript"><code class="lang-typescript">function getProperty&#x3C;Type, Key extends keyof Type>(obj: Type, key: Key) {
  return obj[key];
 }
 
