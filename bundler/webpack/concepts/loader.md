@@ -66,7 +66,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: { presets: ['@babel/preset-env'] },
+          options: { presets: ['@babel/preset-env'] }, // @babel/preset-react: jsx 문법 변
         }
       }
     ]
