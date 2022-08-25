@@ -7,6 +7,7 @@
   * [Semantic](html/semantic.md)
   * [Form](html/form.md)
 * [CSS](css/README.md)
+  * [CSS TIP](css/css-tip.md)
   * [scss](css/scss.md)
 * [JavaScript](javascript/README.md)
   * [1장. 자바스크립트 소개](javascript/01-intro/README.md)
