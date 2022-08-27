@@ -12,5 +12,3 @@
 * 마크다운 문법으로 글을 작성합니다.
 
 
-https://user-images.githubusercontent.com/54103723/187028333-97c44d91-2996-4c01-852a-e932cd20fb77.mp4
-
