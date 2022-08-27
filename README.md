@@ -10,3 +10,7 @@
 
 * 폴더/파일명은 kebab-case로 표기하며, 필요에 따라 넘버링을 할 수 있습니다.
 * 마크다운 문법으로 글을 작성합니다.
+
+
+https://user-images.githubusercontent.com/54103723/187028333-97c44d91-2996-4c01-852a-e932cd20fb77.mp4
+
