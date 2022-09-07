@@ -104,6 +104,7 @@
   * [next-dd](frameworks/next-dd.md)
 * [Node-NPM](node-npm.md)
 * [Tools-Extensions](tools-extensions/README.md)
+  * [swiper](tools-extensions/swiper.md)
   * [html2canvas](tools-extensions/html2canvas.md)
   * [Bundler](bundler/README.md)
     * [Parcel](bundler/parcel/README.md)

@@ -3,10 +3,11 @@
 ## Class
 
 {% hint style="info" %}
-타입스크립트에서는 class도 하나의 타입이다. class 문법은 es6에서 도입되었으므로 타입스크립트 설정파일에서 target을 es5로 입력하면 es5에서는 class 문법을 사용할 수 없으므로 함수 형태로 컴파일된다.
+타입스크립트에서 class는 하나의 타입이다. class 문법은 es6에서 도입되었으므로 타입스크립트 설정파일에서 target을 es5로 입력하면 es5에서는 class 문법을 사용할 수 없으므로 함수 형태로 컴파일된다.
 {% endhint %}
 
-* `!` : class에서 속성을 세팅할 때, 초기값을 나중에 세팅하고 싶은 경우 빈 값이 아님을 알리는 지시어
+* `!` class 내부에서 값을 할당하지 않고, 외부에서 나중에 처리할 경우 `!`를 붙여 위험을 표시한다.
+* `?` 값을 받아도, 안 받아도 되는 경우 `?`를 붙여 표시한다.
 
 ## 접근 제어자
 
@@ -14,11 +15,10 @@
 타입스크립트 class 속성들은 기본적으로 public이며 외부에서 접근 가능하다. 클래스 내부의 모든 곳(생성자, 프로퍼티, 메서드)에 설정 가능하다.
 {% endhint %}
 
-* `public` : class 내부에서든 외부에서든 접근할 수 있는 속성으로 별도의 설정이 없으면 기본 값이다.
-* `protected` : class 외부에서는 접근 불가능하지만, 상속 관계가 있는 곳에서는 접근 가능한 속
-* `private` : 오직 class 내부에서만 접근 가능한 속성이다.\
-  자바스크립트에서는 #을 이용해서 private한 속성으로 만들 수 있으나 표준 스펙은 아니므로 바벨을 사용해야 한다. 또한 private한 속성에는 언더바를 붙이는 관례가 있다.
-* construct를 private하게 만들어서 싱글톤 패턴으로 구현할 수 있다.
+* `public` : class의 기본 값으로, class 내부에서든 외부에서든 접근할 수 있다.
+* `protected` : class 외부에서는 접근 불가능하지만, 상속 관계가 있는 곳에서는 접근 가능하다.
+* `private` : 오직 class 내부에서만 접근 가능하다.\
+  참고) 자바스크립트에서는 public, private을 기본 스펙으로 제공하지 않아 private한 값에는 언더바를 붙여 표기한다. (바벨 사용시 private 사용 가능) (construct에 private 속서을 주면 외부에서 접근 불가능하므로 싱글톤 패턴에서 활용할 수 있다.)
 
 ```typescript
 class Person {
@@ -123,19 +123,19 @@ console.log(classB); // {chloe: 'female', alex: 'male', anna: 'female'}
 ## Static
 
 {% hint style="info" %}
-static이 설정된 속성은 class에서만 존재하고 instance 생성시 포함되지 않는다. 따라서 사용할 때 this.속성명으로 접근하는 것이 아니라 클래스명.속성명으로 접근할 수 있다. 여러 instance에서 공통적으로 사용해야 하는 데이터의 경우 유용하며, 속성이 무엇을 의미하는지 좀 더 명확히 파악해 볼 수도 있다는 장점이 있다.
+static이 설정된 속성 또는 메서드는 instance를 통해 생성되는 것이 아니라 class로부터 공유된다. 따라서 여러 instance에서 공통적으로 사용해야 하는 데이터가 있을 때 유용하다. &#x20;
 {% endhint %}
 
 ```typescript
 class Person {
-  private static food: string = '밥';
+  private static day: string = '토';
 
-  public eat() {
-    return `${Person.food}을 먹는다.`
+  public greet() {
+    return `안녕하세요, 오늘은 신나는 ${Person.day}요일입니다!`
   }
 
-  public changeFood(food) {
-    Person.food = food
+  public changeDay() {
+    Person.day = '일'
   }
 }
 ```
@@ -144,37 +144,39 @@ class Person {
 const teacher = new Person();
 const student = new Person();
 
-teacher.eat(); // 밥을 먹는다.
-teacher.changeFood('삼겹살');
-teacher.eat(); // 삼겹살을 먹는다.
-student.eat(); // 삼겹살을 먹는다.
+teacher.greet(); // 안녕하세요, 오늘은 신나는 토요일입니다!
+teacher.changeDay();
+teacher.greet(); //안녕하세요, 오늘은 신나는 일요일입니다!
+student.greet(); //안녕하세요, 오늘은 신나는 일요일입니다!
 ```
 
-#### static을 활용한 Singleton Pattern 예시
+#### Singleton Pattern (싱글턴 패)
 
 {% hint style="info" %}
-private과 static 키워드를 활용하 단class로부터 단 하나의 객체만을 만들어내는 싱글톤 패턴을 만들 수 있다.
+private과 static 키워드를 가지고 단일 오브젝트를 공유하는 싱글톤 패턴을 만들 수 있다.
 {% endhint %}
 
 ```typescript
-class Singleton {
-  private constructor(){}
+class SingleObj {
+  private static instance: SingleObj | null = null;
   
-  private static instance: Singleton | null = null;
-  
-  public static getInstance(): Singleton {
-    if(Singleton.instance === null){
-      Singleton.instance = new SingleObj(); // 생성된 instance가 없으면 만든다.
+  public static getInstance(): SingleObj {
+    // SingleObj으로부터 생성된 object가 없으면 만든다.
+    if(ClassName.instance === null){
+      ClassName.instance = new ClassName();
     }
-    return Singleton.instance; // 생성된 instance가 있으면 그 값을 리턴한다.
+    // SingleObj으로부터 만든 object가 있으면 그걸 리턴한다.
+    return ClassName.instance;
   }
+  
+  private constructor(){} // 외부에서 new 키워드로 object 생성 불가
 }
 
-new SingleObj(); // 에러 (생성자 함수 private이므로 외부에서 호출 불가)
+const a = new SingleObj(); // 에러 => private 설정을 했으므로 외부에서 호출 불가
 
-const a = Singleton.getInstance(); // 새로운 instance를 만들어서 리턴
-const b = Singleton.getInstance(); // 만들어진 instance를 리턴
-console.log(a === b); // true
+const b = SingleObj.getInstance(); // object를 만들어서 리턴
+const c = SingleObj.getInstance(); // b 가 만들어 놓은 object를 리턴
+console.log(b === c); // true
 ```
 
 ## 상속
@@ -247,7 +249,7 @@ class WelcomeMessage extends Message {
     super(name);
   }
   render(): void {
-    console.log(`안녕하세요, ${..name}님! `);
+    console.log(`환영합니다. ${this.name}님!`);
   }
 }
 

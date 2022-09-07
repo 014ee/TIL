@@ -1,16 +1,12 @@
 # Interface
 
-## Interface
+## Interface Basic
 
-{% hint style="info" %}
-외부적으로 드러나는 객체의 설계 방식을 정의한 타입을 interface라고 한다. interface로 정의한 속성은 모두 public 한 특성을 가지고 있으며, private 또는 protected한 특성을 갖는 속성은 class 내부에서 별도 만들어 줘야 한다.
-{% endhint %}
-
-```typescript
+```javascript
 interface Person {
   name: string;
-  age?: number | undefined;
-  [index: string]: any;
+  age?: number | undefined; // 있을 때도 있고 없을 때도 있음
+  [index: string]: any; // 어떤 내용도 string 타입으로만 입력하면 프로퍼티로 지정됨 ex. teacher['brothers'] = 'Alex'
   hello(): void;
 }
 
@@ -25,13 +21,11 @@ const teacher: Person = {
 teacher.hello(); // 안녕하세요, Mark 입니다.
 ```
 
-## Implements
+## Class Implements Interface
 
-{% hint style="info" %}
-implements 키워드를 통해 interface를 class로 구현할 수 있다.
-{% endhint %}
+* `implements`라는 키워드를 사용해서 interface를 class로 만들어낼 수 있다. (컴파일시 js에서도 보임)
 
-```typescript
+```javascript
 interface IPerson {
   name: string;
   hello(): void;
@@ -54,13 +48,11 @@ const teacher: IPerson = new Person('Mark');
 teacher.hello(); // 안녕하세요, Mark 입니다.
 ```
 
-## Extends
+## Interface Extends Interface
 
-{% hint style="info" %}
-extends 키워드를 통해 인터페이스끼리도 상속할 수 있다. ex. interface HTMLDivElement extends HTMLElement
-{% endhint %}
+* `extends` 키워드를 통해 인터페이스끼리도 상속할 수 있다. ex. interface HTMLDivElement extends HTMLElement
 
-```typescript
+```javascript
 interface IPerson {
   name: string;
   age?: number;
@@ -78,11 +70,9 @@ const teacher: IKorean = {
 
 ## Function Interface
 
-{% hint style="info" %}
-함수의 인터페이스 타입을 지정해줄 수 있다.
-{% endhint %}
+* 함수의 인터페이스 타입을 지정해줄 수 있다.
 
-```typescript
+```javascript
 interface HelloPerson {
   (name: string, age?: number): void;
 }
@@ -94,13 +84,11 @@ const helloPerson: HelloPerson = function (name: string) {
 helloPerson('Mark'); // 안녕하세요, Mark 입니다.
 ```
 
-## Readonly
+## Readonly Interface
 
-{% hint style="info" %}
-readonly 키워드를 이용해서 읽기 전용으로 만들 수 있다.
-{% endhint %}
+* `readonly` 키워드를 이용해서 읽기 전용으로 만들 수 있다.
 
-```typescript
+```javascript
 interface Person {
   name: string;
   readonly gender: string;
@@ -111,5 +99,7 @@ const teacher: Person = {
   gender: 'male',
 };
 
-teacher.genger = 'female' // 에러
+// teacher.genger ='female' // 에러 => readnly이기 때문에 수정 안됨
 ```
+
+## Type Alias vs Interface
