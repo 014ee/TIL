@@ -29,7 +29,7 @@
 >
 > 기본 toString() 메서드는 그리 유용한 값을 반환하지 않으며, 대부분의 클래스에는 해당 클래스에 알맞는 toString() 메서드가 새롭게 정의되어 있다.
 
-```
+```javascript
 ({x: 1, y: 2}).toString()  // [object Object]
 [1, 2, 3].toString()       // '1,2,3'
 (function(){}).toString()  // 'function(){}'
@@ -46,7 +46,7 @@
 >
 > 이 메서드는 객체를 표현하는 기본 값이 존재한다면 그 값으로 객체를 변환하는데, 대게 객체는 기본 값으로 표현하는 것이 불가능하므로 기본 valueOf() 메서드는 객체 자체를 반환한다. 문자열, 숫자, 불의 래퍼 클래스의 valueOf() 메서드는 그냥 그 기본값을 반환한다.
 
-```
+```javascript
 ({x: 1, y: 2}).valueOf()   // {x: 1, y: 2}
 [1, 2, 3].valueOf()        // [1, 2, 3]
 (function(){}).valueOf()   // ƒ (){}
@@ -59,7 +59,7 @@
 묵시적인 타입 변환을 수행하는 자바스크립트 연산자를 타입 변환 목적으로 쓸 때도 있다. + 연산자는 문자열을 우선으로 변환하고, 단항 + 연산자는 숫자를 우선으로 변환하며, 단항 ! 연산자는 피연산자를 불로 변환한 후 그 값을 부정한다.
 {% endhint %}
 
-```
+```javascript
 x + ''  // String(x)
 +x      // Number(x)
 x-0     // Number(x)
@@ -72,7 +72,7 @@ x-0     // Number(x)
 자바스크립트는 자동으로 타입을 변환하기는 하지만 때때로 직접 변환해야 할 때도 있다. 명시적으로 타입을 변환하는 가장 단순한 방법은 Boolean(), Number(), String() 함수를 사용하는 것이다. String() 대신 동일한 동작을 하는 toString() 메서드를 사용할 수도 있다.
 {% endhint %}
 
-```
+```javascript
 Boolean([])           // true
 Number([])            // 0
 Number([99])          // 99
@@ -83,7 +83,7 @@ parseInt('-12.34')    // -12
 
 ## 🐇 정확한 타입 출력
 
-```js
+```javascript
 function getType(data) {
  return Object.prototype.toString.call(data).slice(8, -1);
 } 
