@@ -1,34 +1,18 @@
 # CSS TIP
 
-##
-
-##
-
-##
-
 ## 선택자
 
 `:first-letter` : 텍스트의 첫 글자를 선택
 
 `:where()` : 동일한 부모를 갖은 여러 자식 요소 선택
 
-
-
 ## 효과 <a href="#36fa" id="36fa"></a>
 
 `drop-shadow` : 투명한 배경의 이미지에서 배경을 제외한 이미지 영역에만 그림자 효
 
-``
-
-
-
 ## 애니메이션
 
 `step()` 텍스트 입력 효과
-
-
-
-
 
 * object-fit: cover; : 이미지를 정 가운데에 채워줌
 * height값 있으면 자식요소가 float해도 overflow: hidden 안해도 됨.
