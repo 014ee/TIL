@@ -1,7 +1,5 @@
 # URI-URL-URN
 
-![](<../.gitbook/assets/1 (1).png>)
-
 ![](<../.gitbook/assets/1 (2).png>)
 
 ## URI (Uniform Resource Identifier)
@@ -43,10 +41,8 @@
 ## URN (Uniform Resource Name)
 
 {% hint style="info" %}
-리소스에 이름을 부여한다. URN 이름만으로 실제 리소스를 찾을 수 있는 방법이 보편화되지 않아서 거의 쓰이지 않는다.
+리소스에 이름을 부여한다. URN 이름만으로 실제 리소스를 찾을 수 있는 방법이 보편화되지 않았기 때문 거의 쓰이지 않는다.
 {% endhint %}
-
-
 
 ## 웹에서 데이터가 전달되는 과정
 
