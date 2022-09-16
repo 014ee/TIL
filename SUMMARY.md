@@ -145,5 +145,3 @@
   * [git-flow-guide-dd](tools-extensions/git-dd/git-flow-guide-dd.md)
   * [git-guide-dd](tools-extensions/git-dd/git-guide-dd.md)
   * [gitignore-dd](tools-extensions/git-dd/gitignore-dd.md)
-* [CS](cs/README.md)
-  * [base 64](cs/base-64.md)
