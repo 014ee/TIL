@@ -1,9 +1,10 @@
-# context-dd
+# Context API
 
+## Context API
 
-
-* 부모 컴포넌트에서 props가 필요한 모든 하위 컴포넌트에 직접 데이터를 전달하는 방법
-* 특정 컴포넌트에 props를 전달하기 위해 props가 불필요한 컴포넌트도 거쳐가야 하는 번거로움을 해결해줌
+{% hint style="info" %}
+부모 컴포넌트에서 props가 필요한 모든 하위 컴포넌트에 직접 데이터를 전달하는 방법 특정 컴포넌트에 props를 전달하기 위해 props가 불필요한 컴포넌트도 거쳐가야 하는 번거로움을 해결해줌
+{% endhint %}
 
 ## Provider (데이터 Set)
 

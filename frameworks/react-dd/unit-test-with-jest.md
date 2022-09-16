@@ -1,8 +1,6 @@
-# test-dd
+# Unit Test with Jest
 
-
-
-## ✅ Utit Test with [JEST](https://jestjs.io/)
+## Unit Test with [JEST](https://jestjs.io/)
 
 * 통합 테스트에 비해 빠르고 쉽게 문제를 찾아낼 수 있다.
 * 테스트 코드를 통해 어떻게 동작하는지 예측할 수 있다.
