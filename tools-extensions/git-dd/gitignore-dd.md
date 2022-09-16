@@ -6,27 +6,15 @@
 로컬 환경정보나 빌드정보와 같이 원격 저장소에 올라가 말아야 하는 것을을 입력하여 git 추적을 하지 않도록 해주는 파일로, 로젝트 작업 초기에 추가해주어야 한다.
 {% endhint %}
 
-### .gitignore 파일 생성
+## .gitignore 나중에 적용했을 때 &#x20;
 
-* .gitignore 파일을 프로젝트 최상단 폴더에 생성합니다. (확장자는 따로 없음)
-* https://www.toptal.com/developers/gitignore에서 untracked할 운영체제, 프로그래밍 언어 등을 입력합니다.
-* 생성된 코드를 .gitignore 파일에 붙여넣은 후 commit > push를 진행합니다.
-* commit 메세지는 다음과 같이 입력할 수 있습니다.
+{% hint style="info" %}
+.gitignore 파일을 나중에 추가하여 .git이 모든 파일을 바라보고 있을 경우, 아래 명령어를 통해 원격 저장소 파일을 모두 제거 후 다시 push 해야 다.
+{% endhint %}
 
-```
-conf: Set to ignore something with .gitignore
-
-MacOS, Windows, Linux, Vim, Visual Studio Code
-```
-
-### .gitignore 파일이 적용되지 않았을 경우
-
-.gitignore 파일을 나중에 추가하여 .git이 모든 파일을 바라보고 있을 경우,\
-아래 명령어를 통해 원격 저장소 파일을 제거 후 다시 push 할 수 있습니다.
-
-```
-$ git rm -r --cached.
-$ git add.
-$ git commit -m "메세지"
-$ git push origin [브랜치명]
+```bash
+git rm -r --cached .       // 원격 레포의 모든 파일 삭제
+git add .
+git commit -m "메세지"
+git push origin [브랜치명]
 ```

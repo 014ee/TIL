@@ -1,4 +1,4 @@
-# git-guide
+# Git Command
 
 ## git 초기설정
 
@@ -25,7 +25,7 @@ git init                   // 프로젝트를 새롭게 시작하는 경우
 git clone [원격 레포 URL]   // 원격 레포에 있는 프로젝트를 가져오는 경우
 ```
 
-## git 파일 생성, 수정, 삭제
+## git 파일 생성/수정/삭제
 
 ```bash
 mkdir [폴더명]                 // 디렉토리 생성
@@ -34,11 +34,10 @@ git rm -rf [폴더명or파일명]     // 폴더명or파일명 삭제
 git mv [현재파일명] [바꿀파일명] // 파일명 변경
 ```
 
-## git 상태확인
+## git status
 
 ```bash
-git status    // 현재 추적 상태를 알려 
-git log       // commit history를 시간순으로 보여줌
+git status    
 ```
 
 * on branch main: 현재 main branch라는 뜻
@@ -51,7 +50,7 @@ git log       // commit history를 시간순으로 보여줌
 ## git add
 
 {% hint style="info" %}
-working directory에서 수정된 사항을 stage에 올려 tracking(변경사항 추적) 해줌
+working directory에서 수정된 사항을 stage에 올려 변경사항을 추적해줌
 {% endhint %}
 
 ```bash
@@ -84,7 +83,7 @@ git fetch origin [브랜치명]
 ## git pull
 
 {% hint style="info" %}
-원격 저장소 파일을 로컬 저장소의 working directory로 가져옴과 동시에 병합 (부분만 가져오기 안됨)&#x20;
+원격 저장소 파일을 로컬 저장소의 working directory로 가져옴과 동시에 병합
 {% endhint %}
 
 ```bash
@@ -107,35 +106,33 @@ git push origin [브랜치명]
 git remote add origin [원격저장소 주소] // 원격저장소 주소를 origin이라는 별칭으로 추가
 ```
 
-## commit 되돌리기
+## git revert
 
-* git revert (이전상태로 되돌리기)
-
-```bash
-// reset 보다는 revert (잘못한 이력도 commit으로 박제하고 수정한 이력을 남기자!)
-
-$ git revet --no-commit HEAD~3.. > 바로 직전의 3개 commit을 순서대로 거슬러 올라감
-$ git commit > 거슬러 올라간 내역에 대해 commit
-$ git push origin [브랜치명] > 해당 내역을 원격 저장소에 push
-```
-
-* git reset (가급적 사용하지 말것!)
-
-```
-// 다른 팀원의 commit log로 인해 파일이 살아나거나, 과거 히스토리가 사라져 commit log tracking이 힘들어질 수 있음
-
-$ git reset --hard HEAD~3 > 바로 직전의 3개 commit을 강제로 삭제
-$ git reset--hard ORIG_HEAD > commit 삭제를 잘못한 것을 바로 알아차렸을 경우, 딱 1번만 원래대로 되돌릴 수 있다.
-$ git push -f origin [브랜치명] > commit을 강제로 삭제 후, 현재 상태를 강제로 원격 저장소에 push
-```
-
-
-
-## 되돌리기
+{% hint style="info" %}
+commit을 되돌리기 할 때는 reset 보다는 revert 사용을 권장한다. reset을 하면 다른 팀원의 commit log로 인해 파일이 살아나거나, 과거 히스토리가 사라져 commit log tracking이 힘들어질 수 있기 때문이다.
+{% endhint %}
 
 ```bash
-$ git reset HEAD 파일명 > 파일명 언스테이징
-$ git rm -f 파일명 > 파일명 언스테이징 + 삭제
+git revet --no-commit HEAD~3.. // 직전의 3개 commit을 순서대로 거슬러 올라감
+git commit > 거슬러 올라간 내역에 대해 commit
+```
 
-git diff > git add하기 전(working directory)과 후(index)의 파일 내용을 비교할 때
+## git reset
+
+```bash
+git reset --hard HEAD~3        // 직전의 3개 commit을 강제로 삭제
+git reset--hard ORING_HEAD     // commit 삭제를 잘못했을 경우 딱 1번만 되돌릴 수 있다.
+git push -f origin [브랜치명]   // commit을 강제로 삭제 후, 강제로 원격 저장소에 push
+```
+
+## git rm -r cached .
+
+{% hint style="info" %}
+간혹 원격 레포의 파일을 지워야 할 때 사용한다.
+{% endhint %}
+
+```bash
+git rm --cached 파일명      // 원격 레포의 파일명 삭제
+git rm --cached -r 폴더명   // 원격 레포의 폴더명 삭
+git rm -r cached .         // 원격 레포의 파일 모두 삭제
 ```
