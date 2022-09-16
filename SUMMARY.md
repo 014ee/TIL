@@ -2,10 +2,9 @@
 
 * [Today I Learned](README.md)
 * [HTML](html/README.md)
+  * [HTML](html/html.md)
   * [Head](html/head.md)
   * [Body](html/body.md)
-  * [Semantic](html/semantic.md)
-  * [Form](html/form.md)
 * [CSS](css/README.md)
   * [CSS TIP](css/css-tip.md)
   * [scss](css/scss.md)
